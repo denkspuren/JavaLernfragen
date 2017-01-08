@@ -1,4 +1,4 @@
-== Methoden
+// == Methoden
 
 ### Frage
 Haben Klassen Methoden? Oder haben Objekte Methoden?

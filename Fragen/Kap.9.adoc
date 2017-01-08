@@ -1,4 +1,4 @@
-== Exceptions
+// == Exceptions
 
 ### Frage
 Wenn eine Exception geworfen wird, dann sieht sich Java zur Laufzeit außerstande ...?

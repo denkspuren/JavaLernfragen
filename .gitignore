@@ -1,9 +1,13 @@
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
+# ignore generated html files
+*.html
+# ignore generated pdf files
+*.pdf
 
-# Folder config file
-Desktop.ini
+# ignore files of kind class, jar and exe
+*.jar
+*.exe
+*.class
+
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/

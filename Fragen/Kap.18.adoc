@@ -1,4 +1,4 @@
-== Pakete und Bibliotheken
+// == Pakete und Bibliotheken
 
 ### Frage
 Ist es möglich, umfangreiche Java-Programme ohne eine einzige `import`-Anweisung zu schreiben?

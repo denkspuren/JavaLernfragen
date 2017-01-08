@@ -1,4 +1,4 @@
-== Arrays
+// == Arrays
 
 ### Frage
 Wie lauten die zwei Syntaxvarianten zur Deklaration einer (eindimensionalen) Array-Variable?

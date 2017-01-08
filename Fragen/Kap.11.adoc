@@ -1,4 +1,4 @@
-== Vererbung und Schnittstellen
+// == Vererbung und Schnittstellen
 
 Zu Beginn zwei Beispiele zur Polymorphie. Das Wort "Polymorphie" setzt sich aus zwei Teilen zusammen: _poly_ für "viele" (sie kennen vielleicht das Wort "Polyphonie" als Mehrstimmigkeit) und _morph_ für "Gestalt"; Polymorphie ist die Mehrgestaltigkeit. In der Objektorientierung ist damit gemeint, dass sich ein Objekt je nach Art der Gestalt (seinem Typ entsprechend) angepasst auf einen Methodenaufruf verhält.
 

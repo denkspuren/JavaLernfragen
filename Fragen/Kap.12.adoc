@@ -1,4 +1,4 @@
-== Generische Klassen und Methoden
+// == Generische Klassen und Methoden
 
 .Die Syntax zu Typparametern
 ----

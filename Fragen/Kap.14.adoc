@@ -1,4 +1,4 @@
-== Collections
+// == Collections
 
 [TIP]
 ====
@@ -24,10 +24,10 @@ endif::solution[]
 ### Frage
 Welche dieser Klassen implementiert das Interface `Collection`?
 
-[ ] HashSet
-[ ] LinkedList
-[ ] Stack
-[ ] TreeMap
+- [ ] HashSet
+- [ ] LinkedList
+- [ ] Stack
+- [ ] TreeMap
 
 ifdef::solution[]
 .Antwort

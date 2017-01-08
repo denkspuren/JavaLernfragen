@@ -1,4 +1,4 @@
-== Zeichenketten
+// == Zeichenketten
 
 ### Frage
 Wir ist die Schreibweise für ein Einzelzeichen-Literal?
