@@ -1,0 +1,340 @@
+== Zeichenketten
+
+### Frage
+Wir ist die Schreibweise für ein Einzelzeichen-Literal?
+
+ifdef::solution[]
+.Antwort
+----
+'Buchstabe'
+'\uXXXX'    //Unicode-Escape
+'\n'        //Newline
+'\t'        //Tabulator
+----
+endif::solution[]
+
+### Frage
+Bei Literalen für Einzelzeichen hat der Backslash `\` eine Sonderfunktion: Welche? (Wie nennt man den "Backslash"? Er ist das sogenannte ___zeichen.)
+
+ifdef::solution[]
+.Antwort
+Der Backslash ist ein _Escape-Zeichen_ (bzw. deutsch "Ausstiegszeichen").
+Er dient dazu Unicode-Symbole und Steuerzeichen zu definieren, die nicht auf der Tastatur zu finden sind.
+endif::solution[]
+
+### Frage
+Was bedeutet "Unicode"?
+
+ifdef::solution[]
+.Antwort
+"Unicode" ist eine Zeichentabelle, die einer Zahl ein Zeichen zuordnet.
+endif::solution[]
+
+### Frage
+Wie prüfen Sie, ob ein `char c` eine Ziffer oder ein Großbuchstabe ist?
+
+ifdef::solution[]
+.Antwort
+Mit der Methode `Character.isDigit` bzw. `Character.isUpper`.
+endif::solution[]
+
+### Frage
+Definieren Sie eine `char`-Variable, die das Unicode-Symbol "Airplane" (U+2708) enthält.
+
+ifdef::solution[]
+.Antwort
+----
+char c = '\u2708';
+----
+endif::solution[]
+
+### Frage
+Ich gebe Ihnen ein geheimnisvolles Einzelzeichen `geheim`. Ermitteln Sie, welches Einzelzeichen `geheim` vorangeht und welches ihm folgt.
+
+ifdef::solution[]
+.Antwort
+Mit `(char) (geheim + 1)` bzw. `(char) (geheim - 1)`.
+endif::solution[]
+
+### Frage
+Was ergibt `'T' + 'H' + 'M'`?
+
+ifdef::solution[]
+.Antwort
+----
+233
+----
+endif::solution[]
+
+### Frage
+Was ergibt `"" + 'T' + 'H' + 'M'`?
+
+ifdef::solution[]
+.Antwort
+----
+"THM"
+----
+endif::solution[]
+
+### Frage
+Was ergibt `'T' + 'H' + 'M' + ""`?
+
+ifdef::solution[]
+.Antwort
+----
+"233"
+----
+
+Erklärung: Der Operator `+` ist linksassoziativ. D.h. der Ausdruck wird wie folgt geklammert: `(('T' + 'H') + 'M') + ""`
+endif::solution[]
+
+### Frage
+Wie machen Sie aus `"MNI"` eine Folge von Einzelzeichen?
+
+ifdef::solution[]
+.Antwort
+----
+"MNI".toCharArray()
+----
+endif::solution[]
+
+### Frage
+Erstellen Sie die Zeichenkette `"C:\Users\mni\oop\"` (Windows-Stil) als Pfad-Angabe unter Java.
+
+ifdef::solution[]
+.Antwort
+----
+String file = "C:\\Users\\mni\\oop\\";
+
+String file = "C:" + File.separtor + "Users" + File.separator + "mni" + File.separator + "oop" + File.separator
+----
+endif::solution[]
+
+### Frage
+Beschreiben Sie den visuellen Effekt der Zeichenkette `"\n\tTest\n"`.
+
+ifdef::solution[]
+.Antwort
+----
+
+  Test
+
+----
+
+Erklärung: `\n` leitet einen Zeilenumbruch ein, `\t` steht für ein Tabulatorzeichen.
+endif::solution[]
+
+### Frage
+Initialisieren Sie `String s` als leere Zeichenkette!
+
+ifdef::solution[]
+.Antwort
+----
+String s = "";
+----
+
+Hinweis: `String s;` bzw. `String s = null;` wäre keine korrekte Lösung, da eine leere Zeichenkette trotzdem ein vollwertiges String-Objekt ist.
+endif::solution[]
+
+### Frage
+Gegeben sei das Array `String[] s`. Wir möchten davon eine Kopie anlegen. Muss man eine _deep copy_ anfordern, reicht eine _shallow copy_ oder genügt gar eine einfache Zuweisung?
+
+ifdef::solution[]
+.Antwort
+Strings sind _immutable_ (dt. unveränderlich). D.h. ein einmal erzeugtes String-Objekt kann sich nicht mehr verändern. Daher reicht es in diesem Fall eine _shallow copy_ des Arrays zu machen.
+endif::solution[]
+
+### Frage
+Warum sollte man eine Zeichenkette niemals mit `==` vergleichen?
+
+ifdef::solution[]
+.Antwort
+Der Operator `==` überprüft bei komplexen Typen wie String nur, ob es sich um die selbe Referenz handelt (d.h. ob die Daten an der gleichen Stelle im Speicher stehen). Mit dem Inhalt des Strings hat das nichts zu tun.
+endif::solution[]
+
+### Frage
+Ergibt `"abc" == "abc"` immer `true` oder kann es vielleicht auch mal `false` ergeben?
+
+ifdef::solution[]
+.Antwort
+Dieser Vergleich ergibt immer `true`, da String-Literale vom Compiler so optimiert werden, dass zwei gleiche Literale auch die gleiche Referenz erhalten (Strings werden _internalisiert_).
+endif::solution[]
+
+### Frage
+Was liefert der Vergleich `"aaa" > "abc"`?
+
+ifdef::solution[]
+.Antwort
+Dieser Vergleich ist ein Syntaxfehler. Der Operator `>` ist nur für primitive Typen definiert. Zum Vergleichen von Strings braucht man die Methode `compareTo`.
+endif::solution[]
+
+
+### Frage
+Was ergibt `String.valueOf("String")`?
+
+ifdef::solution[]
+.Antwort
+----
+"String"
+----
+endif::solution[]
+
+### Frage
+Welchen Formatierungscode brauchen Sie, um eine Fließkommazahl mit drei Nachkommastellen darzustellen?
+
+ifdef::solution[]
+.Antwort
+`%.3f`
+endif::solution[]
+
+### Frage
+Alles happy? `int i = 3; System.out.println(i.toString());`
+
+ifdef::solution[]
+.Antwort
+Hier gibt es einen Fehler, weil `i` vom primitiven Typ `int` ist. Primitive Typen haben keine Methoden, auch kein `toString`.
+endif::solution[]
+
+### Frage
+Warum gibt es `String.valueOf()`, wenn es doch die `toString()`-Methode gibt?
+
+ifdef::solution[]
+.Antwort
+Weil `toString()` nicht auf primitive Datentypen angewendet werden kann.
+endif::solution[]
+
+### Frage
+Trennen Sie die Zeichenkette `C:\Users\mni\oop\` mit der Methode `split` in die einzelnen Pfadbestandteile auf. Welches Problem ergibt sich dabei?
+
+ifdef::solution[]
+.Antwort
+----
+String path = "C:\\Users\\mni\\oop\\";
+path.split("\\\\");
+----
+
+Die Methode `split` erwartet einen regulären Ausdruck. Der Backslash hat auch in regulären Ausdrücken eine besondere Bedeutung. Der String `"\\"` entspricht dem regulären Ausdruck `\`, der selbst keine Bedeutung hat (ein Escape-Zeichen ohne nachfolgendes Zeichen). Um den regulären Ausdruck `\\` zu erhalten, der auf das Zeichen `\` matcht, muss man also tatsächlich `"\\\\"` schreiben.
+endif::solution[]
+
+### Frage
+Geben Sie ein String-Format an, das die Zahl `12.345678f` nur mit exakt zwei Nachkommastellen angibt. (edited)
+
+ifdef::solution[]
+.Antwort
+`System.out.printf("%.2f", 12.345678f)`
+endif::solution[]
+
+### Frage
+Gegeben sei `float[] floats = { 1.234f, 12.56f, 123f }`. Gehen Sie in einer Schleife durch das Array und geben Sie die Zahlen untereinander aus. Die Kommas sollen positionsgleich untereinander stehen, eine Nachkommastelle ist relevant. (edited)
+
+ifdef::solution[]
+.Antwort
+----
+for(float f: floats) {
+  printf("%5.1f\n", f);
+}
+----
+endif::solution[]
+
+### Frage
+Welcher Hex-Darstellung entspricht 2017?
+
+ifdef::solution[]
+.Antwort
+----
+printf("%04X", 2017);
+----
+endif::solution[]
+
+### Frage
+In einer String-Variable namens `geheim` steht ein Dateiname. Finden sie die Dateiendung heraus (der Teil nach dem letzten Punkt im Namen).
+
+ifdef::solution[]
+.Antwort
+----
+String geheim = "test.hallo.txt";
+
+// Variante 1: split
+String[] split = geheim.split("\\.");
+System.out.println(split[split.length - 1]);
+
+//Variante 2: lastIndexOf
+System.out.println(geheim.substring(geheim.lastIndexOf(".")+1));
+----
+endif::solution[]
+
+### Frage
+Sie treffen auf Aliens, die Ihnen auf eine Tafel die Zahl `"110"` schreiben. Sie stellen fest, dass die Aliens an ihren beiden Händen insgesamt 6 Finger haben. Wie lautet die Zahl also im 6er-System?
+
+(Schon "Arrival" im Kino geschaut?)
+
+ifdef::solution[]
+.Antwort
+----
+Integer.parseInt("110", 6);
+----
+endif::solution[]
+
+### Frage
+`Long.parseLong("55",5)` -- Autsch! Warum?
+
+ifdef::solution[]
+.Antwort
+Es gibt kein Zeichen `5` im 5er-System.
+endif::solution[]
+
+### Frage
+`Long.parseLong("55L")` -- Autsch! Schade! Warum schade?
+
+ifdef::solution[]
+.Antwort
+Die Methode `parseLong` parst nur Zahlen, das `L` führt daher zu einem Fehler.
+endif::solution[]
+
+### Frage
+In welchen Fällen ist der Einsatz der Klasse `StringBuilder` sinnvoll?
+
+ifdef::solution[]
+.Antwort
+Wenn viele Teilstrings mit `+` konkateniert werden müssten. Der `StringBuilder` spart in diesem Fall viel Rechenzeit, da bei einer normalen Konkatenation der gesamte String kopiert werden muss.
+endif::solution[]
+
+### Frage
+Sie wollen sicherstellen, dass Java bei der Übersetzung Ihres Java-Programms die Java-Datei in der Kodierung UTF-8 einliest. Wie machen Sie das?
+
+ifdef::solution[]
+.Antwort
+----
+javac -encoding UTF8 ...
+----
+endif::solution[]
+
+### Frage
+`StringBuilder s1 = new StringBuilder("Hallo "); StringBuilder s2 = new StringBuilder("Welt");` Wären `s1` und `s2` Strings, so könnten Sie beide mit `s1+s2` konkatenieren. Wie lösen Sie das Problem vergleichbar hier?
+
+ifdef::solution[]
+.Antwort
+----
+s1.append(s2.toString());
+----
+endif::solution[]
+
+### Frage
+Das Programm auf Seite 147/148 zählt Groß- und Kleinbuchstaben in einem String. Wäre statt der `if`-Anweisungen nicht ein `switch` passender und würde den Code lesbarer machen?
+
+ifdef::solution[]
+.Antwort
+Das switch müsste jeden einzelnen Buchstaben als case definieren. Man kann keine dynamischen cases wie `case c.isDigit()` definieren.
+endif::solution[]
+
+### Frage
+Zeichensatzprobleme gibt es nicht nur in Quellcodedateien, sondern auch immer dann wenn Zeichenketten von außerhalb in das Programm kommen oder ausgegeben werden (z.B. über das Netzwerk oder aus einer Datei). Um zwischen verschiedenen Kodierungen wechseln zu können bietet die Klasse `String` den Konstruktor `String(byte[], Charset)` und die Methode `getBytes(Charset)`.Wandeln Sie das Zeichen `ä` (unicode `\u00e4`) erst in US_ASCII um und lesen das resultierende Byte-Array wieder so ein als wäre es UTF_8-kodiert.
+
+ifdef::solution[]
+.Antwort
+----
+import java.nio.charset.StandardCharsets;
+byte[] ascii = "\u00e4".getBytes(StandardCharsets.US_ASCII);
+new String(ascii, StandardCharsets.UTF_8).getBytes();
+----
+endif::solution[]

@@ -1,0 +1,242 @@
+== Dateien und Verzeichnisse
+
+Tabelle 15.2, 15.3, 15.4 sind wieder ein Gold-Nuggets.
+
+### Frage
+Handelt es sich bei `java.io.IOException` um eine _geprüfte_ oder eine _ungeprüfte_ Ausnahme? Weshalb?
+
+ifdef::solution[]
+.Antwort
+Etwas, was keine Runtime-Exception ("dumme Programmierfehler") und kein Error (schwerwiegender Fehler) ist. Checked Exceptions (geprüfte Ausnahmen) müssen gefangen werden oder explizit weitergereicht werden.
+
+Eine `IOException` ist eine Ausnahme, deren Auftreten ausserhalb meiner Verantwortung liegt, deshalb auftreten kann und unbedingt behandelt werden muss.
+endif::solution[]
+
+### Frage
+Welches Konstrukt sollte man verwenden, um Ressourcen nach der Verwendung automatisch zu schließen?
+
+ifdef::solution[]
+.Antwort
+_try-with-resource_, `try (...) catch/finally`.
+endif::solution[]
+
+### Frage
+Geben Sie zwei Beispiele an, warum die Arbeit mit dem Dateisystem zu Exceptions führen kann.
+
+ifdef::solution[]
+.Antwort
+Zum Beispiel:
+
+* Die Datei existiert nicht
+* Die Datei ist schreibgeschützt und kann nicht überschrieben werden
+endif::solution[]
+
+### Frage
+[source,java]
+----
+try (BufferedReader br = Files.newBufferedReader("test.txt", StandardCharsets.UTF_8)) {
+  // ...
+}
+----
+Könnte ich nicht nach diesem Block noch einmal `br.readLine()` aufrufen wollen? Weshalb kann `br` direkt nach Ende der geschweiften Klammer geschlossen werden?
+
+ifdef::solution[]
+.Antwort
+Innerhalb des `try`-Blocks wird die Ressource angelegt und dann wieder geschlossen.
+endif::solution[]
+
+### Frage
+Welches gedankliche Modell liegt einer Ressource zugrunde, so dass man die Arbeit mit ihr per `close`-Methode abschliesst? (edited)
+
+ifdef::solution[]
+.Antwort
+In der Java-Welt haben Sie nur ein Abbild von Geräten, "Dingen" etc., die sich außerhalb der JVM befinden, wie die vom Betriebssystem Ihres Rechners verwalteten Dateien, Ausgabegeräte, Eingabegeräte usw. Dieses Abbild gleicht Java in entsprechenden Klasseninstanzen ab. Die Synchronisationspunkte gibt es nur gelegentlich mit dem Aufruf mancher Methoden. Mit `close()` wird die Verbindung zur Außenwelt aufgelöst, es findet kein Austausch oder Abgleich mit der vormals assoziierten Ressource mehr statt.
+endif::solution[]
+
+### Frage
+Wofür brauchen Sie die Methode `System.getProperty`? Nennen Sie Beispiele für Eigenschaften, die Sie mit dieser Methode auslesen können.
+
+ifdef::solution[]
+.Antwort
+Zum Beispiel `user.dir`, `user.home`.
+endif::solution[]
+
+### Frage
+Was liefert in der JShell `jshell> System.getProperty("user.dir")` zurück?
+
+ifdef::solution[]
+.Antwort
+Es ist das Verzeichnis, in dem die JShell gestartet wurde.
+endif::solution[]
+
+### Frage
+Sie bekommen einen geheimen Pfad `geheim` vom Typ `Path`. Prüfen Sie, ob es sich dabei um ein existierendes Verzeichnis handelt und erstellen Sie dann ein neues `Path`-Objekt, das auf die Datei `test.jar` im Unterverzeichnis `lib` dieses Verzeichnisses verweist.
+
+ifdef::solution[]
+.Antwort
+----
+Path geheim = ... ;
+if(File.exists(geheim) && Files.isDirectory(geheim)) { /* ... */ }
+----
+kann man verkürzen auf
+----
+if(File.isDirectory(geheim)) { /* ... */ }
+----
+
+----
+Path p = geheim.resolve("lib").resolve("test.jar");
+----
+----
+Path p2 = geheim.resolve("lib/test.jar");
+----
+Der Separator `/` ist Linux-Schreibweise. Die Klasse `Path` ist "clever" implementiert und kann das jedoch unabhängig vom verwendeten Betriebssystem verstehen.
+endif::solution[]
+
+### Frage
+Was ist ein _absoluter_ Pfad?
+
+ifdef::solution[]
+.Antwort
+Unter Windows beginnt der Pfad mit dem Laufwerksbuchstaben. Unter Linux beginnt er mit dem Slash `/`.
+endif::solution[]
+
+### Frage
+Unter Windows entspricht `System.getProperty("user.dir")` welcher Umgebungsvariablen (aubrufbar in der Kommandozeile)?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+Mit welchem Kommando in der Windows-Kommandozeile wechseln Sie das Verzeichnis? Wir schauen Sie sich den Inhalt eines Verzeichnisses an?
+
+ifdef::solution[]
+.Antwort
+* `cd` für _change directory_ unter Windows und Linux
+* `dir` für _directory_, `ls` für _list_ unter Linux
+endif::solution[]
+
+### Frage
+Sie haben wieder einen geheimen Pfad `geheim`, der auf eine Datei `MyTest.java` verweist. Sie wissen nicht, in welchem Verzeichnis sich die Datei befindet, aber sie wissen dass es dort auch eine Datei namens `MyOtherTest.java` gibt. Nennen Sie zwei Wege, wie sie einen Pfad zu dieser Datei erzeugen können.
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+// eine einzige `resolve`-Zeile
+// ../ -- damit wechselt man relativ e
+endif::solution[]
+
+### Frage
+Was ist eine Datei?
+
+ifdef::solution[]
+.Antwort
+Auf einer Festplatte eine verteilte Ablage von Nullen und Einsen zusammen, die das Betriebssystem als logische Einheit organisiert. In Java findet sich davon dann eine objektorientierte Abbildung.
+endif::solution[]
+
+### Frage
+Was ist ein Verzeichnis?
+
+ifdef::solution[]
+.Antwort
+Eine logische Organisationstruktor für Dateien und teils (so unter Linux) von Ressourcen. In Java bekommen wir nur objektorientierte Abbildungen davon zu sehen.
+endif::solution[]
+
+### Frage
+Wie muss die Signatur der Methode `Paths.get` aussehen, wenn Sie beliebig viele Strings als Argumente akzeptiert?
+
+ifdef::solution[]
+.Antwort
+Das ist der Varargs-Parameter.
+
+Wie kann `Paths.get` eigentlich erzwingen, dass mindestens ein Argument übergeben werden _muss_? Der erste Parameter ist "normal", der zweite ein Varargs-Parameter.
+
+----
+Path get(String first, String... more)
+----
+endif::solution[]
+
+### Frage
+Was ist ein Link?
+
+ifdef::solution[]
+.Antwort
+Gemeint ist der Verweis auf ein anderes Verzeichnis oder eine andere Datei,
+endif::solution[]
+
+### Frage
+Wie kopiert und wie verschiebt man eine Datei unter Windows von der Konsole aus?
+
+ifdef::solution[]
+.Antwort
+* `copy` unter Windows, `cp` unter Linux/Powershell
+* `move` unter Windows, `mv` unter Linux/Powershell
+endif::solution[]
+
+### Frage
+Welche Methode der Klasse `Files` liefert einen `Stream` - `newDirectoryStream` oder `list`?
+
+ifdef::solution[]
+.Antwort
+`list` ist ein Stream, `newDirectoryStream` eben nicht.
+endif::solution[]
+
+### Frage
+Schreiben Sie ein Programmfragment, das eine Textdatei zeilenweise einliest.
+
+ifdef::solution[]
+.Antwort
+Im nachfolgenden Code ist `inFileName` vom Typ `String`.
+[source,java]
+----
+BufferedReader inFile = new BufferedReader(new FileReader(inFileName));
+while((line = inFile.readLine()) != null) {
+  // ...
+}
+inFile.close();
+----
+Diese Kurzlösung gibt kein Kodierungsformat für die einzulesende Textdatei an. Das kann in manchen Fällen wichtig und notwendig sein.
+endif::solution[]
+
+### Frage
+Schreiben Sie ein Programmfragment, das die Einträge eines String-Arrays als einzelne Zeilen in eine Textdatei schreibt.
+
+ifdef::solution[]
+.Antwort
+Im nachfolgenden Code ist `outFileName` vom Typ `String` und `lines` vom Typ `String[]`.
+
+[source,java]
+----
+BufferedWriter outFile = new BufferedWriter(new FileWriter(outFile1Name));
+for(String line : lines) {
+    outFile.write(line);
+    outFile.newLine();
+}
+outFile.close();
+----
+endif::solution[]
+
+### Frage
+Muss man immer `Files.createFile` zum Anlegen einer neuen Datei verwenden, oder geht das auch einfacher?
+
+ifdef::solution[]
+.Antwort
+Wenn man eine Datei zum Schreiben öffnet, wird sie angelegt, wenn sie nicht existiert.
+endif::solution[]
+
+### Frage
+Was bedeuten die Zahlen in `UTF-8`, `UTF-16` und `UTF-32`
+
+ifdef::solution[]
+.Antwort
+Die Zahlen geben an, mit wievielen Bits das Unicode-Zeichen per default kodiert ist. Aber: ein `UTF-8` (ein Byte) oder `UTF-16` (zwei Bytes) bezieht gegebenenfalls nachfolgende Bytes ein, um andere `UTF-32`-Zeichen darzustellen.
+endif::solution[]
+
+### Frage
+Muss man immer `Files.createDirectory` bzw. `Files.createDirectories` aufrufen um ein neues Verzeichnis zu erstellen, oder geht das auch einfacher?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]

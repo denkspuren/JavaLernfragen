@@ -1,0 +1,223 @@
+== Generische Klassen und Methoden
+
+.Die Syntax zu Typparametern
+----
+TypeParameter:
+    {TypeParameterModifier} Identifier [TypeBound]
+
+TypeBound:
+    "extends" TypeVariable
+    "extends" ClassOrInterfaceType {AdditionalBound}
+
+AdditionalBound:
+    "&" InterfaceType
+----
+
+Eine Entscheidung:
+
+. Wir nehmen aus dem Kapitel 12 das Unterkapitel 12.4 (Wildcards) raus.
+. Wir ignorieren ansonsten die Verwendung von `extends` bei der Angabe von Typparametern.
+
+Wir glauben, dass für Sie als Erstsemester einfache Generics genügen mögen.
+
+Notiz:
+----
+jshell> class MyClass<N extends Number> { N n = (N)(new Integer(8)); }
+|  Warning:
+|  unchecked cast
+|    required: N
+|    found:    java.lang.Integer
+|  class MyClass<N extends Number> { N n = (N)(new Integer(8)); }
+|                                             ^--------------^
+|  modified class MyClass
+
+jshell> new MyClass<Integer>().n
+$16 ==> 8
+
+jshell> new MyClass<Number>().n
+$17 ==> 8
+
+jshell> new MyClass<Long>().n
+|  java.lang.ClassCastException thrown: java.lang.Integer (in module: java.base) cannot be cast to java.lang.Long (in module: java.base)
+|        at (#18:1)
+----
+
+### Frage
+Eine Klasse `Container` soll im Konstruktor einen beliebigen Typ als Inhalt (_content_) aufnehmen können. Schreiben Sie den Code ohne `Object` zu verwenden.
+
+ifdef::solution[]
+.Antwort
+[source,java]
+----
+class Container<T> {
+  T content;
+  Container(T content) {
+    this.content = content;
+  }
+}
+----
+
+----
+jshell> new Container<Integer>(3)
+$20 ==> Container@17579e0f
+----
+endif::solution[]
+
+### Frage
+Aus unerfindlichen Gründen bietet die Java-API keine Tupel-Klasse an. Wie würde so eine Klasse aussehen, die zwei Variablen von beliebigem Typ enthalten kann?
+
+ifdef::solution[]
+.Antwort
+[source,java]
+----
+class Tupel<T,U> {
+  T car; // das ist ein historischer Name
+  U cdr; // das ist ein historischer Name
+  Tupel(T first, U second) {
+    car = first;
+    cdr = second;
+  }
+}
+----
+endif::solution[]
+
+### Frage
+Legen Sie eine neue `ArrayList` an, die ausschließlich aus Ganzzahlen besteht.
+
+ifdef::solution[]
+.Antwort
+----
+new ArrayList<Integer>();
+----
+endif::solution[]
+
+### Frage
+Was ist ein _Typparameter_?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+Deklarieren und initialisieren Sie eine Variable `a`, die ausschließlich eine `ArrayListe` von boolschen Werten aufnehmen kann. Die Lösung muss so kurz wie möglich sein.
+
+ifdef::solution[]
+.Antwort
+Entweder Sie deklarieren `a` vom Typ `ArrayList`:
+
+----
+ArrayList<Boolean> a = new ArrayList<>();
+----
+
+Oder, was Sie oft sehen, Sie nehmen das `List`-Interface als Typ, der durch die `ArrayList` implementiert wird.
+
+----
+List<Integer> a = new ArrayList<>();
+----
+endif::solution[]
+
+### Frage
+Wie lautet die Syntax für eine generische Methode?
+
+ifdef::solution[]
+.Antwort
+----
+<T extends I> Rückgabetyp methodName(parameters) { ... }
+----
+endif::solution[]
+
+### Frage
+Inwiefern hebelt die Definition `<T> T giveMeWhatIWant() { ... }` das Typsystem von Java aus?
+
+ifdef::solution[]
+.Antwort
+Diese Methode muss eine Implementierung bieten, die für jeden Typ passen muss.
+// S. 269: Es kommt darauf an, was eine Instanz kann, nicht wie sie aussieht
+endif::solution[]
+
+
+### Frage
+Wie sieht schematisch die Syntax einer generischen Klasse aus? Reduzieren Sie die Syntax auf das Notwendigste.
+
+ifdef::solution[]
+.Antwort
+----
+class Name<TypParameter, ...> { ... }
+----
+endif::solution[]
+
+### Frage
+----
+class A<T> { void foo(T x) {} }
+A myA = new A();
+----
+Kann man das schreiben? Welcher Typ wird für den Typparameter `T` eingesetzt?
+
+ifdef::solution[]
+.Antwort
+Der allgemeinste Typ hier, der implizit eingesetzt wird, ist `Object`. Aber: Das ist kein guter Programmierstil.
+endif::solution[]
+
+### Frage
+----
+class Foo<T> {
+  int getLength(T value) {
+    return value.length();
+  }
+}
+Foo<String> f = new Foo<>();
+f.getLength("abc");
+----
+Oh Schmerz! Weswegen?
+
+ifdef::solution[]
+.Antwort
+Man kann nicht davon ausgehen, dass `value`, dessen Typ über `T` frei gewählt werden kann, eine `length`-Method hat.
+endif::solution[]
+
+### Frage
+`class Bar<Blubber> { Blubber x; }` Problem?
+
+ifdef::solution[]
+.Antwort
+Nein, kein Problem. Es ist unüblich, lange Namen für Typparameter zu wählen. Per Konvention verwendet man nur einzelne Großbuchstaben.
+endif::solution[]
+
+
+
+### Frage
+Man kann eine Klasse als `MyClass<T extends Number>` deklarieren, ist auch `MyClass<T implements AutoCloseable>` erlaubt?
+
+ifdef::solution[]
+.Antwort
+Das `implements` ist in der Syntax nicht vorgesehen, ist nicht erlaubt.
+endif::solution[]
+
+### Frage
+`class ICanHazGenerics<E extends Comparable> {}` Und schon gibt's was auf die Finger. Was ist der Grund?
+
+ifdef::solution[]
+.Antwort
+Man sollte den Typ für `Comparable<???>` angeben.
+endif::solution[]
+
+### Frage
+`class A<T extends B> {}` Kann man `A<B> value = new A<B>();` schreiben? Gilt also `B extends B`?
+
+ifdef::solution[]
+.Antwort
+Die Klasse `B` als `T` kann das, was `B` kann, das meint `<T extends B>`.
+endif::solution[]
+
+### Frage
+----
+List<? extends Number> lst = new ArrayList<>();
+lst.add(new Integer(8));
+----
+Die zweite Zeile produziert einen Fehler. Können Sie sich vorstellen, warum man einer `List<? extends Number>` keinen `Integer` hinzufügen kann?
+
+ifdef::solution[]
+.Antwort
+Man könnte mal einen `Integer` der Liste hinzufügen, mal einen `Double`. Der Compiler kann diese Entscheidung nicht auflösen.
+endif::solution[]

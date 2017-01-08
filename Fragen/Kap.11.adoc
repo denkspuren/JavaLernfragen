@@ -1,0 +1,525 @@
+== Vererbung und Schnittstellen
+
+Zu Beginn zwei Beispiele zur Polymorphie. Das Wort "Polymorphie" setzt sich aus zwei Teilen zusammen: _poly_ für "viele" (sie kennen vielleicht das Wort "Polyphonie" als Mehrstimmigkeit) und _morph_ für "Gestalt"; Polymorphie ist die Mehrgestaltigkeit. In der Objektorientierung ist damit gemeint, dass sich ein Objekt je nach Art der Gestalt (seinem Typ entsprechend) angepasst auf einen Methodenaufruf verhält.
+
+Das Codebeispiel: Menschen (_humans_) sprechen anders als Tiere (_animals_). Im Beispiel ist eine Oberklasse nötig, um in einem Array sowohl Instanzen von `Human` wie auch von `Animal` aufnehmen zu können.
+
+[source,java]
+----
+class Being {
+    String say(String text) {
+        return this.getClass().getName() + " says ";
+    }
+}
+
+class Human extends Being {
+    String say(String text) {
+        return super.say(text) + text;
+    }
+}
+
+class Animal extends Being {
+    String say(String text) {
+        return super.say(text) + "nothing (can't talk)";
+    }
+}
+
+Being[] beings = { new Human(), new Animal(), new Animal() };
+for(Being b : beings) System.out.println(b.say("good morning"));
+----
+
+Eine Alternative dazu definitert ein Interface namens `Talker`. Nun können die Klassen nicht auf eine gemeinsame Implementierung über die Oberklasse zugreifen; es besteht -- was durchaus von Vorteil ist -- auch gar keine Notwendigkeit mehr, eine Oberklasse einzuführen.
+
+[source,java]
+----
+interface Talker {
+    String say(String text);
+}
+
+class Human implements Talker {
+    public String say(String text) {
+        return "Human says " + text;
+    }
+}
+
+class Animal implements Talker {
+    public String say(String text) {
+        return "Animal says nothing (can't talk)";
+    }
+}
+
+Talker[] talkers = { new Human(), new Animal(), new Animal() };
+for(Talker t : talkers) System.out.println(t.say("good morning"));
+----
+
+Im ersten Fall der Polymorphie ist den "vielen Gestalten" eine Oberklasse gemeinsam (sie definiert, was die Gestalt _ist_), im zweiten Fall ist den "vielen Gestalten" eine Schnittstelle gemeinsam (sie definiert, was die Gestalt _kann_), die jede teilhabende Klasse für sich implementiert.
+
+[TIP]
+====
+Hinweis zu Kap. 11.2: Sie müssen all die Methoden kennen, die `Object` hat und vererbt. Von `notify`, `notifyAll` und `wait` müssen Sie nur wissen, dass es sie gibt. Das Verständnis dazu erschließt sich erst, wenn wir uns mit Threads beschäftigen [nicht dieses Semester].
+====
+
+[TIP]
+====
+Mehr zu Hashcodes können Sie z.B. nachlesen unter https://de.wikipedia.org/wiki/Hashfunktion. Hashcodes begegnen Ihnen im Informatik-Alltag immer wieder.
+====
+
+[TIP]
+====
+Tabelle 11.1 (Schnittstellenübersicht) ist Gold wert! Lernen.
+====
+
+### Frage
+Wenn Sie `class A extends B` sehen, wissen Sie, dass `B` was an `A` vererbt?
+
+ifdef::solution[]
+.Antwort
+Nur wenn es etwas zu vererben gibt, Dinge die `private` sind werden nicht vererbt.
+endif::solution[]
+
+### Frage
+Wenn das hier geht `Object getSelf() { return this; }`, geht dann auch das `Object getSelf() { return super; }`?
+
+ifdef::solution[]
+.Antwort
+`super` wird nur verwendet zum Aufruf eines Konstruktors oder zum Zugriff auf Variablen und Methoden. `super` alleine verweist aber nicht auf eine Instanz.
+endif::solution[]
+
+### Frage
+Ordnen Sie (siehe letztes Beispiel) die Begriffe `A` oder `B` zu:
+
+* Oberklasse
+* Unterklasse
+* abgeleitete Klasse
+* Subklasse
+* generalisierende Klasse
+* spezialisierende Klasse
+* Basisklasse
+
+ifdef::solution[]
+.Antwort
+`A` ist die Unterklasse, abgeleitete Klasse, Subklasse oder spezialisierende Klasse. `B` ist die Oberklasse, Basisklasse, (Superklasse) oder generalisierende Klasse.
+endif::solution[]
+
+### Frage
+Wann ist die Implementierung eines eigenen Konstruktors in einer abgeleiteten Klasse _nicht_ optional?
+
+ifdef::solution[]
+.Antwort
+Beispiel:
+----
+class Super {
+  Super(int x) {
+    ...
+  }
+}
+class Sub extends Super {
+  Sub() {
+    // hier würde implizit super() aufgerufen
+    // dieser Konstruktor existiert aber nicht
+    // => es muss explizit super(int) aufgerufen
+    // werden
+  }
+}
+----
+endif::solution[]
+
+### Frage
+Wenn man eine Methode überschreibt, dann ist die Verwendung einer Annotation üblich. Welcher?
+
+ifdef::solution[]
+.Antwort
+`@Override`
+endif::solution[]
+
+### Frage
+Eine Method überladen und sie überschreiben ist nicht dasselbe. Erkläre den Unterschied!
+
+ifdef::solution[]
+.Antwort
+Eine Methode _überladen_ heißt, eine weitere Variante der Methode mit gleichem Namen aber unterschiedlicher Anzahl von Parametern oder unterschiedlichen Parametertypen zu deklarieren.
+
+Eine Methode _überschreiben_ heißt, in einer Unterklasse eine Methode mit gleicher Signatur (Name + Anzahl und Typ der Parameter) wie in der Oberklasse zu deklarieren.
+endif::solution[]
+
+### Frage
+----
+class A { int method(int i) { return i+1; } }
+class B extends A { int method() { return 2; } }
+----
+
+Überschreibt `B` die Methode von `A`? Oder überlädt `B` die Methode?
+
+ifdef::solution[]
+.Antwort
+Das ist ein Beispiel für überladung, da die Methoden nicht die gleiche Anzahl von Parametern haben.
+endif::solution[]
+
+### Frage
+Mit welchem Schlüsselwort kann auf Members (Felder und Methoden) der Oberklasse zugegriffen werden?
+
+ifdef::solution[]
+.Antwort
+`super`
+endif::solution[]
+
+### Frage
+Wie Sie wissen, ist jede Klasse abgeleitet von `Object`. Wenn Sie Code wie `class A { }` sehen, welche Ergänzungen daran nimmt der Compiler vermutlich vor?
+
+ifdef::solution[]
+.Antwort
+`class A extends Object { }`
+endif::solution[]
+
+### Frage
+Kann eine abstrakte Klasse einen Konstruktor haben?
+
+ifdef::solution[]
+.Antwort
+Ja, sie können nur nicht mit `new` aufgerufen werden. In einer Subklasse können Sie aber mit `super(...)` verwendet werden.
+endif::solution[]
+
+### Frage
+Wenn ich etwas `super(...)` machen will, wohin damit?
+
+ifdef::solution[]
+.Antwort
+In die erste Zeile des Konstruktors der abgeleiteten Klasse.
+endif::solution[]
+
+### Frage
+Ich möchte gerne den Konstruktor der Ober-Oberklasse aufrufen. Wie geht das?
+
+ifdef::solution[]
+.Antwort
+Direkt geht das nicht, man kann nur auf die direkte Superklasse zugreifen und die muss dann wieder ihre Superklasse aufrufen.
+endif::solution[]
+
+### Frage
+Hans deklariert eine Klasse als `final`, Hannah als `abstract`. Was hat Hans mit der Klasse vor, was Hannah?
+
+ifdef::solution[]
+.Antwort
+Hans will, dass man von der Klasse nicht erben kann. Hannah will, dass man von der Klasse erben _muss_.
+endif::solution[]
+
+### Frage
+Hannah deklariert eine Methode als `final`, Hans als `abstract`. Woran muss Hans denken, was Hannah egal sein kann? Und was kann Hans sein lassen, was Hannah wiederum tun muss?
+
+ifdef::solution[]
+.Antwort
+Hans muss die Klasse als `abstract` deklarieren, Hannah muss im Gegensatz zu Hans die Methode implementieren.
+endif::solution[]
+
+### Frage
+----
+class A { int x; }
+class B extends A { void foo() { x += 1; } }
+class C extends A { void foo() { x *= 2; } }
+A obj = new B();
+obj.foo();
+----
+
+Wie kann man diesen Code retten?
+
+ifdef::solution[]
+.Antwort
+Entweder man ändert die letzte Zeile auf `((B) obj).foo()` und castet damit `obj` auf einen Typ der tatsächlich die Methode `foo` hat, oder man macht `A` abstrakt und deklariert die `foo` als abstrakte Methode in `A`.
+endif::solution[]
+
+### Frage
+----
+class A {
+   void m() { System.out.println("mA"); }
+}
+
+class B extends A {
+   void m() { System.out.println("mB"); }
+}
+----
+
+Nun: `A a = new B()` bzw. `B a = new B()`. Was liefert in jedem der Fälle `a.m()` auf der Konsole?
+
+ifdef::solution[]
+.Antwort
+In beiden Fällen wird `mB` ausgegeben. Der Typ der Variablen entscheidet nicht darüber, welche Methode aufgerufen wird, sondern der Typ des Objektes das sich in der Variablen befindet.
+
+Würde man die Methode `m` nicht in B implementieren, würde stattdessen (wegen der Vererbung) in beiden Fällen `mA` ausgegeben.
+endif::solution[]
+
+### Frage
+----
+for (Object o : objects) {
+ String s = (String) o;
+ System.out.println(s);
+}
+----
+
+Ist das eine gute Idee? Warum?
+
+ifdef::solution[]
+.Antwort
+Das ist keine gute Idee, da man in den meisten Fällen einen spezifischeren Typ als `Object` verwenden kann und sollte. Außerdem ist der Downcast `(String) o` problematisch, da vorher nicht überprüft wurde ob es sich bei dem Inhalt der `Object`-Variable tatsächlich um einen `String` handelt.
+endif::solution[]
+
+### Frage
+----
+Object o = "abc";
+int l = (String) o.length();
+----
+Ooops, was ist da schiefgegangen?
+
+ifdef::solution[]
+.Antwort
+Der Cast-Operator bindet schwächer als der `.`. Dieser Code versucht die Methode `length` von `Object` aufzurufen und das Ergebnis zum Typ `String` zu casten. Das scheitert aber, da die Klasse `Object` keine Methode `length` hat. Richtig müsste es heißen `in l = ((String) o).length();`
+endif::solution[]
+
+### Frage
+Ein ...cast passiert implizit, wenn ein Objekt einer Variable von einem Supertyp zugewiesen wird. Ein ...cast muss dagegen explizit angegeben werden.
+
+ifdef::solution[]
+.Antwort
+
+* Up-
+* Down-
+endif::solution[]
+
+### Frage
+Was bedeutet das Wort "Polymorphie" von seiner sprachlichen Herkunft?
+
+ifdef::solution[]
+.Antwort
+Polymorphie bedeutet "Vielgestaltigkeit". Eine Variable vom Typ `List` ist z.B. vielgestaltig, weil das tatsächliche Objekt sowohl eine `ArrayList` als auch eine `LinkedList` sein könnte.
+endif::solution[]
+
+
+// Ab hier Kapitel 11.2 u. 11.4
+
+
+### Frage
+Was gibt die Methode `toString` standardmäßig zurück?
+
+ifdef::solution[]
+.Antwort
+`Klassenname@hashCode`
+endif::solution[]
+
+### Frage
+Eine Klasse, die als `class A {}` deklariert wird, wird vom Compiler als `class A extends Object {}` aufgefasst. Wie ist das bei `class A extends B {}`? Ist eine Deklaration der Form `class A extends B, Object {}` oder `class A extends B extends Object {}` überhaupt erlaubt?
+
+ifdef::solution[]
+.Antwort
+Auch bei `A extends B {}` erbt `A` von Object. Allerdings geschieht das nicht direkt. Entweder hat `B` keine weitere Oberklasse und erbt damit von `Object`, oder die Vererbungskette geht noch einen oder mehrere Schritte weiter, bis die letzte Basisklasse erreicht ist, die dann von `Object` erbt.
+endif::solution[]
+
+### Frage
+Die Aussage ist nicht ganz korrekt: "`getClass` gibt die Klasse einer Instanz zurück." Berichtigen Sie den Satz.
+
+ifdef::solution[]
+.Antwort
+`getClass` gibt ein Instanz der Klasse `Class` zurück, die eine Beschreibung der Klasse enthält.
+endif::solution[]
+
+### Frage
+----
+class Foo {
+  int x;
+  public boolean equals(Object other) {
+    if (other instanceof Foo) {
+      Foo f = (Foo) other;
+      return f.x == x;
+    }
+    return false;
+  }
+}
+----
+
+Diese Klasse hat laut der Spezifikation der Methode `equals` ein Problem. Welches ist das?
+
+ifdef::solution[]
+.Antwort
+Wenn `a.equals(b)` den Wert `true` ergibt, dann muss auch `a.hashCode() == b.hashCode()` gelten. Man müsste also noch die Methode `hashCode` überschreiben um diese Eigenschaft sicherzustellen.
+
+Außerdem gehört zum typischen Schema einer `equals`-implementierung noch am Anfang eine Überprüfung ob `other == this` gilt. In dem Fall kann man sofort `true` zurückgeben.
+
+Der Code funktioniert übrigens auch, wenn für `other` der Wert `null` übergeben wird, da `null instanceof X` immer `false` ergibt, egal welche Klasse man für `X` einsetzt.
+endif::solution[]
+
+### Frage
+Wie sieht schematisch die Syntax einer Schnittstellen-Deklaration aus? [vereinfachte Variante, so wie Schnittstellen meist verwendet werden]
+
+ifdef::solution[]
+.Antwort
+`interface Name { typ name(parameter); ... }`
+
+Die Benennung des Interfaces endet oft auf `-able`, um anzuzeigen, dass mit dem Interface irgendeine Fähigkeit bezeichnet wird.
+endif::solution[]
+
+### Frage
+Welche Methodenkörper wären für die Methode `hashCode` der Klasse `java.awt.Point` zulässig und sinnvoll?
+
+* `return x + y;`
+* `return x;`
+* `return y;`
+* `return x ^ y;`
+* `return (""+x+y).hashCode();`
+* `return (x + "," + y).hashCode();`
+* `return 0;`
+* `return new Random().nextInt();`
+
+ifdef::solution[]
+.Antwort
+Der HashCode soll eine (möglichst) eindeutige Kennung eines Objektes darstellen.
+
+* `return x + y;` kann (1, 4) und (4, 1) nicht unterscheiden (weil `+` kommutativ ist).
+* `return x;` ignoriert die Variable `y` und ist daher nicht sinnvoll.
+* `return y;` ignoriert die Variable `y` und ist daher nicht sinnvoll.
+* `return x ^ y;` kann (1, 4) und (4, 1) nicht unterscheiden (weil `^` kommutativ ist).
+* `return (""+x+y).hashCode();` scheitert für (1, 14) und (11, 4).
+* `return (x + "," + y).hashCode();` wäre eine sinnvolle Variante.
+* `return 0;` gibt den gleichen HashCode für jedes Objekt. Das ist nicht sinnvoll.
+* `return new Random().nextInt();` ist eindeutig, aber das selbe Objekt bekommt bei mehreren Aufrufen von HashCode unterschiedliche codes. Das ist weder zulässig noch sinnvoll.
+
+Zulässig sind prinzipiell alle HashCodes, bei denen sichergestellt ist dass gleiche Objekte (Vergleich mit `equals` ergibt `true`) auch den gleichen HashCode erhalten. Das ist bei allen dieser Beispiele bis auf `return new Random().nextInt();` der Fall.
+endif::solution[]
+
+### Frage
+Was ist richtig?
+
+[ ] `interface One extends Two`
+[ ] `interface One implements Two`
+
+ifdef::solution[]
+.Antwort
+Die zweite Variante funktioniert nicht.
+
+Wenn man von mehreren Interfaces erben kann, kann man die folgende Syntax verwenden:
+----
+interface A { void foo(); }
+interface B { void bar(); }
+interface C extends A, B { void baz(); }
+----
+endif::solution[]
+
+### Frage
+Man kann mit Überladung keine zwei Methoden mit gleicher _Signatur_ erstellen. Schließen Sie daraus, was der Begriff _Signatur_ bedeutet.
+
+ifdef::solution[]
+.Antwort
+Die Signatur ergibt sich aus dem Namen, dem Typ und der Anzahl der Parameter.
+endif::solution[]
+
+### Frage
+Eine Schnittstellendeklaration mit genau _einer_ abstrakten Methode heißen?
+
+ifdef::solution[]
+.Antwort
+Funktionale Schnittstelle
+endif::solution[]
+
+### Frage
+Wie können wir Java überprüfen lassen, ob eine Schnittstelle ein funktionales Interface ist?
+
+ifdef::solution[]
+.Antwort
+Mit der Annotation `@FunctionalInterface`.
+endif::solution[]
+
+### Frage
+Wie sieht schematisch die Syntax einer Methode in einer Schnittstelle aus, die mit einer Implementierung versehen ist?
+
+ifdef::solution[]
+.Antwort
+Die Methode muss das Schlüsselwort `default` haben.
+endif::solution[]
+
+### Frage
+Mit der Nutzung von `implements` im Kopf einer Klassendeklaration verpflichtet sich der Rumpf, was zu tun?
+
+ifdef::solution[]
+.Antwort
+Alle Methoden des Interfaces müssen implementiert werden.
+
+Ein Sonderfall wäre eine abstrakte Klasse. Hier kann die Implementierung von Methoden auch an Unterklassen delegiert werden.
+endif::solution[]
+
+### Frage
+Welchen Nutzen haben Schnittstellen außer von einer Klasse eine Implementierungsverpflichtung einzufordern?
+
+ifdef::solution[]
+.Antwort
+Man kann Schnittstellen als Typ im Code verwenden.
+endif::solution[]
+
+### Frage
+Karl sagt: "Wozu Schnittstellen, ich kann auch alles mit abstrakten Klassen machen, was Schnittstellen können." Was antwortet ihm Carla darauf?
+
+ifdef::solution[]
+.Antwort
+Man kann mehrere Schnittstellen implementieren, aber nur eine abstrakte Klasse erweitern.
+endif::solution[]
+
+### Frage
+Carla sagt: "Seitdem es default-Implementierungen bei Schnittstellen gibt, sind abstrakte Klassen überflüssig geworden." Was antwortet Karl darauf?
+
+ifdef::solution[]
+.Antwort
+Abstrakte Klassen können im Gegensatz zu Schnittstellen auch Felder besitzen.
+endif::solution[]
+
+### Frage
+----
+interface I { void foo(); }
+class A implements I { void foo() {} }
+----
+Autsch! Warum?
+
+ifdef::solution[]
+.Antwort
+Die Implementierung von `foo` müsste `public` sein, weil jede Methode eines Interfaces implizit `public` und `abstract` ist.
+endif::solution[]
+
+### Frage
+----
+abstract class A { void foo(); }
+----
+Aua! Weshalb?
+
+ifdef::solution[]
+.Antwort
+`foo` muss als `abstract` definiert werden.
+endif::solution[]
+
+### Frage
+`interface I { abstract void foo(); }` Geht das? Macht das Sinn?
+
+ifdef::solution[]
+.Antwort
+Das geht, macht aber nicht viel Sinn, da `foo` sowieso `abstract` wäre, auch wenn man den Modifizierer nicht verwendet.
+endif::solution[]
+
+
+
+### Frage
+Die Frage ist angeregt durch den Code auf S.277 aus Kapitel 12.
+----
+Geometrie geos = new Geometrie();
+----
+Ist `Geometrie` eine Klasse oder ein Interface?
+
+ifdef::solution[]
+.Antwort
+Das `new` und die runden Klammern für den argumentlosen Aufruf des Konstruktors verraten Ihnen, dass `Geometrie` eine Klasse sein muss.
+endif::solution[]
+
+### Frage
+Die Frage ist angeregt durch den Code auf S.277 aus Kapitel 12.
+----
+Geometrie[] geos = new Geometrie[4];
+----
+Ist `Geometrie` eine Klasse oder ein Interface?
+
+ifdef::solution[]
+.Antwort
+Es wird hier ein Array mit Elementen vom Typ `Geometrie` angelegt, mehr nicht. Es bleibt nachwievor offen, ob der Typ eine Klasse oder ein Interface ist.
+endif::solution[]

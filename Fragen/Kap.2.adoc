@@ -1,0 +1,472 @@
+== Variablenverwaltung
+
+### Frage
+
+Was heißt `final` als Teil einer Variablendefinition genau?
+
+ifdef::solution[]
+.Antwort
+Einer Variablen darf nur genau einmal ein Wert zugewiesen werden. Aber Achtung, siehe S. 83: Wenn der Wert nicht primitiv, sondern ein Referenztyp ist, so kann die Referenz zwar nicht mehr geändert werden, wohl aber kann es möglich sein, die Felder des referenzierten Objekts zu verändern!
+endif::solution[]
+
+### Frage
+
+`System.out. println(" Umfang: " + umfang);`
+
+Hier kommt ein Ausdruck der Form `String + double` vor. Welchen Effekt hat dieser Ausdruck?
+
+ifdef::solution[]
+.Antwort
+Der `+`-Operator wird hier aufgrund des `String`-Operanden als Konkatenation interpretiert. Der `double`-Wert wird im Hintergrund als Typ angepasst und in seiner Representation als Zeichenkette gewandelt.
+endif::solution[]
+
+### Frage
+
+Code auf S.63 oben: Wenn ich das in der JShell eingebe, gibt es gar keine Probleme. Irrt Herr Kofler, dass es da ein Problem geben kann?
+
+ifdef::solution[]
+.Antwort
+Normalerweise haben Variablen Default-Werte, und alles geht gut:
+
+----
+jshell> int x,y,z;
+x ==> 0
+y ==> 0
+z ==> 0
+
+jshell> x = 3;
+x ==> 3
+
+jshell> y = x + z;
+y ==> 3
+----
+
+Nicht jedoch, wenn die Variablen lokal in einem Codeblock sind. Ein Codeblock ist durch geschweifte Klammern ausgewiesen.
+
+----
+jshell> { int x,y,z; x = 3; y = x + z; }
+|  Error:
+|  variable z might not have been initialized
+|  { int x,y,z; x = 3; y = x + z; }
+----
+endif::solution[]
+
+### Frage
+
+Seite 63: Was ist damit gemeint, dass ein `float` eine Fließkommazahl mit "8 Stellen" darstellt? Geben Sie Beispiele für Zahlen, die nicht darstellbar sind.
+
+ifdef::solution[]
+.Antwort
+Ein Beispiel mit acht Stellen, das funktioniert:
+
+----
+jshell> float x = 0.00000000010f
+x ==> 1.0E-10
+----
+
+Die Zahl hat mehr als acht Stellen. Was ist gemeint?
+
+Es sind die acht "geltenden" Stellen gemeint, die ein `float` unterscheiden kann:
+
+----
+jshell> x = 1.1111111111f
+x ==> 1.1111112
+----
+
+Hier sind nur acht Stellen zu sehen. Führende oder abschließende Nullen
+endif::solution[]
+
+### Frage
+
+Unter welchem Namen findet man die Konstanten `+Infinity` und `-Infinity` in der Java-API?
+
+ifdef::solution[]
+.Antwort
+----
+jshell> Double.POSITIVE_INFINITY
+$9 ==> Infinity
+
+jshell> Double.NEGATIVE_INFINITY
+$8 ==> -Infinity
+----
+
+Ebenso natürlich unter `Float`.
+endif::solution[]
+
+### Frage
+
+Warum sind Rundungsfehler bei Fließkommazahlen nicht zu vermeiden?
+
+ifdef::solution[]
+.Antwort
+Es gibt Zahlen, die haben unendlich viele Nachkommastellen, wie z.B. Pi, die bei einer endlichen Darstellung immer zu Rundungsfehlern führen.
+
+----
+jshell> 2/3f
+$14 ==> 0.6666667
+----
+endif::solution[]
+
+### Frage
+
+Rundungsfehler machen auch einen exakten Vergleich von zwei Fließkommazahlen schwierig. Wie kann man sicher überprüfen, ob eine Variable vom Typ `float` oder `double` "gleich null" ist? Gibt es eine Lösung, die für alle denkbaren Szenarien funktioniert?
+
+ifdef::solution[]
+.Antwort
+Beispiel:
+
+----
+jshell> 0.1 + 0.1 + 0.1 == 0.3
+$15 ==> false
+----
+
+Bei Fließkommazahlen muss man sich darauf einigen, wieviele Nachkommastellen einem wichtig sind, da man um Rundungseffekte nicht herumkommt.
+
+----
+jshell> Math.abs(0.1+0.1+0.1-0.3) <= 0.00001
+$16 ==> true
+----
+
+Eine Standard-Lösung dafür gibt es nicht.
+endif::solution[]
+
+### Frage
+
+Wie sieht schematisch die Syntax zur Deklaration einer Variablen aus?
+
+ifdef::solution[]
+.Antwort
+Buch S.62 (unten): `datentyp varname [ = wert ];`
+endif::solution[]
+
+### Frage
+
+Warum ist das Erzeugen von Zufallszahlen in Java nicht mit statischen Methoden realisiert? Warum muss man ein Objekt der Klasse `Random` erzeugen?
+
+ifdef::solution[]
+.Antwort
+Der Zufall, den ein Computer erzeugt, ist deterministisch, d.h. eine Folge von Zufallszahlen wird durch einen Algorithmus berechnet. Beginnend von einem Startwert (_seed_) wird eine Zahlenfolge berechnet, die die Qualität einer Zufallsfolge hat, aber streng berechnet wird. Der letzte Zufallswert ist Grundlage für den nächsten Zufallswert. Dieser sogenannte Zustand wird in einer Variablen gespeichert. Um mehrere Zufallsgeneratoren betreiben zu können, wir der Generator als Objekt realisiert.
+endif::solution[]
+
+### Frage
+
+Welchen Wert haben die Variablen `x`, `y` und `z` nach der folgenden Definition: `int x, y, z = 1;`?
+
+ifdef::solution[]
+.Antwort
+----
+jshell> int x, y, z = 1;
+x ==> 0
+y ==> 0
+z ==> 1
+----
+
+Man könnte, sobald die Variablen deklariert sind, einen gleichen Wert für alle Variablen wie folgt setzen:
+
+----
+jshell> x = y = z = 2
+x ==> 2
+
+jshell> x
+x ==> 2
+
+jshell> y
+y ==> 2
+
+jshell> z
+z ==> 2
+----
+endif::solution[]
+
+### Frage
+
+Was ist "implizites Casting"? Geben Sie ein Beispiel.
+
+ifdef::solution[]
+.Antwort
+"Casting" heißt "Typanpassung". Implizit ist die Typanpassung dann, wenn sie von Java im Hintergrund für Sie gemacht wird. Addieren Sie z.B. einen `int` und einen `float`, so wird die Ganzzahl von Java implizit in einen Fließkommazahlenwert umgewandelt.
+endif::solution[]
+
+### Frage
+
+Was ist mit dem Begriff "Überlauf" gemeint?
+
+ifdef::solution[]
+.Antwort
+Wenn eine Rechnung den Wertbereich des Zahlentyps überschreitet, spricht man von einem (Zahlen)Überlauf. Java meldet bei einem Überlauf _keinen_ Fehler!
+endif::solution[]
+
+### Frage
+
+Warum kann man einen `int` implizit zu `long` casten, einen `long` aber nicht zu `int`?
+
+ifdef::solution[]
+.Antwort
+Weil beim Casting von `long` zu `int` Information verloren geht. Das macht Java nicht implizit, das müssen Sie im Zweifel explizit tun -- dann müssen Sie aber auch mit den möglichen Folgen leben.
+endif::solution[]
+
+### Frage
+
+Wie sieht die Syntax für einen expliziten Cast (Typumwandlung) aus?
+
+ifdef::solution[]
+.Antwort
+`(typ) wert`
+endif::solution[]
+
+### Frage
+
+Was versteht man unter einem "Modifizierer" bei der Variablendefinition? Geben Sie ein Beispiel an.
+
+ifdef::solution[]
+.Antwort
+Zum Beispiel modifiziert `final` eine Variable.
+endif::solution[]
+
+### Frage
+
+Welchen Datentyp und welchen dezimalen Wert haben die folgenden Literale?
+
+* `10`
+* `10.0`
+* `010`
+* `0x10`
+* `0b10`
+
+ifdef::solution[]
+.Antwort
+* `10` (`int`, die 10)
+* `10.0` (`double`, die 10.0)
+* `010` (ein `int` in oktaler Kodierung, der Wert ist 8)
+* `0x10` (ein `int` in hexadezimaler Kodierung, der Wert 16)
+* `0b10` (ein `int` in binärer Kodierung, der Wert 2)
+endif::solution[]
+
+### Frage
+
+Wie kann man den Wert "eine Million" mit drei Zeichen als Java-Literal darstellen?
+
+ifdef::solution[]
+.Antwort
+`1E6`
+endif::solution[]
+
+
+// Kapitel 2.4
+
+### Frage
+
+Welche Ausgabe produziert das folgende Programmstück:
+
+[source,java]
+----
+int x = 10;
+{
+  System.out.println(x);
+  int x = 5;
+  System.out.println(x);
+  {
+    System.out.println(x);
+  }
+}
+----
+
+ifdef::solution[]
+.Antwort
+Das Ergebnis ist: 10, 5, 5
+
+.Codeblöcke und Variablen
+****
+Codeblöcke definieren eigene Kontexte für sogenannte lokale Variablen. Ein eingegeschachtelter innerer Codeblock hat Zugriff auf die Variablen des umgebenden, äußeren Codeblocks, sofern eine namensgleiche Variable die äußere Variable nicht "überdeckt". Grundsätzlich hat jeder Codeblock Zugriff auf die Felder der Instanz bzw. der Klasse.
+****
+endif::solution[]
+
+### Frage
+
+Im Anschluss an obigen Code: Was ergibt `{ int x; int x; }`?
+
+ifdef::solution[]
+.Antwort
+Doppelte Variablendeklarationen sind verboten! Eine Variable kann in einem Codeblock nur genau einmal deklariert werden.
+endif::solution[]
+
+### Frage
+
+Ist es eine gute Idee, die drei Punkte eines Dreiecks mit dem folgenden Code zu initialisieren? Warum?
+
+[source,java]
+----
+java.awt.Point p1, p2, p3;
+p1 = p2 = p3 = new java.awt.Point(0, 0);
+----
+
+ifdef::solution[]
+.Antwort
+Alle drei Punkte haben die gleiche Referenz auf ein und dieselbe Instanz von `Point`. Damit entsteht niemals ein Dreieck aus drei _unterschiedlichen_ Instanzen.
+endif::solution[]
+
+### Frage
+
+Wie könnte einer dieser ominösen auf S.77 erwähnten "Copy-Konstruktoren" für die Klasse `java.awt.Point` aussehen?
+
+ifdef::solution[]
+.Antwort
+[source,java]
+----
+class Point {
+  int x, y;
+  Point(Point p) {
+    this(p.x, p.y);
+  }
+  Point(int x, int y) {
+    this.x = x;
+    this.y = y;
+  }
+}
+----
+
+Beispiel:
+
+----
+jshell> Point p = new Point(4,3)
+p ==> Point@25bbe1b6
+
+jshell> Point p2 = new Point(p)
+p2 ==> Point@69ea3742
+----
+
+Hier sehen Sie, dass es zwei unterschiedliche Referenzen für `p1` und `p2` gibt.
+endif::solution[]
+
+### Frage
+
+Was sind _boxing_ und _unboxing_ bei Wrapper-Klassen?
+
+ifdef::solution[]
+.Antwort
+Aus einem primitiven Typ einen Referenztyp machen, aus z.B. `int` einen `Integer`, das nennt man _boxing_. Das Gegenteil _unboxing_.
+endif::solution[]
+
+### Frage
+
+Was passiert bei der Ausführung von folgendem Code:
+
+[source,java]
+----
+Double x = null;
+double y = x;
+----
+
+ifdef::solution[]
+.Antwort
+----
+jshell> Double x = null
+x ==> null
+
+jshell> double y = x
+|  java.lang.NullPointerException thrown:
+|        at (#5:1)
+----
+endif::solution[]
+
+### Frage
+
+Warum kann man sowohl `int x = Integer.parseInt("123");` als auch `Integer x = Integer.parseInt("123");` schreiben? Was ist der Unterschied?
+
+ifdef::solution[]
+.Antwort
+Rückgabetype von `Integer.parseInt("123")` ist ein `int`. Im zweiten Fall der Zuweisung zu `Integer x` wird ein _boxing_ vorgenommen. Im ersten Fall ist `x` ein primitiver Typ, im zweiten bei `Integer x` ein Referenztyp. Wrapperklassen verbrauchen mehr Speicher als ihre primitiven Vorlagen.
+endif::solution[]
+
+### Frage
+
+Was passiert bei folgender Deklaration `Double x = 10;`? Warum?
+
+ifdef::solution[]
+.Antwort
+Die `10` ist der Literal für einen Integer `int`. Bei `double x = 10` wird der `int` implizit auf ein `double` gecastet. Bei `Double x = 10` (Wrapperklasse) geschieht kein implizites Casting, die Implementierung hat das nicht vorgesehen.
+endif::solution[]
+
+### Frage
+
+Gibt es einen Unterschied zwischen den folgenden beiden Codestücken?
+
+[source,java]
+----
+int x = 10;
+double y = x;
+----
+
+[source,java]
+----
+Integer x = 10;
+Double y = x;
+----
+
+ifdef::solution[]
+.Antwort
+Im ersten Snippet greift das Casting zwischen primitiven Typen. Bei den Wrapperklassen gibt es kein implizites Casting. Das zweite Snippet funktioniert nicht.
+endif::solution[]
+
+### Frage
+
+Ist `Integer` eine Sub- oder Superklasse von `Long`, oder keins von beidem?
+
+ifdef::solution[]
+.Antwort
+Es gibt keinen inneren Bezug zwischen diesen Klassen (also "keins von beidem").
+endif::solution[]
+
+### Frage
+
+Welche einzelnen Schritte müssen passieren, um eine Zahl von der Konsole einzulesen?
+
+ifdef::solution[]
+.Antwort
+Die Antwort findet sich auf S. 81:
+
+. Scanner erzeugen
+. `System.in` als Quelle angeben
+. Auslesen mit `.next()`
+
+[source,java]
+----
+java.util.Scanner scan = new java.util.Scanner(System.in);
+String s = scan.next();
+----
+endif::solution[]
+
+### Frage
+
+Woher weiß `System.out.println` in dem folgenden Beispiel, wie ein Punkt auf der Konsole aussehen soll?
+
+[source,java]
+----
+System.out.println(new java.awt.Point(0,0));
+----
+
+ifdef::solution[]
+.Antwort
+Die `Point`-Klasse hat eine eigene Implementierung der `toString`-Methode (sie überschreibt die `toString`-Methode der Klasse `Object`), die implizit aufgerufen wird, wenn ein `String``-Kontext angefragt wird.
+endif::solution[]
+
+### Frage
+
+Definieren Sie einen Enumerationstyp `Ternary`, der die drei Werte `TRUE`, `FALSE`, und `MAYBE` besitzt.
+
+ifdef::solution[]
+.Antwort
+[source,java]
+----
+enum Ternary { TRUE, FALSE, MAYBE }
+----
+endif::solution[]
+
+### Frage
+
+Können Enumerationstypen auch Methoden haben? Wie sieht die Deklaration eines solchen Typs aus?
+
+ifdef::solution[]
+.Antwort
+Ja. Der Kopf sieht wie bei `enum` aus, der Rumpf kann aber ansonsten wie eine Klasse mit Methoden, Konstruktoren etc. ausgestattet werden.
+endif::solution[]

@@ -1,0 +1,206 @@
+## Operatoren
+
+### Frage
+Operatoren kommen nur vor in ________?
+
+ifdef::solution[]
+.Antwort
+Ausdrücken
+endif::solution[]
+
+### Frage
+Was ist mit der Priorität eines Operators gemeint? Geben Sie ein Beispiel an.
+
+ifdef::solution[]
+.Antwort
+Die Priorität gibt die Rangfolge der Operatoren bei der Auswertung (Evaluation) an. Sie kennen aus der Arithmetik die Regel zur Rangfolge "Punkt- vor Strichrechnung".
+endif::solution[]
+
+### Frage
+Der Minus-Operator "`-`" ist linksassoziativ. Was ist damit gemeint? Erklären Sie das an einem Beispiel.
+
+ifdef::solution[]
+.Antwort
+Ein nicht vollständig geklammerter Ausdruck wird entsprechend der Assoziativität der Operatoren geklammert. Bei linksassoziativen Operatoren heißt das, dass der am weitesten links stehende Ausdruck zuerst ausgewertet wird.
+
+Beispiel: `3 - 4 - 5` wird interpretiert als `(3 - 4) - 5`.
+endif::solution[]
+
+### Frage
+Was ist der Unterschied zwischen `&` und `&&`?
+
+ifdef::solution[]
+.Antwort
+Das `&` ist ein bitweiser Operator (Ergebnis vom Typ `int` bzw. `long`), das `&&` ein logischer (Ergebnis vom Typ `boolean`).
+endif::solution[]
+
+### Frage
+Die Zuweisung ist ein Operator. Das heißt, die Zuweisung hat als Ergebnis einen ___?
+
+ifdef::solution[]
+.Antwort
+Wert
+endif::solution[]
+
+### Frage
+Anschluss an vorherige Frage: Ist der Zuweisungsoperator rechts- oder linksassoziativ? Können Sie einen Grund angeben, warum es so sein muss?
+
+ifdef::solution[]
+.Antwort
+Der Zuweisungsoperator ist rechtsassoziativ. Das ist nötig, damit der Ausdruck `x = y = z = 3` funktioniert.
+endif::solution[]
+
+### Frage
+Es gibt drei(!) Kontexte im Zusammenhang von Ausdrücken, in denen runde Klammernpaare `(...)` vorkommen. Welche sind das?
+
+ifdef::solution[]
+.Antwort
+Die ersten zwei Kontexte finden Sie in der Operatoren-Tabelle. Den dritten Kontext sollten Sie nicht vergessen!
+
+* Casting
+* Methodenaufrufe
+* Klammerung von Ausdrücken zur Veränderung der Priorität (Rangfolge) bei der Evaluation (Auswertung) eines Ausdrucks; Beispiel: `(1 + 2) * 3`, denn in `1 + 2 * 3` greift die Priorität, die Sie als "Punkt- vor Strichrechnung" kennen.
+
+Die syntaktische Funktion von runden Klammern im Zusammenhang von Anweisungen (die Frage bezog sich auf Ausdrücke!) wie im Kopf einer Schleife, einer `if`-Anweisung, der Deklaration eines Methodenkopfs ist hier nicht gemeint gewesen. Die Frage bezog sich auf Ausdrücke, nicht Anweisungen!
+endif::solution[]
+
+### Frage
+Erklären Sie, wie die Kopfzeile im `while` funktioniert:
+
+`while((line = breader.readLine()) != null) { ... }`
+
+ifdef::solution[]
+.Antwort
+. Der Variable `line` wird das Ergebnis des Aufrufs `breader.readLine()` zugewiesen.
+. Das Ergebnis dieser Zuweisung ist der neue Wert den `line` erhalten hat.
+. Dieser Wert wird mit `null` verglichen.
+endif::solution[]
+
+### Frage
+Angenommen, es gäbe den Modulo-Operator `%` in Java nicht. Wie müsste dann eine Implementierung `mod(int x, int y)` z.B. in der `Math`-Klasse aussehen?
+
+ifdef::solution[]
+.Antwort
+[source,java]
+----
+static int mod(int x, int y) {
+  int d = x / y;
+  return x - d * y;
+}
+----
+
+Erinnern Sie sich an das Substitutionsprinzip, das man hier anwenden kann. Der Ausdruck zur Zwischenrechnung, dessen Ergebnis in der Variablen `d` gespeichert wird, kann direkt im `return` die Variable `d` ersetzen. Somit wird der Rumpf der `mod`-Methode zu einem Einzeiler:
+
+[source,java]
+----
+  return x - (x / y) * y;
+----
+endif::solution[]
+
+### Frage
+Die Kurzform `x += 3` bedeutet ausführlich was?
+
+ifdef::solution[]
+.Antwort
+`x = x + 3`
+endif::solution[]
+
+### Frage
+Erläutern Sie den Unterschied von `int a = n++;` zu `int a = ++n;`!
+
+ifdef::solution[]
+.Antwort
+`int a = n++;` entspricht den Anweisungen `int a = n; n = n + 1;`. Bei `int a = ++n;` dreht sich die Reihenfolge um: `n = n + 1; int a = n;`.
+endif::solution[]
+
+### Frage
+Die Vergleichoperatoren wie `>`, `<=`, `==` usw. stehen für welche Typen zur Verfügung?
+
+ifdef::solution[]
+.Antwort
+Für alle primitiven Typen außer `boolean` und ihre Wrappertypen.
+endif::solution[]
+
+### Frage
+Wann kann man die Methode `compareTo` verwenden?
+
+ifdef::solution[]
+.Antwort
+Wenn das Objekt das Interface `Comparable` implementiert.
+endif::solution[]
+
+### Frage
+Warum ist es keine gute Idee, zwei Zeichenketten mit `==` zu vergleichen?
+
+ifdef::solution[]
+.Antwort
+Weil damit die Identität der Referenzen überprüft wird, nicht aber der Inhalt des Strings. Für Strings und andere komplexe Datentypen sollte man die Methode `equals` verwenden.
+endif::solution[]
+
+### Frage
+Was ist der Unterschied von `&` und `&&` bei boolschen Werten? In beiden Fällen ergibt sich immer das gleiche Ergebnis, z.B.:
+
+----
+jshell> true && false
+$11 ==> false
+jshell> true & false
+$12 ==> false
+----
+
+ifdef::solution[]
+.Antwort
+Der Operator `&&` ist _short-circuited_ (engl. für kurzgeschlossen), d.h. wenn an dem linken Operanden schon zu erkennen ist, was das Ergebnis sein muss, wird der rechte Operand überhaupt nicht mehr ausgewertet.
+endif::solution[]
+
+### Frage
+Wandeln Sie ein `if (expr1 && expr2) {...}` so um, dass Sie nur `if`-Anweisungen ohne den `&&`-Operator verwenden!
+
+ifdef::solution[]
+.Antwort
+`if (expr1) if (expr2) {...}`
+endif::solution[]
+
+### Frage
+Gleiche Aufgabe: Umwandlung von `if (expr1 || expr2) { ... }`.
+
+ifdef::solution[]
+.Antwort
+`if (expr1) { ... } else if (expr2) { ... }`
+endif::solution[]
+
+### Frage
+Multiplizieren Sie eine `int`-Zahl mit `4` ohne die Multiplikation zu verwenden.
+
+ifdef::solution[]
+.Antwort
+`zahl << 2`
+endif::solution[]
+
+### Frage
+Warum ist der ternäre-Operator nicht mit einem `if` zu vergleichen? Was ist anders?
+
+ifdef::solution[]
+.Antwort
+Der ternäre-Operator ist ein Ausdruck (mit einem Ergebnis), das `if` ist eine Anweisung (ohne Ergebnis).
+endif::solution[]
+
+### Frage
+Implementieren Sie eine Methode `odd(int n)` (_odd_ heißt "ungerade"), die mithilfe eines Bitoperators ermittelt, ob der übergebene Integer ungerade ist oder nicht.
+
+ifdef::solution[]
+.Antwort
+[source,java]
+----
+boolean odd(int n) {
+  return n & 1 == 1;
+}
+----
+endif::solution[]
+
+### Frage
+`return b == true ? false : true;` Verkürzen Sie die `return`-Anweisung.
+
+ifdef::solution[]
+.Antwort
+`return !b;`
+endif::solution[]

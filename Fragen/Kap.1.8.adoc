@@ -1,0 +1,131 @@
+== Hello World!: Java-Crashkurs [Kap. 1.8]
+
+### Frage
+`String x = "abc";` Wo ist das `new` zur Instanziierung?
+
+ifdef::solution[]
+.Antwort
+Der Ausdruck `"abc"` ist ein Literal, das eine Abkürzende Schreibweise für den Konstruktoraufruf mit `new` darstellt.
+endif::solution[]
+
+### Frage
+Wie unterscheidet sich ein Javadoc-Kommentar von normalen Kommentaren?
+
+ifdef::solution[]
+.Antwort
+Javadoc-Kommentare können automatisch weiterverarbeitet werden, z.B. von IDEs wie Eclipse oder IntelliJ. Die HTML-API von Java wurde ebenfalls aus den Javadoc-Kommentaren generiert.
+endif::solution[]
+
+### Frage
+Was ist ein Schlüsselwort?
+
+ifdef::solution[]
+.Antwort
+Ein reservierter Begriff, der nicht für Bezeichner verwendet werden kann, weil er in Sprachkonstrukten gebraucht wird (z.B. `if`, `for`, `class`).
+endif::solution[]
+
+### Frage
+Never use Dollars in Javaland. Why?
+
+ifdef::solution[]
+.Antwort
+Dollars werden für automatisch generierten Code verwendet.
+endif::solution[]
+
+### Frage
+`for(int i=0; i<=10; i++);`. Wo ist das Problem?
+
+ifdef::solution[]
+.Antwort
+Die Schleife tut gar nichts, weil der Körper aus einer leeren Anweisung (Semikolon) besteht.
+endif::solution[]
+
+### Frage
+Das `;` (Semikolon) beendet eine ___?
+
+ifdef::solution[]
+.Antwort
+Anweisung
+endif::solution[]
+
+### Frage
+Das `+` bei Strings ist ein ___-Operator
+
+ifdef::solution[]
+.Antwort
+Konkatenations-Operator
+endif::solution[]
+
+### Frage
+Wenn jede Anweisung mit einem Semikolon beendet werden muss, gilt das auch für `if` oder `while`?
+
+Bsp.: `if (x < 0); x = 0;` (Was macht dieser Code?)
+
+ifdef::solution[]
+.Antwort
+Wenn das `if` greift, wird es von einer leeren Anweisung `;` gefolgt -- insofern bleibt das `if` wirkungslos. Der sich anschließende Ausdruck `x = 0;` wird immer ausgeführt.
+endif::solution[]
+
+### Frage
+Warum kann man die Klasse `Math` verwenden, ohne sie vorher zu importieren?
+
+ifdef::solution[]
+.Antwort
+Weil sie im Paket `java.lang` definiert ist, das immer importiert wird.
+endif::solution[]
+
+### Frage
+Wann kommt ein Punkt `.` vor den Klassennamen?
+
+ifdef::solution[]
+.Antwort
+Wenn die Klasse in einem (noch nicht importierten) Paket definiert ist.
+endif::solution[]
+
+### Frage
+Auf S.54 steht was zur Option `-encoding`. In welchem Aufgabenblatt gibt es dazu eine Anmerkung?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+Auf S.52 unten heißt es: "Java kennt keine Eigenschaften." Auf S.57 unten jedoch: "Über Attribute können Eigenschaften von Objekten gelesen bzw. gespeichert werden." Was ist da los? Ein Widerspruch?
+
+ifdef::solution[]
+.Antwort
+Der Begriff "Eigenschaften" ist hier doppelt belegt. Im ersten Satz ist das englische _property_ gemeint, womit ein Sprachkonstrukt bezeichnet wird, das es in Java nicht gibt. Im zweiten Satz geht es tatsächlich um "Eigenschaften" im umgangssprachlichen Sinne, also um Felder von Objekten. Leider werden diese Begriffe nicht immer einheitlich verwendet.
+endif::solution[]
+
+### Frage
+`import paket.*;` Was meint der Stern `*` in der `import`-Anweisung?
+
+ifdef::solution[]
+.Antwort
+Der Stern importiert alle Klassen in dem jeweiligen Paket.
+endif::solution[]
+
+### Frage
+S.59 im Code: `DateTimeFormatter.ofPattern(  "EEEE, d. MMMM yyyy" );` Häh?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+Warum kann man keine Instanz der Klasse `Math` erzeugen?
+
+ifdef::solution[]
+.Antwort
+Der Konstruktor von `Math` ist nicht `public` und damit ist keine Instanz von `Math` erzeugbar.
+endif::solution[]
+
+### Frage
+Warum muss man überhaupt `import` verwenden?
+
+ifdef::solution[]
+.Antwort
+Weil Klassen in Paketen organisiert sind. Dadurch ist es möglich, nur die Klassen zu laden, die auch benötigt werden. Gäbe es diese Paketorganisation nicht, müsste man außerdem immer aufpassen, dass Namen von eigenen Klassen nicht identisch sind mit dem Namen irgendeiner Klasse irgendwo in der Java-API.
+endif::solution[]

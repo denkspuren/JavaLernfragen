@@ -1,0 +1,357 @@
+== Methoden
+
+### Frage
+Haben Klassen Methoden? Oder haben Objekte Methoden?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+In Java gibt es Klassen, die nur statische Methoden haben. Macht das Sinn? Nennen Sie ein Beispiel.
+
+ifdef::solution[]
+.Antwort
+Ja. So z.B. bietet die Klasse `Math` statische Methoden an. Wir brauchen keine Instanzen, da mathematische Funktionen zustandslos sind.
+endif::solution[]
+
+### Frage
+Wie sieht der syntaktische Aufbau des Kopfes einer Methode aus? Beginnen Sie beim Rückgabetyp.
+
+ifdef::solution[]
+.Antwort
+----
+rückgabetyp methodName(typ1 parName1, typ2 parName2)
+----
+endif::solution[]
+
+### Frage
+Jemand schreibt die Methode `void Sort(String[] passwords)` und bekommt sofort Schelte von seinen Kolleg(inn)en. Warum?
+
+ifdef::solution[]
+.Antwort
+Methodennamen niemals mit einem Großbuchstaben beginnen! Es sollte `sort` heißen.
+endif::solution[]
+
+### Frage
+Wenn `Arrays.sort()` ein bestehendes Array verändern kann, könnte man dann auch eine Methode `void increment(int i) {...}` schreiben, die eine bestehende Integer-Variable verändert?
+
+ifdef::solution[]
+.Antwort
+Der Aufruf von `increment(j)` führt dazu, dass der Wert hier der Variablen `j` an `i` zugewiesen wird (Fachbegriff: _pass by value_). Damit können aber keine Änderungen am Wert von `j` bewirkt werden.
+endif::solution[]
+
+### Frage
+In jedem Java-Programm muss es genau eine `main`-Methode geben. Wie muss der Kopf der `main`-Methode aussehen?
+
+ifdef::solution[]
+.Antwort
+`public static void main(String[] args)`
+endif::solution[]
+
+### Frage
+`static Car getCar() { return this.car; }` Autsch! Warum?
+
+ifdef::solution[]
+.Antwort
+In einer statischen Methode darf niemals `this` genutzt werden.
+endif::solution[]
+
+### Frage
+In welchem Fall _muss_ eine Methode in ihrem Rumpf eine `return`-Anweisung enthalten?
+
+ifdef::solution[]
+.Antwort
+Wenn der Rückgabetype `void` ist, kann, muss aber kein `return` (ohne Rückgabewert) im Rumpf vorkommen. Ansonsten muss immer mindestens ein `return` im Rumpf mit einem Rückgabewert vorkommen.
+endif::solution[]
+
+### Frage
+Die Methode `String.valueOf` muss mit sehr vielen verschiedenen Datentypen als Parameter umgehen. Wie kann es sein, dass man an die Methode sowohl einen `double` als auch einen `char` übergeben kann und trotzdem immer das richtige Ergebnis bekommt?
+
+ifdef::solution[]
+.Antwort
+Unter dem gleichen Namen, hier `valueOf`, gibt es verschiedene Methodenköpfe (und damit auch verschiedene Implementierungen) die jeweils verschiedene Typen im Kopf für den Parameter formulieren. (Fachbegriff: _method dispatch_ nennt sich der Mechanismus, die richtige Methodenimplementierung herauszusuchen.)
+endif::solution[]
+
+### Frage
+`float numberOne() { return 1.0; }` Autsch oder nicht Autsch, das ist hier die Frage!
+
+ifdef::solution[]
+.Antwort
+Autsch, da `1.0f` im `return``stehen muss.
+endif::solution[]
+
+### Frage
+Könnte man den Parameter `args` der Main-Methode auch als eine variable Anzahl von Strings definieren? Probieren Sie es aus!
+
+ifdef::solution[]
+.Antwort
+Ja, darf man! // Check TODO
+endif::solution[]
+
+### Frage
+Eine Methode sei mit einem Argument deklariert (keine Überladung), sie wird jedoch mit drei Argumenten aufgerufen -- und Java akzeptiert das klaglos. Wie muss die Methode deklariert worden sein?
+
+ifdef::solution[]
+.Antwort
+Wieder ein `...` (Varargs).
+endif::solution[]
+
+### Frage
+Was ist der sogenannte _CallStack_?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+Ist die folgende Definition von überladenen Methoden zulässig?
+
+[source,java]
+----
+float foo(int x) { return x; }
+float foo(int ... x) { return x[0]; }
+----
+
+ifdef::solution[]
+.Antwort
+Der Aufruf scheint mehrdeutig zu sein. Bei dem Aufruf mit einem Argument wird die spezifischere Deklaration (die erste) ausgewählt.
+endif::solution[]
+
+### Frage
+Auf welche Weisen kann man eine Methode "überladen"?
+
+ifdef::solution[]
+.Antwort
+Durch die
+* Anzahl und den
+* Typ
+der Parameter.
+endif::solution[]
+
+### Frage
+`void doStuff(int ... x, String y) { ... }` - Geht das?
+
+ifdef::solution[]
+.Antwort
+Varargs müssen immer am Ende deklariert sein.
+endif::solution[]
+
+### Frage
+Was ist der Grund, wenn der CallStack überläuft?
+
+ifdef::solution[]
+.Antwort
+endif::solution[]
+
+### Frage
+Definieren Sie eine Methode `floatEquals`, die zwei float-Werte `a` und `b` und einen optionalen dritten float Wert `tolerance` übernimmt und einen `boolean` zurückgibt.
+
+ifdef::solution[]
+.Antwort
+Varargs sind keine Lösung, weil sonst auch mehr als drei Argumente möglich wären.
+----
+boolean floatEquals(float a, float b) { ... }
+boolean floatEquals(float a, float b, float tolerance) { ... }
+----
+endif::solution[]
+
+### Frage
+Welche Informationen werden auf dem CallStack gespeichert?
+
+ifdef::solution[]
+.Antwort
+endif::solution[]
+
+### Frage
+Wenn man einen Parameter mit `final` ausweist verhindert das ... was?
+
+ifdef::solution[]
+.Antwort
+Man dem Wert des Parameters keinen neuen Wert zuweisen.
+endif::solution[]
+
+// ab hier Kap. 8.3 folgende
+
+### Frage
+
+[source,java]
+----
+void foo() {
+  return;
+  System.out.println("returned");
+}
+----
+Geht das?
+
+ifdef::solution[]
+.Antwort
+Ein Methodenaufruf endet bei dem `return`, die nachfolgende Codezeile wird niemals ausgeführt und ist damit toter Code (_dead code_). Der Java-Compiler erkennt das und übersetzt deshalb den Code nicht, in der Annahme, dass das keine Absicht sein kann.
+endif::solution[]
+
+### Frage
+
+[source,java]
+----
+void bar() {
+  if (true) return;
+  System.out.println("returned");
+}
+----
+Und das?
+
+ifdef::solution[]
+.Antwort
+Der Code nach dem `if` wird vom Compiler nicht als toter Code erkannt, da er die Konsequenz von dem `true` nicht nachvollzieht.
+endif::solution[]
+
+### Frage
+`return(0)` statt `return 0` ist in Java zulässig. Geht auch `return()` statt `return` für void-Methoden?
+
+ifdef::solution[]
+.Antwort
+Nein. Die Klammern im `return` sind möglich, weil man Ausdrücke grundsätzlich klammern kann. Ein `()` ist kein gültiger Ausdruck.
+endif::solution[]
+
+### Frage
+Läuft der Code?
+[source,java]
+----
+void flopp(int n) {
+    if (true) return;
+}
+----
+
+ifdef::solution[]
+.Antwort
+Ja, sie läuft.
+endif::solution[]
+
+### Frage
+Und dieser hier?
+[source,java]
+----
+int flopp(int n) {
+    if (true) return 0;
+}
+----
+
+ifdef::solution[]
+.Antwort
+Java meldet "missing return statement". Den Fall hatten wir oben schon. Java erwartet, dass es nach dem `if` (wenn die Bedingung nicht greift), weiter geht und dort auch ein `return` folgen muss.
+endif::solution[]
+
+### Frage
+Was passiert bei der Ausführung dieser Methode?
+[source,java]
+----
+float baz(float x) {
+  try {
+    if (x < 0) return 0;
+    x *= 2;
+    return x;
+  } finally {
+    System.out.println("returned from call baz(" + x + ")");
+  }
+}
+----
+
+ifdef::solution[]
+.Antwort
+Das `finally` wird immer ausgeführt, egal ob die Exception geworfen wurde oder nicht -- sogar noch "nach" dem `return`.
+.`finally` schlägt `return`
+****
+Mit `finally` ist es möglich, dass "nach" einem `return` noch Code ausgeführt wird!
+****
+endif::solution[]
+
+### Frage
+[source,java]
+----
+int rek(int n) {
+  if(n == 0) return 0;
+  return 2 * rek(n - 2);
+}
+----
+Geht das gut?
+
+ifdef::solution[]
+.Antwort
+Für große `n` wird der CallStack vorzeitig erschöpft, so dass kein Ergebnis berechnet wird.
+endif::solution[]
+
+### Frage
+Bei der Rekursion unterscheidet man stets den Abbruch- und den Wiederholungsfall. Erklären Sie das am Beispiel der rekursiven Implementierung der Fakultätsfunktion.
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+[source,java]
+----
+int fib(int n) { return n < 2 ? n : fib(n-1) + fib(n-2); }
+----
+
+Listen Sie die Aufrufe der Methode `fib` nacheinander auf, die ausgelöst werden, wenn `int x = fib(4);` ausgeführt wird.
+
+ifdef::solution[]
+.Antwort
+----
+fib(4) -> return fib(3) + ...
+                  +-> return fib(2) + ...
+                              +-> return fib(1) + ...
+                                           1    + fib(0)
+                                                    0
+----
+endif::solution[]
+
+### Frage
+[source,java]
+----
+boolean isOdd(int n) {
+  return n >= 0 && (n == 0 || isOdd(n-2));
+}
+----
+Funktioniert das?
+
+ifdef::solution[]
+.Antwort
+Ja. Das Fazinierende ist, dass es kein `if` gibt. Die Fallunterscheidung kommt durch das `&&` zustande, dass die rechte Seite nur auswertet, wenn die linke ein `true` ergibt.
+endif::solution[]
+
+### Frage
+Es gibt einen Klassiker zur sogenannten wechselseitigen Rekursion: Methode `boolean isOdd(int n)` ruft `boolean isEven(int n)` auf und umgekehrt. Dabei reduziert jede Methode den Zahlenwert um 1, bevor der Gegenpartner aufgerufen wird. Was ist der jeweilige Abbruchfall? Implementieren Sie diese Rekursion.
+
+ifdef::solution[]
+.Antwort
+----
+boolean isOdd(int n) {
+    if (n == 0) return false;
+    return isEven(n-1);
+}
+
+boolean isEven(int n) {
+    if (n == 0) return true;
+    return isOdd(n-1);
+}
+----
+endif::solution[]
+
+### Frage
+----
+int foo(int n) {
+  if (n > 100) return n-10;
+  else return foo(foo(n+11));
+}
+----
+WTF? Ist das erlaubt?
+
+
+ifdef::solution[]
+.Antwort
+Verstehen Sie auf den ersten Blick, was der Code macht? Das ist die McCarthy-Funktion, die schwer zu durchblicken ist.
+endif::solution[]

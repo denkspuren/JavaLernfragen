@@ -1,0 +1,258 @@
+## Verzweigungen und Schleifen
+
+### Frage
+Wie sieht die Syntax einer If-Abfrage aus?
+
+ifdef::solution[]
+.Antwort
+----
+if (Bedingung) {
+  Anweisungen
+}
+----
+endif::solution[]
+
+### Frage
+Wie sähe der Ausdruck `x = x < 0 ? -x : x` mit einer normalen If-Abfrage aus?
+
+ifdef::solution[]
+.Antwort
+----
+if (x < 0) x = -x;
+----
+endif::solution[]
+
+### Frage
+Schreiben sie eine If-Abfrage, die abhängig vom Monat in der Integer-Variablen `month` (Der Januar entspricht der `1`) die Jahreszeit ausgibt. (3-5: Frühling, 6-8: Sommer, 9-11: Herbst, 12-2: Winter)
+
+ifdef::solution[]
+.Antwort
+[source,java]
+----
+if (month >= 3 && month <= 5) {
+  System.out.println("Frühling");
+} else if (month >= 6 && month <= 8) {
+  System.out.println("Sommer");
+} else if (month >= 9 && month <= 11) {
+  System.out.println("Herbst");
+} else {
+  System.out.println("Winter");
+}
+----
+endif::solution[]
+
+### Frage
+Schreiben sie eine Switch-Verzweigung, die abhängig vom Monat in der Integer-Variablen `month` (Der Januar entspricht der `1`) die Jahreszeit ausgibt. (3-5: Frühling, 6-8: Sommer, 9-11: Herbst, 12-2: Winter)
+
+ifdef::solution[]
+.Antwort
+[source,java]
+----
+switch(month) {
+  case 3: case 4: case 5:
+    System.out.println("Frühling");
+    break;
+  case 6: case 7: case 8:
+    System.out.println("Sommer");
+    break;
+  case 9: case 10: case 11:
+    System.out.println("Herbst");
+    break;
+  default:
+    System.out.println("Winter");
+}
+----
+endif::solution[]
+
+### Frage
+Was sind die drei Teile des Kopfes einer For-Schleife?
+
+ifdef::solution[]
+.Antwort
+. Initialisierung
+. Fortsetzungsbedingung
+. Schrittanweisung
+endif::solution[]
+
+### Frage
+Ist die folgende Schleife syntaktisch korrekt? Falls ja, was wird auf der Konsole ausgegeben?
+
+[source,java]
+----
+int i,j;
+for(i = 0, j = 0; i+j < 10; j++, i++) {
+  System.out.println(i + " " + j);
+}
+----
+
+ifdef::solution[]
+.Antwort
+Ja, die Schleife ist korrekt. Die Ausgabe lautet wie folgt:
+
+----
+0 0
+1 1
+2 2
+3 3
+4 4
+----
+endif::solution[]
+
+### Frage
+In Anlehnung an die letzte Frage: Können Sie mit einem einzigen Schleifenkopf eine Schleife schreiben, die die x- und y-Koordinaten aller Pixel eines Bildes mit 8x10 Pixeln durchläuft?
+
+ifdef::solution[]
+.Antwort
+[source,java]
+----
+int x,y;
+for(x = 0, y = 0; x < 8 && y < 10; x = (x + 1) % 8, y = x == 0 ? y + 1 : y) {
+  System.out.println(x + " " + y);
+}
+----
+endif::solution[]
+
+### Frage
+Ist die folgende Variante der Schleife auf S. 108 auch korrekt?
+
+[source,java]
+----
+int i;
+for(int i=0; i < 10; i++) {
+  machEtwas(i);
+}
+----
+
+ifdef::solution[]
+.Antwort
+Nein, diese Schleife ist nicht korrekt. Die Variable `i` im Kopf der `for`-Schleife darf nicht namensgleich mit einer lokalen Variablen im außeren Umfeld der `for`-Schleife sein.
+// TODO hier muss eigentlich noch etwas mehr erklärt werden
+endif::solution[]
+
+### Frage
+Ist `for(int i; i < 10; i++) { ... }` korrekt?
+
+ifdef::solution[]
+.Antwort
+Der Code ist nicht korrekt. Die Variable `i` wird nicht initialisiert.
+endif::solution[]
+
+### Frage
+Was ist bei Schleifen zu beachten deren Zählvariable vom Typ `float` oder `double` ist?
+
+ifdef::solution[]
+.Antwort
+Die Fortsetzungsbedingung sollte kein exakter Vergleich sein, da dieser eventuell durch Rundungsfehler nie zutrifft.
+endif::solution[]
+
+### Frage
+Kann der Zähler einer `for`-Schleife auch den Typ `char` haben?
+
+ifdef::solution[]
+.Antwort
+Ja, da ein `char` immer auch einem Zahlwert entspricht (entsprechend der UTF-16-Kodierung).
+endif::solution[]
+
+### Frage
+Ein Student und eine Studentin schreiben den folgenden `for`-Kopf, um die Summe der Zahlen von 1 bis 50 zu berechnen: `for(i = 1, sum = 0; i <= 50; sum += i++);` Was sagt Ihnen Ihr Programmierverstand?
+
+(Übrigens: Der Kopf der Schleife ist syntaktisch korrekt, da liegt nicht das Problem!)
+
+ifdef::solution[]
+.Antwort
+Die Variable `sum` wird innerhalb der Schleife definiert, kann aber außerhalb der Schleife nicht mehr ausgelesen werden.
+endif::solution[]
+
+### Frage
+Schreiben Sie die folgende For-each-Schleife mit einer normalen for-Schleife: `for(int x: ar) { System.out.println(x); }`
+
+ifdef::solution[]
+.Antwort
+[source,java]
+----
+for(int i = 0; i < ar.length; i++) {
+  System.out.println(ar[i]);
+}
+----
+endif::solution[]
+
+### Frage
+Was ist der Unterschied zwischen einer while-Schleife und einer do-while-Schleife? In welchem Fall ist die eine sinnvoller, in welchem die andere?
+
+ifdef::solution[]
+.Antwort
+Die do-while-Schleife wird immer mindestens einmal durchlaufen. Wenn man z.B. einen Verbindungsversuch über das Netzwerk im Fehlerfall wiederholen möchte, wäre eine do-while-Schleife passender, da der Verbindungsversuch ja auf jeden Fall mindestens einmal stattfinden sollte.
+endif::solution[]
+
+### Frage
+Man kann jede `for`-Schleife in eine `while`- bzw. `do/while`-Schleife umwandeln. Stimmt das?
+
+ifdef::solution[]
+.Antwort
+Ja.
+endif::solution[]
+
+### Frage
+Beschreiben Sie die Ausführung einer `for`-Schleife:
+
+`for(init ; cond ; change) { body ; }` Welche Anteile werden in welcher Reihenfolge wiederholt ausgeführt?
+
+ifdef::solution[]
+.Antwort
+. `init`
+. falls `cond`, dann `body`
+. `change`
+. gehe zu 2.
+endif::solution[]
+
+### Frage
+Herrn Kofler kräuseln sich die Fußnägel, wenn Sie Fließkommazahlen im Kopf einer `for`-Schleife verwenden. Warum?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+`for(int i = 0; i < 100; i++) { if (i % 2 == 0) System.out.println(i); }`
+
+Vervollständigen Sie den folgenden Code so, dass er das gleiche tut wie der oben stehende Code:
+
+[source,java]
+----
+int i = 0;
+while(true) {
+ // hier bitte Code einfügen
+ System.out.println(i);
+ // hier bitte Code einfügen
+}
+----
+
+Sie dürfen bereits bestehende Zeilen nicht mehr ändern, nur welche hinzufügen.
+
+ifdef::solution[]
+.Antwort
+[source,java]
+----
+int i = 0;
+while(true) {
+ if(i >= 100) break;
+ if(i % 2 != 0) continue;
+ System.out.println(i);
+ i++;
+}
+----
+endif::solution[]
+
+### Frage
+Der Kopf `for(int i = 1; ; i++)` sei gegeben, Sie dürfen ihn nicht verändern. Allerdings darf die Schleife nur für `i` bis 50 laufen. Retten Sie das im Rumpf!
+
+ifdef::solution[]
+.Antwort
+[source,java]
+----
+for(int i = 1; ; i++) {
+  if (i > 50) break;
+}
+----
+endif::solution[]

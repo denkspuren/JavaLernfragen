@@ -1,0 +1,671 @@
+== Klassen
+
+[TIP]
+====
+Hinweis: Tabelle 10.1, Modifizierer, müssen Sie können.
+====
+
+Es kam die Frage auf, warum man in einer Klasse überhaupt Felder und Methoden *nicht* `static` machen soll. Hier ein Versuch, unsere Diskussion nachzuzeichnen.
+
+Wir erstellen eine Klasse `Car` und geben ihr das statische Feld `owner`. Die Besitzerin heiße Lisa.
+
+----
+jshell> class Car { static String owner; }
+|  created class Car
+
+jshell> Car.owner = "Lisa"
+$13 ==> "Lisa"
+----
+
+Lisa hat zwei Autos. Also instanziieren wir zwei Autos. Jedes dieser Autos können wir nach dem Wert des Felds `owner` befragen.
+
+----
+jshell> Car car1 = new Car()
+car1 ==> Car@148080bb
+
+jshell> car1.owner
+$15 ==> "Lisa"
+
+jshell> Car car2 = new Car()
+car2 ==> Car@6e1ec318
+
+jshell> car2.owner
+$17 ==> "Lisa"
+----
+
+Nun verkauft mir Lisa eines der Autos -- sie erklärt sich einverstanden, dass ich als neuer Eigentümer ihres zweiten Autos eingetragen werde.
+
+----
+jshell> car2.owner = "Dominikus"
+$18 ==> "Dominikus"
+----
+
+Weil `owner` eine statische Klassenvariable ist, habe ich Lisa nun auch ihr anderes Auto abgeluchst, dessen Eigentümer ich nun ebenfalls bin.
+
+----
+jshell> car2.owner = "Dominikus"
+$18 ==> "Dominikus"
+----
+
+Zauberei? Betrug? Mitnichten, es liegt an der statischen Klassenvariablen. Wäre `owner` keine statische Klassenvariable gewesen, dann hätte jedes Auto seinen eigenen Wert für einen Eigentümer speichern können -- und Lisa hätte mir nicht unfreiwillig all ihre Autos abgetreten. Probieren Sie's aus!
+
+Was lernen wir? Ein statisches Feld enthält einen Wert, den die Klasse speichert und der für alle Instanzen der Klasse gleich ist. Ein "normales", nicht statisches Feld ist eine Variable, die jede Instanz für sich individuell angelegt bekommt. Und genau das möchte Objektorientierung: jeder Instanz eine eigene Umgebung für (nicht statische) Klassenvariablen mitgeben.
+
+### Frage
+Herr Kofler nennt welche Vorteile, die Objektorientierung bietet?
+
+ifdef::solution[]
+.Antwort
+// TODO
+endif::solution[]
+
+### Frage
+Wann ist eine Klasse *keine* _top level_-Klasse?
+
+ifdef::solution[]
+.Antwort
+Wenn sie innerhalb von geschweiften Klammern steht.
+endif::solution[]
+
+### Frage
+----
+void foo() {
+ class StrangeThing {
+   boolean isStrange = true;
+ }
+ StrangeThing thing = new StrangeThing();
+ System.out.println(thing.isStrange);
+}
+----
+Geht das?
+
+ifdef::solution[]
+.Antwort
+Das geht. Es handelt sich hier um eine lokale Klassendefinition, die nur innerhalb der Methode `foo` verwendet werden kann.
+endif::solution[]
+
+### Frage
+Wie sieht schematisch die Syntax zur Klasse aus? [ohne Annotationen und Generics]
+
+ifdef::solution[]
+.Antwort
+----
+[Modifizierer] class Name [extends KlassenName] [implements I1, I2, ...]
+----
+endif::solution[]
+
+### Frage
+In einer `.java`-Datei können mehrere Klassen deklariert werden. Allerdings gilt eine Einschränkung, was den Namen der Datei angeht. Welche?
+
+ifdef::solution[]
+.Antwort
+Wenn eine der Klassen öffentlich (`public`) ist, muss der Name der Datei dem Namen dieser Klasse entsprechen.
+endif::solution[]
+
+### Frage
+Schreibe `class test` und schon ist der Kopf ab, bevor auch nur ein `{` folgt. Warum? [Gemeint ist Ihr Kopf, nicht der der Klassendeklaration :upside_down_face:!)
+
+ifdef::solution[]
+.Antwort
+Es sollte `class Test` heißen. Namen von Klassen werden großgeschrieben.
+endif::solution[]
+
+### Frage
+Eine _top level_-Klasse darf welche Sichtbarkeiten *nicht* haben?
+
+ifdef::solution[]
+.Antwort
+`private` und `protected` sind nicht erlaubt, da eine Toplevel-Klasse sich nicht im Kontext einer anderen Klasse befindet und diese Sichtbarkeiten somit keinen Sinn ergeben.
+endif::solution[]
+
+### Frage
+Gibt es in Java das Laufzeitkonstrukt der Klasse?
+
+ifdef::solution[]
+.Antwort
+Nicht direkt, man kann nur darauf zugreifen mittels _reflection_ ( `Objektname.getClass()` bzw. `Klassenname.class`).
+endif::solution[]
+
+### Frage
+Gibt es in Java das Laufzeitkonstrukt des Objekts?
+
+ifdef::solution[]
+.Antwort
+Ja.
+endif::solution[]
+
+### Frage
+----
+class Thing {
+ private class PartOfThing {
+   String name = "part";
+ }
+}
+----
+Geht das?
+
+### Frage
+Auf welcher Ebene ist die Klasse `class A {}` sichtbar?
+
+ifdef::solution[]
+.Antwort
+Auf der Paketebene. Wenn kein Modifizierer vorhanden ist, ist die Klasse _paketsicher_.
+endif::solution[]
+
+### Frage
+Was ist eine Klassenvariable? Doch dasselbe wie ein statisches Feld, oder?
+
+ifdef::solution[]
+.Antwort
+Für Herrn Kofler sind "Klassenvariablen" einfach nur beliebige Felder, egal ob sie `static` sind oder nicht. Die Terminologie ist hier in der Literatur nicht eindeutig.
+endif::solution[]
+
+### Frage
+Klären Sie die Begriffe "Feld" und "Variable".
+
+ifdef::solution[]
+.Antwort
+"Felder" sind Variablen, die im Rumpf einer Klasse deklariert werden.
+endif::solution[]
+
+### Frage
+----
+class Thing {
+ public String name;
+}
+----
+Kann man auf das Feld `name` von anderen Paketen aus zugreifen?
+
+ifdef::solution[]
+.Antwort
+Nein, da man auf die Klasse `Thing` nicht aus anderen Paketen zugreifen kann.
+endif::solution[]
+
+### Frage
+Im Rumpf einer Klasse können welche Sprachkonstrukte deklariert werden?
+
+ifdef::solution[]
+.Antwort
+Methoden, Felder, Klassen, Interfaces und Enums.
+endif::solution[]
+
+### Frage
+----
+class Point {
+ private int x,y;
+ Point(int x, int y) { this.x = x; this.y = y; }
+ boolean equals(Point other) {
+   return this.x == other.x && this.y == other.y;
+ }
+}
+----
+Ist der Zugriff auf das private Feld `other.x` erlaubt?
+
+ifdef::solution[]
+.Antwort
+Ja, weil die Sichtbarkeit `private` sich auf allen Code innerhalb der Klasse bezieht. Es ist egal, welches Objekt auf das Feld zugreift, so lange der Zugriff aus irgendeiner Methode der Klasse `Point` erfolgt.
+endif::solution[]
+
+### Frage
+Was ist mit dem Begriff "paketsicher" gemeint?
+
+ifdef::solution[]
+.Antwort
+"Paketsicher" bezeichnet die default-Sichtbarkeit von Klassen und Feldern (wenn kein Sichtbarkeitsmodifizierer angegeben wurde). Auf "paketsichere" Klassen und Felder kann man innerhalb des Pakets zugreifen in dem sie deklariert wurden.
+endif::solution[]
+
+### Frage
+Mit welchem Modifizierer kann man die Voraussetzung für einen immutablen (unveränderlichen) Datentyp schaffen? Reicht die Verwendung dieses Modifizierers allein schon aus, um die Immutabilität zu garantieren?
+
+ifdef::solution[]
+.Antwort
+Wenn ein Datentyp (eine Klasse) immutabel sein soll, müssen alle ihre Felder `final` sein. Das reicht allerdings noch nicht aus. Zusätzlich müssen alle Felder selbst einen immutablen Datentyp haben, oder es muss sichergestellt werden, dass niemand sonst eine Referenz auf interne Daten der Klasse haben kann.
+endif::solution[]
+
+### Frage
+Nennen Sie die einzelnen Schritte, die bei einem Aufruf von `new` ausgeführt werden.
+
+ifdef::solution[]
+.Antwort
+
+* Speicherplatz für die nicht-statischen Felder der Klasse wird zugeteilt.
+* Außerdem wird eine Refenz zu der Klasse angelegt, von der ein Objekt erzeugt werden soll (um z.B. den Code von Methoden nachschlagen zu können).
+* Die Felder werden mit `0`, `false` oder `null` initialisiert.
+* Der Konstruktor wird aufgerufen.
+* Eine Referenz auf das erstellte Objekt wird zurückgegeben.
+endif::solution[]
+
+### Frage
+Wie sieht das Schema zum Zugriff auf eine statische Variable bzw. zum Aufruf einer statischen Methode aus?
+
+ifdef::solution[]
+.Antwort
+`Klassenname.variablenname` bzw. `Klassenname.methodenname`.
+endif::solution[]
+
+### Frage
+Recherchieren Sie: In der OOP-Veranstaltung hatten wir ein Beispiel, in dem wir eine statische Klassenvariable genutzt haben. Worum ging es bei dem Beispiel? Welchen Zweck hatte die statische Klassenvariable?
+
+ifdef::solution[]
+.Antwort
+Es ging um eine Klasse `Thing` mit einer ID, die sich in einem statischen Feld merkt, welche IDs schon vergeben wurden.
+endif::solution[]
+
+### Frage
+----
+class Point {
+ int x = 0, y = 0;
+ Point(int x, int y) { this.x = x; this.y = y; }
+}
+Point p = new Point();
+----
+Autsch! Warum?
+
+ifdef::solution[]
+.Antwort
+Der Default-Konstruktor existiert nur, wenn kein anderer Konstruktor definiert wurde. In diesem Fall gibt es den Konstruktor `Point()` also nicht.
+endif::solution[]
+
+### Frage
+Deklarieren Sie eine Klasse, von der keine Objekte erzeugt werden können.
+
+ifdef::solution[]
+.Antwort
+`class Math { private Math() {} }` oder `abstract class Thing {}`.
+endif::solution[]
+
+### Frage
+Ein Konstruktor ist mit einer Methodendeklaration sehr vergleichbar. Nur: Der Konstruktor hat zwar einen Namen, ihm scheint jedoch der Rückgabetyp zu fehlen. Warum?
+
+ifdef::solution[]
+.Antwort
+Der Rückgabetyp eines Konstruktors ist immer die Klasse in der er deklariert wurde.
+endif::solution[]
+
+### Frage
+Was sind die Defaultwerte für Felder (Klassenvariablen)? Was sind die Defaultwerte für lokale Variablen?
+
+ifdef::solution[]
+.Antwort
+Die Defaultwerte für Felder sind `0` und `false` für primitive Typen bzw. `null` für Referenztypen. Lokale Variablen haben keine Defaultwerte.
+endif::solution[]
+
+### Frage
+Warum kann man `finalize` nicht für Aufräumarbeiten verwenden?
+
+ifdef::solution[]
+.Antwort
+`finalize` wird aufgerufen, wenn der Garbage-Collector das Objekt löscht. Es ist nicht garantiert, wann oder ob das überhaupt geschieht.
+endif::solution[]
+
+### Frage
+Wie ruft man im Konstruktor einen anderen Konstruktor der gleichen Klasse auf? Warum sollte man das überhaupt tun wollen?
+
+ifdef::solution[]
+.Antwort
+`this(Parameter);`
+endif::solution[]
+
+### Frage
+----
+class A {
+ int a,b;
+ A() {
+   a = 0;
+   this(0);
+ }
+ A(int x) {
+   a = 1;
+   b = x;
+ }
+}
+----
+Autsch! Warum?
+
+ifdef::solution[]
+.Antwort
+Vor dem Konstruktoraufruf `this(0);` darf kein anderer Ausdruck stehen.
+endif::solution[]
+
+### Frage
+Im Vorgriff auch das nächste Kapitel: Wie ruft man im Konstruktor den Konstruktor der Oberklasse auf?
+
+ifdef::solution[]
+.Antwort
+`super(Parameter);`
+endif::solution[]
+
+### Frage
+Was ist die Besonderheit des Interfaces `AutoCloseable`? Welche Methoden deklariert es?
+
+ifdef::solution[]
+.Antwort
+Das Interface deklariert nur die Methode `close`. Klassen, die das Interface `AutoCloseable` implementieren, können in einem _try-with-resources_ verwendet werden.
+endif::solution[]
+
+### Frage
+Ist `this` eine Variable?
+
+ifdef::solution[]
+.Antwort
+Streng genommen nein (`this` ist ein Schlüsselwort), aber man kann es gedanklich wie eine Variable behandeln.
+endif::solution[]
+
+### Frage
+Ist es nicht das gleiche, ob eine Klasse jetzt ein `public int x` definiert oder ein `private int x` mit den Methoden `int getX()` und `void setX(int x)`? Wo liegt der Unterschied?
+
+ifdef::solution[]
+.Antwort
+Mit den Methoden hat man mehr Kontrolle darüber, was mit dem Feld geschieht (z.B. welche Werte bei einem `setX` zulässig sind, oder welche Variablen tatsächlich hinter einem `getX` steht).
+endif::solution[]
+
+### Frage
+Wozu benötigt man `this`?
+
+ifdef::solution[]
+.Antwort
+Um einen Konstruktor in einem anderen Konstruktor aufzurufen und um ein Feld von einer lokalen Variable mit gleichem Namen zu unterscheiden.
+endif::solution[]
+
+### Frage
+Wenn man sich in den Namensgebungen für Parameter und lokale Variablen diszipliniert, benötigt man dann überhaupt noch `this`?
+
+ifdef::solution[]
+.Antwort
+Ja, für den Aufruf eines Konstruktors oder wenn `this` zurückgegeben oder an eine andere Methode übergeben werden soll.
+endif::solution[]
+
+### Frage
+Wenn an den Konstruktor "falsche" Werte übergeben werden, empfiehlt es sich mit einer Exception darauf zu reagieren. Welche Exception sollte man wählen, sofern man nicht spezifischer sein kann/möchte?
+
+ifdef::solution[]
+.Antwort
+`IllegalArgumentException`
+endif::solution[]
+
+### Frage
+Wenn es einen Konstruktor gibt, muss es auch einen Destruktor geben, nicht wahr?! Hat Java einen Destruktor? Begründen Sie Ihre Antwort!
+
+ifdef::solution[]
+.Antwort
+Nein, es gibt nur die Methode `finalize`, die aufgerufen wird, wenn der Garbage-Collector das Objekt löscht. (Achtung: Es kann nicht garantiert werden ob und wann das geschieht.)
+endif::solution[]
+
+### Frage
+Eine Klasse, die eine `close`-Methode anbietet sollte die Schnittstelle `AutoCloseable` implementieren. Warum?
+
+ifdef::solution[]
+.Antwort
+Damit die Klasse mit einem _try-with-resources_ verwendet werden kann.
+endif::solution[]
+
+### Frage
+Was ist mit "Settern" und "Gettern" gemeint?
+
+ifdef::solution[]
+.Antwort
+Getter und Setter sind Methoden die das Lesen bzw. Schreiben von internen Daten einer Klasse kontrollieren.
+endif::solution[]
+
+### Frage
+Was ist damit gemeint, wenn man von einer "Datenklasse" spricht?
+
+ifdef::solution[]
+.Antwort
+Eine "Datenklasse" tut nichts anderes als Werte zu speichern. Die Klasse hat dann nur Felder, Getter und Setter.
+endif::solution[]
+
+### Frage
+Wenn Sie Setter- und Getter-Methoden implementieren, dann sollten die Felder wie deklariert sein?
+
+ifdef::solution[]
+.Antwort
+`private`
+endif::solution[]
+
+### Frage
+Oft sieht man Setter wie `public setName(Typ value) { name = value; }`. Was könnte man daran kritisieren?
+
+ifdef::solution[]
+.Antwort
+Dieser Setter macht nicht viel Sinn, da er sich genau so verhält als wäre die Variable `name` öffentlich deklariert.
+endif::solution[]
+
+### Frage
+Aufgrund welchen Prinzips der Softwaretechnik werden Setter und Getter begründet?
+
+ifdef::solution[]
+.Antwort
+Es geht um das Geheimnisprinzip, das besagt, dass von außen niemand wissen soll, wie die Datenhaltung innerhalb eines Objekts implementiert ist.
+endif::solution[]
+
+### Frage
+Welcher softwaretechnische Nutzen steckt vor allem in den Setter-Methoden?
+
+ifdef::solution[]
+.Antwort
+Setter ermöglichen es, zu kontrollieren welche Werte für ein Feld erlaubt sind.
+endif::solution[]
+
+// ab hier wieder dh Protokollant. Kap. 10.2 bis Ende
+
+### Frage
+Warum ist der Begriff "Unterklasse" für eine innere Klasse problematisch?
+
+ifdef::solution[]
+.Antwort
+Der Begriff "Unterklasse" wird meist für die abgeleitete Klasse einer Oberklasse genutzt. Bitte eine innere Klasse nicht als Unterklasse bezeichnen.
+endif::solution[]
+
+### Frage
+[source,java]
+----
+class A {
+  int x;
+  class B {
+    int x;
+    int foo(int x) {
+       // zähle alle drei mit x benannten Variablen zusammen
+    }
+  }
+}
+----
+Welcher Code muss an der markierten Stelle stehen, um den Wert von allen drei Variablen zusammenzuzählen? Wie unterscheidet man sie voneinander?
+
+ifdef::solution[]
+.Antwort
+Wir streuen in die Lösung zum Verständnis ein paar Ausgaben ein.
+[source,java]
+----
+class A {
+  int x;
+  class B {
+    int x;
+    int foo(int x) {
+      System.out.println(x);
+      System.out.println(this.x);
+      System.out.println(A.this.x);
+      System.out.println(B.this.x);
+      // System.out.println(x);
+      return x + this.x + A.this.x; // this.x oder B.this.x
+    }
+  }
+}
+----
+
+// TODO
+
+----
+jshell> new A()
+$37 ==> A@335eadca
+
+jshell> $37.new B()
+$38 ==> A$B@eec5a4a
+
+jshell> $38.foo(3)
+$39 ==> 3
+----
+
+Eine _top level_-Klasse als `static` zu deklarieren ist sinnfrei, da die Klasse an nichts "hängt" und nur Teil eines Pakets ist.
+endif::solution[]
+
+### Frage
+`this.name` oder `name.this`, das ist hier die Frage!
+
+ifdef::solution[]
+.Antwort
+Beides ist gültig, je nach Kontext. Im zweiten Fall ist `name` jedoch ein Klassenname und sollte eigentlich -- unserer Konvention der Großschreibung für Klassennamen folgend -- als `Name.this` geschrieben werden.
+endif::solution[]
+
+### Frage
+----
+AutoCloseable a = new AutoCloseable() {
+  public void close() { System.out.println("closed"); }
+}
+----
+Warum geht das, obwohl `AutoCloseable a = new AutoCloseable();` einen Fehler produziert?
+
+ifdef::solution[]
+.Antwort
+Hier liegt eine anonyme Klasse vor, die nach ihrer Implementierung sofort instanziiert wird.
+endif::solution[]
+
+### Frage
+Kann eine anonyme Klasse einen Konstruktor haben? Warum, oder warum nicht?
+
+ifdef::solution[]
+.Antwort
+Wenn es keinen Namen für die Klasse gibt, sie ist ja anonym (= hat keinen Namen), kann man keinen Konstruktor deklarieren.
+endif::solution[]
+
+### Frage
+[source,java]
+----
+class A {
+    static int b;
+    class C {
+        static int d;
+    }
+}
+----
+Sie dürfen _eine_ Sache streichen, damit der Code gültig wird.
+
+ifdef::solution[]
+.Antwort
+`C` ist eine lokale Klasse, sie darf keine statischen Members haben. Streiche `static` bei `int d`.
+endif::solution[]
+
+### Frage
+Erzeugen Sie eine anonyme Unterklasse von `java.awt.Point`, die die Methode `toString` so überschreibt, dass die String-Repräsentation jetzt einfach der mathematischen Schreibweise `(x, y)` entspricht. Wie können Sie beim Erzeugen des Objektes dieser Klasse die Koordinaten `x` und `y` übergeben?
+
+ifdef::solution[]
+.Antwort
+[source,java]
+----
+java.awt.Point p = new java.awt.Point() {
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
+}
+----
+Die anonyme Klasse ist eine Unterklasse von `java.awt.Point`.
+
+----
+jshell> java.awt.Point p = new java.awt.Point() {
+   ...>     public String toString() {
+   ...>         return "(" + x + ", " + y + ")";
+   ...>     }
+   ...> }
+p ==> (0, 0)
+
+jshell> p.x = 10
+$41 ==> 10
+
+jshell> p
+p ==> (10, 0)
+----
+endif::solution[]
+
+### Frage
+----
+Object obj = new Object() {
+  public void myFancyNewMethod() { /* do stuff */ }
+}
+----
+Macht das Sinn?
+
+ifdef::solution[]
+.Antwort
+Die Optik verstellt Ihnen hier vermutlich den Blick. `new Object()` ist eine anonyme Klasse, die eine Unterklasse von `Object` ist. Der Typ von `obj` ist hingegen vom Typ `Object`. Wenn man mit `obj` eine Methode wie `myFancyNewMethod` aufrufen will, beginnt die Suche nach der Methode im Typ `Object`, nicht in der anonymen Unterklasse! Die Methode ist also sinnfrei.
+endif::solution[]
+
+### Frage
+Eine Instanz einer anonyme Klasse kann nur auf bestimmte Variablen des Kontextes zugreifen, in dem sie erzeugt wurde. Welche Variablen sind das?
+
+ifdef::solution[]
+.Antwort
+Variablen müssen `final` sein.
+endif::solution[]
+
+### Frage
+Definieren Sie, was _effectively final_ heißt?
+
+ifdef::solution[]
+.Antwort
+Eine Variable ist "_effectively final_", wenn sie zwar nicht als `final` deklariert ist, der Compiler aber eine Deklaration mit `final` zulassen würde.
+endif::solution[]
+
+### Frage
+`AutoCloseable a = () -> System.out.println("auto");` Wie nennt man so etwas?
+
+ifdef::solution[]
+.Antwort
+Das ist ein Lambda-Ausdruck, erkennbar am Pfeil `->`.
+endif::solution[]
+
+### Frage
+----
+String message = "foo";
+AutoCloseable a = new AutoCloseable() {
+  public void close() { System.out.println(message); }
+};
+message = "bar";
+----
+Alles in Butter, oder doch nicht?
+
+ifdef::solution[]
+.Antwort
+Das `message` nicht _effectively final_ ist, darf die anonyme Klasse nicht auf `message` zugreifen.
+endif::solution[]
+
+### Frage
+----
+class A {
+   static int b;
+   class C {
+       static int d;
+   }
+}
+----
+Sie dürfen eine Sache ergänzen, damit der Code gültig wird.
+
+ifdef::solution[]
+.Antwort
+Die Klasse `C` muss um ein `static` ergänzt werden.
+endif::solution[]
+
+### Frage
+Warum sind laut Herrn Kofler statische innere Klassen gar keine "inneren Klassen" im eigentlichen Sinne?
+
+ifdef::solution[]
+.Antwort
+Die "innere" Klasse ist wie eine eigenständige Klasse behandelbar.
+endif::solution[]
+
+### Frage
+Kann man eine Klasse mit dem qualifizierten Namen `A.B.C` definieren? Wenn ja, wie? (Die Punkte sind Teil des Namens.)
+
+ifdef::solution[]
+.Antwort
+Man kann es machen. In einer Klasse `A` ist eine Klasse `B`, in der sich eine Klasse `C` befindet.
+endif::solution[]

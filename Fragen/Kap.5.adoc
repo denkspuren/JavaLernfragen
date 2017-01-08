@@ -1,0 +1,123 @@
+== Arrays
+
+### Frage
+Wie lauten die zwei Syntaxvarianten zur Deklaration einer (eindimensionalen) Array-Variable?
+
+ifdef::solution[]
+.Antwort
+----
+datentyp[] var
+datentyp var[]
+----
+endif::solution[]
+
+### Frage
+Kann die Größe von Java-Array nachträglich verändert werden? Warum/Warum nicht?
+
+ifdef::solution[]
+.Antwort
+Die Größe eines Arrays kann _nicht_ nachträglich verändert werden. Arrays belegen einen zusammenhängenden Platz im Arbeitsspeicher, der Platz ist vorreserviert und kann nicht mehr angepasst werden.
+endif::solution[]
+
+### Frage
+Seite 121: "Arrays können auch in `for-each`-Schleifen durchlaufen werden. Die Array-Elemente können dann jedoch nur gelesen, nicht aber verändert werden."
+
+Warum können die Elemente nicht verändert werden? Erläutern Sie.
+
+ifdef::solution[]
+.Antwort
+Die Elemente werden einzeln einer Variable zugewiesen (Ihnen fehlt z.B. auch der Index für einen Zugriff).
+endif::solution[]
+
+### Frage
+Seite 121: Was ist wohl mit "echten mehrdimensionalen Arrays" gemeint?
+
+ifdef::solution[]
+.Antwort
+Die Speicherorganisation ist nicht verschachtelt, sondern sequentiell.
+// TODO
+endif::solution[]
+
+### Frage
+Seite 122: Warum `for(int j=0; j<x[i].length; j++)` beim Durchlauf von zweidimensionalen Arrays? Warum nicht `for(int j=0; j<x[0].length; j++)`?
+
+ifdef::solution[]
+.Antwort
+Weil die einzelnen Zeilen des Arrays unterschiedliche Längen haben könnte.
+endif::solution[]
+
+### Frage
+Ist `\u0000` wirklich das Zeichen `0`? Deklarieren Sie in der JShell ein leeres char-Array und geben Sie den Inhalt aus.
+
+ifdef::solution[]
+.Antwort
+----
+jshell> char[] ar = new char[1];
+ar ==> char[1] { ' ' }
+----
+Das ist kein "echtes" Leerzeichen (im Sinne der "Leertaste" auf Ihrer Tastatur), sondern das Unicode "Null"-Zeichen.
+endif::solution[]
+
+### Frage
+Welchen Typ hat ein Array, das auf der Konsole als `[Ljava.lang.String;@ff5b51f` ausgegeben wird?
+
+ifdef::solution[]
+.Antwort
+----
+String[]
+----
+endif::solution[]
+
+### Frage
+Wie könnte man eine "schönere" String-Darstellung des Arrays aus der letzten Aufgabe erhalten?
+
+ifdef::solution[]
+.Antwort
+Mit der `Arrays.toString`-Methode.
+endif::solution[]
+
+### Frage
+Was ist eine Shallow-Copy?
+
+ifdef::solution[]
+.Antwort
+Man kopiert das Arrays. Enthält das Arrays Referenzen, werden auch die Referenzen kopiert, nicht die referenzierten Elemente. Das heißt, die Referenzen werden zwischen dem ursprünglichen und der Kopie geteilt.
+endif::solution[]
+
+### Frage
+Worauf muss man beim Kopieren von mehrdimensionalen Arrays achten?
+
+ifdef::solution[]
+.Antwort
+Die `clone`-Methode (und auch andere Kopiermethoden der Java-API) erzeugen nur eine _Shallow-Copy_, bei der nur auf der obersten ebene Kopiert wird. Die einzelnen Teil-Arrays sind immer noch identisch (gleiche Referenz), so dass Änderungen an der Kopie sich auf das Original auswirken.
+endif::solution[]
+
+### Frage
+Was müsste man tun, um eine Deep-Copy eines Arrays zu erhalten?
+
+ifdef::solution[]
+.Antwort
+Man muss dann auch die referenzierten Instanzen kopieren und die Referenzen innerhalb dieser Instanzen etc.
+endif::solution[]
+
+### Frage
+Es gibt zwei Probleme mit dem folgenden Snippet. Welche?
+`Array.sort(new int[]{5,7,-1,3,2})`
+
+ifdef::solution[]
+.Antwort
+
+* Es fehlt das "s": `Arrays`
+* Das Array wird an der Stelle sortiert, aber man kommt an das Ergebnis nicht dran, weil man keine Referenz auf das Array mehr hat.
+endif::solution[]
+
+### Frage
+Seite 126: Ändern Sie die Deklaration des Arrays so, dass der Code von Herrn Kofler auf die Nase fällt. Sie dürfen weder den Typ noch den Namen des Arrays verändern.
+
+ifdef::solution[]
+.Antwort
+----
+int x[] = { };`
+----
+Wenn es kein Element im Array gibt, wird `x[0]` eine Ausnahme werfen!
+endif::solution[]

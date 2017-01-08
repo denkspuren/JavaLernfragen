@@ -1,0 +1,61 @@
+= Lernfragen zu Java
+Dominikus Herzberg, Christopher Schölzel
+Version: 0.6, 2017-01-08
+:doctype: book
+:sectnums:
+:toc:
+:toctitle: Inhaltsverzeichnis
+:toclevels: 4
+:icons: font
+:solution:
+:fragendir: ./Fragen
+
+[dedication]
+= Hinweis
+Dieser Fragenkatalog enthält zahlreiche Fragen und Antworten zu dem Java-Programmierbuch von Michael Kofler, https://www.rheinwerk-verlag.de/java_3632/[Java: Der Grundkurs, Rheinwerk, 2015]. Die Kapitelordnung dieses Fragenkatalogs orientiert sich an den Kapiteln des Buchs von Michael Kofler, so dass Sie einen einfachen Bezug zwischen dem Buch und den Fragen herstellen können.
+
+Der Fragenkatalog ist das Ergebnis der Projektwoche, die wir vom 2.-6. Januar 2017 mit den Studierenden der Veranstaltung "Objektorientierte Programmierung" (Erstsemester Informatik) an der Technischen Hochschule Mittelhessen (THM) durchgeführt haben. Wir haben in der Projektwoche den gesamten bisher gelernten Java-Stoff aus dem Wintersemester 2016/17 wiederholt. Als Grundlage zur Wiederholung diente das Java-Buch von Michael Kofler.
+
+Wir möchten diesen Fragenkatalog allen Programmierinteressierten zur Verfügung stellen. Die Fragen sollen Ihnen beim Reflektieren des Gelesenen und beim Festigen Ihres Java-Wissens helfen.
+
+Während der Projektwoche haben wir das Buch von Michael Kofler gemeinsam mit den Studierenden gelesen, dabei live die Fragen erstellt und anschließend die Antworten besprochen und dokumentiert. Manch eine Frage und manch eine Antwort muss überarbeitet werden, sicher ist uns manch ein Fehler unterlaufen. Helfen Sie uns dabei, den Fragenkatalog zu verbessern!
+
+Dominikus Herzberg, https://twitter.com/denkspuren[@denkspuren]
+
+<<<
+
+include::{fragendir}/Kap.1.8.adoc[]
+
+include::{fragendir}/Kap.2.adoc[]
+
+include::{fragendir}/Kap.3.adoc[]
+
+include::{fragendir}/Kap.4.adoc[]
+
+include::{fragendir}/Kap.5.adoc[]
+
+include::{fragendir}/Kap.6.adoc[]
+
+== [strike-through]#Datum und Uhrzeit#
+
+include::{fragendir}/Kap.8.adoc[]
+
+include::{fragendir}/Kap.9.adoc[]
+
+include::{fragendir}/Kap.10.adoc[]
+
+include::{fragendir}/Kap.11.adoc[]
+
+include::{fragendir}/Kap.12.adoc[]
+
+== [strike-through]#Lambda-Ausdrücke#
+
+include::{fragendir}/Kap.14.adoc[]
+
+include::{fragendir}/Kap.15.adoc[]
+
+== [strike-through]#JavaFX#
+
+== [strike-through]#Javadoc#
+
+include::{fragendir}/Kap.18.adoc[]

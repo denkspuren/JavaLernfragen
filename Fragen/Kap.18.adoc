@@ -1,0 +1,178 @@
+== Pakete und Bibliotheken
+
+### Frage
+Ist es möglich, umfangreiche Java-Programme ohne eine einzige `import`-Anweisung zu schreiben?
+
+ifdef::solution[]
+.Antwort
+Ja, Imports sind immer optional, da man auch den _voll qualifizierten Namen_ von Referenztypen verwenden kann.
+endif::solution[]
+
+### Frage
+----
+import java.util.Arrays.sort;
+int[] a = {4,1,3};
+sort(a);
+----
+Fügen Sie ein Schlüsselwort an der richtigen Stelle ein, damit der Code funktioniert.
+
+### Frage
+Eine `import`-Anweisung muss immer wo stehen?
+
+ifdef::solution[]
+.Antwort
+Ganz am Anfang der Quellcodedatei (aber unter der `package`-Deklaration).
+endif::solution[]
+
+### Frage
+In den Fragen zu vorherigen Kapiteln haben wir immer `java.awt.Point` als Typ verwendet statt `Point`. Weshalb haben wir das gemacht und was muss man tun, um einfach direkt `Point` schreiben zu können?
+
+ifdef::solution[]
+.Antwort
+Wir haben `java.awt.Point` nicht importiert (um eine Zeile zu sparen), deshalb mussten wir den _voll qualifizierten Klassennamen_ angeben. Wenn man den import `import java.awt.Point;` schreibt, kann man danach auch einfach `Point` schreiben.
+endif::solution[]
+
+### Frage
+Was kann man mit `import` importieren?
+
+ifdef::solution[]
+.Antwort
+Klassen, Interfaces, Enums
+endif::solution[]
+
+### Frage
+Was kann man mit `import static` importieren?
+
+ifdef::solution[]
+.Antwort
+Methoden, Felder und die Werte von Enums
+endif::solution[]
+
+### Frage
+Warum ist `import` ein irreführender Name? Tatsächlich organisiert man über `import` nur ___räume!
+
+ifdef::solution[]
+.Antwort
+Es geht um _Namensräume_.
+endif::solution[]
+
+### Frage
+----
+import java.awt.Point;
+class Point { int x,y,z; }
+Point p = new Point();
+----
+Problem?
+
+ifdef::solution[]
+.Antwort
+`Point` ist an dieser Stelle mehrdeutig, da es eine lokale Klasse und eine importierte Klasse gibt.
+endif::solution[]
+
+### Frage
+----
+import java.awt.*;
+Point p;
+----
+Geht das gut?
+
+ifdef::solution[]
+.Antwort
+Ja, da `Point` in dem Paket `java.awt` definiert ist und der `*` alle Klassen (und Interfaces und Enums) in dem Paket importiert.
+
+Hinweis: Der `*` importiert *keine* Klassen die in Unterpaketen des angegebenen Pakets liegen, also z.B. in `java.awt.color`.
+endif::solution[]
+
+### Frage
+Was ist der Unterschied von `import de.thm.mni;` und `import de.thm.mni.*;`?
+
+ifdef::solution[]
+.Antwort
+Im ersten Fall soll eine Klasse namens `mni` aus dem Paket `de.thm` importiert werden, der zweite Ausdruck importiert alle Klassen in `de.thm.mni`.
+endif::solution[]
+
+### Frage
+Welches Paket ist standardmäßig in Java SE importiert?
+
+ifdef::solution[]
+.Antwort
+`java.lang`
+endif::solution[]
+
+### Frage
+`import static java.awt.Color.*` Jetzt darf ich `Color c = new Color(0,0,0);` deklarieren, richtig?
+
+ifdef::solution[]
+.Antwort
+Nein, weil der Import nur alle öffentlichen Member der Klasse `Color` importiert, nicht aber die Klasse selbst.
+endif::solution[]
+
+### Frage
+Wozu braucht man auf S.372 oben am Anfang die Codezeile `import java.awt.Color;` wenn unten darunter `import static java.awt.Color.*;` steht?
+
+ifdef::solution[]
+.Antwort
+Der erste `import` importiert die Klasse `Color`. Der zweite `import` ist `static` und importiert die statischen Members von `Color`.
+endif::solution[]
+
+### Frage
+Was muss man tun, damit man die Methoden der Klasse `Math` direkt ohne den Anteil `Math.` in seinem Code verwenden kann?
+
+ifdef::solution[]
+.Antwort
+`import static java.lang.Math.*;`
+endif::solution[]
+
+### Frage
+Kann ich die Klasse `java.awt.Color` und eine Klasse `de.thm.mni.Color` zusammen im gleichen Stück Code verwenden?
+
+ifdef::solution[]
+.Antwort
+Ja, man darf aber nur eine dieser Klassen importieren. Die andere muss man über den _voll qualifizierten Namen_ ansprechen.
+endif::solution[]
+
+### Frage
+Man kann `import static java.lang.System.out;` schreiben. Dann geht doch auch `import static java.lang.System.out.println;`, oder?
+
+ifdef::solution[]
+.Antwort
+Nein, das geht nicht, weil `out` ein Objekt ist. Man kann keine Methoden aus einem Objekt importieren.
+endif::solution[]
+
+### Frage
+Was ist der Unterschied von `import de.thm.mni.OOP;` zu `import static de.thm.mni.OOP;`
+
+ifdef::solution[]
+.Antwort
+Der erste import importiert die Klasse `OOP` aus dem Paket `de.thm.mni`. Der zweite importiert etwas mit Namen `OOP` aus der Klasse `mni` im Paket `de.thm`.
+endif::solution[]
+
+### Frage
+Sie schreiben ein Programm im Fachbereich MNI der THM im Kurs OOP. Sie definieren ein Paket für Ihr Programm. Wie sollte der Paketname anfangen?
+
+ifdef::solution[]
+.Antwort
+`de.thm.mni.oop`
+endif::solution[]
+
+### Frage
+Die Option `-cp` bei `java` bzw. `javac` steht für welches Java-Konzept?
+
+ifdef::solution[]
+.Antwort
+Diese Option steht für den _Classpath_, in dem die JVM nach `.class`-Files sucht.
+endif::solution[]
+
+### Frage
+Welche Argumente müssen sie an `java` übergeben, wenn sie eine eigene Klasse `main.Main` ausführen wollen, die das Paket `somePackage.jar` verwendet? In welchen Ordnern sucht die JVM dabei nach der `.class`-Datei von `main.Main` und der Datei `somePackage.jar`?
+
+ifdef::solution[]
+.Antwort
+`java -cp somePackage.jar:. main.Main`
+
+Die JVM sucht nach `main.Main` sowohl als `./main/Main.class` als auch als `somePackage.jar!main/Main.class` (das `!` steht dafür, dass das JAR-Archiv geöffnet und betreten wird). Die Datei `somePackage.jar` wird dabei im _current working directory_ gesucht, in dem man sich auf der Konsole gerade befindet.
+
+Wenn `somePackage.jar` in einem Unterordner `libs` liegen würde, müsste der Aufruf wie folgt aussehen: `java -cp libs/somePackage.jar:. main.Main`.
+
+Herr Kofler macht zusätzlich Anführungszeichen um den Ausdruck hinter `-cp`. Das ist immer möglich aber nur dann nötig, wenn sich im übergebenen Klassenpfad ein Leerzeichen befindet.
+endif::solution[]

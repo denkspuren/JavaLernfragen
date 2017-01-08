@@ -1,0 +1,170 @@
+== Exceptions
+
+### Frage
+Wenn eine Exception geworfen wird, dann sieht sich Java zur Laufzeit außerstande ...?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+Kann `javac`, der Java-Compiler, eine Exception zu Ihrem Code werfen?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+Die Informationen, die zu einer Exception geführt haben, werden wie kommuniziert?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+Wie heißt die oberste Klasse in der Exception-Hierarchie?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+Was ist ein _Stack Trace_?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+Wenn eine Exception vom Typ `Error` geworfen wird, dann hat das was für Konsequenzen?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+Was unterscheidet Exceptions, die von `RuntimeException` erben von anderen Subklassen von `Exception`?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+Warum ist der Name `RunTimeException` für eine der Exception-Klassen ein wenig unsinnig? (edited)
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+In welchem Fall muss im Kopf einer Methode `throws` samt Angabe der möglichen Ausnahme(n) stehen?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+Wenn `catch`-Blöcke identischen Code haben, bietet sich eine Verkürzungsform an. Beschreiben Sie den syntaktischen Aufbau des "verkürzten" `catch`-Kopfes.
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+Die StackTrace eines `StackOverflowError` ist sehr lang. Warum?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+`try { /* some code */ }` and there is something wrong.
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+Was ist der Vorteil eines _try-with-resources_ gegenüber einem normalen `finally`-Block?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+Anschlussfrage: Was ist eine _resource_?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+Ein Student schreibt folgende main-Methode und wird sofort dafür gescholten. Warum?
+[source,java]
+----
+public static void main(String[] args) throws Throwable {
+  // ...
+}
+----
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+
+### Frage
+Was macht die `assert`-Anweisung?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+[source,java]
+----
+try {
+  // dangerous stuff
+} catch (Exception e) {
+  e.printStackTrace();
+} catch (NumberFormatException nfe) {
+  System.err.println("Stupid user input!")
+}
+----
+Geht das?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+Sie haben in Ihrem Code `assert`-Anweisungen, die eigentlich eine Exception auslösen müssten (Beispiel: `assert false;`). Die Exceptions bleiben aus. Was ist los?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
+
+### Frage
+Kann man selbst Exceptions definieren?
+
+ifdef::solution[]
+.Antwort
+-- TODO --
+endif::solution[]
