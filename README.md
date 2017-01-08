@@ -4,7 +4,7 @@ Dieser Fragenkatalog enthält zahlreiche Fragen und Antworten zu dem Java-Buch v
 
 # Mitarbeit
 
-Ich freue mich, wenn Sie an diesem Fragenkatalog mitarbeiten wollen. Ergänzen Sie Fragen, verbessern Sie die Qualität der Antworten, korrigieren Sie Schreibfehler, machen Sie auf missverständliche, irritierende Formulierungen aufmerksam. Und eines fände ich besonders toll: Wenn es gelingt, die meisten Fragen in gelungene Multiple-Choice-Fragen zu wandeln. MC-Fragen sind für Lernende deutlich kurzweiliger, es macht mehr Spaß mit ihnen zu lernen.
+Ich freue mich, wenn Sie an diesem Fragenkatalog mitarbeiten wollen. Ergänzen Sie Fragen, verbessern Sie die Qualität der Antworten, korrigieren Sie Schreibfehler, machen Sie auf missverständliche, irritierende Formulierungen aufmerksam. Und eines fände ich besonders toll: Wenn es gelingt, die meisten Fragen in Multiple-Choice-Fragen zu wandeln -- was gar nicht so einfach ist. MC-Fragen sind für Lernende deutlich kurzweiliger, es macht mehr Spaß mit ihnen zu lernen.
 
 ## Das Asciidoc-Format
 
@@ -49,6 +49,14 @@ Entsprechend sind auch die PDF-Dokumente zu erzeugen:
 ~~~
 
 Wenn es Probleme bei der Übersetzung gibt, hilft Asciidoctor mit Fehlerhinweisen.
+
+## Lizenz
+
+Der gesamte Fragenkatalog und alle in diesem Repository befindlichen Texte stehen unter einer Creative Commons-Lizenz ([by-nc-sa 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/)). In Kurzform:
+
+* Namensnennung
+* Nicht-kommerziell
+* Weitergabe unter gleichen Bedingungen
 
 # Historie
 
