@@ -14,6 +14,8 @@ Die Fragen sind im AsciiDoc-Format geschrieben -- mehr dazu weiter unten. Auf Gi
 
 Kurz gesagt, weil ich es mag und sehr gut für Informatik-Studierende im ersten Semester geeignet halte. Das Format, die Seitenanzahl und die Kürze der Beschreibung gefallen mir.
 
+Davon abgesehen orientiert sich der Fragenkatalog 
+
 Ein Interessenskonflikt liegt nicht vor: Ich empfehle das Buch zwar meinen Studierenden, aber ich verdiene nichts daran und stehe in keinerlei geschäftlichen Verbindung mit Herrn Kofler.
 
 # Mitarbeit
