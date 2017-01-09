@@ -2,6 +2,20 @@
 
 Dieser Fragenkatalog enthält zahlreiche Fragen und Antworten zu dem Java-Buch von Michael Kofler, [Java: Der Grundkurs, Rheinwerk, 2015](https://www.rheinwerk-verlag.de/java_3632/). Die Kapitelordnung dieses Fragenkatalogs orientiert sich an den Kapiteln des Buchs von Michael Kofler, so dass Sie einen einfachen Bezug zwischen dem Buch und den Fragen herstellen können.
 
+## Wo sind die Fragen?
+
+Den Fragenkatalog finden Sie unter [JavaFragen.html](https://htmlpreview.github.io/?https://github.com/denkspuren/JavaLernfragen/blob/master/JavaFragen.html) [wenn Sie den Link anklicken, sehen Sie den HTML-Preview]. Die Fragen samt Antworten gibt es in dem Dokument [JavaFragen.Antworten.html](https://htmlpreview.github.io/?https://github.com/denkspuren/JavaLernfragen/blob/master/JavaFragen.Antworten.html) zu lesen.
+
+Diese beiden Dokumente sind das Resultat der Übersetzung der Datei [JavaFragen.adoc](JavaFragen.adoc) vom AsciiDoc-Format in das HTML-Format. Wenn Sie sich also im Original-Dokument umschauen wollen, so ist [JavaFragen.adoc](JavaFragen.adoc) Ihr Einstiegspunkt. Von hier aus können Sie zu den Fragen der jeweiligen Buchkapitel navigieren.
+
+Die Fragen sind im AsciiDoc-Format geschrieben -- mehr dazu weiter unten. Auf Github werden Dokumente im AsciiDoc-Format formatiert dargestellt. Allerdings sind die Antworten zu den Fragen nicht sichtbar. Wenn Sie die `raw`-Ansicht anwählen, bekommen Sie das Dokument im Original zu sehen, dann sehen Sie dort auch die Antworten.
+
+## Warum das Buch von Michael Kofler?
+
+Kurz gesagt, weil ich es mag und sehr gut für Informatik-Studierende im ersten Semester geeignet halte. Das Format, die Seitenanzahl und die Kürze der Beschreibung gefallen mir.
+
+Ein Interessenskonflikt liegt nicht vor: Ich empfehle das Buch zwar meinen Studierenden, aber ich verdiene nichts daran und stehe in keinerlei geschäftlichen Verbindung mit Herrn Kofler.
+
 # Mitarbeit
 
 Ich freue mich, wenn Sie an diesem Fragenkatalog mitarbeiten wollen. Ergänzen Sie Fragen, verbessern Sie die Qualität der Antworten, korrigieren Sie Schreibfehler, machen Sie auf missverständliche, irritierende Formulierungen aufmerksam. Und eines fände ich besonders toll: Wenn es gelingt, die meisten Fragen in Multiple-Choice-Fragen zu wandeln -- was gar nicht so einfach ist. MC-Fragen sind für Lernende deutlich kurzweiliger, es macht mehr Spaß mit ihnen zu lernen.
