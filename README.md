@@ -8,7 +8,7 @@ Den Fragenkatalog finden Sie unter [JavaFragen.html](https://htmlpreview.github.
 
 Diese beiden Dokumente sind das Resultat der Übersetzung der Datei [JavaFragen.adoc](JavaFragen.adoc) vom AsciiDoc-Format in das HTML-Format. Wenn Sie sich also im Original-Dokument umschauen wollen, so ist [JavaFragen.adoc](JavaFragen.adoc) Ihr Einstiegspunkt. Von hier aus können Sie zu den Fragen der jeweiligen Buchkapitel navigieren.
 
-Die Fragen sind im AsciiDoc-Format geschrieben -- mehr dazu weiter unten. Auf Github werden Dokumente im AsciiDoc-Format formatiert dargestellt. Allerdings sind die Antworten zu den Fragen nicht sichtbar. Wenn Sie die `raw`-Ansicht anwählen, bekommen Sie das Dokument im Original zu sehen, dann sehen Sie dort auch die Antworten.
+Die Fragen sind im AsciiDoc-Format geschrieben -- mehr dazu weiter unten. Auf Github werden AsciiDoc-Dokumente formatiert dargestellt. Allerdings sind dann die Antworten zu den Fragen nicht sichtbar. Wenn Sie die `raw`-Ansicht anwählen, bekommen Sie das Dokument im Original zu sehen, dann sehen Sie dort auch die Antworten.
 
 ## Warum das Buch von Michael Kofler?
 
