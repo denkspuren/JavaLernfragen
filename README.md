@@ -50,7 +50,16 @@ Sie finden im laufenden Text genug Beispiele, um sich abzugucken, wie im Asciido
 
 Mit Asciidoctor lässt sich sehr leicht aus dem Asciidoc-Format ein HTML-Dokument bzw. ein PDF-Dokument erzeugen.
 
-Um diesen Prozess ein wenig zu vereinfachen, gibt es ein simples `makefile`. Dieses altgediente Unix-Werkzeug gibt es auch für Windows, z.B. [Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm). Unter Linux ist es standardmäßig dabei.
+Der folgenden Befehle erzeugen das HTML-Dokument `JavaFragen.html` _ohne_ Antworten (`-a solution!`) und  _mit_ Antworten (`-a solution`), wobei für diesen Fall eine andere Ausgabedatei mit der Option `-o` gewählt wird. Ohne die Angabe des Attributs `solution` werden standardmäßig die Antworten mit ausgegeben.
+
+~~~
+asciidoctor -a solution! JavaFragen.adoc
+asciidoctor -a solution -o JavaFragen.Antworten.html JavaFragen.adoc
+~~~
+
+Für die Generation der PDF-Dokumente ist `asciidoctor-pdf` statt `asciidoctor` zu wählen.
+
+Um diesen Übersetzungsprozess ein wenig zu vereinfachen, gibt es ein simples `makefile`. Dieses altgediente Unix-Werkzeug gibt es auch für Windows, z.B. [Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm). Unter Linux ist es standardmäßig dabei.
 
 In der Kommandozeile (`cmd`) von Windows generiert die folgende Eingabe die HTML-Dokumente mit und ohne Lösungen zu den Fragen.
 
@@ -58,7 +67,7 @@ In der Kommandozeile (`cmd`) von Windows generiert die folgende Eingabe die HTML
 > make JavaFragen.html
 ~~~
 
-Entsprechend sind auch die PDF-Dokumente zu erzeugen:
+Entsprechend sind die PDF-Dokumente zu erzeugen:
 
 ~~~
 > make JavaFragen.pdf
