@@ -14,9 +14,9 @@ Die Fragen sind im AsciiDoc-Format geschrieben -- mehr dazu weiter unten. Auf Gi
 
 Kurz gesagt, weil ich es mag und sehr gut für Informatik-Studierende im ersten Semester geeignet halte. Das Format, die Seitenanzahl und die Kürze der Beschreibung gefallen mir.
 
-Davon abgesehen orientiert sich der Fragenkatalog 
+Zwar orientiert sich der Fragenkatalog an der Kapitelstruktur des Buchs und so manche Frage geht detailliert auf etwas aus dem Buch ein, doch sollte davon abgesehen der Fragenkatalog einen Wert für jeden Java-Lernenden haben.
 
-Ein Interessenskonflikt liegt nicht vor: Ich empfehle das Buch zwar meinen Studierenden, aber ich verdiene nichts daran und stehe in keinerlei geschäftlichen Verbindung mit Herrn Kofler.
+Übrigens liegt kein Interessenskonflikt vor: Ich empfehle das Buch zwar meinen Studierenden, aber ich verdiene nichts daran und stehe in keiner geschäftlichen Verbindung mit Herrn Kofler oder dem Rheinwerk-Verlag.
 
 # Mitarbeit
 
@@ -66,7 +66,7 @@ Entsprechend sind auch die PDF-Dokumente zu erzeugen:
 
 Wenn es Probleme bei der Übersetzung gibt, hilft Asciidoctor mit Fehlerhinweisen.
 
-## Lizenz
+# Lizenz
 
 Der gesamte Fragenkatalog und alle in diesem Repository befindlichen Texte stehen unter einer Creative Commons-Lizenz ([by-nc-sa 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/)). In Kurzform:
 
