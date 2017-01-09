@@ -111,7 +111,7 @@ S.59 im Code: `DateTimeFormatter.ofPattern(  "EEEE, d. MMMM yyyy" );` Häh?
 
 ifdef::solution[]
 .Antwort
--- TODO --
+`ofPattern` erzeugt ein `DateTimeFormatter`-Objekt. Die Zeichenkette `"EEEE, d. MMMM yyyy"` beschreibt, wie Datum und Uhrzeit formatiert werden sollen. `EEEE` steht für den vollständigen Wochentag, `d` für den Tag im Monat (1-31) usw. Kapitel 7 beschreibt den `DateTimeFormatter` ausführlicher. Das Verständnis für die Funktionsweise des `DateTimeFormatter` ist an dieser Stelle nicht wichtig. Gut wäre aber, wenn Sie die Funktionsweise von `import` verstehen.
 endif::solution[]
 
 ### Frage
