@@ -8,10 +8,10 @@ NSOL = -a solution!
 # $@ -- vollständiger Name des Ziels
 # $* -- Name des Ziels ohne Endung
 
-%.html: %.adoc
+%.html: %.adoc Fragen/*.adoc
 	$(ADOC) $(SOL)! $< -o $@
 	$(ADOC) $(SOL)  $< -o $*.Antworten.html
 
-%.pdf: %.adoc
+%.pdf: %.adoc Fragen/*.adoc
 	$(ADOC) $(PDF) $(SOL)! $< -o $@
 	$(ADOC) $(PDF) $(SOL)  $< -o $*.Antworten.pdf
