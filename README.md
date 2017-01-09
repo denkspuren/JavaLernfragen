@@ -10,6 +10,10 @@ Diese beiden Dokumente sind das Resultat der Übersetzung der Datei [JavaFragen.
 
 Die Fragen sind im AsciiDoc-Format geschrieben -- mehr dazu weiter unten. Auf Github werden AsciiDoc-Dokumente formatiert dargestellt. Allerdings sind dann die Antworten zu den Fragen nicht sichtbar. Wenn Sie die `raw`-Ansicht anwählen, bekommen Sie das Dokument im Original zu sehen, dann sehen Sie dort auch die Antworten.
 
+## Wem der Tiefgang fehlt
+
+Es gibt immer wieder mal einen Sachverhalt, der sich durch eine Frage und eine kurze Antwort nicht ausreichend klären lässt. Für solche Fälle gibt es in dem Verzeichnis [Tiefgang](Tiefgang/) ausführlichere Darstellungen.
+
 ## Warum das Buch von Michael Kofler?
 
 Kurz gesagt, weil ich es mag und sehr gut für Informatik-Studierende im ersten Semester geeignet halte. Das Format, die Seitenanzahl und die Kürze der Beschreibung gefallen mir.
