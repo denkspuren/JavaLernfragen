@@ -1,72 +1,13 @@
 // == Vererbung und Schnittstellen
 
-Zu Beginn zwei Beispiele zur Polymorphie. Das Wort "Polymorphie" setzt sich aus zwei Teilen zusammen: _poly_ für "viele" (sie kennen vielleicht das Wort "Polyphonie" als Mehrstimmigkeit) und _morph_ für "Gestalt"; Polymorphie ist die Mehrgestaltigkeit. In der Objektorientierung ist damit gemeint, dass sich ein Objekt je nach Art der Gestalt (seinem Typ entsprechend) angepasst auf einen Methodenaufruf verhält.
-
-Das Codebeispiel: Menschen (_humans_) sprechen anders als Tiere (_animals_). Im Beispiel ist eine Oberklasse nötig, um in einem Array sowohl Instanzen von `Human` wie auch von `Animal` aufnehmen zu können.
-
-[source,java]
-----
-class Being {
-    String say(String text) {
-        return this.getClass().getName() + " says ";
-    }
-}
-
-class Human extends Being {
-    String say(String text) {
-        return super.say(text) + text;
-    }
-}
-
-class Animal extends Being {
-    String say(String text) {
-        return super.say(text) + "nothing (can't talk)";
-    }
-}
-
-Being[] beings = { new Human(), new Animal(), new Animal() };
-for(Being b : beings) System.out.println(b.say("good morning"));
-----
-
-Eine Alternative dazu definitert ein Interface namens `Talker`. Nun können die Klassen nicht auf eine gemeinsame Implementierung über die Oberklasse zugreifen; es besteht -- was durchaus von Vorteil ist -- auch gar keine Notwendigkeit mehr, eine Oberklasse einzuführen.
-
-[source,java]
-----
-interface Talker {
-    String say(String text);
-}
-
-class Human implements Talker {
-    public String say(String text) {
-        return "Human says " + text;
-    }
-}
-
-class Animal implements Talker {
-    public String say(String text) {
-        return "Animal says nothing (can't talk)";
-    }
-}
-
-Talker[] talkers = { new Human(), new Animal(), new Animal() };
-for(Talker t : talkers) System.out.println(t.say("good morning"));
-----
-
-Im ersten Fall der Polymorphie ist den "vielen Gestalten" eine Oberklasse gemeinsam (sie definiert, was die Gestalt _ist_), im zweiten Fall ist den "vielen Gestalten" eine Schnittstelle gemeinsam (sie definiert, was die Gestalt _kann_), die jede teilhabende Klasse für sich implementiert.
-
-[TIP]
-====
-Hinweis zu Kap. 11.2: Sie müssen all die Methoden kennen, die `Object` hat und vererbt. Von `notify`, `notifyAll` und `wait` müssen Sie nur wissen, dass es sie gibt. Das Verständnis dazu erschließt sich erst, wenn wir uns mit Threads beschäftigen [nicht dieses Semester].
-====
-
-[TIP]
-====
-Mehr zu Hashcodes können Sie z.B. nachlesen unter https://de.wikipedia.org/wiki/Hashfunktion. Hashcodes begegnen Ihnen im Informatik-Alltag immer wieder.
-====
-
 [TIP]
 ====
 Tabelle 11.1 (Schnittstellenübersicht) ist Gold wert! Lernen.
+====
+
+[TIP]
+====
+Hinweis zu Kap. 11.2: Als Java-Entwickler/in müssen Sie all die Methoden kennen, die `Object` hat und vererbt. Von `notify`, `notifyAll` und `wait` müssen Sie nur wissen, dass es sie gibt. Das Verständnis dazu erschließt sich erst, wenn man sich mit Threads beschäftigt.
 ====
 
 ### Frage
