@@ -58,9 +58,9 @@ endif::solution[]
 ### Frage (MC)
 Never use Dollars in Javaland. Why? -- Die Frage meint: Warum sollen keine `$`-Zeichen in Bezeichnern für Variablen, Klassen, Methoden, Schnittstellen etc. verwendet werden?
 
-- [ ] `$`-Zeichen sind in Bezeichnern nicht erlaubt
+- [ ] Das `$`-Zeichen ist in Bezeichnern nicht erlaubt
 - [ ] Das `$`-Zeichen ist für einen internen Variablenbezeichner reserviert
-- [ ] Das `$` ist Code-Generatoren vorbehalten
+- [ ] Das `$`-Zeichen ist Code-Generatoren vorbehalten
 - [ ] Das `$`-Zeichen ist ein Schlüsselwort
 
 ifdef::solution[]
@@ -178,7 +178,7 @@ Der Begriff "Eigenschaften" ist hier doppelt belegt. Im ersten Satz ist das engl
 endif::solution[]
 
 ### Frage (MC)
-`import a.packet.*;` Was meint der Stern `*` in der `import`-Anweisung?
+`import a.packet.\*;` Was meint der Stern `*` in der `import`-Anweisung?
 
 - [ ] Importiere die Typen in `a.packet` und die in den Unterpaketen
 - [ ] Importiere nur die Klassen in `a.packet`
