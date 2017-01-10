@@ -1,0 +1,36 @@
+// == Generische Klassen und Methoden
+
+.Die Syntax zu Typparametern
+----
+TypeParameter:
+    {TypeParameterModifier} Identifier [TypeBound]
+
+TypeBound:
+    "extends" TypeVariable
+    "extends" ClassOrInterfaceType {AdditionalBound}
+
+AdditionalBound:
+    "&" InterfaceType
+----
+
+.Notiz:
+----
+jshell> class MyClass<N extends Number> { N n = (N)(new Integer(8)); }
+|  Warning:
+|  unchecked cast
+|    required: N
+|    found:    java.lang.Integer
+|  class MyClass<N extends Number> { N n = (N)(new Integer(8)); }
+|                                             ^--------------^
+|  modified class MyClass
+
+jshell> new MyClass<Integer>().n
+$16 ==> 8
+
+jshell> new MyClass<Number>().n
+$17 ==> 8
+
+jshell> new MyClass<Long>().n
+|  java.lang.ClassCastException thrown: java.lang.Integer (in module: java.base) cannot be cast to java.lang.Long (in module: java.base)
+|        at (#18:1)
+----
