@@ -1,0 +1,49 @@
+== Klassen
+
+=== Warum sollten Felder nicht ´static` sein?
+
+Es kam die Frage auf, warum man in einer Klasse überhaupt Felder und Methoden *nicht* `static` machen soll. Hier ein Versuch, unsere Diskussion nachzuzeichnen.
+
+Wir erstellen eine Klasse `Car` und geben ihr das statische Feld `owner`. Die Besitzerin heiße Lisa.
+
+----
+jshell> class Car { static String owner; }
+|  created class Car
+
+jshell> Car.owner = "Lisa"
+$13 ==> "Lisa"
+----
+
+Lisa hat zwei Autos. Also instanziieren wir zwei Autos. Jedes dieser Autos können wir nach dem Wert des Felds `owner` befragen.
+
+----
+jshell> Car car1 = new Car()
+car1 ==> Car@148080bb
+
+jshell> car1.owner
+$15 ==> "Lisa"
+
+jshell> Car car2 = new Car()
+car2 ==> Car@6e1ec318
+
+jshell> car2.owner
+$17 ==> "Lisa"
+----
+
+Nun verkauft mir Lisa eines der Autos -- sie erklärt sich einverstanden, dass ich als neuer Eigentümer ihres zweiten Autos eingetragen werde.
+
+----
+jshell> car2.owner = "Dominikus"
+$18 ==> "Dominikus"
+----
+
+Weil `owner` eine statische Klassenvariable ist, habe ich Lisa nun auch ihr anderes Auto abgeluchst, dessen Eigentümer ich nun ebenfalls bin.
+
+----
+jshell> car2.owner = "Dominikus"
+$18 ==> "Dominikus"
+----
+
+Zauberei? Betrug? Mitnichten, es liegt an der statischen Klassenvariablen. Wäre `owner` keine statische Klassenvariable gewesen, dann hätte jedes Auto seinen eigenen Wert für einen Eigentümer speichern können -- und Lisa hätte mir nicht unfreiwillig all ihre Autos abgetreten. Probieren Sie's aus!
+
+Was lernen wir? Ein statisches Feld enthält einen Wert, den die Klasse speichert und der für alle Instanzen der Klasse gleich ist. Ein "normales", nicht statisches Feld ist eine Variable, die jede Instanz für sich individuell angelegt bekommt. Und genau das möchte Objektorientierung: jeder Instanz eine eigene Umgebung für (nicht statische) Klassenvariablen mitgeben.
