@@ -159,13 +159,15 @@ ifdef::solution[]
 - [x] Weil sie als Teil von `java.lang` standardmäßig importiert wird
 endif::solution[]
 
-### Frage
+////
+// TODO Überarbeitung ### Frage
 Wann kommt ein Punkt `.` vor den Klassennamen?
 
 ifdef::solution[]
 .Antwort
 Wenn die Klasse in einem (noch nicht importierten) Paket definiert ist.
 endif::solution[]
+////
 
 ### Frage (Seitenbezug)
 Auf S.52 unten heißt es: "Java kennt keine Eigenschaften." Auf S.57 unten jedoch: "Über Attribute können Eigenschaften von Objekten gelesen bzw. gespeichert werden." Was ist da los? Ein Widerspruch?
