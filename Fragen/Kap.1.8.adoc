@@ -1,25 +1,28 @@
 // == Hello World!: Java-Crashkurs [Kap. 1.8]
 :solution:
 
-### Frage (MC)
+### Zeichenkette und `new`
+[question,mc]
+====
 Wo ist das `new` zur Instanziierung geblieben? `String s = "abc";`
 
 - [ ] Man kann auch schreiben `String s = new "abc";`
 - [ ] Man kann auch schreiben `String s = new("abc");`
-- [ ] Man kann auch schreiben `String s = new String("abc");`
-- [ ] Ein `new` ist gar nicht notwendig.
+- [x] Man kann auch schreiben `String s = new String("abc");`
+- [x] Ein `new` ist gar nicht notwendig.
+====
 
 ifdef::solution[]
 .Antwort
-- [x] Man kann auch schreiben `String s = new String("abc");`
-- [x] Ein `new` ist gar nicht notwendig.
+// - [x] Man kann auch schreiben `String s = new String("abc");`
+// - [x] Ein `new` ist gar nicht notwendig.
 
 Der Ausdruck `"abc"` ist ein Zeichenketten-Literal. Literale erzeugen direkt eine Instanz ihres Typs, hier eine Instanz einer Zeichenkette. Literale werden ohne den `new`-Operator verwendet.
 
 Es ist auch legitim `new String("abc")` zu schreiben, was aber doppelte Arbeit leistet: die String-Instanz des Literals ist Argument im String-Konstruktor, der seinerseits eine neue, wertgleiche String-Instanz erzeugt.
 endif::solution[]
 
-### Frage
+### Javadoc-Kommentar vs. "normaler" Kommentar
 Wie unterscheidet sich ein Javadoc-Kommentar von normalen Kommentaren?
 
 ifdef::solution[]
@@ -27,136 +30,163 @@ ifdef::solution[]
 Ein Javadoc-Kommentar beginnt mit `/\**` und endet mit `*/`. "Normale" Kommentare sind entweder einzeilig (`//`) oder mehrzeilig (von `/\*` bis `*/`). Javadoc-Kommentare werden vom dem Tool `javadoc` bei der Generierung der Dokumentation eines Programms mit berücksichtigt.
 endif::solution[]
 
-### Frage (MC)
+### Aussehen eines Javadoc-Kommentars
+[question,mc]
+====
 Wie sieht ein Javadoc-Kommentar mit seinem öffnenden und schließenden Kommentarteil aus?
 
 - [ ] `/\*` und `*/`
-- [ ] `/\**` und `*/`
+- [x] `/\**` und `*/`
 - [ ] `/\**` und `/*`
 - [ ] `/\*` und `**/`
+====
 
 ifdef::solution[]
-.Antwort
-- [x] `/\**` und `*/`
+// .Antwort
+// - [x] `/\**` und `*/`
 endif::solution[]
 
-### Frage (MC)
+### Was ist ein Schlüsselwort?
+[question,mc]
+====
 Was ist ein Schlüsselwort?
 
 - [ ] Unsinn, es gibt in Java so etwas wie ein Schlüsselwort nicht
-- [ ] Ein Schlüsselwort ist ein reservierter Bezeichner
+- [x] Ein Schlüsselwort ist ein reservierter Bezeichner
 - [ ] Als Schlüsselwort bezeichnet man in einer `Map<K,V>` einen Wert vom Typ `K` (für _Key_)
 - [ ] Bezeichner in Großbuchstaben (wie `HALT`) heißen Schlüsselwörter
+====
 
 ifdef::solution[]
 .Antwort
-- [x] Ein Schlüsselwort ist ein reservierter Bezeichner
+// - [x] Ein Schlüsselwort ist ein reservierter Bezeichner
 
 Ein Schlüsselwort ist ein reservierter Bezeichner für Programmkonstrukte (wie z.B. `if`, `for` und `class`), der als Name für Variablen, Klassen etc. nicht gewählt werden darf.
 endif::solution[]
 
-### Frage (MC)
+### Never use Dollars in Javaland
+[question,mc]
+====
 Never use Dollars in Javaland. Why? -- Die Frage meint: Warum sollen keine `$`-Zeichen in Bezeichnern für Variablen, Klassen, Methoden, Schnittstellen etc. verwendet werden?
 
 - [ ] Das `$`-Zeichen ist in Bezeichnern nicht erlaubt
 - [ ] Das `$`-Zeichen ist für einen internen Variablenbezeichner reserviert
-- [ ] Das `$`-Zeichen ist Code-Generatoren vorbehalten
+- [x] Das `$`-Zeichen ist Code-Generatoren vorbehalten
 - [ ] Das `$`-Zeichen ist ein Schlüsselwort
+====
 
 ifdef::solution[]
 .Antwort
-- [x] Das `$` ist Code-Generatoren vorbehalten
+// - [x] Das `$` ist Code-Generatoren vorbehalten
 
 Man überlässt den Gebrauch des `$`-Zeichens Code-Generatoren, so dass es keinen Konflikt mit den von Menschen gewählten Bezeichnern geben kann.
 endif::solution[]
 
-### Frage (MC)
+### `for`-Problem?
+[question,mc]
+====
 `for(int i = 0; i \<= 10; i++);`. Wo ist das Problem?
 
 - [ ] Es muss `int i = 1` heißen
 - [ ] Statt des Strichpunkts müssen gescheifte Klammern `{ }` folgen
 - [ ] Im `for`-Kopf müssen die Strichpunkte durch Kommas ersetzt werden
-- [ ] Ohne etwas vor dem Semikolon ist die `for`-Schleife sinnlos
+- [x] Ohne etwas vor dem Semikolon ist die `for`-Schleife sinnlos
+====
 
 ifdef::solution[]
 .Antwort
-- [x] Ohne etwas vor dem Semikolon ist die `for`-Schleife sinnlos
+// - [x] Ohne etwas vor dem Semikolon ist die `for`-Schleife sinnlos
 
 Die Schleife bleibt ohne Auswirkungen (außer, dass sie Zeit für die Durchläufe verbraucht), da dem `for`-Kopf eine leere Anweisung (das Semikolon) folgt.
 endif::solution[]
 
-### Frage (MC)
+### Das Semikolon
+[question,mc]
+====
 Das Semikolon `;` beendet
 
 - [ ] eine Datei
 - [ ] einen Ausdruck
 - [ ] eine Ausgabe
-- [ ] eine Anweisung
+- [x] eine Anweisung
+====
 
 ifdef::solution[]
-.Antwort
-- [x] eine Anweisung
+// .Antwort
+// - [x] eine Anweisung
 endif::solution[]
 
-### Frage (MC)
+### Ein Plus fur Zeichenketten?
+[question,mc]
+====
 Kann man den "`+`"-Operator bei Zeichenketten anwenden? Falls ja, was bedeutet "`+`" bei Zeichenketten?
 
 - [ ] Addition der Strings
 - [ ] Addition der durch die Strings repräsentierten Zahlen
-- [ ] Verkettung der Strings
+- [x] Verkettung der Strings
 - [ ] Man kann Strings nicht addieren.
+====
 
 ifdef::solution[]
 .Antwort
-- [x] Verkettung der Strings
+// - [x] Verkettung der Strings
 
 Man nennt die Verkettung auch Konkatenation.
 endif::solution[]
 
-### Frage (MC)
+### Ein Minus für Zeichenketten?
+[question,mc]
+====
 Kann man den "`-`"-Operator bei Zeichenketten anwenden? Falls ja, was bedeutet "`-`" bei Zeichenketten?
 
 - [ ] Subtraktion der Strings
 - [ ] Subtraktion der durch die Strings repräsentierten Zahlen
 - [ ] Entkettung der Strings
-- [ ] Man kann Strings nicht subtrahieren.
+- [x] Man kann Strings nicht subtrahieren.
+====
 
 ifdef::solution[]
-.Antwort
-- [x] Man kann Strings nicht subtrahieren.
+// .Antwort
+// - [x] Man kann Strings nicht subtrahieren.
 endif::solution[]
 
-### Frage (MC)
+### Das Semikolon und `if`
+[question,mc]
+====
 Wenn jede Anweisung mit einem Semikolon beendet werden muss, gilt das auch für `if` oder `while`?
 
 Bsp.: `if (x < 0); x = 0;` (Was macht dieser Code?)
 
 Wenn `x` zuvor als `int` deklariert ist, welchen Wert würde der Ausdruck `x == 0` direkt nach dem gezeigten Codeabschnitt ergeben?
 
-- [ ] `true`, sofern `x < 0` ein `true` ergeben hätte
-- [ ] `true`, sofern `x < 0` ein `false` ergeben hätte
+- [x] `true`, sofern `x < 0` ein `true` ergeben hätte
+- [x] `true`, sofern `x < 0` ein `false` ergeben hätte
 - [ ] `false`, sofern `x < 0` ein `true` ergeben hätte
 - [ ] `false`, sofern `x < 0` ein `false` ergeben hätte
+====
 
 ifdef::solution[]
 .Antwort
-- [x] `true`, sofern `x < 0` ein `true` ergeben hätte
-- [x] `true`, sofern `x < 0` ein `false` ergeben hätte
+// - [x] `true`, sofern `x < 0` ein `true` ergeben hätte
+// - [x] `true`, sofern `x < 0` ein `false` ergeben hätte
 
 Wenn das `if` greift, wird es von einer leeren Anweisung `;` gefolgt -- insofern bleibt das `if` wirkungslos. Der sich anschließende Ausdruck `x = 0;` wird immer ausgeführt.
 endif::solution[]
 
-### Frage (MC)
+### Import von `Math`
+[question,mc]
+====
 Warum kann man die Klasse `Math` verwenden, ohne sie vorher zu importieren?
 
-- [ ] Weil sie als Teil von `java.lang` standardmäßig importiert wird
+- [x] Weil sie als Teil von `java.lang` standardmäßig importiert wird
 - [ ] Weil das eben so ist; eine Entscheidung der Schöpfer von Java
 - [ ] Das ist ausschließlich eine Besonderheit der JShell
 - [ ] Das stimmt nicht, man muss `Math` explizit importieren
+====
 
 ifdef::solution[]
-.Antwort
-- [x] Weil sie als Teil von `java.lang` standardmäßig importiert wird
+// .Antwort
+// - [x] Weil sie als Teil von `java.lang` standardmäßig importiert wird
 endif::solution[]
 
 ////
@@ -169,7 +199,7 @@ Wenn die Klasse in einem (noch nicht importierten) Paket definiert ist.
 endif::solution[]
 ////
 
-### Frage (Seitenbezug)
+### Eigenschaften
 Auf S.52 unten heißt es: "Java kennt keine Eigenschaften." Auf S.57 unten jedoch: "Über Attribute können Eigenschaften von Objekten gelesen bzw. gespeichert werden." Was ist da los? Ein Widerspruch?
 
 ifdef::solution[]
@@ -177,22 +207,25 @@ ifdef::solution[]
 Der Begriff "Eigenschaften" ist hier doppelt belegt. Im ersten Satz ist das englische _property_ gemeint, womit ein Sprachkonstrukt bezeichnet wird, das es in Java nicht gibt. Im zweiten Satz geht es tatsächlich um "Eigenschaften" im umgangssprachlichen Sinne, also um Felder von Objekten. Leider werden diese Begriffe nicht immer einheitlich verwendet.
 endif::solution[]
 
-### Frage (MC)
+### `import` mit Stern
+[question,mc]
+====
 `import a.packet.\*;` Was meint der Stern `*` in der `import`-Anweisung?
 
 - [ ] Importiere die Typen in `a.packet` und die in den Unterpaketen
 - [ ] Importiere nur die Klassen in `a.packet`
-- [ ] Importiere die Typen in `a.packet`
+- [x] Importiere die Typen in `a.packet`
 - [ ] Importieren die Klassen in `a.packet` und die in den Unterpaketen
+====
 
 ifdef::solution[]
 .Antwort
-- [x] Importiere die Typen in `a.packet`
+// - [x] Importiere die Typen in `a.packet`
 
 Der Stern importiert alle Typen (Klassen, Schnittstellen, Enumerationen) des angegebenen Pakets.
 endif::solution[]
 
-### Frage
+### Ein Datumspattern
 `DateTimeFormatter.ofPattern("EEEE, d. MMMM yyyy");` Was meint diese Codezeile?
 
 ifdef::solution[]
@@ -200,17 +233,20 @@ ifdef::solution[]
 Die Methode `ofPattern` erzeugt ein `DateTimeFormatter`-Objekt. Die Zeichenkette `"EEEE, d. MMMM yyyy"` beschreibt, wie Datum und Uhrzeit formatiert werden sollen. `EEEE` steht für den vollständigen Wochentag, `d` für den Tag im Monat (1-31) usw. Kapitel 7 beschreibt den `DateTimeFormatter` ausführlicher. Das Verständnis für die Funktionsweise des `DateTimeFormatter` ist an dieser Stelle nicht wichtig. Gut wäre aber, wenn Sie die Funktionsweise von `import` verstehen.
 endif::solution[]
 
-### Frage (MC)
+### `Math`-Instanz?
+[question,mc]
+====
 Warum kann man keine Instanz der Klasse `Math` erzeugen?
 
 - [ ] Weil `Math` keinen Konstruktor hat
-- [ ] Weil der Konstruktor von `Math` privat ist
+- [x] Weil der Konstruktor von `Math` privat ist
 - [ ] Weil `Math` eine statische Klasse ist
 - [ ] Weil die Klasse `Math` abstrakt ist
+====
 
 ifdef::solution[]
 .Antwort
-- [x] Weil der Konstruktor von `Math` privat ist
+// - [x] Weil der Konstruktor von `Math` privat ist
 
 Der Konstruktor von `Math` ist nicht `public`, und damit ist keine Instanz von `Math` erzeugbar. Von einer als `abstract` ausgewiesenen Klasse ist zwar ebenfalls keine Instanz erzeugbar, das trifft auf `Math` allerdings nicht zu.
 
