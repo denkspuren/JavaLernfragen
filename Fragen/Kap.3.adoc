@@ -1,4 +1,5 @@
 // == Operatoren
+:solution:
 
 ### Frage
 Operatoren kommen nur vor in ________?

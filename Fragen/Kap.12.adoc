@@ -1,4 +1,5 @@
 // == Generische Klassen und Methoden
+:solution:
 
 Die aktuellen Fragen zu diesem Kapitel haben wir beschränkt mit Rücksicht auf unsere Erstsemester, für die vorerst "einfache" Generics genügen mögen.
 

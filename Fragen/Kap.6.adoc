@@ -1,4 +1,5 @@
 // == Zeichenketten
+:solution:
 
 ### Frage
 Wir ist die Schreibweise für ein Einzelzeichen-Literal?

@@ -1,4 +1,5 @@
 // == Methoden
+:solution:
 
 ### Frage
 Haben Klassen Methoden? Oder haben Objekte Methoden?

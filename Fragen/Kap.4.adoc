@@ -1,4 +1,5 @@
 // == Verzweigungen und Schleifen
+:solution:
 
 ### Frage
 Wie sieht die Syntax einer If-Abfrage aus?

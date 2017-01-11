@@ -1,4 +1,5 @@
 // == Vererbung und Schnittstellen
+:solution:
 
 [TIP]
 ====
