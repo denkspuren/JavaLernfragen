@@ -64,7 +64,7 @@ ifdef::solution[]
 endif::solution[]
 
 ### Frage
-Deklarieren und initialisieren Sie eine Variable `a`, die ausschließlich eine `ArrayListe` von boolschen Werten aufnehmen kann. Die Lösung muss so kurz wie möglich sein.
+Deklarieren und initialisieren Sie eine Variable `a`, die ausschließlich eine `ArrayList` von boolschen Werten aufnehmen kann. Die Lösung muss so kurz wie möglich sein.
 
 ifdef::solution[]
 .Antwort

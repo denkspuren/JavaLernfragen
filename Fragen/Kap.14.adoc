@@ -51,6 +51,7 @@ for(int i = 0; i < 100; i++) {
  if (! s.contains(x)) s.add(x);
 }
 ----
+Was kann hier verbessert werden?
 
 ifdef::solution[]
 .Antwort
