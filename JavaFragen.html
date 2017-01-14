@@ -422,57 +422,88 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 
           <style id="question">
             .hidden {
-              display: none;
-            }
+    display: none;
+}
 
-            div[id*=question][data-type=gap] gap > input.incorrect {
-              font-weight: bold;
-              color: red;
-            }
+div[id*=question][data-type=gap] gap > input.incorrect {
+    font-weight: bold;
+    color: red;
+}
 
 
-            div[id*=question][data-type=gap] gap > answer, div[id*=question][data-type=gap] gap > input.correct {
-              font-weight: bold;
-              color: green;
-            }
+div[id*=question][data-type=gap] gap > answer, div[id*=question][data-type=gap] gap > input.correct {
+    font-weight: bold;
+    color: green;
+}
 
-            div[id*=question][data-type=mc] input[type="checkbox"]::before {
-              display: inline-block;
-              width: 24px;
-              height: 24px;
-              margin-top: -8px;
-              margin-left: -25px;
-            }
+div[id*=question][data-type=mc] input[type="checkbox"].show ~ span::before {
+    display: inline;
+    width: 16px;
+    height: 16px;
+}
 
-            div[id*=question][data-type=mc] input[type="checkbox"][data-correct="true"].show::before {
-              content: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIyNHB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGZpbGw9Im9saXZlZHJhYiIgc3Ryb2tlPSJvbGl2ZWRyYWIiIGQ9Ik0yMS42NTIsMy4yMTFjLTAuMjkzLTAuMjk1LTAuNzctMC4yOTUtMS4wNjEsMEw5LjQxLDE0LjM0ICBjLTAuMjkzLDAuMjk3LTAuNzcxLDAuMjk3LTEuMDYyLDBMMy40NDksOS4zNTFDMy4zMDQsOS4yMDMsMy4xMTQsOS4xMywyLjkyMyw5LjEyOUMyLjczLDkuMTI4LDIuNTM0LDkuMjAxLDIuMzg3LDkuMzUxICBsLTIuMTY1LDEuOTQ2QzAuMDc4LDExLjQ0NSwwLDExLjYzLDAsMTEuODIzYzAsMC4xOTQsMC4wNzgsMC4zOTcsMC4yMjMsMC41NDRsNC45NCw1LjE4NGMwLjI5MiwwLjI5NiwwLjc3MSwwLjc3NiwxLjA2MiwxLjA3ICBsMi4xMjQsMi4xNDFjMC4yOTIsMC4yOTMsMC43NjksMC4yOTMsMS4wNjIsMGwxNC4zNjYtMTQuMzRjMC4yOTMtMC4yOTQsMC4yOTMtMC43NzcsMC0xLjA3MUwyMS42NTIsMy4yMTF6Ii8+PC9zdmc+);
-            }
+div[id*=question][data-type=mc] input[type="checkbox"][data-correct="true"].show ~ span::before {
+    content: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjE2cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGZpbGw9Im9saXZlZHJhYiIgc3Ryb2tlPSJvbGl2ZWRyYWIiIGQ9Ik0yMS42NTIsMy4yMTFjLTAuMjkzLTAuMjk1LTAuNzctMC4yOTUtMS4wNjEsMEw5LjQxLDE0LjM0ICBjLTAuMjkzLDAuMjk3LTAuNzcxLDAuMjk3LTEuMDYyLDBMMy40NDksOS4zNTFDMy4zMDQsOS4yMDMsMy4xMTQsOS4xMywyLjkyMyw5LjEyOUMyLjczLDkuMTI4LDIuNTM0LDkuMjAxLDIuMzg3LDkuMzUxICBsLTIuMTY1LDEuOTQ2QzAuMDc4LDExLjQ0NSwwLDExLjYzLDAsMTEuODIzYzAsMC4xOTQsMC4wNzgsMC4zOTcsMC4yMjMsMC41NDRsNC45NCw1LjE4NGMwLjI5MiwwLjI5NiwwLjc3MSwwLjc3NiwxLjA2MiwxLjA3ICBsMi4xMjQsMi4xNDFjMC4yOTIsMC4yOTMsMC43NjksMC4yOTMsMS4wNjIsMGwxNC4zNjYtMTQuMzRjMC4yOTMtMC4yOTQsMC4yOTMtMC43NzcsMC0xLjA3MUwyMS42NTIsMy4yMTF6Ii8+PC9zdmc+);
+}
 
-            div[id*=question][data-type=mc] input[type="checkbox"][data-correct="false"].show::before {
-              content: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIyNHB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGZpbGw9Im1hcm9vbiIgc3Ryb2tlPSJtYXJvb24iIGQ9Ik0yMi4yNDUsNC4wMTVjMC4zMTMsMC4zMTMsMC4zMTMsMC44MjYsMCwxLjEzOWwtNi4yNzYsNi4yN2MtMC4zMTMsMC4zMTItMC4zMTMsMC44MjYsMCwxLjE0bDYuMjczLDYuMjcyICBjMC4zMTMsMC4zMTMsMC4zMTMsMC44MjYsMCwxLjE0bC0yLjI4NSwyLjI3N2MtMC4zMTQsMC4zMTItMC44MjgsMC4zMTItMS4xNDIsMGwtNi4yNzEtNi4yNzFjLTAuMzEzLTAuMzEzLTAuODI4LTAuMzEzLTEuMTQxLDAgIGwtNi4yNzYsNi4yNjdjLTAuMzEzLDAuMzEzLTAuODI4LDAuMzEzLTEuMTQxLDBsLTIuMjgyLTIuMjhjLTAuMzEzLTAuMzEzLTAuMzEzLTAuODI2LDAtMS4xNGw2LjI3OC02LjI2OSAgYzAuMzEzLTAuMzEyLDAuMzEzLTAuODI2LDAtMS4xNEwxLjcwOSw1LjE0N2MtMC4zMTQtMC4zMTMtMC4zMTQtMC44MjcsMC0xLjE0bDIuMjg0LTIuMjc4QzQuMzA4LDEuNDE3LDQuODIxLDEuNDE3LDUuMTM1LDEuNzMgIEwxMS40MDUsOGMwLjMxNCwwLjMxNCwwLjgyOCwwLjMxNCwxLjE0MSwwLjAwMWw2LjI3Ni02LjI2N2MwLjMxMi0wLjMxMiwwLjgyNi0wLjMxMiwxLjE0MSwwTDIyLjI0NSw0LjAxNXoiLz48L3N2Zz4=);
-            }
+div[id*=question][data-type=mc] input[type="checkbox"][data-correct="false"].show ~ span::before {
+    content: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjE2cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGZpbGw9Im1hcm9vbiIgc3Ryb2tlPSJtYXJvb24iIGQ9Ik0yMi4yNDUsNC4wMTVjMC4zMTMsMC4zMTMsMC4zMTMsMC44MjYsMCwxLjEzOWwtNi4yNzYsNi4yN2MtMC4zMTMsMC4zMTItMC4zMTMsMC44MjYsMCwxLjE0bDYuMjczLDYuMjcyICBjMC4zMTMsMC4zMTMsMC4zMTMsMC44MjYsMCwxLjE0bC0yLjI4NSwyLjI3N2MtMC4zMTQsMC4zMTItMC44MjgsMC4zMTItMS4xNDIsMGwtNi4yNzEtNi4yNzFjLTAuMzEzLTAuMzEzLTAuODI4LTAuMzEzLTEuMTQxLDAgIGwtNi4yNzYsNi4yNjdjLTAuMzEzLDAuMzEzLTAuODI4LDAuMzEzLTEuMTQxLDBsLTIuMjgyLTIuMjhjLTAuMzEzLTAuMzEzLTAuMzEzLTAuODI2LDAtMS4xNGw2LjI3OC02LjI2OSAgYzAuMzEzLTAuMzEyLDAuMzEzLTAuODI2LDAtMS4xNEwxLjcwOSw1LjE0N2MtMC4zMTQtMC4zMTMtMC4zMTQtMC44MjcsMC0xLjE0bDIuMjg0LTIuMjc4QzQuMzA4LDEuNDE3LDQuODIxLDEuNDE3LDUuMTM1LDEuNzMgIEwxMS40MDUsOGMwLjMxNCwwLjMxNCwwLjgyOCwwLjMxNCwxLjE0MSwwLjAwMWw2LjI3Ni02LjI2N2MwLjMxMi0wLjMxMiwwLjgyNi0wLjMxMiwxLjE0MSwwTDIyLjI0NSw0LjAxNXoiLz48L3N2Zz4=);
+}
           </style>
         <script type="text/javascript">
                           function resolve(questionId) {
-                            var q = document.getElementById("question_" + questionId)
-                            var type = q.getAttribute("data-type")
-                            if(type == "mc") {
-                              for(var answer of q.getElementsByTagName("input")) {
-                                answer.setAttribute("class", "show")
-                              }
-                            } else if(type == "gap") {
-                              for(var gap of q.getElementsByTagName("gap")) {
-                                input = gap.getElementsByTagName("input")[0]
-                                answer = gap.getElementsByTagName("answer")[0]
-                                if(input.value == answer.textContent) {
-                                  input.setAttribute("class", "correct")
-                                } else {
-                                  input.setAttribute("class", "incorrect")
-                                  answer.setAttribute("class", "")
-                                }
-                              }
-                            }
-                          }
+    var q = document.getElementById("question_" + questionId)
+    var type = q.getAttribute("data-type")
+    var elems
+    var pos
+    var answer
+
+    if(type == "mc") {
+        elems = q.getElementsByTagName("input")
+        for(pos = 0; pos < elems.length; pos++) {
+            answer = elems[pos]
+            answer.setAttribute("class", "show")
+        }
+    } else if(type == "gap") {
+        elems = q.getElementsByTagName("gap")
+        for(pos = 0; pos < elems.length; pos++) {
+            var gap = elems[pos]
+            var input = gap.getElementsByTagName("input")[0]
+            answer = gap.getElementsByTagName("answer")[0]
+            if(input.value == answer.textContent) {
+                input.setAttribute("class", "correct")
+            } else {
+                input.setAttribute("class", "incorrect")
+                answer.setAttribute("class", "")
+            }
+        }
+    }
+}
+
+function reset(questionId) {
+    var q = document.getElementById("question_" + questionId)
+    var type = q.getAttribute("data-type")
+    var elems
+    var pos
+    var answer
+
+    if(type == "mc") {
+        elems = q.getElementsByTagName("input")
+        for(pos = 0; pos < elems.length; pos++) {
+            answer = elems[pos]
+            answer.setAttribute("class", "")
+        }
+    } else if(type == "gap") {
+        elems = q.getElementsByTagName("gap")
+        for(pos = 0; pos < elems.length; pos++) {
+            var gap = elems[pos]
+            var input = gap.getElementsByTagName("input")[0]
+            answer = gap.getElementsByTagName("answer")[0]
+            input.setAttribute("class", "")
+            answer.setAttribute("class", "hidden")
+        }
+    }
+}
                         </script>
 </head>
 <body class="book">
@@ -980,21 +1011,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Man kann auch schreiben <code>String s = new "abc";</code></p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Man kann auch schreiben <code>String s = new "abc";</code></p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Man kann auch schreiben <code>String s = new("abc");</code></p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Man kann auch schreiben <code>String s = new("abc");</code></p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="1" data-correct="true"> Man kann auch schreiben <code>String s = new String("abc");</code></p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Man kann auch schreiben <code>String s = new String("abc");</code></p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="1" data-correct="true"> Ein <code>new</code> ist gar nicht notwendig.</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Ein <code>new</code> ist gar nicht notwendig.</p>
 </li>
 </ul>
 </div>
             <p style="margin-bottom: 25px">
-              <button onclick="resolve(1)">Lösen</button>
+              <button onclick="resolve(1)">resolve</button>
+              <button onclick="reset(1)">reset</button>
             </p>
 </div>
 </div>
@@ -1015,21 +1047,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> <code>/*</code> und <code>*/</code></p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>/*</code> und <code>*/</code></p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="1" data-correct="true"> <code>/**</code> und <code>*/</code></p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  <code>/**</code> und <code>*/</code></p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> <code>/**</code> und <code>/*</code></p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>/**</code> und <code>/*</code></p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> <code>/*</code> und <code>**/</code></p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>/*</code> und <code>**/</code></p>
 </li>
 </ul>
 </div>
             <p style="margin-bottom: 25px">
-              <button onclick="resolve(2)">Lösen</button>
+              <button onclick="resolve(2)">resolve</button>
+              <button onclick="reset(2)">reset</button>
             </p>
 </div>
 </div>
@@ -1044,21 +1077,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Unsinn, es gibt in Java so etwas wie ein Schlüsselwort nicht</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Unsinn, es gibt in Java so etwas wie ein Schlüsselwort nicht</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="1" data-correct="true"> Ein Schlüsselwort ist ein reservierter Bezeichner</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Ein Schlüsselwort ist ein reservierter Bezeichner</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Als Schlüsselwort bezeichnet man in einer <code>Map&lt;K,V&gt;</code> einen Wert vom Typ <code>K</code> (für <em>Key</em>)</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Als Schlüsselwort bezeichnet man in einer <code>Map&lt;K,V&gt;</code> einen Wert vom Typ <code>K</code> (für <em>Key</em>)</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Bezeichner in Großbuchstaben (wie <code>HALT</code>) heißen Schlüsselwörter</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Bezeichner in Großbuchstaben (wie <code>HALT</code>) heißen Schlüsselwörter</p>
 </li>
 </ul>
 </div>
             <p style="margin-bottom: 25px">
-              <button onclick="resolve(3)">Lösen</button>
+              <button onclick="resolve(3)">resolve</button>
+              <button onclick="reset(3)">reset</button>
             </p>
 </div>
 </div>
@@ -1073,21 +1107,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Das <code>$</code>-Zeichen ist in Bezeichnern nicht erlaubt</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Das <code>$</code>-Zeichen ist in Bezeichnern nicht erlaubt</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Das <code>$</code>-Zeichen ist für einen internen Variablenbezeichner reserviert</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Das <code>$</code>-Zeichen ist für einen internen Variablenbezeichner reserviert</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="1" data-correct="true"> Das <code>$</code>-Zeichen ist Code-Generatoren vorbehalten</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Das <code>$</code>-Zeichen ist Code-Generatoren vorbehalten</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Das <code>$</code>-Zeichen ist ein Schlüsselwort</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Das <code>$</code>-Zeichen ist ein Schlüsselwort</p>
 </li>
 </ul>
 </div>
             <p style="margin-bottom: 25px">
-              <button onclick="resolve(4)">Lösen</button>
+              <button onclick="resolve(4)">resolve</button>
+              <button onclick="reset(4)">reset</button>
             </p>
 </div>
 </div>
@@ -1102,21 +1137,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Es muss <code>int i = 1</code> heißen</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Es muss <code>int i = 1</code> heißen</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Statt des Strichpunkts müssen gescheifte Klammern <code>{ }</code> folgen</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Statt des Strichpunkts müssen gescheifte Klammern <code>{ }</code> folgen</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Im <code>for</code>-Kopf müssen die Strichpunkte durch Kommas ersetzt werden</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Im <code>for</code>-Kopf müssen die Strichpunkte durch Kommas ersetzt werden</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="1" data-correct="true"> Ohne etwas vor dem Semikolon ist die <code>for</code>-Schleife sinnlos</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Ohne etwas vor dem Semikolon ist die <code>for</code>-Schleife sinnlos</p>
 </li>
 </ul>
 </div>
             <p style="margin-bottom: 25px">
-              <button onclick="resolve(5)">Lösen</button>
+              <button onclick="resolve(5)">resolve</button>
+              <button onclick="reset(5)">reset</button>
             </p>
 </div>
 </div>
@@ -1131,21 +1167,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> eine Datei</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  eine Datei</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> einen Ausdruck</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  einen Ausdruck</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> eine Ausgabe</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  eine Ausgabe</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="1" data-correct="true"> eine Anweisung</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  eine Anweisung</p>
 </li>
 </ul>
 </div>
             <p style="margin-bottom: 25px">
-              <button onclick="resolve(6)">Lösen</button>
+              <button onclick="resolve(6)">resolve</button>
+              <button onclick="reset(6)">reset</button>
             </p>
 </div>
 </div>
@@ -1160,21 +1197,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Addition der Strings</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Addition der Strings</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Addition der durch die Strings repräsentierten Zahlen</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Addition der durch die Strings repräsentierten Zahlen</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="1" data-correct="true"> Verkettung der Strings</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Verkettung der Strings</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Man kann Strings nicht addieren.</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Man kann Strings nicht addieren.</p>
 </li>
 </ul>
 </div>
             <p style="margin-bottom: 25px">
-              <button onclick="resolve(7)">Lösen</button>
+              <button onclick="resolve(7)">resolve</button>
+              <button onclick="reset(7)">reset</button>
             </p>
 </div>
 </div>
@@ -1189,21 +1227,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Subtraktion der Strings</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Subtraktion der Strings</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Subtraktion der durch die Strings repräsentierten Zahlen</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Subtraktion der durch die Strings repräsentierten Zahlen</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Entkettung der Strings</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Entkettung der Strings</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="1" data-correct="true"> Man kann Strings nicht subtrahieren.</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Man kann Strings nicht subtrahieren.</p>
 </li>
 </ul>
 </div>
             <p style="margin-bottom: 25px">
-              <button onclick="resolve(8)">Lösen</button>
+              <button onclick="resolve(8)">resolve</button>
+              <button onclick="reset(8)">reset</button>
             </p>
 </div>
 </div>
@@ -1225,21 +1264,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><input type="checkbox" data-item-complete="1" data-correct="true"> <code>true</code>, sofern <code>x &lt; 0</code> ein <code>true</code> ergeben hätte</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  <code>true</code>, sofern <code>x &lt; 0</code> ein <code>true</code> ergeben hätte</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="1" data-correct="true"> <code>true</code>, sofern <code>x &lt; 0</code> ein <code>false</code> ergeben hätte</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  <code>true</code>, sofern <code>x &lt; 0</code> ein <code>false</code> ergeben hätte</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> <code>false</code>, sofern <code>x &lt; 0</code> ein <code>true</code> ergeben hätte</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>false</code>, sofern <code>x &lt; 0</code> ein <code>true</code> ergeben hätte</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> <code>false</code>, sofern <code>x &lt; 0</code> ein <code>false</code> ergeben hätte</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>false</code>, sofern <code>x &lt; 0</code> ein <code>false</code> ergeben hätte</p>
 </li>
 </ul>
 </div>
             <p style="margin-bottom: 25px">
-              <button onclick="resolve(9)">Lösen</button>
+              <button onclick="resolve(9)">resolve</button>
+              <button onclick="reset(9)">reset</button>
             </p>
 </div>
 </div>
@@ -1255,21 +1295,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><input type="checkbox" data-item-complete="1" data-correct="true"> Weil sie als Teil von <code>java.lang</code> standardmäßig importiert wird</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Weil sie als Teil von <code>java.lang</code> standardmäßig importiert wird</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Weil das eben so ist; eine Entscheidung der Schöpfer von Java</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Weil das eben so ist; eine Entscheidung der Schöpfer von Java</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Das ist ausschließlich eine Besonderheit der JShell</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Das ist ausschließlich eine Besonderheit der JShell</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Das stimmt nicht, man muss <code>Math</code> explizit importieren</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Das stimmt nicht, man muss <code>Math</code> explizit importieren</p>
 </li>
 </ul>
 </div>
             <p style="margin-bottom: 25px">
-              <button onclick="resolve(10)">Lösen</button>
+              <button onclick="resolve(10)">resolve</button>
+              <button onclick="reset(10)">reset</button>
             </p>
 </div>
 </div>
@@ -1290,21 +1331,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Importiere die Typen in <code>a.packet</code> und die in den Unterpaketen</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Importiere die Typen in <code>a.packet</code> und die in den Unterpaketen</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Importiere nur die Klassen in <code>a.packet</code></p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Importiere nur die Klassen in <code>a.packet</code></p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="1" data-correct="true"> Importiere die Typen in <code>a.packet</code></p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Importiere die Typen in <code>a.packet</code></p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Importieren die Klassen in <code>a.packet</code> und die in den Unterpaketen</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Importieren die Klassen in <code>a.packet</code> und die in den Unterpaketen</p>
 </li>
 </ul>
 </div>
             <p style="margin-bottom: 25px">
-              <button onclick="resolve(11)">Lösen</button>
+              <button onclick="resolve(11)">resolve</button>
+              <button onclick="reset(11)">reset</button>
             </p>
 </div>
 </div>
@@ -1325,21 +1367,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Weil <code>Math</code> keinen Konstruktor hat</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Weil <code>Math</code> keinen Konstruktor hat</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="1" data-correct="true"> Weil der Konstruktor von <code>Math</code> privat ist</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Weil der Konstruktor von <code>Math</code> privat ist</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Weil <code>Math</code> eine statische Klasse ist</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Weil <code>Math</code> eine statische Klasse ist</p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false"> Weil die Klasse <code>Math</code> abstrakt ist</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Weil die Klasse <code>Math</code> abstrakt ist</p>
 </li>
 </ul>
 </div>
             <p style="margin-bottom: 25px">
-              <button onclick="resolve(12)">Lösen</button>
+              <button onclick="resolve(12)">resolve</button>
+              <button onclick="reset(12)">reset</button>
             </p>
 </div>
 </div>
@@ -2113,7 +2156,7 @@ while(true) {
 <div class="sect2">
 <h3 id="_frage_105">6.21. Frage</h3>
 <div class="paragraph">
-<p>Warum gibt es <code>String.valueOf()</code>, wenn es doch die <code>toString()</code>-Methode gibt?</p>
+<p>Warum gibt es <code>String.valueOf()</code>, wenn es doch für jede Klasse die <code>toString()</code>-Methode gibt?</p>
 </div>
 </div>
 <div class="sect2">
@@ -3556,7 +3599,7 @@ class A implements I { void foo() {} }</pre>
 <div class="sect2">
 <h3 id="_frage_272">12.5. Frage</h3>
 <div class="paragraph">
-<p>Deklarieren und initialisieren Sie eine Variable <code>a</code>, die ausschließlich eine <code>ArrayListe</code> von boolschen Werten aufnehmen kann. Die Lösung muss so kurz wie möglich sein.</p>
+<p>Deklarieren und initialisieren Sie eine Variable <code>a</code>, die ausschließlich eine <code>ArrayList</code> von boolschen Werten aufnehmen kann. Die Lösung muss so kurz wie möglich sein.</p>
 </div>
 </div>
 <div class="sect2">
@@ -3718,6 +3761,9 @@ for(int i = 0; i &lt; 100; i++) {
  if (! s.contains(x)) s.add(x);
 }</pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Was kann hier verbessert werden?</p>
 </div>
 </div>
 <div class="sect2">
