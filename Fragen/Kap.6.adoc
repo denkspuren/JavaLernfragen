@@ -197,7 +197,7 @@ Hier gibt es einen Fehler, weil `i` vom primitiven Typ `int` ist. Primitive Type
 endif::solution[]
 
 ### Frage
-Warum gibt es `String.valueOf()`, wenn es doch die `toString()`-Methode gibt?
+Warum gibt es `String.valueOf()`, wenn es doch für jede Klasse die `toString()`-Methode gibt?
 
 ifdef::solution[]
 .Antwort
