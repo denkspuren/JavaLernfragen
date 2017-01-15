@@ -11,18 +11,28 @@ Herr Kofler nennt welche Vorteile, die Objektorientierung bietet?
 
 ifdef::solution[]
 .Antwort
-// TODO
+* Bessere Strukturierung des Codes
+* Kapselung von Daten
+* Bessere Wiederverwertbarkeit
+* Pakete und Klassenbibliotheken
 endif::solution[]
 
 ### Frage
-Wann ist eine Klasse *keine* _top level_-Klasse?
 
-ifdef::solution[]
-.Antwort
-Wenn sie innerhalb von geschweiften Klammern steht.
-endif::solution[]
+[question,mc]
+--
+Wann ist eine Klasse *keine* Top-Level-Klasse?
+
+- [ ] Wenn die Klasse nicht oben im Quellcode steht.
+- [x] Wenn die Klasse innerhalb von geschweiften Klammern steht.
+- [ ] Wenn die Klasse `static` ist.
+- [ ] Wenn die Klasse `abstract` ist.
+--
 
 ### Frage
+[question,mc]
+--
+Kann man eine Klasse derart in einer Methode deklarieren und nutzen?
 ----
 void foo() {
  class StrangeThing {
@@ -32,53 +42,71 @@ void foo() {
  System.out.println(thing.isStrange);
 }
 ----
-Geht das?
 
-ifdef::solution[]
-.Antwort
-Das geht. Es handelt sich hier um eine lokale Klassendefinition, die nur innerhalb der Methode `foo` verwendet werden kann.
-endif::solution[]
+- [x] Ja, es handelt sich hier um eine lokale Klassendefinition
+- [ ] Ja, es ist egal, ob eine Klasse in einer Methode deklariert wird oder umgekehrt
+- [ ] Nein, die Klasse müsste `public` sein.
+- [ ] Nein, die Klasse müsste `static` sein.
+--
 
 ### Frage
-Wie sieht schematisch die Syntax zur Klasse aus? [ohne Annotationen und Generics]
+Wie sieht schematisch die Syntax zur Deklaration einer Klasse aus [ohne Annotationen und Generics]?
 
 ifdef::solution[]
 .Antwort
 ----
-[Modifizierer] class Name [extends KlassenName] [implements I1, I2, ...]
+[Modifizierer] `class` Name
+  [`extends` NameOberKlasse]
+  [`implements` I1, I2, ...] `{`
+  // Klassenrumpf (class body)
+`}`
 ----
 endif::solution[]
 
 ### Frage
+[question,mc]
+--
 In einer `.java`-Datei können mehrere Klassen deklariert werden. Allerdings gilt eine Einschränkung, was den Namen der Datei angeht. Welche?
 
+- [ ] Der Name der Datei muss mit dem Namen der ersten Klasse in der Datei übereinstimmen.
+- [ ] Der Dateiname muss wie der Klassenname mit einem Großbuchstaben beginnen.
+- [ ] Der Dateiname muss die Endung `.class` haben.
+- [x] Wenn eine der Klassen `public` ist, muss der Name der Datei dem Namen dieser Klasse entsprechen.
+--
+
+### Frage
+[question,mc]
+--
+Schreibe `class test` und schon ist der Kopf ab, bevor auch nur ein `{` folgt. Warum? [Gemeint ist Ihr Kopf, nicht der der Klassendeklaration (-:]
+
+- [ ] Vor `class` fehlt ein `public`.
+- [ ] Es muss `Class test` heißen.
+- [x] Es muss `class Test` heißen.
+- [ ] Der Name `test` ist reserviert und darf nicht benutzt werden.
+--
+
 ifdef::solution[]
 .Antwort
-Wenn eine der Klassen öffentlich (`public`) ist, muss der Name der Datei dem Namen dieser Klasse entsprechen.
+Namen von Klassen beginnen immer mit einem Großbuchstaben! Zwar ist das eine Konvention, an die sich aber ausnahmslos alle Java-Entwickler/innen halten.
 endif::solution[]
 
 ### Frage
-Schreibe `class test` und schon ist der Kopf ab, bevor auch nur ein `{` folgt. Warum? [Gemeint ist Ihr Kopf, nicht der der Klassendeklaration :upside_down_face:!)
+[question,mc]
+--
+Eine Top-Level-Klasse darf wie *nicht* deklariert sein?
 
-ifdef::solution[]
-.Antwort
-Es sollte `class Test` heißen. Namen von Klassen werden großgeschrieben.
-endif::solution[]
-
-### Frage
-Eine _top level_-Klasse darf welche Sichtbarkeiten *nicht* haben?
-
-ifdef::solution[]
-.Antwort
-`private` und `protected` sind nicht erlaubt, da eine Toplevel-Klasse sich nicht im Kontext einer anderen Klasse befindet und diese Sichtbarkeiten somit keinen Sinn ergeben.
-endif::solution[]
+- [ ] public
+- [ ] paketsicher
+- [x] private
+- [x] protected
+--
 
 ### Frage
 Gibt es in Java das Laufzeitkonstrukt der Klasse?
 
 ifdef::solution[]
 .Antwort
-Nicht direkt, man kann nur darauf zugreifen mittels _reflection_ ( `Objektname.getClass()` bzw. `Klassenname.class`).
+Nein. Zu einer Klasse `class A {}` gibt es kein Laufzeitkonstrukt, womit man auf die Klasse direkt zugreifen könnte. Mit `A.class` erhält man lediglich Zugriff auf ein Objekt, das eine Beschreibung der Klasse `A` darstellt. Diese Fähigkeit zur Selbstauskunft über die deklarierten Eigenschaften der Klasse nennt man Reflektion (_reflection_). Für eine Instanz der Klasse bekommt man mit `getClass()` an das Objekt, das die Klasse `A` beschreibt.
 endif::solution[]
 
 ### Frage
@@ -86,18 +114,86 @@ Gibt es in Java das Laufzeitkonstrukt des Objekts?
 
 ifdef::solution[]
 .Antwort
-Ja.
+Ja. Die Instanzen einer Klasse, gemeinhin als Objekte bezeichnet, existieren ausschließlich zur Laufzeit.
 endif::solution[]
 
 ### Frage
+[source,java]
 ----
 class Thing {
- private class PartOfThing {
-   String name = "part";
- }
+  private class PartOfThing {
+    String name = "part";
+  }
 }
 ----
 Geht das?
+
+ifdef::solution[]
+.Antwort
+Ja, das geht. Die Klasse `PartOfThing` ist allerdings nur innerhalb des Rumpfs von `Thing` verwendbar.
+endif::solution[]
+
+### Frage
+[question,mc]
+--
+[source,java]
+----
+class Thing {
+  private class PartOfThing { }
+  public PartOfThing pot = new PartOfThing();
+}
+----
+Wie kann auf `pot` innerhalb des Pakets zugegriffen werden?
+
+- [ ] `Thing.pot`
+- [ ] `new Thing().pot`
+- [ ] `new Thing.PartOfThing().pot`
+- [x] gar nicht
+--
+
+ifdef::solution[]
+.Antwort
+Auf die private, innere Klasse kann von außen weder zugegriffen werden, noch sind Instanzen dieser privaten Klassen zugreifbar, selbst wenn die Klassenvariable `public` ist!
+
+----
+jshell> Thing.pot
+|  Error:
+|  non-static variable pot cannot be referenced from a static context
+|  Thing.pot
+|  ^-------^
+
+jshell> new Thing().pot
+|  Error:
+|  Thing.PartOfThing has private access in Thing
+|  new Thing().pot
+|  ^
+
+jshell> new Thing.PartOfThing().pot
+|  Error:
+|  Thing.PartOfThing has private access in Thing
+|  new Thing.PartOfThing().pot
+----
+endif::solution[]
+
+### Frage
+[question,mc]
+--
+[source,java]
+----
+class Thing {
+  class PartOfThing { }
+  public PartOfThing pot = new PartOfThing();
+}
+----
+Wie kann auf `pot` innerhalb des Pakets zugegriffen werden?
+
+- [ ] `Thing.pot`
+- [x] `new Thing().pot`
+- [ ] `new Thing.PartOfThing().pot`
+- [ ] gar nicht
+--
+
+// XXX HIER
 
 ### Frage
 Auf welcher Ebene ist die Klasse `class A {}` sichtbar?
@@ -461,7 +557,7 @@ jshell> $38.foo(3)
 $39 ==> 3
 ----
 
-Eine _top level_-Klasse als `static` zu deklarieren ist sinnfrei, da die Klasse an nichts "hängt" und nur Teil eines Pakets ist.
+Eine Top-Level-Klasse als `static` zu deklarieren ist sinnfrei, da die Klasse an nichts "hängt" und nur Teil eines Pakets ist.
 endif::solution[]
 
 ### Frage
