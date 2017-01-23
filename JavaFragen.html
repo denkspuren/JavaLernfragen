@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.4">
+<meta name="generator" content="Asciidoctor 1.5.5">
 <meta name="author" content="Dominikus Herzberg, Christopher Schölzel">
 <title>Lernfragen zu Java</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
@@ -19,7 +19,6 @@ audio:not([controls]){display:none;height:0}
 [hidden],template{display:none}
 script{display:none!important}
 html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
-body{margin:0}
 a{background:transparent}
 a:focus{outline:thin dotted}
 a:active,a:hover{outline:0}
@@ -54,7 +53,7 @@ textarea{overflow:auto;vertical-align:top}
 table{border-collapse:collapse;border-spacing:0}
 *,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
 html,body{font-size:100%}
-body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
 a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
@@ -66,7 +65,6 @@ img{-ms-interpolation-mode:bicubic}
 .text-center{text-align:center!important}
 .text-justify{text-align:justify!important}
 .hide{display:none}
-body{-webkit-font-smoothing:antialiased}
 img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
@@ -121,13 +119,16 @@ table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
 table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
-body{tab-size:4}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
 .clearfix:before,.clearfix:after,.float-group:before,.float-group:after{content:" ";display:table}
 .clearfix:after,.float-group:after{clear:both}
-*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+*:not(pre)>code.nobreak{word-wrap:normal}
+*:not(pre)>code.nowrap{white-space:nowrap}
 pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+em em{font-style:normal}
+strong strong{font-weight:400}
 .keyseq{color:rgba(51,51,51,.8)}
 kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
 .keyseq kbd:first-child{margin-left:0}
@@ -418,40 +419,66 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .hide-for-print{display:none!important}
 .show-for-print{display:inherit!important}}
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 
           <style id="question">
             .hidden {
     display: none;
 }
 
-div[id*=question][data-type=gap] gap > input.incorrect {
+question[data-type=gap] gap > input.incorrect {
     font-weight: bold;
     color: red;
 }
 
 
-div[id*=question][data-type=gap] gap > answer, div[id*=question][data-type=gap] gap > input.correct {
+question[data-type=gap] gap > answer, div[id*=question][data-type=gap] gap > input.correct {
     font-weight: bold;
     color: green;
 }
 
-div[id*=question][data-type=mc] input[type="checkbox"].show ~ span::before {
+question[data-type=mc] input[type="checkbox"].show ~ span::before {
     display: inline;
     width: 16px;
     height: 16px;
 }
 
-div[id*=question][data-type=mc] input[type="checkbox"][data-correct="true"].show ~ span::before {
+question[data-type=mc] input[type="checkbox"][data-correct="true"].show ~ span::before {
     content: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjE2cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGZpbGw9Im9saXZlZHJhYiIgc3Ryb2tlPSJvbGl2ZWRyYWIiIGQ9Ik0yMS42NTIsMy4yMTFjLTAuMjkzLTAuMjk1LTAuNzctMC4yOTUtMS4wNjEsMEw5LjQxLDE0LjM0ICBjLTAuMjkzLDAuMjk3LTAuNzcxLDAuMjk3LTEuMDYyLDBMMy40NDksOS4zNTFDMy4zMDQsOS4yMDMsMy4xMTQsOS4xMywyLjkyMyw5LjEyOUMyLjczLDkuMTI4LDIuNTM0LDkuMjAxLDIuMzg3LDkuMzUxICBsLTIuMTY1LDEuOTQ2QzAuMDc4LDExLjQ0NSwwLDExLjYzLDAsMTEuODIzYzAsMC4xOTQsMC4wNzgsMC4zOTcsMC4yMjMsMC41NDRsNC45NCw1LjE4NGMwLjI5MiwwLjI5NiwwLjc3MSwwLjc3NiwxLjA2MiwxLjA3ICBsMi4xMjQsMi4xNDFjMC4yOTIsMC4yOTMsMC43NjksMC4yOTMsMS4wNjIsMGwxNC4zNjYtMTQuMzRjMC4yOTMtMC4yOTQsMC4yOTMtMC43NzcsMC0xLjA3MUwyMS42NTIsMy4yMTF6Ii8+PC9zdmc+);
 }
 
-div[id*=question][data-type=mc] input[type="checkbox"][data-correct="false"].show ~ span::before {
+question[data-type=mc] input[type="checkbox"][data-correct="false"].show ~ span::before {
     content: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjE2cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGZpbGw9Im1hcm9vbiIgc3Ryb2tlPSJtYXJvb24iIGQ9Ik0yMi4yNDUsNC4wMTVjMC4zMTMsMC4zMTMsMC4zMTMsMC44MjYsMCwxLjEzOWwtNi4yNzYsNi4yN2MtMC4zMTMsMC4zMTItMC4zMTMsMC44MjYsMCwxLjE0bDYuMjczLDYuMjcyICBjMC4zMTMsMC4zMTMsMC4zMTMsMC44MjYsMCwxLjE0bC0yLjI4NSwyLjI3N2MtMC4zMTQsMC4zMTItMC44MjgsMC4zMTItMS4xNDIsMGwtNi4yNzEtNi4yNzFjLTAuMzEzLTAuMzEzLTAuODI4LTAuMzEzLTEuMTQxLDAgIGwtNi4yNzYsNi4yNjdjLTAuMzEzLDAuMzEzLTAuODI4LDAuMzEzLTEuMTQxLDBsLTIuMjgyLTIuMjhjLTAuMzEzLTAuMzEzLTAuMzEzLTAuODI2LDAtMS4xNGw2LjI3OC02LjI2OSAgYzAuMzEzLTAuMzEyLDAuMzEzLTAuODI2LDAtMS4xNEwxLjcwOSw1LjE0N2MtMC4zMTQtMC4zMTMtMC4zMTQtMC44MjcsMC0xLjE0bDIuMjg0LTIuMjc4QzQuMzA4LDEuNDE3LDQuODIxLDEuNDE3LDUuMTM1LDEuNzMgIEwxMS40MDUsOGMwLjMxNCwwLjMxNCwwLjgyOCwwLjMxNCwxLjE0MSwwLjAwMWw2LjI3Ni02LjI2N2MwLjMxMi0wLjMxMiwwLjgyNi0wLjMxMiwxLjE0MSwwTDIyLjI0NSw0LjAxNXoiLz48L3N2Zz4=);
 }
           </style>
         <script type="text/javascript">
-                          function resolve(questionId) {
+                          function onLoad() {
+    var questions = document.getElementsByTagName("question")
+    for (var pos = 0; pos < questions.length; pos++) {
+        var question = questions[pos]
+        if (question.getAttribute('data-type') == 'mc') {
+            if (question.getAttribute('data-shuffle') != null) shuffleAnswers(question)
+        }
+    }
+}
+
+function shuffleAnswers(question) {
+    var answers = null
+    var content = question.children[0]
+    for (var i = content.children.length-1; i >= 0; i--) {
+        if(content.children[i].className.indexOf('checklist') > -1) {
+            answers = content.children[i].children[0]
+            break;
+        }
+    }
+    if(answers == null) return
+
+    for (var i = answers.children.length; i >= 0; i--) {
+        answers.appendChild(answers.children[Math.random() * i | 0]);
+    }
+}
+
+function resolve(questionId) {
     var q = document.getElementById("question_" + questionId)
     var type = q.getAttribute("data-type")
     var elems
@@ -492,6 +519,7 @@ function reset(questionId) {
         for(pos = 0; pos < elems.length; pos++) {
             answer = elems[pos]
             answer.setAttribute("class", "")
+            answer.checked = false
         }
     } else if(type == "gap") {
         elems = q.getElementsByTagName("gap")
@@ -506,13 +534,13 @@ function reset(questionId) {
 }
                         </script>
 </head>
-<body class="book">
+<body class="book" onload="onLoad()">
 <div id="header">
 <h1>Lernfragen zu Java</h1>
 <div class="details">
 <span id="author" class="author">Dominikus Herzberg, Christopher Schölzel</span><br>
-<span id="revnumber">version 0.6,</span>
-<span id="revdate">2017-01-08</span>
+<span id="revnumber">version 0.65,</span>
+<span id="revdate">2017-01-23</span>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
@@ -806,143 +834,145 @@ function reset(questionId) {
 <li><a href="#_frage_225">10.56. Frage</a></li>
 <li><a href="#_frage_226">10.57. Frage</a></li>
 <li><a href="#_frage_227">10.58. Frage</a></li>
+<li><a href="#_frage_228">10.59. Frage</a></li>
+<li><a href="#_frage_229">10.60. Frage</a></li>
 </ul>
 </li>
 <li>
 <a href="#_vererbung_und_schnittstellen">11. Vererbung und Schnittstellen</a>
 <ul class="sectlevel2">
-<li><a href="#_frage_228">11.1. Frage</a></li>
-<li><a href="#_frage_229">11.2. Frage</a></li>
-<li><a href="#_frage_230">11.3. Frage</a></li>
-<li><a href="#_frage_231">11.4. Frage</a></li>
-<li><a href="#_frage_232">11.5. Frage</a></li>
-<li><a href="#_frage_233">11.6. Frage</a></li>
-<li><a href="#_frage_234">11.7. Frage</a></li>
-<li><a href="#_frage_235">11.8. Frage</a></li>
-<li><a href="#_frage_236">11.9. Frage</a></li>
-<li><a href="#_frage_237">11.10. Frage</a></li>
-<li><a href="#_frage_238">11.11. Frage</a></li>
-<li><a href="#_frage_239">11.12. Frage</a></li>
-<li><a href="#_frage_240">11.13. Frage</a></li>
-<li><a href="#_frage_241">11.14. Frage</a></li>
-<li><a href="#_frage_242">11.15. Frage</a></li>
-<li><a href="#_frage_243">11.16. Frage</a></li>
-<li><a href="#_frage_244">11.17. Frage</a></li>
-<li><a href="#_frage_245">11.18. Frage</a></li>
-<li><a href="#_frage_246">11.19. Frage</a></li>
-<li><a href="#_frage_247">11.20. Frage</a></li>
-<li><a href="#_frage_248">11.21. Frage</a></li>
-<li><a href="#_frage_249">11.22. Frage</a></li>
-<li><a href="#_frage_250">11.23. Frage</a></li>
-<li><a href="#_frage_251">11.24. Frage</a></li>
-<li><a href="#_frage_252">11.25. Frage</a></li>
-<li><a href="#_frage_253">11.26. Frage</a></li>
-<li><a href="#_frage_254">11.27. Frage</a></li>
-<li><a href="#_frage_255">11.28. Frage</a></li>
-<li><a href="#_frage_256">11.29. Frage</a></li>
-<li><a href="#_frage_257">11.30. Frage</a></li>
-<li><a href="#_frage_258">11.31. Frage</a></li>
-<li><a href="#_frage_259">11.32. Frage</a></li>
-<li><a href="#_frage_260">11.33. Frage</a></li>
-<li><a href="#_frage_261">11.34. Frage</a></li>
-<li><a href="#_frage_262">11.35. Frage</a></li>
-<li><a href="#_frage_263">11.36. Frage</a></li>
-<li><a href="#_frage_264">11.37. Frage</a></li>
-<li><a href="#_frage_265">11.38. Frage</a></li>
-<li><a href="#_frage_266">11.39. Frage</a></li>
-<li><a href="#_frage_267">11.40. Frage</a></li>
+<li><a href="#_frage_230">11.1. Frage</a></li>
+<li><a href="#_frage_231">11.2. Frage</a></li>
+<li><a href="#_frage_232">11.3. Frage</a></li>
+<li><a href="#_frage_233">11.4. Frage</a></li>
+<li><a href="#_frage_234">11.5. Frage</a></li>
+<li><a href="#_frage_235">11.6. Frage</a></li>
+<li><a href="#_frage_236">11.7. Frage</a></li>
+<li><a href="#_frage_237">11.8. Frage</a></li>
+<li><a href="#_frage_238">11.9. Frage</a></li>
+<li><a href="#_frage_239">11.10. Frage</a></li>
+<li><a href="#_frage_240">11.11. Frage</a></li>
+<li><a href="#_frage_241">11.12. Frage</a></li>
+<li><a href="#_frage_242">11.13. Frage</a></li>
+<li><a href="#_frage_243">11.14. Frage</a></li>
+<li><a href="#_frage_244">11.15. Frage</a></li>
+<li><a href="#_frage_245">11.16. Frage</a></li>
+<li><a href="#_frage_246">11.17. Frage</a></li>
+<li><a href="#_frage_247">11.18. Frage</a></li>
+<li><a href="#_frage_248">11.19. Frage</a></li>
+<li><a href="#_frage_249">11.20. Frage</a></li>
+<li><a href="#_frage_250">11.21. Frage</a></li>
+<li><a href="#_frage_251">11.22. Frage</a></li>
+<li><a href="#_frage_252">11.23. Frage</a></li>
+<li><a href="#_frage_253">11.24. Frage</a></li>
+<li><a href="#_frage_254">11.25. Frage</a></li>
+<li><a href="#_frage_255">11.26. Frage</a></li>
+<li><a href="#_frage_256">11.27. Frage</a></li>
+<li><a href="#_frage_257">11.28. Frage</a></li>
+<li><a href="#_frage_258">11.29. Frage</a></li>
+<li><a href="#_frage_259">11.30. Frage</a></li>
+<li><a href="#_frage_260">11.31. Frage</a></li>
+<li><a href="#_frage_261">11.32. Frage</a></li>
+<li><a href="#_frage_262">11.33. Frage</a></li>
+<li><a href="#_frage_263">11.34. Frage</a></li>
+<li><a href="#_frage_264">11.35. Frage</a></li>
+<li><a href="#_frage_265">11.36. Frage</a></li>
+<li><a href="#_frage_266">11.37. Frage</a></li>
+<li><a href="#_frage_267">11.38. Frage</a></li>
+<li><a href="#_frage_268">11.39. Frage</a></li>
+<li><a href="#_frage_269">11.40. Frage</a></li>
 </ul>
 </li>
 <li>
 <a href="#_generische_klassen_und_methoden">12. Generische Klassen und Methoden</a>
 <ul class="sectlevel2">
-<li><a href="#_frage_268">12.1. Frage</a></li>
-<li><a href="#_frage_269">12.2. Frage</a></li>
-<li><a href="#_frage_270">12.3. Frage</a></li>
-<li><a href="#_frage_271">12.4. Frage</a></li>
-<li><a href="#_frage_272">12.5. Frage</a></li>
-<li><a href="#_frage_273">12.6. Frage</a></li>
-<li><a href="#_frage_274">12.7. Frage</a></li>
-<li><a href="#_frage_275">12.8. Frage</a></li>
-<li><a href="#_frage_276">12.9. Frage</a></li>
-<li><a href="#_frage_277">12.10. Frage</a></li>
-<li><a href="#_frage_278">12.11. Frage</a></li>
-<li><a href="#_frage_279">12.12. Frage</a></li>
-<li><a href="#_frage_280">12.13. Frage</a></li>
-<li><a href="#_frage_281">12.14. Frage</a></li>
-<li><a href="#_frage_282">12.15. Frage</a></li>
+<li><a href="#_frage_270">12.1. Frage</a></li>
+<li><a href="#_frage_271">12.2. Frage</a></li>
+<li><a href="#_frage_272">12.3. Frage</a></li>
+<li><a href="#_frage_273">12.4. Frage</a></li>
+<li><a href="#_frage_274">12.5. Frage</a></li>
+<li><a href="#_frage_275">12.6. Frage</a></li>
+<li><a href="#_frage_276">12.7. Frage</a></li>
+<li><a href="#_frage_277">12.8. Frage</a></li>
+<li><a href="#_frage_278">12.9. Frage</a></li>
+<li><a href="#_frage_279">12.10. Frage</a></li>
+<li><a href="#_frage_280">12.11. Frage</a></li>
+<li><a href="#_frage_281">12.12. Frage</a></li>
+<li><a href="#_frage_282">12.13. Frage</a></li>
+<li><a href="#_frage_283">12.14. Frage</a></li>
+<li><a href="#_frage_284">12.15. Frage</a></li>
 </ul>
 </li>
 <li><a href="#__span_class_strike_through_lambda_ausdr%C3%BCcke_span">13. <span class="strike-through">Lambda-Ausdrücke</span></a></li>
 <li>
 <a href="#_collections">14. Collections</a>
 <ul class="sectlevel2">
-<li><a href="#_frage_283">14.1. Frage</a></li>
-<li><a href="#_frage_284">14.2. Frage</a></li>
-<li><a href="#_frage_285">14.3. Frage</a></li>
-<li><a href="#_frage_286">14.4. Frage</a></li>
-<li><a href="#_frage_287">14.5. Frage</a></li>
-<li><a href="#_frage_288">14.6. Frage</a></li>
-<li><a href="#_frage_289">14.7. Frage</a></li>
-<li><a href="#_frage_290">14.8. Frage</a></li>
-<li><a href="#_frage_291">14.9. Frage</a></li>
-<li><a href="#_frage_292">14.10. Frage</a></li>
-<li><a href="#_frage_293">14.11. Frage</a></li>
-<li><a href="#_frage_294">14.12. Frage</a></li>
-<li><a href="#_frage_295">14.13. Frage</a></li>
-<li><a href="#_frage_296">14.14. Frage</a></li>
-<li><a href="#_frage_297">14.15. Frage</a></li>
-<li><a href="#_frage_298">14.16. Frage</a></li>
-<li><a href="#_frage_299">14.17. Frage</a></li>
-<li><a href="#_frage_300">14.18. Frage</a></li>
-<li><a href="#_frage_301">14.19. Frage</a></li>
-<li><a href="#_frage_302">14.20. Frage</a></li>
-<li><a href="#_frage_303">14.21. Frage</a></li>
-<li><a href="#_frage_304">14.22. Frage</a></li>
-<li><a href="#_frage_305">14.23. Frage</a></li>
-<li><a href="#_frage_306">14.24. Frage</a></li>
-<li><a href="#_frage_307">14.25. Frage</a></li>
-<li><a href="#_frage_308">14.26. Frage</a></li>
-<li><a href="#_frage_309">14.27. Frage</a></li>
-<li><a href="#_frage_310">14.28. Frage</a></li>
-<li><a href="#_frage_311">14.29. Frage</a></li>
-<li><a href="#_frage_312">14.30. Frage</a></li>
-<li><a href="#_frage_313">14.31. Frage</a></li>
-<li><a href="#_frage_314">14.32. Frage</a></li>
-<li><a href="#_frage_315">14.33. Frage</a></li>
-<li><a href="#_frage_316">14.34. Frage</a></li>
-<li><a href="#_frage_317">14.35. Frage</a></li>
-<li><a href="#_frage_318">14.36. Frage</a></li>
-<li><a href="#_frage_319">14.37. Frage</a></li>
-<li><a href="#_frage_320">14.38. Frage</a></li>
+<li><a href="#_frage_285">14.1. Frage</a></li>
+<li><a href="#_frage_286">14.2. Frage</a></li>
+<li><a href="#_frage_287">14.3. Frage</a></li>
+<li><a href="#_frage_288">14.4. Frage</a></li>
+<li><a href="#_frage_289">14.5. Frage</a></li>
+<li><a href="#_frage_290">14.6. Frage</a></li>
+<li><a href="#_frage_291">14.7. Frage</a></li>
+<li><a href="#_frage_292">14.8. Frage</a></li>
+<li><a href="#_frage_293">14.9. Frage</a></li>
+<li><a href="#_frage_294">14.10. Frage</a></li>
+<li><a href="#_frage_295">14.11. Frage</a></li>
+<li><a href="#_frage_296">14.12. Frage</a></li>
+<li><a href="#_frage_297">14.13. Frage</a></li>
+<li><a href="#_frage_298">14.14. Frage</a></li>
+<li><a href="#_frage_299">14.15. Frage</a></li>
+<li><a href="#_frage_300">14.16. Frage</a></li>
+<li><a href="#_frage_301">14.17. Frage</a></li>
+<li><a href="#_frage_302">14.18. Frage</a></li>
+<li><a href="#_frage_303">14.19. Frage</a></li>
+<li><a href="#_frage_304">14.20. Frage</a></li>
+<li><a href="#_frage_305">14.21. Frage</a></li>
+<li><a href="#_frage_306">14.22. Frage</a></li>
+<li><a href="#_frage_307">14.23. Frage</a></li>
+<li><a href="#_frage_308">14.24. Frage</a></li>
+<li><a href="#_frage_309">14.25. Frage</a></li>
+<li><a href="#_frage_310">14.26. Frage</a></li>
+<li><a href="#_frage_311">14.27. Frage</a></li>
+<li><a href="#_frage_312">14.28. Frage</a></li>
+<li><a href="#_frage_313">14.29. Frage</a></li>
+<li><a href="#_frage_314">14.30. Frage</a></li>
+<li><a href="#_frage_315">14.31. Frage</a></li>
+<li><a href="#_frage_316">14.32. Frage</a></li>
+<li><a href="#_frage_317">14.33. Frage</a></li>
+<li><a href="#_frage_318">14.34. Frage</a></li>
+<li><a href="#_frage_319">14.35. Frage</a></li>
+<li><a href="#_frage_320">14.36. Frage</a></li>
+<li><a href="#_frage_321">14.37. Frage</a></li>
+<li><a href="#_frage_322">14.38. Frage</a></li>
 </ul>
 </li>
 <li>
 <a href="#_dateien_und_verzeichnisse">15. Dateien und Verzeichnisse</a>
 <ul class="sectlevel2">
-<li><a href="#_frage_321">15.1. Frage</a></li>
-<li><a href="#_frage_322">15.2. Frage</a></li>
-<li><a href="#_frage_323">15.3. Frage</a></li>
-<li><a href="#_frage_324">15.4. Frage</a></li>
-<li><a href="#_frage_325">15.5. Frage</a></li>
-<li><a href="#_frage_326">15.6. Frage</a></li>
-<li><a href="#_frage_327">15.7. Frage</a></li>
-<li><a href="#_frage_328">15.8. Frage</a></li>
-<li><a href="#_frage_329">15.9. Frage</a></li>
-<li><a href="#_frage_330">15.10. Frage</a></li>
-<li><a href="#_frage_331">15.11. Frage</a></li>
-<li><a href="#_frage_332">15.12. Frage</a></li>
-<li><a href="#_frage_333">15.13. Frage</a></li>
-<li><a href="#_frage_334">15.14. Frage</a></li>
-<li><a href="#_frage_335">15.15. Frage</a></li>
-<li><a href="#_frage_336">15.16. Frage</a></li>
-<li><a href="#_frage_337">15.17. Frage</a></li>
-<li><a href="#_frage_338">15.18. Frage</a></li>
-<li><a href="#_frage_339">15.19. Frage</a></li>
-<li><a href="#_frage_340">15.20. Frage</a></li>
-<li><a href="#_frage_341">15.21. Frage</a></li>
-<li><a href="#_frage_342">15.22. Frage</a></li>
-<li><a href="#_frage_343">15.23. Frage</a></li>
+<li><a href="#_frage_323">15.1. Frage</a></li>
+<li><a href="#_frage_324">15.2. Frage</a></li>
+<li><a href="#_frage_325">15.3. Frage</a></li>
+<li><a href="#_frage_326">15.4. Frage</a></li>
+<li><a href="#_frage_327">15.5. Frage</a></li>
+<li><a href="#_frage_328">15.6. Frage</a></li>
+<li><a href="#_frage_329">15.7. Frage</a></li>
+<li><a href="#_frage_330">15.8. Frage</a></li>
+<li><a href="#_frage_331">15.9. Frage</a></li>
+<li><a href="#_frage_332">15.10. Frage</a></li>
+<li><a href="#_frage_333">15.11. Frage</a></li>
+<li><a href="#_frage_334">15.12. Frage</a></li>
+<li><a href="#_frage_335">15.13. Frage</a></li>
+<li><a href="#_frage_336">15.14. Frage</a></li>
+<li><a href="#_frage_337">15.15. Frage</a></li>
+<li><a href="#_frage_338">15.16. Frage</a></li>
+<li><a href="#_frage_339">15.17. Frage</a></li>
+<li><a href="#_frage_340">15.18. Frage</a></li>
+<li><a href="#_frage_341">15.19. Frage</a></li>
+<li><a href="#_frage_342">15.20. Frage</a></li>
+<li><a href="#_frage_343">15.21. Frage</a></li>
+<li><a href="#_frage_344">15.22. Frage</a></li>
+<li><a href="#_frage_345">15.23. Frage</a></li>
 </ul>
 </li>
 <li><a href="#__span_class_strike_through_javafx_span">16. <span class="strike-through">JavaFX</span></a></li>
@@ -950,26 +980,26 @@ function reset(questionId) {
 <li>
 <a href="#_pakete_und_bibliotheken">18. Pakete und Bibliotheken</a>
 <ul class="sectlevel2">
-<li><a href="#_frage_344">18.1. Frage</a></li>
-<li><a href="#_frage_345">18.2. Frage</a></li>
-<li><a href="#_frage_346">18.3. Frage</a></li>
-<li><a href="#_frage_347">18.4. Frage</a></li>
-<li><a href="#_frage_348">18.5. Frage</a></li>
-<li><a href="#_frage_349">18.6. Frage</a></li>
-<li><a href="#_frage_350">18.7. Frage</a></li>
-<li><a href="#_frage_351">18.8. Frage</a></li>
-<li><a href="#_frage_352">18.9. Frage</a></li>
-<li><a href="#_frage_353">18.10. Frage</a></li>
-<li><a href="#_frage_354">18.11. Frage</a></li>
-<li><a href="#_frage_355">18.12. Frage</a></li>
-<li><a href="#_frage_356">18.13. Frage</a></li>
-<li><a href="#_frage_357">18.14. Frage</a></li>
-<li><a href="#_frage_358">18.15. Frage</a></li>
-<li><a href="#_frage_359">18.16. Frage</a></li>
-<li><a href="#_frage_360">18.17. Frage</a></li>
-<li><a href="#_frage_361">18.18. Frage</a></li>
-<li><a href="#_frage_362">18.19. Frage</a></li>
-<li><a href="#_frage_363">18.20. Frage</a></li>
+<li><a href="#_frage_346">18.1. Frage</a></li>
+<li><a href="#_frage_347">18.2. Frage</a></li>
+<li><a href="#_frage_348">18.3. Frage</a></li>
+<li><a href="#_frage_349">18.4. Frage</a></li>
+<li><a href="#_frage_350">18.5. Frage</a></li>
+<li><a href="#_frage_351">18.6. Frage</a></li>
+<li><a href="#_frage_352">18.7. Frage</a></li>
+<li><a href="#_frage_353">18.8. Frage</a></li>
+<li><a href="#_frage_354">18.9. Frage</a></li>
+<li><a href="#_frage_355">18.10. Frage</a></li>
+<li><a href="#_frage_356">18.11. Frage</a></li>
+<li><a href="#_frage_357">18.12. Frage</a></li>
+<li><a href="#_frage_358">18.13. Frage</a></li>
+<li><a href="#_frage_359">18.14. Frage</a></li>
+<li><a href="#_frage_360">18.15. Frage</a></li>
+<li><a href="#_frage_361">18.16. Frage</a></li>
+<li><a href="#_frage_362">18.17. Frage</a></li>
+<li><a href="#_frage_363">18.18. Frage</a></li>
+<li><a href="#_frage_364">18.19. Frage</a></li>
+<li><a href="#_frage_365">18.20. Frage</a></li>
 </ul>
 </li>
 </ul>
@@ -1003,7 +1033,7 @@ function reset(questionId) {
 <div class="sect2">
 <h3 id="_zeichenkette_und_code_new_code">1.1. Zeichenkette und <code>new</code>
 </h3>
-<div id="question_1" class="openblock" data-type="mc">
+<question id="question_1" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Wo ist das <code>new</code> zur Instanziierung geblieben? <code>String s = "abc";</code></p>
@@ -1029,7 +1059,7 @@ function reset(questionId) {
               <button onclick="reset(1)">reset</button>
             </p>
 </div>
-</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_javadoc_kommentar_vs_normaler_kommentar">1.2. Javadoc-Kommentar vs. "normaler" Kommentar</h3>
@@ -1039,7 +1069,7 @@ function reset(questionId) {
 </div>
 <div class="sect2">
 <h3 id="_aussehen_eines_javadoc_kommentars">1.3. Aussehen eines Javadoc-Kommentars</h3>
-<div id="question_2" class="openblock" data-type="mc">
+<question id="question_2" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Wie sieht ein Javadoc-Kommentar mit seinem öffnenden und schließenden Kommentarteil aus?</p>
@@ -1065,11 +1095,11 @@ function reset(questionId) {
               <button onclick="reset(2)">reset</button>
             </p>
 </div>
-</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_was_ist_ein_schlüsselwort">1.4. Was ist ein Schlüsselwort?</h3>
-<div id="question_3" class="openblock" data-type="mc">
+<question id="question_3" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Was ist ein Schlüsselwort?</p>
@@ -1095,11 +1125,11 @@ function reset(questionId) {
               <button onclick="reset(3)">reset</button>
             </p>
 </div>
-</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_never_use_dollars_in_javaland">1.5. Never use Dollars in Javaland</h3>
-<div id="question_4" class="openblock" data-type="mc">
+<question id="question_4" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Never use Dollars in Javaland. Why? — Die Frage meint: Warum sollen keine <code>$</code>-Zeichen in Bezeichnern für Variablen, Klassen, Methoden, Schnittstellen etc. verwendet werden?</p>
@@ -1125,11 +1155,11 @@ function reset(questionId) {
               <button onclick="reset(4)">reset</button>
             </p>
 </div>
-</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="__code_for_code_problem">1.6. <code>for</code>-Problem?</h3>
-<div id="question_5" class="openblock" data-type="mc">
+<question id="question_5" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p><code>for(int i = 0; i &lt;= 10; i++);</code>. Wo ist das Problem?</p>
@@ -1155,11 +1185,11 @@ function reset(questionId) {
               <button onclick="reset(5)">reset</button>
             </p>
 </div>
-</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_das_semikolon">1.7. Das Semikolon</h3>
-<div id="question_6" class="openblock" data-type="mc">
+<question id="question_6" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Das Semikolon <code>;</code> beendet</p>
@@ -1185,11 +1215,11 @@ function reset(questionId) {
               <button onclick="reset(6)">reset</button>
             </p>
 </div>
-</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_ein_plus_fur_zeichenketten">1.8. Ein Plus fur Zeichenketten?</h3>
-<div id="question_7" class="openblock" data-type="mc">
+<question id="question_7" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Kann man den “+”-Operator bei Zeichenketten anwenden? Falls ja, was bedeutet “+” bei Zeichenketten?</p>
@@ -1215,11 +1245,11 @@ function reset(questionId) {
               <button onclick="reset(7)">reset</button>
             </p>
 </div>
-</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_ein_minus_für_zeichenketten">1.9. Ein Minus für Zeichenketten?</h3>
-<div id="question_8" class="openblock" data-type="mc">
+<question id="question_8" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Kann man den “-”-Operator bei Zeichenketten anwenden? Falls ja, was bedeutet “-” bei Zeichenketten?</p>
@@ -1245,12 +1275,12 @@ function reset(questionId) {
               <button onclick="reset(8)">reset</button>
             </p>
 </div>
-</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_das_semikolon_und_code_if_code">1.10. Das Semikolon und <code>if</code>
 </h3>
-<div id="question_9" class="openblock" data-type="mc">
+<question id="question_9" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Wenn jede Anweisung mit einem Semikolon beendet werden muss, gilt das auch für <code>if</code> oder <code>while</code>?</p>
@@ -1282,12 +1312,12 @@ function reset(questionId) {
               <button onclick="reset(9)">reset</button>
             </p>
 </div>
-</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_import_von_code_math_code">1.11. Import von <code>Math</code>
 </h3>
-<div id="question_10" class="openblock" data-type="mc">
+<question id="question_10" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Warum kann man die Klasse <code>Math</code> verwenden, ohne sie vorher zu importieren?</p>
@@ -1313,7 +1343,7 @@ function reset(questionId) {
               <button onclick="reset(10)">reset</button>
             </p>
 </div>
-</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_eigenschaften">1.12. Eigenschaften</h3>
@@ -1323,7 +1353,7 @@ function reset(questionId) {
 </div>
 <div class="sect2">
 <h3 id="__code_import_code_mit_stern">1.13. <code>import</code> mit Stern</h3>
-<div id="question_11" class="openblock" data-type="mc">
+<question id="question_11" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p><code>import a.packet.*;</code> Was meint der Stern <code>*</code> in der <code>import</code>-Anweisung?</p>
@@ -1349,7 +1379,7 @@ function reset(questionId) {
               <button onclick="reset(11)">reset</button>
             </p>
 </div>
-</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_ein_datumspattern">1.14. Ein Datumspattern</h3>
@@ -1359,7 +1389,7 @@ function reset(questionId) {
 </div>
 <div class="sect2">
 <h3 id="__code_math_code_instanz">1.15. <code>Math</code>-Instanz?</h3>
-<div id="question_12" class="openblock" data-type="mc">
+<question id="question_12" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Warum kann man keine Instanz der Klasse <code>Math</code> erzeugen?</p>
@@ -1385,7 +1415,7 @@ function reset(questionId) {
               <button onclick="reset(12)">reset</button>
             </p>
 </div>
-</div>
+</question>
 </div>
 </div>
 </div>
@@ -1568,7 +1598,7 @@ p1 = p2 = p3 = new java.awt.Point(0, 0);</code></pre>
 <div class="sect2">
 <h3 id="_frage_23">2.23. Frage</h3>
 <div class="paragraph">
-<p>Was passiert bei der Ausführung von folgendem Code:</p>
+<p>Was passiert bei der Ausführung von folgendem Code?</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1862,7 +1892,7 @@ for(int i=0; i &lt; 10; i++) {
 <div class="sect2">
 <h3 id="_frage_62">4.10. Frage</h3>
 <div class="paragraph">
-<p>Was ist bei Schleifen zu beachten deren Zählvariable vom Typ <code>float</code> oder <code>double</code> ist?</p>
+<p>Was ist bei Schleifen zu beachten, deren Zählvariable vom Typ <code>float</code> oder <code>double</code> ist?</p>
 </div>
 </div>
 <div class="sect2">
@@ -2036,7 +2066,7 @@ while(true) {
 <div class="sect2">
 <h3 id="_frage_85">6.1. Frage</h3>
 <div class="paragraph">
-<p>Wir ist die Schreibweise für ein Einzelzeichen-Literal?</p>
+<p>Wie ist die Schreibweise für ein Einzelzeichen-Literal?</p>
 </div>
 </div>
 <div class="sect2">
@@ -2375,7 +2405,7 @@ float foo(int ... x) { return x[0]; }</code></pre>
 <div class="sect2">
 <h3 id="_frage_138">8.20. Frage</h3>
 <div class="paragraph">
-<p>Wenn man einen Parameter mit <code>final</code> ausweist verhindert das …​ was?</p>
+<p>Wenn man einen Parameter mit <code>final</code> ausweist, verhindert das …​ was?</p>
 </div>
 </div>
 <div class="sect2">
@@ -2571,7 +2601,7 @@ float foo(int ... x) { return x[0]; }</code></pre>
 <div class="sect2">
 <h3 id="_frage_158">9.8. Frage</h3>
 <div class="paragraph">
-<p>Warum ist der Name <code>RunTimeException</code> für eine der Exception-Klassen ein wenig unsinnig? (edited)</p>
+<p>Warum ist der Name <code>RuntimeException</code> für eine der Exception-Klassen ein wenig unsinnig?</p>
 </div>
 </div>
 <div class="sect2">
@@ -2685,12 +2715,41 @@ float foo(int ... x) { return x[0]; }</code></pre>
 </div>
 <div class="sect2">
 <h3 id="_frage_171">10.2. Frage</h3>
+<question id="question_13" class="openblock" data-type="mc">
+<div class="content">
 <div class="paragraph">
-<p>Wann ist eine Klasse <strong>keine</strong> <em>top level</em>-Klasse?</p>
+<p>Wann ist eine Klasse <strong>keine</strong> Top-Level-Klasse?</p>
 </div>
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Wenn die Klasse nicht oben im Quellcode steht.</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Wenn die Klasse innerhalb von geschweiften Klammern steht.</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Wenn die Klasse <code>static</code> ist.</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Wenn die Klasse <code>abstract</code> ist.</p>
+</li>
+</ul>
+</div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(13)">resolve</button>
+              <button onclick="reset(13)">reset</button>
+            </p>
+</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_frage_172">10.3. Frage</h3>
+<question id="question_14" class="openblock" data-type="mc">
+<div class="content">
+<div class="paragraph">
+<p>Kann man eine Klasse derart in einer Methode deklarieren und nutzen?</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre>void foo() {
@@ -2702,33 +2761,124 @@ float foo(int ... x) { return x[0]; }</code></pre>
 }</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>Geht das?</p>
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Ja, es handelt sich hier um eine lokale Klassendefinition</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Ja, es ist egal, ob eine Klasse in einer Methode deklariert wird oder umgekehrt</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Nein, die Klasse müsste <code>public</code> sein.</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Nein, die Klasse müsste <code>static</code> sein.</p>
+</li>
+</ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(14)">resolve</button>
+              <button onclick="reset(14)">reset</button>
+            </p>
+</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_frage_173">10.4. Frage</h3>
 <div class="paragraph">
-<p>Wie sieht schematisch die Syntax zur Klasse aus? [ohne Annotationen und Generics]</p>
+<p>Wie sieht schematisch die Syntax zur Deklaration einer Klasse aus [ohne Annotationen und Generics]?</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_frage_174">10.5. Frage</h3>
+<question id="question_15" class="openblock" data-type="mc">
+<div class="content">
 <div class="paragraph">
 <p>In einer <code>.java</code>-Datei können mehrere Klassen deklariert werden. Allerdings gilt eine Einschränkung, was den Namen der Datei angeht. Welche?</p>
 </div>
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Der Name der Datei muss mit dem Namen der ersten Klasse in der Datei übereinstimmen.</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Der Dateiname muss wie der Klassenname mit einem Großbuchstaben beginnen.</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Der Dateiname muss die Endung <code>.class</code> haben.</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Wenn eine der Klassen <code>public</code> ist, muss der Name der Datei dem Namen dieser Klasse entsprechen.</p>
+</li>
+</ul>
+</div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(15)">resolve</button>
+              <button onclick="reset(15)">reset</button>
+            </p>
+</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_frage_175">10.6. Frage</h3>
+<question id="question_16" class="openblock" data-type="mc">
+<div class="content">
 <div class="paragraph">
-<p>Schreibe <code>class test</code> und schon ist der Kopf ab, bevor auch nur ein <code>{</code> folgt. Warum? [Gemeint ist Ihr Kopf, nicht der der Klassendeklaration :upside_down_face:!)</p>
+<p>Schreibe <code>class test</code> und schon ist der Kopf ab, bevor auch nur ein <code>{</code> folgt. Warum? [Gemeint ist Ihr Kopf, nicht der der Klassendeklaration (-:]</p>
 </div>
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Vor <code>class</code> fehlt ein <code>public</code>.</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Es muss <code>Class test</code> heißen.</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Es muss <code>class Test</code> heißen.</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Der Name <code>test</code> ist reserviert und darf nicht benutzt werden.</p>
+</li>
+</ul>
+</div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(16)">resolve</button>
+              <button onclick="reset(16)">reset</button>
+            </p>
+</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_frage_176">10.7. Frage</h3>
+<question id="question_17" class="openblock" data-type="mc">
+<div class="content">
 <div class="paragraph">
-<p>Eine <em>top level</em>-Klasse darf welche Sichtbarkeiten <strong>nicht</strong> haben?</p>
+<p>Eine Top-Level-Klasse darf wie <strong>nicht</strong> deklariert sein?</p>
 </div>
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  public</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  paketsicher</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  private</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  protected</p>
+</li>
+</ul>
+</div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(17)">resolve</button>
+              <button onclick="reset(17)">reset</button>
+            </p>
+</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_frage_177">10.8. Frage</h3>
@@ -2746,11 +2896,11 @@ float foo(int ... x) { return x[0]; }</code></pre>
 <h3 id="_frage_179">10.10. Frage</h3>
 <div class="listingblock">
 <div class="content">
-<pre>class Thing {
- private class PartOfThing {
-   String name = "part";
- }
-}</pre>
+<pre class="highlight"><code class="language-java" data-lang="java">class Thing {
+  private class PartOfThing {
+    String name = "part";
+  }
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2759,24 +2909,100 @@ float foo(int ... x) { return x[0]; }</code></pre>
 </div>
 <div class="sect2">
 <h3 id="_frage_180">10.11. Frage</h3>
+<question id="question_18" class="openblock" data-type="mc">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">class Thing {
+  private class PartOfThing { }
+  public PartOfThing pot = new PartOfThing();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wie kann auf <code>pot</code> innerhalb des Pakets zugegriffen werden?</p>
+</div>
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>Thing.pot</code></p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>new Thing().pot</code></p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>new Thing.PartOfThing().pot</code></p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  gar nicht</p>
+</li>
+</ul>
+</div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(18)">resolve</button>
+              <button onclick="reset(18)">reset</button>
+            </p>
+</div>
+</question>
+</div>
+<div class="sect2">
+<h3 id="_frage_181">10.12. Frage</h3>
+<question id="question_19" class="openblock" data-type="mc">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">class Thing {
+  class PartOfThing { }
+  public PartOfThing pot = new PartOfThing();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wie kann auf <code>pot</code> innerhalb des Pakets zugegriffen werden?</p>
+</div>
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>Thing.pot</code></p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  <code>new Thing().pot</code></p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>new Thing.PartOfThing().pot</code></p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  gar nicht</p>
+</li>
+</ul>
+</div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(19)">resolve</button>
+              <button onclick="reset(19)">reset</button>
+            </p>
+</div>
+</question>
+</div>
+<div class="sect2">
+<h3 id="_frage_182">10.13. Frage</h3>
 <div class="paragraph">
 <p>Auf welcher Ebene ist die Klasse <code>class A {}</code> sichtbar?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_181">10.12. Frage</h3>
+<h3 id="_frage_183">10.14. Frage</h3>
 <div class="paragraph">
 <p>Was ist eine Klassenvariable? Doch dasselbe wie ein statisches Feld, oder?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_182">10.13. Frage</h3>
+<h3 id="_frage_184">10.15. Frage</h3>
 <div class="paragraph">
-<p>Klären Sie die Begriffe "Feld" und "Variable".</p>
+<p>Klären Sie die Begriffe "Feld" (engl. <em>field</em>) und "Variable".</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_183">10.14. Frage</h3>
+<h3 id="_frage_185">10.16. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>class Thing {
@@ -2789,13 +3015,13 @@ float foo(int ... x) { return x[0]; }</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_184">10.15. Frage</h3>
+<h3 id="_frage_186">10.17. Frage</h3>
 <div class="paragraph">
 <p>Im Rumpf einer Klasse können welche Sprachkonstrukte deklariert werden?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_185">10.16. Frage</h3>
+<h3 id="_frage_187">10.18. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>class Point {
@@ -2812,37 +3038,37 @@ float foo(int ... x) { return x[0]; }</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_186">10.17. Frage</h3>
+<h3 id="_frage_188">10.19. Frage</h3>
 <div class="paragraph">
 <p>Was ist mit dem Begriff "paketsicher" gemeint?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_187">10.18. Frage</h3>
+<h3 id="_frage_189">10.20. Frage</h3>
 <div class="paragraph">
 <p>Mit welchem Modifizierer kann man die Voraussetzung für einen immutablen (unveränderlichen) Datentyp schaffen? Reicht die Verwendung dieses Modifizierers allein schon aus, um die Immutabilität zu garantieren?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_188">10.19. Frage</h3>
+<h3 id="_frage_190">10.21. Frage</h3>
 <div class="paragraph">
 <p>Nennen Sie die einzelnen Schritte, die bei einem Aufruf von <code>new</code> ausgeführt werden.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_189">10.20. Frage</h3>
+<h3 id="_frage_191">10.22. Frage</h3>
 <div class="paragraph">
 <p>Wie sieht das Schema zum Zugriff auf eine statische Variable bzw. zum Aufruf einer statischen Methode aus?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_190">10.21. Frage</h3>
+<h3 id="_frage_192">10.23. Frage</h3>
 <div class="paragraph">
 <p>Recherchieren Sie: In der OOP-Veranstaltung hatten wir ein Beispiel, in dem wir eine statische Klassenvariable genutzt haben. Worum ging es bei dem Beispiel? Welchen Zweck hatte die statische Klassenvariable?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_191">10.22. Frage</h3>
+<h3 id="_frage_193">10.24. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>class Point {
@@ -2857,37 +3083,37 @@ Point p = new Point();</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_192">10.23. Frage</h3>
+<h3 id="_frage_194">10.25. Frage</h3>
 <div class="paragraph">
 <p>Deklarieren Sie eine Klasse, von der keine Objekte erzeugt werden können.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_193">10.24. Frage</h3>
+<h3 id="_frage_195">10.26. Frage</h3>
 <div class="paragraph">
 <p>Ein Konstruktor ist mit einer Methodendeklaration sehr vergleichbar. Nur: Der Konstruktor hat zwar einen Namen, ihm scheint jedoch der Rückgabetyp zu fehlen. Warum?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_194">10.25. Frage</h3>
+<h3 id="_frage_196">10.27. Frage</h3>
 <div class="paragraph">
 <p>Was sind die Defaultwerte für Felder (Klassenvariablen)? Was sind die Defaultwerte für lokale Variablen?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_195">10.26. Frage</h3>
+<h3 id="_frage_197">10.28. Frage</h3>
 <div class="paragraph">
 <p>Warum kann man <code>finalize</code> nicht für Aufräumarbeiten verwenden?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_196">10.27. Frage</h3>
+<h3 id="_frage_198">10.29. Frage</h3>
 <div class="paragraph">
 <p>Wie ruft man im Konstruktor einen anderen Konstruktor der gleichen Klasse auf? Warum sollte man das überhaupt tun wollen?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_197">10.28. Frage</h3>
+<h3 id="_frage_199">10.30. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>class A {
@@ -2908,103 +3134,103 @@ Point p = new Point();</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_198">10.29. Frage</h3>
+<h3 id="_frage_200">10.31. Frage</h3>
 <div class="paragraph">
 <p>Im Vorgriff auch das nächste Kapitel: Wie ruft man im Konstruktor den Konstruktor der Oberklasse auf?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_199">10.30. Frage</h3>
+<h3 id="_frage_201">10.32. Frage</h3>
 <div class="paragraph">
 <p>Was ist die Besonderheit des Interfaces <code>AutoCloseable</code>? Welche Methoden deklariert es?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_200">10.31. Frage</h3>
+<h3 id="_frage_202">10.33. Frage</h3>
 <div class="paragraph">
 <p>Ist <code>this</code> eine Variable?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_201">10.32. Frage</h3>
+<h3 id="_frage_203">10.34. Frage</h3>
 <div class="paragraph">
 <p>Ist es nicht das gleiche, ob eine Klasse jetzt ein <code>public int x</code> definiert oder ein <code>private int x</code> mit den Methoden <code>int getX()</code> und <code>void setX(int x)</code>? Wo liegt der Unterschied?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_202">10.33. Frage</h3>
+<h3 id="_frage_204">10.35. Frage</h3>
 <div class="paragraph">
 <p>Wozu benötigt man <code>this</code>?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_203">10.34. Frage</h3>
+<h3 id="_frage_205">10.36. Frage</h3>
 <div class="paragraph">
 <p>Wenn man sich in den Namensgebungen für Parameter und lokale Variablen diszipliniert, benötigt man dann überhaupt noch <code>this</code>?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_204">10.35. Frage</h3>
+<h3 id="_frage_206">10.37. Frage</h3>
 <div class="paragraph">
 <p>Wenn an den Konstruktor "falsche" Werte übergeben werden, empfiehlt es sich mit einer Exception darauf zu reagieren. Welche Exception sollte man wählen, sofern man nicht spezifischer sein kann/möchte?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_205">10.36. Frage</h3>
+<h3 id="_frage_207">10.38. Frage</h3>
 <div class="paragraph">
 <p>Wenn es einen Konstruktor gibt, muss es auch einen Destruktor geben, nicht wahr?! Hat Java einen Destruktor? Begründen Sie Ihre Antwort!</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_206">10.37. Frage</h3>
+<h3 id="_frage_208">10.39. Frage</h3>
 <div class="paragraph">
 <p>Eine Klasse, die eine <code>close</code>-Methode anbietet sollte die Schnittstelle <code>AutoCloseable</code> implementieren. Warum?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_207">10.38. Frage</h3>
+<h3 id="_frage_209">10.40. Frage</h3>
 <div class="paragraph">
 <p>Was ist mit "Settern" und "Gettern" gemeint?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_208">10.39. Frage</h3>
+<h3 id="_frage_210">10.41. Frage</h3>
 <div class="paragraph">
 <p>Was ist damit gemeint, wenn man von einer "Datenklasse" spricht?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_209">10.40. Frage</h3>
+<h3 id="_frage_211">10.42. Frage</h3>
 <div class="paragraph">
 <p>Wenn Sie Setter- und Getter-Methoden implementieren, dann sollten die Felder wie deklariert sein?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_210">10.41. Frage</h3>
+<h3 id="_frage_212">10.43. Frage</h3>
 <div class="paragraph">
 <p>Oft sieht man Setter wie <code>public setName(Typ value) { name = value; }</code>. Was könnte man daran kritisieren?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_211">10.42. Frage</h3>
+<h3 id="_frage_213">10.44. Frage</h3>
 <div class="paragraph">
 <p>Aufgrund welchen Prinzips der Softwaretechnik werden Setter und Getter begründet?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_212">10.43. Frage</h3>
+<h3 id="_frage_214">10.45. Frage</h3>
 <div class="paragraph">
 <p>Welcher softwaretechnische Nutzen steckt vor allem in den Setter-Methoden?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_213">10.44. Frage</h3>
+<h3 id="_frage_215">10.46. Frage</h3>
 <div class="paragraph">
 <p>Warum ist der Begriff "Unterklasse" für eine innere Klasse problematisch?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_214">10.45. Frage</h3>
+<h3 id="_frage_216">10.47. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">class A {
@@ -3023,13 +3249,13 @@ Point p = new Point();</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_215">10.46. Frage</h3>
+<h3 id="_frage_217">10.48. Frage</h3>
 <div class="paragraph">
 <p><code>this.name</code> oder <code>name.this</code>, das ist hier die Frage!</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_216">10.47. Frage</h3>
+<h3 id="_frage_218">10.49. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>AutoCloseable a = new AutoCloseable() {
@@ -3042,13 +3268,13 @@ Point p = new Point();</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_217">10.48. Frage</h3>
+<h3 id="_frage_219">10.50. Frage</h3>
 <div class="paragraph">
 <p>Kann eine anonyme Klasse einen Konstruktor haben? Warum, oder warum nicht?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_218">10.49. Frage</h3>
+<h3 id="_frage_220">10.51. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">class A {
@@ -3064,13 +3290,13 @@ Point p = new Point();</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_219">10.50. Frage</h3>
+<h3 id="_frage_221">10.52. Frage</h3>
 <div class="paragraph">
 <p>Erzeugen Sie eine anonyme Unterklasse von <code>java.awt.Point</code>, die die Methode <code>toString</code> so überschreibt, dass die String-Repräsentation jetzt einfach der mathematischen Schreibweise <code>(x, y)</code> entspricht. Wie können Sie beim Erzeugen des Objektes dieser Klasse die Koordinaten <code>x</code> und <code>y</code> übergeben?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_220">10.51. Frage</h3>
+<h3 id="_frage_222">10.53. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>Object obj = new Object() {
@@ -3083,25 +3309,25 @@ Point p = new Point();</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_221">10.52. Frage</h3>
+<h3 id="_frage_223">10.54. Frage</h3>
 <div class="paragraph">
 <p>Eine Instanz einer anonyme Klasse kann nur auf bestimmte Variablen des Kontextes zugreifen, in dem sie erzeugt wurde. Welche Variablen sind das?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_222">10.53. Frage</h3>
+<h3 id="_frage_224">10.55. Frage</h3>
 <div class="paragraph">
 <p>Definieren Sie, was <em>effectively final</em> heißt?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_223">10.54. Frage</h3>
+<h3 id="_frage_225">10.56. Frage</h3>
 <div class="paragraph">
 <p><code>AutoCloseable a = () → System.out.println("auto");</code> Wie nennt man so etwas?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_224">10.55. Frage</h3>
+<h3 id="_frage_226">10.57. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>String message = "foo";
@@ -3116,7 +3342,7 @@ message = "bar";</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_225">10.56. Frage</h3>
+<h3 id="_frage_227">10.58. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>class A {
@@ -3132,13 +3358,13 @@ message = "bar";</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_226">10.57. Frage</h3>
+<h3 id="_frage_228">10.59. Frage</h3>
 <div class="paragraph">
 <p>Warum sind laut Herrn Kofler statische innere Klassen gar keine "inneren Klassen" im eigentlichen Sinne?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_227">10.58. Frage</h3>
+<h3 id="_frage_229">10.60. Frage</h3>
 <div class="paragraph">
 <p>Kann man eine Klasse mit dem qualifizierten Namen <code>A.B.C</code> definieren? Wenn ja, wie? (Die Punkte sind Teil des Namens.)</p>
 </div>
@@ -3177,19 +3403,19 @@ message = "bar";</pre>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_frage_228">11.1. Frage</h3>
+<h3 id="_frage_230">11.1. Frage</h3>
 <div class="paragraph">
 <p>Wenn Sie <code>class A extends B</code> sehen, wissen Sie, dass <code>B</code> was an <code>A</code> vererbt?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_229">11.2. Frage</h3>
+<h3 id="_frage_231">11.2. Frage</h3>
 <div class="paragraph">
 <p>Wenn das hier geht <code>Object getSelf() { return this; }</code>, geht dann auch das <code>Object getSelf() { return super; }</code>?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_230">11.3. Frage</h3>
+<h3 id="_frage_232">11.3. Frage</h3>
 <div class="paragraph">
 <p>Ordnen Sie (siehe letztes Beispiel) die Begriffe <code>A</code> oder <code>B</code> zu:</p>
 </div>
@@ -3220,25 +3446,25 @@ message = "bar";</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_231">11.4. Frage</h3>
+<h3 id="_frage_233">11.4. Frage</h3>
 <div class="paragraph">
 <p>Wann ist die Implementierung eines eigenen Konstruktors in einer abgeleiteten Klasse <em>nicht</em> optional?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_232">11.5. Frage</h3>
+<h3 id="_frage_234">11.5. Frage</h3>
 <div class="paragraph">
 <p>Wenn man eine Methode überschreibt, dann ist die Verwendung einer Annotation üblich. Welcher?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_233">11.6. Frage</h3>
+<h3 id="_frage_235">11.6. Frage</h3>
 <div class="paragraph">
 <p>Eine Method überladen und sie überschreiben ist nicht dasselbe. Erkläre den Unterschied!</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_234">11.7. Frage</h3>
+<h3 id="_frage_236">11.7. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>class A { int method(int i) { return i+1; } }
@@ -3250,49 +3476,49 @@ class B extends A { int method() { return 2; } }</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_235">11.8. Frage</h3>
+<h3 id="_frage_237">11.8. Frage</h3>
 <div class="paragraph">
 <p>Mit welchem Schlüsselwort kann auf Members (Felder und Methoden) der Oberklasse zugegriffen werden?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_236">11.9. Frage</h3>
+<h3 id="_frage_238">11.9. Frage</h3>
 <div class="paragraph">
 <p>Wie Sie wissen, ist jede Klasse abgeleitet von <code>Object</code>. Wenn Sie Code wie <code>class A { }</code> sehen, welche Ergänzungen daran nimmt der Compiler vermutlich vor?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_237">11.10. Frage</h3>
+<h3 id="_frage_239">11.10. Frage</h3>
 <div class="paragraph">
 <p>Kann eine abstrakte Klasse einen Konstruktor haben?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_238">11.11. Frage</h3>
+<h3 id="_frage_240">11.11. Frage</h3>
 <div class="paragraph">
 <p>Wenn ich etwas <code>super(…​)</code> machen will, wohin damit?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_239">11.12. Frage</h3>
+<h3 id="_frage_241">11.12. Frage</h3>
 <div class="paragraph">
 <p>Ich möchte gerne den Konstruktor der Ober-Oberklasse aufrufen. Wie geht das?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_240">11.13. Frage</h3>
+<h3 id="_frage_242">11.13. Frage</h3>
 <div class="paragraph">
 <p>Hans deklariert eine Klasse als <code>final</code>, Hannah als <code>abstract</code>. Was hat Hans mit der Klasse vor, was Hannah?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_241">11.14. Frage</h3>
+<h3 id="_frage_243">11.14. Frage</h3>
 <div class="paragraph">
 <p>Hannah deklariert eine Methode als <code>final</code>, Hans als <code>abstract</code>. Woran muss Hans denken, was Hannah egal sein kann? Und was kann Hans sein lassen, was Hannah wiederum tun muss?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_242">11.15. Frage</h3>
+<h3 id="_frage_244">11.15. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>class A { int x; }
@@ -3307,7 +3533,7 @@ obj.foo();</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_243">11.16. Frage</h3>
+<h3 id="_frage_245">11.16. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>class A {
@@ -3324,7 +3550,7 @@ class B extends A {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_244">11.17. Frage</h3>
+<h3 id="_frage_246">11.17. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>for (Object o : objects) {
@@ -3338,7 +3564,7 @@ class B extends A {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_245">11.18. Frage</h3>
+<h3 id="_frage_247">11.18. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>Object o = "abc";
@@ -3350,37 +3576,37 @@ int l = (String) o.length();</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_246">11.19. Frage</h3>
+<h3 id="_frage_248">11.19. Frage</h3>
 <div class="paragraph">
 <p>Ein …​cast passiert implizit, wenn ein Objekt einer Variable von einem Supertyp zugewiesen wird. Ein …​cast muss dagegen explizit angegeben werden.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_247">11.20. Frage</h3>
+<h3 id="_frage_249">11.20. Frage</h3>
 <div class="paragraph">
 <p>Was bedeutet das Wort "Polymorphie" von seiner sprachlichen Herkunft?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_248">11.21. Frage</h3>
+<h3 id="_frage_250">11.21. Frage</h3>
 <div class="paragraph">
 <p>Was gibt die Methode <code>toString</code> standardmäßig zurück?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_249">11.22. Frage</h3>
+<h3 id="_frage_251">11.22. Frage</h3>
 <div class="paragraph">
 <p>Eine Klasse, die als <code>class A {}</code> deklariert wird, wird vom Compiler als <code>class A extends Object {}</code> aufgefasst. Wie ist das bei <code>class A extends B {}</code>? Ist eine Deklaration der Form <code>class A extends B, Object {}</code> oder <code>class A extends B extends Object {}</code> überhaupt erlaubt?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_250">11.23. Frage</h3>
+<h3 id="_frage_252">11.23. Frage</h3>
 <div class="paragraph">
 <p>Die Aussage ist nicht ganz korrekt: "`getClass` gibt die Klasse einer Instanz zurück." Berichtigen Sie den Satz.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_251">11.24. Frage</h3>
+<h3 id="_frage_253">11.24. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>class Foo {
@@ -3400,13 +3626,13 @@ int l = (String) o.length();</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_252">11.25. Frage</h3>
+<h3 id="_frage_254">11.25. Frage</h3>
 <div class="paragraph">
 <p>Wie sieht schematisch die Syntax einer Schnittstellen-Deklaration aus? [vereinfachte Variante, so wie Schnittstellen meist verwendet werden]</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_253">11.26. Frage</h3>
+<h3 id="_frage_255">11.26. Frage</h3>
 <div class="paragraph">
 <p>Welche Methodenkörper wären für die Methode <code>hashCode</code> der Klasse <code>java.awt.Point</code> zulässig und sinnvoll?</p>
 </div>
@@ -3440,7 +3666,7 @@ int l = (String) o.length();</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_254">11.27. Frage</h3>
+<h3 id="_frage_256">11.27. Frage</h3>
 <div class="paragraph">
 <p>Was ist richtig?</p>
 </div>
@@ -3450,55 +3676,55 @@ int l = (String) o.length();</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_255">11.28. Frage</h3>
+<h3 id="_frage_257">11.28. Frage</h3>
 <div class="paragraph">
 <p>Man kann mit Überladung keine zwei Methoden mit gleicher <em>Signatur</em> erstellen. Schließen Sie daraus, was der Begriff <em>Signatur</em> bedeutet.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_256">11.29. Frage</h3>
+<h3 id="_frage_258">11.29. Frage</h3>
 <div class="paragraph">
 <p>Eine Schnittstellendeklaration mit genau <em>einer</em> abstrakten Methode heißen?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_257">11.30. Frage</h3>
+<h3 id="_frage_259">11.30. Frage</h3>
 <div class="paragraph">
 <p>Wie können wir Java überprüfen lassen, ob eine Schnittstelle ein funktionales Interface ist?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_258">11.31. Frage</h3>
+<h3 id="_frage_260">11.31. Frage</h3>
 <div class="paragraph">
 <p>Wie sieht schematisch die Syntax einer Methode in einer Schnittstelle aus, die mit einer Implementierung versehen ist?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_259">11.32. Frage</h3>
+<h3 id="_frage_261">11.32. Frage</h3>
 <div class="paragraph">
 <p>Mit der Nutzung von <code>implements</code> im Kopf einer Klassendeklaration verpflichtet sich der Rumpf, was zu tun?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_260">11.33. Frage</h3>
+<h3 id="_frage_262">11.33. Frage</h3>
 <div class="paragraph">
 <p>Welchen Nutzen haben Schnittstellen außer von einer Klasse eine Implementierungsverpflichtung einzufordern?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_261">11.34. Frage</h3>
+<h3 id="_frage_263">11.34. Frage</h3>
 <div class="paragraph">
 <p>Karl sagt: "Wozu Schnittstellen, ich kann auch alles mit abstrakten Klassen machen, was Schnittstellen können." Was antwortet ihm Carla darauf?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_262">11.35. Frage</h3>
+<h3 id="_frage_264">11.35. Frage</h3>
 <div class="paragraph">
 <p>Carla sagt: "Seitdem es default-Implementierungen bei Schnittstellen gibt, sind abstrakte Klassen überflüssig geworden." Was antwortet Karl darauf?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_263">11.36. Frage</h3>
+<h3 id="_frage_265">11.36. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>interface I { void foo(); }
@@ -3510,7 +3736,7 @@ class A implements I { void foo() {} }</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_264">11.37. Frage</h3>
+<h3 id="_frage_266">11.37. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>abstract class A { void foo(); }</pre>
@@ -3521,13 +3747,13 @@ class A implements I { void foo() {} }</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_265">11.38. Frage</h3>
+<h3 id="_frage_267">11.38. Frage</h3>
 <div class="paragraph">
 <p><code>interface I { abstract void foo(); }</code> Geht das? Macht das Sinn?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_266">11.39. Frage</h3>
+<h3 id="_frage_268">11.39. Frage</h3>
 <div class="paragraph">
 <p>Die Frage ist angeregt durch den Code auf S.277 aus Kapitel 12.</p>
 </div>
@@ -3541,7 +3767,7 @@ class A implements I { void foo() {} }</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_267">11.40. Frage</h3>
+<h3 id="_frage_269">11.40. Frage</h3>
 <div class="paragraph">
 <p>Die Frage ist angeregt durch den Code auf S.277 aus Kapitel 12.</p>
 </div>
@@ -3573,55 +3799,55 @@ class A implements I { void foo() {} }</pre>
 </ol>
 </div>
 <div class="sect2">
-<h3 id="_frage_268">12.1. Frage</h3>
+<h3 id="_frage_270">12.1. Frage</h3>
 <div class="paragraph">
 <p>Eine Klasse <code>Container</code> soll im Konstruktor einen beliebigen Typ als Inhalt (<em>content</em>) aufnehmen können. Schreiben Sie den Code ohne <code>Object</code> zu verwenden.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_269">12.2. Frage</h3>
+<h3 id="_frage_271">12.2. Frage</h3>
 <div class="paragraph">
 <p>Aus unerfindlichen Gründen bietet die Java-API keine Tupel-Klasse an. Wie würde so eine Klasse aussehen, die zwei Variablen von beliebigem Typ enthalten kann?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_270">12.3. Frage</h3>
+<h3 id="_frage_272">12.3. Frage</h3>
 <div class="paragraph">
 <p>Legen Sie eine neue <code>ArrayList</code> an, die ausschließlich aus Ganzzahlen besteht.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_271">12.4. Frage</h3>
+<h3 id="_frage_273">12.4. Frage</h3>
 <div class="paragraph">
 <p>Was ist ein <em>Typparameter</em>?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_272">12.5. Frage</h3>
+<h3 id="_frage_274">12.5. Frage</h3>
 <div class="paragraph">
 <p>Deklarieren und initialisieren Sie eine Variable <code>a</code>, die ausschließlich eine <code>ArrayList</code> von boolschen Werten aufnehmen kann. Die Lösung muss so kurz wie möglich sein.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_273">12.6. Frage</h3>
+<h3 id="_frage_275">12.6. Frage</h3>
 <div class="paragraph">
 <p>Wie lautet die Syntax für eine generische Methode?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_274">12.7. Frage</h3>
+<h3 id="_frage_276">12.7. Frage</h3>
 <div class="paragraph">
 <p>Inwiefern hebelt die Definition <code>&lt;T&gt; T giveMeWhatIWant() { …​ }</code> das Typsystem von Java aus?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_275">12.8. Frage</h3>
+<h3 id="_frage_277">12.8. Frage</h3>
 <div class="paragraph">
 <p>Wie sieht schematisch die Syntax einer generischen Klasse aus? Reduzieren Sie die Syntax auf das Notwendigste.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_276">12.9. Frage</h3>
+<h3 id="_frage_278">12.9. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>class A&lt;T&gt; { void foo(T x) {} }
@@ -3633,7 +3859,7 @@ A myA = new A();</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_277">12.10. Frage</h3>
+<h3 id="_frage_279">12.10. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>class Foo&lt;T&gt; {
@@ -3650,31 +3876,31 @@ f.getLength("abc");</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_278">12.11. Frage</h3>
+<h3 id="_frage_280">12.11. Frage</h3>
 <div class="paragraph">
 <p><code>class Bar&lt;Blubber&gt; { Blubber x; }</code> Problem?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_279">12.12. Frage</h3>
+<h3 id="_frage_281">12.12. Frage</h3>
 <div class="paragraph">
 <p>Man kann eine Klasse als <code>MyClass&lt;T extends Number&gt;</code> deklarieren, ist auch <code>MyClass&lt;T implements AutoCloseable&gt;</code> erlaubt?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_280">12.13. Frage</h3>
+<h3 id="_frage_282">12.13. Frage</h3>
 <div class="paragraph">
 <p><code>class ICanHazGenerics&lt;E extends Comparable&gt; {}</code> Und schon gibt’s was auf die Finger. Was ist der Grund?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_281">12.14. Frage</h3>
+<h3 id="_frage_283">12.14. Frage</h3>
 <div class="paragraph">
 <p><code>class A&lt;T extends B&gt; {}</code> Kann man <code>A&lt;B&gt; value = new A&lt;B&gt;();</code> schreiben? Gilt also <code>B extends B</code>?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_282">12.15. Frage</h3>
+<h3 id="_frage_284">12.15. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>List&lt;? extends Number&gt; lst = new ArrayList&lt;&gt;();
@@ -3712,19 +3938,19 @@ lst.add(new Integer(8));</pre>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_frage_283">14.1. Frage</h3>
+<h3 id="_frage_285">14.1. Frage</h3>
 <div class="paragraph">
 <p>Welche besondere Bedeutung hat das Interface <code>Iterable</code> in Java?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_284">14.2. Frage</h3>
+<h3 id="_frage_286">14.2. Frage</h3>
 <div class="paragraph">
 <p>Sie wollen <code>ArrayList</code> verwenden und dürfen nicht vergessen, welches Paket zu importieren?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_285">14.3. Frage</h3>
+<h3 id="_frage_287">14.3. Frage</h3>
 <div class="paragraph">
 <p>Welche dieser Klassen implementiert das Interface <code>Collection</code>?</p>
 </div>
@@ -3746,13 +3972,13 @@ lst.add(new Integer(8));</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_286">14.4. Frage</h3>
+<h3 id="_frage_288">14.4. Frage</h3>
 <div class="paragraph">
 <p>Auf S.295 oben heißt es: "…​ bietet sich der Einsatz einer <code>List</code>-Klasse an." Ist <code>List</code> eine Klasse?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_287">14.5. Frage</h3>
+<h3 id="_frage_289">14.5. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>Set&lt;Integer&gt; s = new HashSet&lt;Integer&gt;();
@@ -3767,49 +3993,49 @@ for(int i = 0; i &lt; 100; i++) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_288">14.6. Frage</h3>
+<h3 id="_frage_290">14.6. Frage</h3>
 <div class="paragraph">
 <p>Was bedeutet <em>First in - First out</em>?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_289">14.7. Frage</h3>
+<h3 id="_frage_291">14.7. Frage</h3>
 <div class="paragraph">
 <p>Warum gibt es für eine Schnittstelle wie z.B. <code>List</code> mehrere Implementierungen wie z.B. <code>ArrayList</code> oder <code>Stack</code>? Woher soll ich wissen, welche Implementierung ich nutzen soll?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_290">14.8. Frage</h3>
+<h3 id="_frage_292">14.8. Frage</h3>
 <div class="paragraph">
 <p>Den Interfaces <code>Set</code>, <code>List</code>, <code>Stack</code>, <code>Queue</code> und <code>Map</code> liegen anschauliche Vorstellungen zugrunde. Zeichnen Sie für jedes Interface ein Bild, was die zugrunde liegende Abstraktion illustriert. [Das soll helfen, sich zu erinnern, was die Schnittstellen tun.]</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_291">14.9. Frage</h3>
+<h3 id="_frage_293">14.9. Frage</h3>
 <div class="paragraph">
 <p>Warum kann man bei einer <code>Collection</code> die Variante der <code>for</code>-Schleife nutzen, die sich foreach-Schleife nennt?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_292">14.10. Frage</h3>
+<h3 id="_frage_294">14.10. Frage</h3>
 <div class="paragraph">
 <p>Warum sollten Sie davon Abstand nehmen, `Collection`s selber zu implementieren?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_293">14.11. Frage</h3>
+<h3 id="_frage_295">14.11. Frage</h3>
 <div class="paragraph">
 <p>Warum ist es oft attraktiv, wenn möglich, eine Schnittstelle statt eine Klasse als Typ einer Variablen anzugeben?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_294">14.12. Frage</h3>
+<h3 id="_frage_296">14.12. Frage</h3>
 <div class="paragraph">
 <p>Warum ist es bei Collections manchmal sinnvoller, eine Variable mit der implementierenden Klasse statt dem Interface zu deklarieren.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_295">14.13. Frage</h3>
+<h3 id="_frage_297">14.13. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>List&lt;Integer&gt; lst = ...;
@@ -3823,13 +4049,13 @@ for(int i = 0; i &lt; lst.size(); i++) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_296">14.14. Frage</h3>
+<h3 id="_frage_298">14.14. Frage</h3>
 <div class="paragraph">
 <p>Herr Kofler benennt fünf statische Methoden der Klasse <code>Collections</code>, die nützlich sind — und oft gebraucht werden.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_297">14.15. Frage</h3>
+<h3 id="_frage_299">14.15. Frage</h3>
 <div class="paragraph">
 <p>Dem Kopf der <code>for</code>-Schleife fehlt doch was, oder?</p>
 </div>
@@ -3841,103 +4067,103 @@ for(int i = 0; i &lt; lst.size(); i++) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_298">14.16. Frage</h3>
+<h3 id="_frage_300">14.16. Frage</h3>
 <div class="paragraph">
 <p>Listen Sie freisprachlich auf (jeweils ein Verb), welche Fähigkeiten eine <code>Collection</code> mit sich bringt.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_299">14.17. Frage</h3>
+<h3 id="_frage_301">14.17. Frage</h3>
 <div class="paragraph">
 <p>Was ist der wesentliche Unterschied zwischen einer Liste (<code>List</code>) und einer Menge (<code>Set</code>)?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_300">14.18. Frage</h3>
+<h3 id="_frage_302">14.18. Frage</h3>
 <div class="paragraph">
 <p><code>Set</code> definiert <code>add</code> mit dem Rückgabetyp <code>boolean</code>. Warum?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_301">14.19. Frage</h3>
+<h3 id="_frage_303">14.19. Frage</h3>
 <div class="paragraph">
 <p>In welcher Klasse finden Sie eine Methode um Listen zu sortieren?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_302">14.20. Frage</h3>
+<h3 id="_frage_304">14.20. Frage</h3>
 <div class="paragraph">
 <p>Die Implementierung <code>HashSet&lt;T&gt;</code> erwartet, das der parametrisierte Typ zwei Methoden "sauber" implementiert hat? Welche sind das?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_303">14.21. Frage</h3>
+<h3 id="_frage_305">14.21. Frage</h3>
 <div class="paragraph">
 <p>Der Unterschied zwischen einem <code>LinkedHashSet</code> und einem <code>HashSet</code> ist?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_304">14.22. Frage</h3>
+<h3 id="_frage_306">14.22. Frage</h3>
 <div class="paragraph">
 <p>Was ist ein <code>TreeSet</code>?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_305">14.23. Frage</h3>
+<h3 id="_frage_307">14.23. Frage</h3>
 <div class="paragraph">
 <p><code>Set&lt;java.awt.Point&gt; pset = new TreeSet&lt;java.awt.Point&gt;();</code> Schon verloren. Wie kommt’s?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_306">14.24. Frage</h3>
+<h3 id="_frage_308">14.24. Frage</h3>
 <div class="paragraph">
 <p>Welchen Wert hat <code>new ArrayList&lt;Integer&gt;(10).size()</code>?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_307">14.25. Frage</h3>
+<h3 id="_frage_309">14.25. Frage</h3>
 <div class="paragraph">
 <p>Wann sollte man der <code>LinkedList</code> den Vorrang vor <code>ArrayList</code> geben?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_308">14.26. Frage</h3>
+<h3 id="_frage_310">14.26. Frage</h3>
 <div class="paragraph">
 <p>Was heißt "FIFO", was "LIFO"? (Das sind zwei ganz beliebte Abkürzungen.)</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_309">14.27. Frage</h3>
+<h3 id="_frage_311">14.27. Frage</h3>
 <div class="paragraph">
 <p>Wie sollte man am Besten eine Liste oder ein Set kopieren?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_310">14.28. Frage</h3>
+<h3 id="_frage_312">14.28. Frage</h3>
 <div class="paragraph">
 <p>Wenn Sie über Schlüssel-Wert-Paare einer Map iterieren wollen (und beides brauchen), können Sie die Methode <code>entrySet</code> verwenden. Der Rückgabetyp dieser Methode ist <code>Set&lt;Map.Entry&lt;K,V&gt;&gt;</code>. Erklären Sie diesen Typ.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_311">14.29. Frage</h3>
+<h3 id="_frage_313">14.29. Frage</h3>
 <div class="paragraph">
 <p>Ist <code>Map.Entry</code> als <code>static</code> deklariert oder nicht? Woran sieht man das?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_312">14.30. Frage</h3>
+<h3 id="_frage_314">14.30. Frage</h3>
 <div class="paragraph">
 <p>Die <code>Map</code>-Schnittstelle gehört nicht zu den Collections. Was könnte der Grund dafür sein?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_313">14.31. Frage</h3>
+<h3 id="_frage_315">14.31. Frage</h3>
 <div class="paragraph">
 <p>Die <code>Map&lt;K,V&gt;</code>-Schnittstelle hat zwei wichtige Methoden <code>put</code> und <code>get</code>. Was vermuten Sie, wie die Methodenköpfe zu den beiden Methoden aussehen?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_314">14.32. Frage</h3>
+<h3 id="_frage_316">14.32. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>class A { int x; A(int x) {this.x = x; } }
@@ -3951,37 +4177,37 @@ myMap.put(new A(1), 2);</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_315">14.33. Frage</h3>
+<h3 id="_frage_317">14.33. Frage</h3>
 <div class="paragraph">
 <p>Zur <code>Map&lt;K,V&gt;</code>-Schnittstelle finden Sie <code>boolean containsKey(Object key)</code> deklariert. Komisch? Komisch! Was ist an der Deklaration überraschend?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_316">14.34. Frage</h3>
+<h3 id="_frage_318">14.34. Frage</h3>
 <div class="paragraph">
 <p>Was unterscheidet eine <code>HashMap</code> von einer <code>LinkedHashMap</code>? Welche der beiden Implementierungen verwenden Sie im Regelfall?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_317">14.35. Frage</h3>
+<h3 id="_frage_319">14.35. Frage</h3>
 <div class="paragraph">
 <p>Welche Probleme ergeben sich, wenn die Schlüssel einer Map veränderliche Objekte sind?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_318">14.36. Frage</h3>
+<h3 id="_frage_320">14.36. Frage</h3>
 <div class="paragraph">
 <p>Wenn man über den Inhalt einer Map iterieren möchte gibt es drei Möglichkeiten an ein Objekt zu gelangen das <code>Iterable</code> implementiert. Diese Möglichkeiten entsprechen jeweils einer anderen Sicht auf den Inhalt der Map. Welche sind das?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_319">14.37. Frage</h3>
+<h3 id="_frage_321">14.37. Frage</h3>
 <div class="paragraph">
 <p>Die Map-Methode <code>put</code> liefert einen Wert zurück. Weshalb ist Sie nicht einfach als <code>void</code> deklariert?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_320">14.38. Frage</h3>
+<h3 id="_frage_322">14.38. Frage</h3>
 <div class="paragraph">
 <p>Angenommen, Sie haben eine <code>Map</code> namens <code>book</code> vom Typ <code>HashMap&lt;ISBN,Book&gt;</code>. Schreiben Sie den Kopf einer <code>for</code>-Schleife, die über alle ISBNs iteriert.</p>
 </div>
@@ -3995,25 +4221,25 @@ myMap.put(new A(1), 2);</pre>
 <p>Tabelle 15.2, 15.3, 15.4 sind wieder ein Gold-Nuggets.</p>
 </div>
 <div class="sect2">
-<h3 id="_frage_321">15.1. Frage</h3>
+<h3 id="_frage_323">15.1. Frage</h3>
 <div class="paragraph">
 <p>Handelt es sich bei <code>java.io.IOException</code> um eine <em>geprüfte</em> oder eine <em>ungeprüfte</em> Ausnahme? Weshalb?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_322">15.2. Frage</h3>
+<h3 id="_frage_324">15.2. Frage</h3>
 <div class="paragraph">
 <p>Welches Konstrukt sollte man verwenden, um Ressourcen nach der Verwendung automatisch zu schließen?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_323">15.3. Frage</h3>
+<h3 id="_frage_325">15.3. Frage</h3>
 <div class="paragraph">
 <p>Geben Sie zwei Beispiele an, warum die Arbeit mit dem Dateisystem zu Exceptions führen kann.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_324">15.4. Frage</h3>
+<h3 id="_frage_326">15.4. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">try (BufferedReader br = Files.newBufferedReader("test.txt", StandardCharsets.UTF_8)) {
@@ -4026,115 +4252,115 @@ myMap.put(new A(1), 2);</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_325">15.5. Frage</h3>
+<h3 id="_frage_327">15.5. Frage</h3>
 <div class="paragraph">
 <p>Welches gedankliche Modell liegt einer Ressource zugrunde, so dass man die Arbeit mit ihr per <code>close</code>-Methode abschliesst? (edited)</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_326">15.6. Frage</h3>
+<h3 id="_frage_328">15.6. Frage</h3>
 <div class="paragraph">
 <p>Wofür brauchen Sie die Methode <code>System.getProperty</code>? Nennen Sie Beispiele für Eigenschaften, die Sie mit dieser Methode auslesen können.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_327">15.7. Frage</h3>
+<h3 id="_frage_329">15.7. Frage</h3>
 <div class="paragraph">
 <p>Was liefert in der JShell <code>jshell&gt; System.getProperty("user.dir")</code> zurück?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_328">15.8. Frage</h3>
+<h3 id="_frage_330">15.8. Frage</h3>
 <div class="paragraph">
 <p>Sie bekommen einen geheimen Pfad <code>geheim</code> vom Typ <code>Path</code>. Prüfen Sie, ob es sich dabei um ein existierendes Verzeichnis handelt und erstellen Sie dann ein neues <code>Path</code>-Objekt, das auf die Datei <code>test.jar</code> im Unterverzeichnis <code>lib</code> dieses Verzeichnisses verweist.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_329">15.9. Frage</h3>
+<h3 id="_frage_331">15.9. Frage</h3>
 <div class="paragraph">
 <p>Was ist ein <em>absoluter</em> Pfad?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_330">15.10. Frage</h3>
+<h3 id="_frage_332">15.10. Frage</h3>
 <div class="paragraph">
 <p>Unter Windows entspricht <code>System.getProperty("user.dir")</code> welcher Umgebungsvariablen (aubrufbar in der Kommandozeile)?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_331">15.11. Frage</h3>
+<h3 id="_frage_333">15.11. Frage</h3>
 <div class="paragraph">
-<p>Mit welchem Kommando in der Windows-Kommandozeile wechseln Sie das Verzeichnis? Wir schauen Sie sich den Inhalt eines Verzeichnisses an?</p>
+<p>Mit welchem Kommando in der Windows-Kommandozeile wechseln Sie das Verzeichnis? Wie schauen Sie sich den Inhalt eines Verzeichnisses an?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_332">15.12. Frage</h3>
+<h3 id="_frage_334">15.12. Frage</h3>
 <div class="paragraph">
 <p>Sie haben wieder einen geheimen Pfad <code>geheim</code>, der auf eine Datei <code>MyTest.java</code> verweist. Sie wissen nicht, in welchem Verzeichnis sich die Datei befindet, aber sie wissen dass es dort auch eine Datei namens <code>MyOtherTest.java</code> gibt. Nennen Sie zwei Wege, wie sie einen Pfad zu dieser Datei erzeugen können.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_333">15.13. Frage</h3>
+<h3 id="_frage_335">15.13. Frage</h3>
 <div class="paragraph">
 <p>Was ist eine Datei?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_334">15.14. Frage</h3>
+<h3 id="_frage_336">15.14. Frage</h3>
 <div class="paragraph">
 <p>Was ist ein Verzeichnis?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_335">15.15. Frage</h3>
+<h3 id="_frage_337">15.15. Frage</h3>
 <div class="paragraph">
 <p>Wie muss die Signatur der Methode <code>Paths.get</code> aussehen, wenn Sie beliebig viele Strings als Argumente akzeptiert?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_336">15.16. Frage</h3>
+<h3 id="_frage_338">15.16. Frage</h3>
 <div class="paragraph">
 <p>Was ist ein Link?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_337">15.17. Frage</h3>
+<h3 id="_frage_339">15.17. Frage</h3>
 <div class="paragraph">
 <p>Wie kopiert und wie verschiebt man eine Datei unter Windows von der Konsole aus?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_338">15.18. Frage</h3>
+<h3 id="_frage_340">15.18. Frage</h3>
 <div class="paragraph">
 <p>Welche Methode der Klasse <code>Files</code> liefert einen <code>Stream</code> - <code>newDirectoryStream</code> oder <code>list</code>?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_339">15.19. Frage</h3>
+<h3 id="_frage_341">15.19. Frage</h3>
 <div class="paragraph">
 <p>Schreiben Sie ein Programmfragment, das eine Textdatei zeilenweise einliest.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_340">15.20. Frage</h3>
+<h3 id="_frage_342">15.20. Frage</h3>
 <div class="paragraph">
 <p>Schreiben Sie ein Programmfragment, das die Einträge eines String-Arrays als einzelne Zeilen in eine Textdatei schreibt.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_341">15.21. Frage</h3>
+<h3 id="_frage_343">15.21. Frage</h3>
 <div class="paragraph">
 <p>Muss man immer <code>Files.createFile</code> zum Anlegen einer neuen Datei verwenden, oder geht das auch einfacher?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_342">15.22. Frage</h3>
+<h3 id="_frage_344">15.22. Frage</h3>
 <div class="paragraph">
 <p>Was bedeuten die Zahlen in <code>UTF-8</code>, <code>UTF-16</code> und <code>UTF-32</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_343">15.23. Frage</h3>
+<h3 id="_frage_345">15.23. Frage</h3>
 <div class="paragraph">
 <p>Muss man immer <code>Files.createDirectory</code> bzw. <code>Files.createDirectories</code> aufrufen um ein neues Verzeichnis zu erstellen, oder geht das auch einfacher?</p>
 </div>
@@ -4159,13 +4385,13 @@ myMap.put(new A(1), 2);</pre>
 <h2 id="_pakete_und_bibliotheken">18. Pakete und Bibliotheken</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_frage_344">18.1. Frage</h3>
+<h3 id="_frage_346">18.1. Frage</h3>
 <div class="paragraph">
 <p>Ist es möglich, umfangreiche Java-Programme ohne eine einzige <code>import</code>-Anweisung zu schreiben?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_345">18.2. Frage</h3>
+<h3 id="_frage_347">18.2. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>import java.util.Arrays.sort;
@@ -4178,37 +4404,37 @@ sort(a);</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_346">18.3. Frage</h3>
+<h3 id="_frage_348">18.3. Frage</h3>
 <div class="paragraph">
 <p>Eine <code>import</code>-Anweisung muss immer wo stehen?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_347">18.4. Frage</h3>
+<h3 id="_frage_349">18.4. Frage</h3>
 <div class="paragraph">
 <p>In den Fragen zu vorherigen Kapiteln haben wir immer <code>java.awt.Point</code> als Typ verwendet statt <code>Point</code>. Weshalb haben wir das gemacht und was muss man tun, um einfach direkt <code>Point</code> schreiben zu können?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_348">18.5. Frage</h3>
+<h3 id="_frage_350">18.5. Frage</h3>
 <div class="paragraph">
 <p>Was kann man mit <code>import</code> importieren?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_349">18.6. Frage</h3>
+<h3 id="_frage_351">18.6. Frage</h3>
 <div class="paragraph">
 <p>Was kann man mit <code>import static</code> importieren?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_350">18.7. Frage</h3>
+<h3 id="_frage_352">18.7. Frage</h3>
 <div class="paragraph">
 <p>Warum ist <code>import</code> ein irreführender Name? Tatsächlich organisiert man über <code>import</code> nur ___räume!</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_351">18.8. Frage</h3>
+<h3 id="_frage_353">18.8. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>import java.awt.Point;
@@ -4221,7 +4447,7 @@ Point p = new Point();</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_352">18.9. Frage</h3>
+<h3 id="_frage_354">18.9. Frage</h3>
 <div class="listingblock">
 <div class="content">
 <pre>import java.awt.*;
@@ -4233,67 +4459,67 @@ Point p;</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_353">18.10. Frage</h3>
+<h3 id="_frage_355">18.10. Frage</h3>
 <div class="paragraph">
 <p>Was ist der Unterschied von <code>import de.thm.mni;</code> und <code>import de.thm.mni.*;</code>?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_354">18.11. Frage</h3>
+<h3 id="_frage_356">18.11. Frage</h3>
 <div class="paragraph">
 <p>Welches Paket ist standardmäßig in Java SE importiert?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_355">18.12. Frage</h3>
+<h3 id="_frage_357">18.12. Frage</h3>
 <div class="paragraph">
 <p><code>import static java.awt.Color.*</code> Jetzt darf ich <code>Color c = new Color(0,0,0);</code> deklarieren, richtig?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_356">18.13. Frage</h3>
+<h3 id="_frage_358">18.13. Frage</h3>
 <div class="paragraph">
 <p>Wozu braucht man auf S.372 oben am Anfang die Codezeile <code>import java.awt.Color;</code> wenn unten darunter <code>import static java.awt.Color.*;</code> steht?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_357">18.14. Frage</h3>
+<h3 id="_frage_359">18.14. Frage</h3>
 <div class="paragraph">
 <p>Was muss man tun, damit man die Methoden der Klasse <code>Math</code> direkt ohne den Anteil <code>Math.</code> in seinem Code verwenden kann?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_358">18.15. Frage</h3>
+<h3 id="_frage_360">18.15. Frage</h3>
 <div class="paragraph">
 <p>Kann ich die Klasse <code>java.awt.Color</code> und eine Klasse <code>de.thm.mni.Color</code> zusammen im gleichen Stück Code verwenden?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_359">18.16. Frage</h3>
+<h3 id="_frage_361">18.16. Frage</h3>
 <div class="paragraph">
 <p>Man kann <code>import static java.lang.System.out;</code> schreiben. Dann geht doch auch <code>import static java.lang.System.out.println;</code>, oder?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_360">18.17. Frage</h3>
+<h3 id="_frage_362">18.17. Frage</h3>
 <div class="paragraph">
 <p>Was ist der Unterschied von <code>import de.thm.mni.OOP;</code> zu <code>import static de.thm.mni.OOP;</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_361">18.18. Frage</h3>
+<h3 id="_frage_363">18.18. Frage</h3>
 <div class="paragraph">
 <p>Sie schreiben ein Programm im Fachbereich MNI der THM im Kurs OOP. Sie definieren ein Paket für Ihr Programm. Wie sollte der Paketname anfangen?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_362">18.19. Frage</h3>
+<h3 id="_frage_364">18.19. Frage</h3>
 <div class="paragraph">
 <p>Die Option <code>-cp</code> bei <code>java</code> bzw. <code>javac</code> steht für welches Java-Konzept?</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_frage_363">18.20. Frage</h3>
+<h3 id="_frage_365">18.20. Frage</h3>
 <div class="paragraph">
 <p>Welche Argumente müssen sie an <code>java</code> übergeben, wenn sie eine eigene Klasse <code>main.Main</code> ausführen wollen, die das Paket <code>somePackage.jar</code> verwendet? In welchen Ordnern sucht die JVM dabei nach der <code>.class</code>-Datei von <code>main.Main</code> und der Datei <code>somePackage.jar</code>?</p>
 </div>
@@ -4305,8 +4531,8 @@ Point p;</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 0.6<br>
-Last updated 2017-01-08 22:45:38 Mitteleuropõische Zeit
+Version 0.65<br>
+Last updated 2017-01-23 22:49:40 Mitteleuropõische Zeit
 </div>
 </div>
 </body>
