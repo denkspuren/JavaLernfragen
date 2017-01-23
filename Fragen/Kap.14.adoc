@@ -93,7 +93,7 @@ ifdef::solution[]
 * Queue (Puffer): Warteschlange, Einbahnstraße (FIFO)
 * Map (Abbildung): Telefonbuch, Wörterbuch
 
-image::images/CollectionBilder.jpg[]
+image::Fragen/images/CollectionBilder.jpg[]
 endif::solution[]
 
 ### Frage
