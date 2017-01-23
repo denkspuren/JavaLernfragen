@@ -36,7 +36,8 @@ Seite 121: Was ist wohl mit "echten mehrdimensionalen Arrays" gemeint?
 ifdef::solution[]
 .Antwort
 Die Speicherorganisation ist nicht verschachtelt, sondern sequentiell.
-// TODO
+
+In Java muss man sich immer im Klaren darüber sein, dass jedes Array intern eindimensional ist. Methoden zur Bearbeitung von Arrays verarbeiten nur eine Ebene. Mehrdimensionale Arrays sind quasi ein 'Trick', bei dem Array-Elemente selbst wieder Arrays sind. 
 endif::solution[]
 
 ### Frage

@@ -110,7 +110,7 @@ ifdef::solution[]
 endif::solution[]
 
 ### Frage
-Mit welchem Kommando in der Windows-Kommandozeile wechseln Sie das Verzeichnis? Wir schauen Sie sich den Inhalt eines Verzeichnisses an?
+Mit welchem Kommando in der Windows-Kommandozeile wechseln Sie das Verzeichnis? Wie schauen Sie sich den Inhalt eines Verzeichnisses an?
 
 ifdef::solution[]
 .Antwort

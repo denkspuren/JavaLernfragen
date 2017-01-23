@@ -212,7 +212,7 @@ Für Herrn Kofler sind "Klassenvariablen" einfach nur beliebige Felder, egal ob 
 endif::solution[]
 
 ### Frage
-Klären Sie die Begriffe "Feld" und "Variable".
+Klären Sie die Begriffe "Feld" (engl. _field_) und "Variable".
 
 ifdef::solution[]
 .Antwort

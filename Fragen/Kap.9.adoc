@@ -54,15 +54,15 @@ Was unterscheidet Exceptions, die von `RuntimeException` erben von anderen Subkl
 
 ifdef::solution[]
 .Antwort
--- TODO --
+`RuntimeExceptions` dürfen mit `try/catch` abgefangen werden, aber sie müssen nicht. Andere ('normale') Exceptions müssen hingegen abgefangen werden, oder die betreffende Methode muss selbst mit `throws` deklariert werden, so dass diese die Exception weitergibt.
 endif::solution[]
 
 ### Frage
-Warum ist der Name `RunTimeException` für eine der Exception-Klassen ein wenig unsinnig? (edited)
+Warum ist der Name `RuntimeException` für eine der Exception-Klassen ein wenig unsinnig?
 
 ifdef::solution[]
 .Antwort
--- TODO --
+Der Begriff _Runtime_ ist deswegen unglücklich, weil ja _alle_ Exceptions zur Laufzeit auftreten. _Runtime_-Exceptions in Java zeichnen sich vielmehr dadurch aus, dass sie praktisch ausnahmslos auf Schlampigkeitsfehler des Programmiers bzw. der Programmiererin zurückzuführen sind. Anders formuliert: Wenn Sie ordentlich programmieren, sollten keine _Runtime_-Exceptions auftreten. Auf andere Exceptions haben Sie hingegen oft keinen Einfluss; diese können durch 'höhere Gewalt' außerhalb des Java-Programms auftreten (z.B. wenn eine Netzwerkverbindung plötzlich nicht mehr besteht, weil jemand das Kabel gelöst hat).
 endif::solution[]
 
 ### Frage
@@ -70,7 +70,7 @@ In welchem Fall muss im Kopf einer Methode `throws` samt Angabe der möglichen A
 
 ifdef::solution[]
 .Antwort
--- TODO --
+Wenn innerhalb der Methode eine entsprechende Exception ohne `try/catch`-Absicherung ausgelöst werden kann, sei es direkt durch den Aufruf von `throw`, sei es durch den Aufruf einer anderen Methode, die mit `throws` deklariert ist.
 endif::solution[]
 
 ### Frage
@@ -86,7 +86,7 @@ Die StackTrace eines `StackOverflowError` ist sehr lang. Warum?
 
 ifdef::solution[]
 .Antwort
--- TODO --
+Der Fehler tritt auf, wenn der Stack voll ist, was in der Regel erst dann passiert, wenn sehr viele (oft Millionen) Methoden einander aufgerufen haben.
 endif::solution[]
 
 ### Frage
@@ -102,7 +102,7 @@ Was ist der Vorteil eines _try-with-resources_ gegenüber einem normalen `finall
 
 ifdef::solution[]
 .Antwort
--- TODO --
+Übersichtlicherer Code.
 endif::solution[]
 
 ### Frage
@@ -110,7 +110,7 @@ Anschlussfrage: Was ist eine _resource_?
 
 ifdef::solution[]
 .Antwort
--- TODO --
+Ein Objekt einer Klasse, die die Schnittstelle `AutoClosable` definiert. Siehe <https://docs.oracle.com/javase/8/docs/api/java/lang/AutoCloseable.html>.
 endif::solution[]
 
 ### Frage
@@ -151,7 +151,7 @@ Geht das?
 
 ifdef::solution[]
 .Antwort
--- TODO --
+Jeder Fehler wird von der ersten `catch`-Anweisung abgefangen, auch die `NumberFormatException`. Daher kann es nie zum Aufruf des zweiten `catch`-Blocks kommen.
 endif::solution[]
 
 ### Frage
@@ -167,5 +167,5 @@ Kann man selbst Exceptions definieren?
 
 ifdef::solution[]
 .Antwort
--- TODO --
+Ja. Sie müssen Ihre eigene Exception-Klasse einfach von `Exception` bzw. von `ExceptionXy` ableiten.
 endif::solution[]
