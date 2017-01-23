@@ -2,7 +2,7 @@
 :solution:
 
 ### Frage
-Wir ist die Schreibweise für ein Einzelzeichen-Literal?
+Wie ist die Schreibweise für ein Einzelzeichen-Literal?
 
 ifdef::solution[]
 .Antwort
@@ -65,6 +65,7 @@ ifdef::solution[]
 ----
 233
 ----
+(Hier werden die ASCII-Codes der drei Buchstaben addiert.)
 endif::solution[]
 
 ### Frage

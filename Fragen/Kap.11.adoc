@@ -134,7 +134,7 @@ Ich möchte gerne den Konstruktor der Ober-Oberklasse aufrufen. Wie geht das?
 
 ifdef::solution[]
 .Antwort
-Direkt geht das nicht, man kann nur auf die direkte Superklasse zugreifen und die muss dann wieder ihre Superklasse aufrufen.
+Direkt geht das nicht, man kann nur auf die direkte Superklasse zugreifen und die muss dann wieder ihre Superklasse aufrufen. Siehe auch: <http://stackoverflow.com/questions/586363/why-is-super-super-method-not-allowed-in-java>
 endif::solution[]
 
 ### Frage

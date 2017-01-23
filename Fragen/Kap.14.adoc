@@ -139,7 +139,7 @@ Ojemine! Aus welchem Grunde?
 
 ifdef::solution[]
 .Antwort
-Diese Implementierung überspringt elemente in der Liste. Besser ist es hier einen `Iterator` zu verwenden.
+Diese Implementierung überspringt Elemente in der Liste. Besser ist es hier einen `Iterator` zu verwenden.
 endif::solution[]
 
 ### Frage

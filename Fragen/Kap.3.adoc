@@ -127,7 +127,7 @@ Wann kann man die Methode `compareTo` verwenden?
 
 ifdef::solution[]
 .Antwort
-Wenn das Objekt das Interface `Comparable` implementiert.
+Wenn das Objekt das Interface `Comparable` implementiert (siehe Kapitel 11).
 endif::solution[]
 
 ### Frage

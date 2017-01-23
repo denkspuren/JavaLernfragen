@@ -41,6 +41,8 @@ Wenn `Arrays.sort()` ein bestehendes Array verändern kann, könnte man dann auc
 ifdef::solution[]
 .Antwort
 Der Aufruf von `increment(j)` führt dazu, dass der Wert hier der Variablen `j` an `i` zugewiesen wird (Fachbegriff: _pass by value_). Damit können aber keine Änderungen am Wert von `j` bewirkt werden.
+
+PS: `Arrays.sort(arrayvariable)` ist im Sinne der Objektorientierung nicht glücklich. Schöner wäre `arrayvariable.sort()`, wie dies in einigen neueren Programmiersprachen implementiert ist. Aber in Java sind Arrays Objekte, denen keine richtige Klasse gegenübersteht. Arrays sind in Java _low-level_ als Sprach-Feature implementiert während sie in anderen Sprachen mitunter als generische Klassen realisiert sind.
 endif::solution[]
 
 ### Frage
@@ -105,6 +107,7 @@ Was ist der sogenannte _CallStack_?
 ifdef::solution[]
 .Antwort
 -- TODO --
+Bei jedem Aufruf einer Methode merkt sich der Java-Interpreter, an welcher Stelle das Programm nach dem Ende der Methode fortgesetzt werden muss. Außerdem muss sich der Interpreter den Zustand lokaler Variablen merken. Sowohl die Rücksprungadresse als auch die lokalen Variablen werden im _Call Stack_ gespeichert. Der dafür vorgesehene Spreicherplatz ist endlich, weswegen bei einer unlimitierten Rekursion ein Fehler auftritt.
 endif::solution[]
 
 ### Frage
@@ -145,6 +148,7 @@ Was ist der Grund, wenn der CallStack überläuft?
 
 ifdef::solution[]
 .Antwort
+In der Regel ein Programmierfehler, der dazu führt, dass eine oder mehrere Methoden sich selbst immer und immer wieder aufrufen.
 endif::solution[]
 
 ### Frage
@@ -164,10 +168,11 @@ Welche Informationen werden auf dem CallStack gespeichert?
 
 ifdef::solution[]
 .Antwort
+Die Rücksprungadresse der Methode sowie der Zustand lokaler Variablen. Mehr Details: <https://de.wikipedia.org/wiki/Aufrufstapel>
 endif::solution[]
 
 ### Frage
-Wenn man einen Parameter mit `final` ausweist verhindert das ... was?
+Wenn man einen Parameter mit `final` ausweist, verhindert das ... was?
 
 ifdef::solution[]
 .Antwort
@@ -227,7 +232,7 @@ void flopp(int n) {
 
 ifdef::solution[]
 .Antwort
-Ja, sie läuft.
+Ja, er läuft. Der Wert von `n` wird aber ignoriert.
 endif::solution[]
 
 ### Frage
@@ -354,5 +359,5 @@ WTF? Ist das erlaubt?
 
 ifdef::solution[]
 .Antwort
-Verstehen Sie auf den ersten Blick, was der Code macht? Das ist die McCarthy-Funktion, die schwer zu durchblicken ist.
+Verstehen Sie auf den ersten Blick, was der Code macht? Das ist die McCarthy-Funktion, die schwer zu durchblicken ist. Details: <https://en.wikipedia.org/wiki/McCarthy_91_function>
 endif::solution[]

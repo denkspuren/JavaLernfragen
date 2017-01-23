@@ -42,7 +42,7 @@ jshell> y = x + z;
 y ==> 3
 ----
 
-Nicht jedoch, wenn die Variablen lokal in einem Codeblock sind. Ein Codeblock ist durch geschweifte Klammern ausgewiesen.
+Nicht jedoch, wenn die Variablen lokal in einem Codeblock sind. Ein Codeblock ist durch geschweifte Klammern ausgewiesen. Damit gilt diese Regel auch für Variablen, die in einer Methode definiert werden.
 
 ----
 jshell> { int x,y,z; x = 3; y = x + z; }
@@ -100,7 +100,7 @@ Warum sind Rundungsfehler bei Fließkommazahlen nicht zu vermeiden?
 
 ifdef::solution[]
 .Antwort
-Es gibt Zahlen, die haben unendlich viele Nachkommastellen, wie z.B. Pi, die bei einer endlichen Darstellung immer zu Rundungsfehlern führen.
+Es gibt Zahlen, die haben unendlich viele Nachkommastellen, wie z.B. Pi, die bei einer endlichen Darstellung immer zu Rundungsfehlern führen. Wobei genaugenommen nicht die Anzahl der Nachkommastellen im dezimalen System relevant ist, sondern in einer binären Darstellung. Vereinfacht ausgedrückt: Zahlen, die sich nicht aus der Summe von 1/2, 1/4, 1/8, 1/16 usw. darstellen lassen, führen zu Rundungsfehlern.
 
 ----
 jshell> 2/3f
@@ -345,12 +345,12 @@ Was sind _boxing_ und _unboxing_ bei Wrapper-Klassen?
 
 ifdef::solution[]
 .Antwort
-Aus einem primitiven Typ einen Referenztyp machen, aus z.B. `int` einen `Integer`, das nennt man _boxing_. Das Gegenteil _unboxing_.
+Aus einem primitiven Typ einen Referenztyp machen, aus z.B. `int` einen `Integer`, das nennt man _boxing_. Das Gegenteil _unboxing_. (In Java sind elementare Datentypen aus Effizienzgründen sind _nicht_ als Klassen, Zahlen daher nicht als Objekte realisiert. Wrapper-Klassen bzw. _boxing_ sollte daher nur eingesetzt werden, wenn elementare Typen aus irgendeinem Grund wie Objekte behandelt werden sollen. In der Praxis kommt das am häufigsten im Zusammenhang mit _Generics_ und den Collection-Klassen vor, siehe Kapitel 12  und 14.)
 endif::solution[]
 
 ### Frage
 
-Was passiert bei der Ausführung von folgendem Code:
+Was passiert bei der Ausführung von folgendem Code?
 
 [source,java]
 ----
@@ -435,6 +435,8 @@ Die Antwort findet sich auf S. 81:
 java.util.Scanner scan = new java.util.Scanner(System.in);
 String s = scan.next();
 ----
+
+PS: Die Scanner-Klasse kennt auch Methoden wie `nextInt` oder `nextDouble`, um direkt Zahlen einzulesen.
 endif::solution[]
 
 ### Frage

@@ -19,7 +19,7 @@ Wie sähe der Ausdruck `x = x < 0 ? -x : x` mit einer normalen If-Abfrage aus?
 ifdef::solution[]
 .Antwort
 ----
-if (x < 0) x = -x;
+if (x < 0) { x = -x; }
 ----
 endif::solution[]
 
@@ -139,11 +139,11 @@ Der Code ist nicht korrekt. Die Variable `i` wird nicht initialisiert.
 endif::solution[]
 
 ### Frage
-Was ist bei Schleifen zu beachten deren Zählvariable vom Typ `float` oder `double` ist?
+Was ist bei Schleifen zu beachten, deren Zählvariable vom Typ `float` oder `double` ist?
 
 ifdef::solution[]
 .Antwort
-Die Fortsetzungsbedingung sollte kein exakter Vergleich sein, da dieser eventuell durch Rundungsfehler nie zutrifft.
+Die Fortsetzungsbedingung sollte kein exakter Vergleich sein, da dieser eventuell durch Rundungsfehler nie zutrifft. Generell sind in den meisten Fällen Integer-Schleifenvariablen vorzuziehen.
 endif::solution[]
 
 ### Frage
@@ -211,7 +211,7 @@ Herrn Kofler kräuseln sich die Fußnägel, wenn Sie Fließkommazahlen im Kopf e
 
 ifdef::solution[]
 .Antwort
--- TODO --
+Wegen der Rundungsfehler. Mit etwas Pech ist die Schleife so formuliert, dass sich die Rundungsfehler summieren, also immer größer werden. (Mit Glück halten sich positive und negative Fehler in etwas die Waage, aber Programmieren sollte kein Glücksspiel sein ...)
 endif::solution[]
 
 ### Frage
