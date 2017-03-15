@@ -322,7 +322,9 @@ Der HashCode soll eine (möglichst) eindeutige Kennung eines Objektes darstellen
 * `return 0;` gibt den gleichen HashCode für jedes Objekt. Das ist nicht sinnvoll.
 * `return new Random().nextInt();` ist eindeutig, aber das selbe Objekt bekommt bei mehreren Aufrufen von HashCode unterschiedliche codes. Das ist weder zulässig noch sinnvoll.
 
-Zulässig sind prinzipiell alle HashCodes, bei denen sichergestellt ist dass gleiche Objekte (Vergleich mit `equals` ergibt `true`) auch den gleichen HashCode erhalten. Das ist bei allen dieser Beispiele bis auf `return new Random().nextInt();` der Fall.
+Zulässig sind prinzipiell alle HashCodes, bei denen sichergestellt ist, dass gleiche Objekte (Vergleich mit `equals` ergibt `true`) auch den gleichen HashCode erhalten. Das ist bei allen dieser Beispiele bis auf `return new Random().nextInt();` der Fall.
+
+Eine bewährte Methode zur Erzeugung von HashCodes ist `Objects.hash(...)` (beachte das "s" bei `Objects`). Im Beispiel wäre das umzusetzen mit `return Objects.hash(x,y);`.
 endif::solution[]
 
 ### Frage
