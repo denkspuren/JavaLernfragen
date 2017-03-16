@@ -1,3 +1,5 @@
+// Preliminary workaround, see http://discuss.asciidoctor.org/In-int-a-n-the-disappears-td5385.html
+:inc: ++
 // == Operatoren
 :solution:
 
@@ -107,11 +109,11 @@ ifdef::solution[]
 endif::solution[]
 
 ### Frage
-Erläutern Sie den Unterschied von `int a = n++;` zu `int a = ++n;`!
+Erläutern Sie den Unterschied von `int a = n{inc};` zu `int a = {inc}n;`!
 
 ifdef::solution[]
 .Antwort
-`int a = n++;` entspricht den Anweisungen `int a = n; n = n + 1;`. Bei `int a = ++n;` dreht sich die Reihenfolge um: `n = n + 1; int a = n;`.
+`int a = n{inc};` entspricht den Anweisungen `int a = n; n = n + 1;`. Bei `int a = {inc}n;` dreht sich die Reihenfolge um: `n = n + 1; int a = n;`.
 endif::solution[]
 
 ### Frage
