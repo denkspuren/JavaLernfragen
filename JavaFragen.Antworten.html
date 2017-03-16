@@ -2220,17 +2220,17 @@ String s = scan.next();</code></pre>
 <div class="sect2">
 <h3 id="_frage_42">3.11. Frage</h3>
 <div class="paragraph">
-<p>Erläutern Sie den Unterschied von <code>int a = n;` zu `int a = n;</code>!</p>
+<p>Erläutern Sie den Unterschied von <code>int a = n++;</code> zu <code>int a = ++n;</code>!</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p><code>int a = n;` entspricht den Anweisungen `int a = n; n = n + 1;`. Bei `int a = n;</code> dreht sich die Reihenfolge um: <code>n = n + 1; int a = n;</code>.</p>
+<p><code>int a = n++;</code> entspricht den Anweisungen <code>int a = n; n = n + 1;</code>. Bei <code>int a = ++n;</code> dreht sich die Reihenfolge um: <code>n = n + 1; int a = n;</code>.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_frage_43">3.12. Frage</h3>
 <div class="paragraph">
-<p>Die Vergleichoperatoren wie <code>&gt;</code>, <code>⇐</code>, <code>==</code> usw. stehen für welche Typen zur Verfügung?</p>
+<p>Die Vergleichoperatoren wie <code>&gt;</code>, <code>&lt;=</code>, <code>==</code> usw. stehen für welche Typen zur Verfügung?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
@@ -2324,7 +2324,7 @@ $12 ==&gt; false</pre>
 <div class="title">Antwort</div>
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">boolean odd(int n) {
-  return n &amp; 1 == 1;
+  return (n &amp; 1) == 1;
 }</code></pre>
 </div>
 </div>
@@ -5378,7 +5378,10 @@ int l = (String) o.length();</pre>
 </ul>
 </div>
 <div class="paragraph">
-<p>Zulässig sind prinzipiell alle HashCodes, bei denen sichergestellt ist dass gleiche Objekte (Vergleich mit <code>equals</code> ergibt <code>true</code>) auch den gleichen HashCode erhalten. Das ist bei allen dieser Beispiele bis auf <code>return new Random().nextInt();</code> der Fall.</p>
+<p>Zulässig sind prinzipiell alle HashCodes, bei denen sichergestellt ist, dass gleiche Objekte (Vergleich mit <code>equals</code> ergibt <code>true</code>) auch den gleichen HashCode erhalten. Das ist bei allen dieser Beispiele bis auf <code>return new Random().nextInt();</code> der Fall.</p>
+</div>
+<div class="paragraph">
+<p>Eine bewährte Methode zur Erzeugung von HashCodes ist <code>Objects.hash(…​)</code> (beachte das "s" bei <code>Objects</code>). Im Beispiel wäre das umzusetzen mit <code>return Objects.hash(x,y);</code>.</p>
 </div>
 </div>
 <div class="sect2">
