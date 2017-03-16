@@ -117,7 +117,7 @@ ifdef::solution[]
 endif::solution[]
 
 ### Frage
-Die Vergleichoperatoren wie `>`, `<=`, `==` usw. stehen für welche Typen zur Verfügung?
+Die Vergleichoperatoren wie `>`, `\<=`, `==` usw. stehen für welche Typen zur Verfügung?
 
 ifdef::solution[]
 .Antwort
