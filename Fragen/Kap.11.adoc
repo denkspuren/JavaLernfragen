@@ -151,6 +151,12 @@ Hannah deklariert eine Methode als `final`, Hans als `abstract`. Woran muss Hans
 ifdef::solution[]
 .Antwort
 Hans muss die Klasse als `abstract` deklarieren, Hannah muss im Gegensatz zu Hans die Methode implementieren.
+
+Zur Erläuterung:
+
+Ist eine Methode als `abstract` ausgewiesen, so "fehlt" ihr eine Implementierung. Da es nur sinnvoll ist, Instanzen von vollständig implementierten Klassen zu erzeugen, muss die Klasse außerdem als `abstract` deklariert werden. Es bleibt einer Unterklasse überlassen, die "Implementierungslücken" zu füllen. Hans muss daran denken, die Klasse als `abstract` zu deklarieren, ein Thema, das Hannah nicht kümmert.
+
+Eine als `final` ausgezeichnete Methode bietet eine endgültige (finale) Implementierung an, die von keiner Unterklasse mehr überschrieben werden darf. Hannah _muss_ die Methode implementieren, was Hans per `abstract` eben genau unterlassen möchte. 
 endif::solution[]
 
 ### Frage
