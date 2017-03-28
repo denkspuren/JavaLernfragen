@@ -1,5 +1,6 @@
 // == Verzweigungen und Schleifen
 :solution:
+:inc: ++
 
 ### Frage
 Wie sieht die Syntax einer If-Abfrage aus?
@@ -155,7 +156,7 @@ Ja, da ein `char` immer auch einem Zahlwert entspricht (entsprechend der UTF-16-
 endif::solution[]
 
 ### Frage
-Ein Student und eine Studentin schreiben den folgenden `for`-Kopf, um die Summe der Zahlen von 1 bis 50 zu berechnen: `for(i = 1, sum = 0; i <= 50; sum += i++);` Was sagt Ihnen Ihr Programmierverstand?
+Ein Student und eine Studentin schreiben den folgenden `for`-Kopf, um die Summe der Zahlen von 1 bis 50 zu berechnen: `for(int i = 1, sum = 0; i \<= 50; sum += i{inc});` Was sagt Ihnen Ihr Programmierverstand?
 
 (Übrigens: Der Kopf der Schleife ist syntaktisch korrekt, da liegt nicht das Problem!)
 
