@@ -239,8 +239,8 @@ ifdef::solution[]
 int i = 0;
 while(true) {
  if(i >= 100) break;
- if(i % 2 != 0) continue;
- System.out.println(i);
+ if(i % 2 == 0)
+   System.out.println(i);
  i++;
 }
 ----
