@@ -267,7 +267,7 @@ float baz(float x) {
 ifdef::solution[]
 .Antwort
 Das `finally` wird immer ausgeführt, egal ob die Exception geworfen wurde oder nicht -- sogar noch "nach" dem `return`.
-.`finally` schlägt `return`
+`finally` schlägt `return`.
 ****
 Mit `finally` ist es möglich, dass "nach" einem `return` noch Code ausgeführt wird!
 ****
@@ -285,7 +285,16 @@ Geht das gut?
 
 ifdef::solution[]
 .Antwort
-Für große `n` wird der CallStack vorzeitig erschöpft, so dass kein Ergebnis berechnet wird.
+Der Rekursionsanker (Abbruchsfall) wurde unglücklich gewählt. Falls `n` ungerade ist, greift die Bedingung `n == 0` nicht und führt dazu, dass der CallStack vorzeitig erschöpft wird, so dass kein Ergebnis berechnet wird.
+Besser wäre zum Beispiel:
+[source,java]
+----
+int rek(int n) {
+  if(n <= 0) return 0; /* Falls n ungerade, ist n hier nach einigen Aufrufen -1*/
+  return 2 * rek(n - 2);
+}
+----
+
 endif::solution[]
 
 ### Frage
@@ -293,7 +302,23 @@ Bei der Rekursion unterscheidet man stets den Abbruch- und den Wiederholungsfall
 
 ifdef::solution[]
 .Antwort
--- TODO --
+Die Berechnung der Fakultät kann man zum Beispiel folgendermaßen implementieren:
+[source,java]
+----
+int fak(int n) {
+   if(n <= 0){      /* Fehlerhafte Eingaben abfangen */
+      return 0;
+   }
+   else if(n == 1){ /* Abbruchsfall */
+      return 1;
+   }
+   else{            /* Wiederholungsfall */
+      return n*fak(n-1);
+   }
+}
+----
+Nun wollen wir also `n = n*(n-1)* (n-2) *...*2*1` berechnen. Das heißt also, wenn das `n` in der Methode `1` wird, sind wir an das Ende des Terms gelangt und wir können die Rekursion stoppen (Abbruch).
+Ist hingegen `n > 1` starten wir die nächste Rekursion (Wiederholung).
 endif::solution[]
 
 ### Frage
@@ -318,7 +343,7 @@ endif::solution[]
 ### Frage
 [source,java]
 ----
-boolean isOdd(int n) {
+boolean isEven(int n) {
   return n >= 0 && (n == 0 || isOdd(n-2));
 }
 ----
