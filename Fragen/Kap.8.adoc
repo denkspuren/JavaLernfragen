@@ -328,7 +328,7 @@ endif::solution[]
 [source,java]
 ----
 boolean isOdd(int n) {
-  return n >= 0 && (n == 0 || isOdd(n-2));
+  return n >= 0 && (n == 1 || isOdd(n-2));
 }
 ----
 Funktioniert das?
