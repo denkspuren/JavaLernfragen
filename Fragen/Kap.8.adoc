@@ -106,8 +106,7 @@ Was ist der sogenannte _CallStack_?
 
 ifdef::solution[]
 .Antwort
--- TODO --
-Bei jedem Aufruf einer Methode merkt sich der Java-Interpreter, an welcher Stelle das Programm nach dem Ende der Methode fortgesetzt werden muss. Außerdem muss sich der Interpreter den Zustand lokaler Variablen merken. Sowohl die Rücksprungadresse als auch die lokalen Variablen werden im _Call Stack_ gespeichert. Der dafür vorgesehene Spreicherplatz ist endlich, weswegen bei einer unlimitierten Rekursion ein Fehler auftritt.
+Bei jedem Aufruf einer Methode merkt sich die Java-Ausführungsmaschinerie (die Java Virtual Machine, JVM), an welcher Stelle das Programm nach dem Ende der Methode fortgesetzt werden muss. Außerdem merkt sich die JVM den Zustand lokaler Variablen. Sowohl die Rücksprungadresse als auch die lokalen Variablen werden im sogenannten "Methodenaufrufstapel" (_callstack_) gespeichert. Der dafür vorgesehene Speicherplatz ist endlich. Wächst der Aufrufstapel über das Speicherlimit hinaus, wird die Programmausführung abgebrochen.
 endif::solution[]
 
 ### Frage
