@@ -296,7 +296,13 @@ Bei der Rekursion unterscheidet man stets den Abbruch- und den Wiederholungsfall
 
 ifdef::solution[]
 .Antwort
--- TODO --
+[source,java]
+----
+int fact(int n) {
+  if (n <= 1) return 1; // Abbruchfall
+  return n * fact(n-1); // Wiederholungsfall
+}
+----
 endif::solution[]
 
 ### Frage
