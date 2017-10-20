@@ -277,7 +277,7 @@ endif::solution[]
 [source,java]
 ----
 int rek(int n) {
-  if(n == 0) return 0;
+  if (n <= 0) return 0;
   return 2 * rek(n - 2);
 }
 ----
@@ -285,7 +285,10 @@ Geht das gut?
 
 ifdef::solution[]
 .Antwort
-Für große `n` wird der CallStack vorzeitig erschöpft, so dass kein Ergebnis berechnet wird.
+Der Code ist in zweierlei Hinsicht problematisch:
+
+. Das Ergebnis ergibt immer `0`. Der Abbruchfall `n <= 0` hat als Rückgabe den Wert `0`. Die sich rekursiv ergebende Kette von Multiplikationen mit `2` wird am Ende durch die `0` des Abbruchfalls immer Null ergeben.
+. Für Aufrufe mit einem großen `n` wird der Methoden-Aufrufstapel (_callstack_) zunehmend anwachsen und eventuell sein Limit erreichen, was zu einem Abbruch in der Programmausführung führt. Probieren Sie z.B. `rek(50000)` (oder größer).
 endif::solution[]
 
 ### Frage
