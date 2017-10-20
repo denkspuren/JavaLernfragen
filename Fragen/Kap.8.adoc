@@ -267,10 +267,8 @@ float baz(float x) {
 ifdef::solution[]
 .Antwort
 Das `finally` wird immer ausgeführt, egal ob die Exception geworfen wurde oder nicht -- sogar noch "nach" dem `return`.
-.`finally` schlägt `return`
-****
-Mit `finally` ist es möglich, dass "nach" einem `return` noch Code ausgeführt wird!
-****
+
+IMPORTANT: Mit `finally` ist es möglich, dass "nach" einem `return` noch Code ausgeführt wird!
 endif::solution[]
 
 ### Frage
