@@ -115,9 +115,8 @@ ifdef::solution[]
 // .Antwort
 // - [x] eine Anweisung
 
-Anweisung => "a = 2+2;" +
-Ausdruck => "2+2"
-
+Anweisung => `a = 2+2;` +
+Ausdruck => `2+2`
 endif::solution[]
 
 ### Ein Plus fur Zeichenketten?

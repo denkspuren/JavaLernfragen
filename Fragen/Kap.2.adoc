@@ -309,10 +309,7 @@ p1 = p2 = p3 = new java.awt.Point(0, 0);
 
 ifdef::solution[]
 .Antwort
-Alle drei Punkte haben die gleiche Referenz auf ein und dieselbe Instanz von `Point`. Damit entsteht niemals ein Dreieck aus drei _unterschiedlichen_ Instanzen. +
-*Beispiel:* Wenn man die Koordinaten für `p1` ändert, werden auch die Koordinaten von `p2` und `p3` geändert, somit sind sie zu jedem Zeitpunkt gleich. +
-Weil alle drei Variablen auf das *selbe* Objekt referenzieren.
-
+Alle drei Punkte haben die gleiche Referenz auf ein und dieselbe Instanz von `Point`. Damit entsteht niemals ein Dreieck aus drei _unterschiedlichen_ Instanzen. *Beispiel:* Wenn man die Koordinaten für `p1` ändert, werden auch die Koordinaten von `p2` und `p3` geändert. Somit sind sie zu jedem Zeitpunkt gleich, weil alle drei Variablen _dasselbe_ Objekt referenzieren.
 endif::solution[]
 
 ### Frage
