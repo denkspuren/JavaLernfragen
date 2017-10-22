@@ -114,6 +114,10 @@ Das Semikolon `;` beendet
 ifdef::solution[]
 // .Antwort
 // - [x] eine Anweisung
+
+Anweisung => "a = 2+2;" +
+Ausdruck => "2+2"
+
 endif::solution[]
 
 ### Ein Plus fur Zeichenketten?
@@ -170,7 +174,8 @@ ifdef::solution[]
 // - [x] `true`, sofern `x < 0` ein `true` ergeben hätte
 // - [x] `true`, sofern `x < 0` ein `false` ergeben hätte
 
-Wenn das `if` greift, wird es von einer leeren Anweisung `;` gefolgt -- insofern bleibt das `if` wirkungslos. Der sich anschließende Ausdruck `x = 0;` wird immer ausgeführt.
+Wenn das `if` greift, wird es von einer leeren Anweisung `;` gefolgt -- insofern bleibt das `if` wirkungslos. Die sich anschließende Anweisung `x = 0;` wird immer ausgeführt. +
+Kleiner Tipp am Rand: Wir erinnern uns "Jede Anweisung endet mit einem Semikolon."
 endif::solution[]
 
 ### Import von `Math`
@@ -187,6 +192,9 @@ Warum kann man die Klasse `Math` verwenden, ohne sie vorher zu importieren?
 ifdef::solution[]
 // .Antwort
 // - [x] Weil sie als Teil von `java.lang` standardmäßig importiert wird
+
+Neben der Klasse `Math` befindet sich beispielsweise auch die Klasse `String` in `java.lang`.
+
 endif::solution[]
 
 ////
