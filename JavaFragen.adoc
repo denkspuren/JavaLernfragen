@@ -1,6 +1,6 @@
 = Lernfragen zu Java
 Dominikus Herzberg, Christopher Schölzel
-Version: 0.66, 2017-10-20
+Version: 0.67, 2017-10-22
 :doctype: book
 :sectnums:
 :toc: left
