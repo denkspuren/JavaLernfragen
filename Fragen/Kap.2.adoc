@@ -191,7 +191,7 @@ Was ist "implizites Casting"? Geben Sie ein Beispiel.
 ifdef::solution[]
 .Antwort
 "Casting" heißt "Typanpassung". Implizit ist die Typanpassung dann, wenn sie von Java im Hintergrund für Sie gemacht wird. Addieren Sie z.B. einen `int` und einen `float`, so wird die Ganzzahl von Java implizit in einen Fließkommazahlenwert umgewandelt.
-*Beispiel:* `1 + 3.5`
+*Beispiel:* `1 + 3.5f`
 endif::solution[]
 
 ### Frage
@@ -255,7 +255,7 @@ Wie kann man den Wert "eine Million" mit drei Zeichen als Java-Literal darstelle
 
 ifdef::solution[]
 .Antwort
-`1E6` gleicht 1*10^6.
+`1E6` gleicht 1*10^6^.
 endif::solution[]
 
 
@@ -310,7 +310,7 @@ p1 = p2 = p3 = new java.awt.Point(0, 0);
 ifdef::solution[]
 .Antwort
 Alle drei Punkte haben die gleiche Referenz auf ein und dieselbe Instanz von `Point`. Damit entsteht niemals ein Dreieck aus drei _unterschiedlichen_ Instanzen. +
-*Beispiel:* Wenn man die Koordinaten für p1 ändert, werden auch die Koordinaten von p2 und p3 geändert, somit sind sie zu jedem Zeitpunkt gleich. +
+*Beispiel:* Wenn man die Koordinaten für `p1` ändert, werden auch die Koordinaten von `p2` und `p3` geändert, somit sind sie zu jedem Zeitpunkt gleich. +
 Weil alle drei Variablen auf das *selbe* Objekt referenzieren.
 
 endif::solution[]
