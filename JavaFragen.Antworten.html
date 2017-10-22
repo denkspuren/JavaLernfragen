@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.6.1">
+<meta name="generator" content="Asciidoctor 1.5.5">
 <meta name="author" content="Dominikus Herzberg, Christopher Schölzel">
 <title>Lernfragen zu Java</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
@@ -90,12 +91,13 @@ strong,b{font-weight:bold;line-height:inherit}
 small{font-size:60%;line-height:inherit}
 code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
 ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
-ul,ol{margin-left:1.5em}
+ul,ol,ul.no-bullet,ol.no-bullet{margin-left:1.5em}
 ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
 ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
 ul.square{list-style-type:square}
 ul.circle{list-style-type:circle}
 ul.disc{list-style-type:disc}
+ul.no-bullet{list-style:none}
 ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
 dl dt{margin-bottom:.3125em;font-weight:bold}
 dl dd{margin-bottom:1.25em}
@@ -131,11 +133,7 @@ strong strong{font-weight:400}
 kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
 .keyseq kbd:first-child{margin-left:0}
 .keyseq kbd:last-child{margin-right:0}
-.menuseq,.menuref{color:#000}
-.menuseq b:not(.caret),.menuref{font-weight:inherit}
-.menuseq{word-spacing:-.02em}
-.menuseq b.caret{font-size:1.25em;line-height:.8}
-.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+.menuseq,.menu{color:rgba(0,0,0,.8)}
 b.button:before,b.button:after{position:relative;top:-1px;font-weight:400}
 b.button:before{content:"[";padding:0 3px 0 2px}
 b.button:after{content:"]";padding:0 2px 0 3px}
@@ -202,7 +200,7 @@ table.tableblock>caption.title{white-space:nowrap;overflow:visible;max-width:0}
 table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inherit}
 .admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
 .admonitionblock>table td.icon{text-align:center;width:80px}
-.admonitionblock>table td.icon img{max-width:initial}
+.admonitionblock>table td.icon img{max-width:none}
 .admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
 .admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #ddddd8;color:rgba(0,0,0,.6)}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
@@ -258,13 +256,13 @@ table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
 table.tableblock{max-width:100%;border-collapse:separate}
 table.tableblock td>.paragraph:last-child p>p:last-child,table.tableblock th>p:last-child,table.tableblock td>p:last-child{margin-bottom:0}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
-table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
-table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
-table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
-table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px 0}
-table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0 0}
-table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
-table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.grid-all th.tableblock,table.grid-all td.tableblock{border-width:0 1px 1px 0}
+table.grid-all tfoot>tr>th.tableblock,table.grid-all tfoot>tr>td.tableblock{border-width:1px 1px 0 0}
+table.grid-cols th.tableblock,table.grid-cols td.tableblock{border-width:0 1px 0 0}
+table.grid-all *>tr>.tableblock:last-child,table.grid-cols *>tr>.tableblock:last-child{border-right-width:0}
+table.grid-rows th.tableblock,table.grid-rows td.tableblock{border-width:0 0 1px 0}
+table.grid-all tbody>tr:last-child>th.tableblock,table.grid-all tbody>tr:last-child>td.tableblock,table.grid-all thead:last-child>tr>th.tableblock,table.grid-rows tbody>tr:last-child>th.tableblock,table.grid-rows tbody>tr:last-child>td.tableblock,table.grid-rows thead:last-child>tr>th.tableblock{border-bottom-width:0}
+table.grid-rows tfoot>tr>th.tableblock,table.grid-rows tfoot>tr>td.tableblock{border-width:1px 0 0 0}
 table.frame-all{border-width:1px}
 table.frame-sides{border-width:0 1px}
 table.frame-topbot{border-width:1px 0}
@@ -285,12 +283,10 @@ ul li ol{margin-left:1.5em}
 dl dd{margin-left:1.125em}
 dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
 ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
-ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
-ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
-ul.unstyled,ol.unstyled{margin-left:0}
-ul.checklist{margin-left:.625em}
-ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
-ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
+ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
 ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
 ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
 ul.inline>li>*{display:block}
@@ -307,8 +303,7 @@ ol.lowergreek{list-style-type:lower-greek}
 td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
 td.hdlist1{font-weight:bold;padding-bottom:1.25em}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
-.colist>table tr>td:first-of-type{padding:.4em .75em 0 .75em;line-height:1;vertical-align:top}
-.colist>table tr>td:first-of-type img{max-width:initial}
+.colist>table tr>td:first-of-type{padding:0 .75em;line-height:1}
 .colist>table tr>td:last-of-type{padding:.25em 0}
 .thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
 .imageblock.left,.imageblock[style*="float: left"]{margin:.25em .625em 1.25em 0}
@@ -371,7 +366,6 @@ div.unbreakable{page-break-inside:avoid}
 .yellow{color:#bfbf00}
 .yellow-background{background-color:#fafa00}
 span.icon>.fa{cursor:default}
-a span.icon>.fa{cursor:inherit}
 .admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
 .admonitionblock td.icon .icon-note:before{content:"\f05a";color:#19407c}
 .admonitionblock td.icon .icon-tip:before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
@@ -426,8 +420,121 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .show-for-print{display:inherit!important}}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+          <style id="question">
+            .hidden {
+    display: none;
+}
+
+question[data-type=gap] gap > input.incorrect {
+    font-weight: bold;
+    color: red;
+}
+
+
+question[data-type=gap] gap > answer, div[id*=question][data-type=gap] gap > input.correct {
+    font-weight: bold;
+    color: green;
+}
+
+question[data-type=mc] input[type="checkbox"].show ~ span::before {
+    display: inline;
+    width: 16px;
+    height: 16px;
+}
+
+question[data-type=mc] input[type="checkbox"][data-correct="true"].show ~ span::before {
+    content: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjE2cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGZpbGw9Im9saXZlZHJhYiIgc3Ryb2tlPSJvbGl2ZWRyYWIiIGQ9Ik0yMS42NTIsMy4yMTFjLTAuMjkzLTAuMjk1LTAuNzctMC4yOTUtMS4wNjEsMEw5LjQxLDE0LjM0ICBjLTAuMjkzLDAuMjk3LTAuNzcxLDAuMjk3LTEuMDYyLDBMMy40NDksOS4zNTFDMy4zMDQsOS4yMDMsMy4xMTQsOS4xMywyLjkyMyw5LjEyOUMyLjczLDkuMTI4LDIuNTM0LDkuMjAxLDIuMzg3LDkuMzUxICBsLTIuMTY1LDEuOTQ2QzAuMDc4LDExLjQ0NSwwLDExLjYzLDAsMTEuODIzYzAsMC4xOTQsMC4wNzgsMC4zOTcsMC4yMjMsMC41NDRsNC45NCw1LjE4NGMwLjI5MiwwLjI5NiwwLjc3MSwwLjc3NiwxLjA2MiwxLjA3ICBsMi4xMjQsMi4xNDFjMC4yOTIsMC4yOTMsMC43NjksMC4yOTMsMS4wNjIsMGwxNC4zNjYtMTQuMzRjMC4yOTMtMC4yOTQsMC4yOTMtMC43NzcsMC0xLjA3MUwyMS42NTIsMy4yMTF6Ii8+PC9zdmc+);
+}
+
+question[data-type=mc] input[type="checkbox"][data-correct="false"].show ~ span::before {
+    content: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjE2cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGZpbGw9Im1hcm9vbiIgc3Ryb2tlPSJtYXJvb24iIGQ9Ik0yMi4yNDUsNC4wMTVjMC4zMTMsMC4zMTMsMC4zMTMsMC44MjYsMCwxLjEzOWwtNi4yNzYsNi4yN2MtMC4zMTMsMC4zMTItMC4zMTMsMC44MjYsMCwxLjE0bDYuMjczLDYuMjcyICBjMC4zMTMsMC4zMTMsMC4zMTMsMC44MjYsMCwxLjE0bC0yLjI4NSwyLjI3N2MtMC4zMTQsMC4zMTItMC44MjgsMC4zMTItMS4xNDIsMGwtNi4yNzEtNi4yNzFjLTAuMzEzLTAuMzEzLTAuODI4LTAuMzEzLTEuMTQxLDAgIGwtNi4yNzYsNi4yNjdjLTAuMzEzLDAuMzEzLTAuODI4LDAuMzEzLTEuMTQxLDBsLTIuMjgyLTIuMjhjLTAuMzEzLTAuMzEzLTAuMzEzLTAuODI2LDAtMS4xNGw2LjI3OC02LjI2OSAgYzAuMzEzLTAuMzEyLDAuMzEzLTAuODI2LDAtMS4xNEwxLjcwOSw1LjE0N2MtMC4zMTQtMC4zMTMtMC4zMTQtMC44MjcsMC0xLjE0bDIuMjg0LTIuMjc4QzQuMzA4LDEuNDE3LDQuODIxLDEuNDE3LDUuMTM1LDEuNzMgIEwxMS40MDUsOGMwLjMxNCwwLjMxNCwwLjgyOCwwLjMxNCwxLjE0MSwwLjAwMWw2LjI3Ni02LjI2N2MwLjMxMi0wLjMxMiwwLjgyNi0wLjMxMiwxLjE0MSwwTDIyLjI0NSw0LjAxNXoiLz48L3N2Zz4=);
+}
+          </style>
+        <script type="text/javascript">
+                          function onLoad() {
+    var questions = document.getElementsByTagName("question")
+    for (var pos = 0; pos < questions.length; pos++) {
+        var question = questions[pos]
+        if (question.getAttribute('data-type') == 'mc') {
+            if (question.getAttribute('data-shuffle') != null) shuffleAnswers(question)
+        }
+    }
+}
+
+function shuffleAnswers(question) {
+    var answers = null
+    var content = question.children[0]
+    for (var i = content.children.length-1; i >= 0; i--) {
+        if(content.children[i].className.indexOf('checklist') > -1) {
+            answers = content.children[i].children[0]
+            break;
+        }
+    }
+    if(answers == null) return
+
+    for (var i = answers.children.length; i >= 0; i--) {
+        answers.appendChild(answers.children[Math.random() * i | 0]);
+    }
+}
+
+function resolve(questionId) {
+    var q = document.getElementById("question_" + questionId)
+    var type = q.getAttribute("data-type")
+    var elems
+    var pos
+    var answer
+
+    if(type == "mc") {
+        elems = q.getElementsByTagName("input")
+        for(pos = 0; pos < elems.length; pos++) {
+            answer = elems[pos]
+            answer.setAttribute("class", "show")
+        }
+    } else if(type == "gap") {
+        elems = q.getElementsByTagName("gap")
+        for(pos = 0; pos < elems.length; pos++) {
+            var gap = elems[pos]
+            var input = gap.getElementsByTagName("input")[0]
+            answer = gap.getElementsByTagName("answer")[0]
+            if(input.value == answer.textContent) {
+                input.setAttribute("class", "correct")
+            } else {
+                input.setAttribute("class", "incorrect")
+                answer.setAttribute("class", "")
+            }
+        }
+    }
+}
+
+function reset(questionId) {
+    var q = document.getElementById("question_" + questionId)
+    var type = q.getAttribute("data-type")
+    var elems
+    var pos
+    var answer
+
+    if(type == "mc") {
+        elems = q.getElementsByTagName("input")
+        for(pos = 0; pos < elems.length; pos++) {
+            answer = elems[pos]
+            answer.setAttribute("class", "")
+            answer.checked = false
+        }
+    } else if(type == "gap") {
+        elems = q.getElementsByTagName("gap")
+        for(pos = 0; pos < elems.length; pos++) {
+            var gap = elems[pos]
+            var input = gap.getElementsByTagName("input")[0]
+            answer = gap.getElementsByTagName("answer")[0]
+            input.setAttribute("class", "")
+            answer.setAttribute("class", "hidden")
+        }
+    }
+}
+                        </script>
 </head>
-<body class="book">
+<body class="book" onload="onLoad()">
 <div id="header">
 <h1>Lernfragen zu Java</h1>
 <div class="details">
@@ -438,27 +545,31 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_hinweis">Hinweis</a></li>
-<li><a href="#_hello_world_java_crashkurs_kap_1_8">1. Hello World!: Java-Crashkurs [Kap. 1.8]</a>
+<li>
+<a href="#_hinweis">Hinweis</a>
+<ul class="sectlevel1">
+<li>
+<a href="#_hello_world_java_crashkurs_kap_1_8">1. Hello World!: Java-Crashkurs [Kap. 1.8]</a>
 <ul class="sectlevel2">
 <li><a href="#_zeichenkette_und_code_new_code">1.1. Zeichenkette und <code>new</code></a></li>
 <li><a href="#_javadoc_kommentar_vs_normaler_kommentar">1.2. Javadoc-Kommentar vs. "normaler" Kommentar</a></li>
 <li><a href="#_aussehen_eines_javadoc_kommentars">1.3. Aussehen eines Javadoc-Kommentars</a></li>
-<li><a href="#_was_ist_ein_schlüsselwort">1.4. Was ist ein Schlüsselwort?</a></li>
+<li><a href="#_was_ist_ein_schl%C3%BCsselwort">1.4. Was ist ein Schlüsselwort?</a></li>
 <li><a href="#_never_use_dollars_in_javaland">1.5. Never use Dollars in Javaland</a></li>
-<li><a href="#_code_for_code_problem">1.6. <code>for</code>-Problem?</a></li>
+<li><a href="#__code_for_code_problem">1.6. <code>for</code>-Problem?</a></li>
 <li><a href="#_das_semikolon">1.7. Das Semikolon</a></li>
 <li><a href="#_ein_plus_fur_zeichenketten">1.8. Ein Plus fur Zeichenketten?</a></li>
-<li><a href="#_ein_minus_für_zeichenketten">1.9. Ein Minus für Zeichenketten?</a></li>
+<li><a href="#_ein_minus_f%C3%BCr_zeichenketten">1.9. Ein Minus für Zeichenketten?</a></li>
 <li><a href="#_das_semikolon_und_code_if_code">1.10. Das Semikolon und <code>if</code></a></li>
 <li><a href="#_import_von_code_math_code">1.11. Import von <code>Math</code></a></li>
 <li><a href="#_eigenschaften">1.12. Eigenschaften</a></li>
-<li><a href="#_code_import_code_mit_stern">1.13. <code>import</code> mit Stern</a></li>
+<li><a href="#__code_import_code_mit_stern">1.13. <code>import</code> mit Stern</a></li>
 <li><a href="#_ein_datumspattern">1.14. Ein Datumspattern</a></li>
-<li><a href="#_code_math_code_instanz">1.15. <code>Math</code>-Instanz?</a></li>
+<li><a href="#__code_math_code_instanz">1.15. <code>Math</code>-Instanz?</a></li>
 </ul>
 </li>
-<li><a href="#_variablenverwaltung">2. Variablenverwaltung</a>
+<li>
+<a href="#_variablenverwaltung">2. Variablenverwaltung</a>
 <ul class="sectlevel2">
 <li><a href="#_frage">2.1. Frage</a></li>
 <li><a href="#_frage_2">2.2. Frage</a></li>
@@ -493,7 +604,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_frage_31">2.31. Frage</a></li>
 </ul>
 </li>
-<li><a href="#_operatoren">3. Operatoren</a>
+<li>
+<a href="#_operatoren">3. Operatoren</a>
 <ul class="sectlevel2">
 <li><a href="#_frage_32">3.1. Frage</a></li>
 <li><a href="#_frage_33">3.2. Frage</a></li>
@@ -518,7 +630,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_frage_52">3.21. Frage</a></li>
 </ul>
 </li>
-<li><a href="#_verzweigungen_und_schleifen">4. Verzweigungen und Schleifen</a>
+<li>
+<a href="#_verzweigungen_und_schleifen">4. Verzweigungen und Schleifen</a>
 <ul class="sectlevel2">
 <li><a href="#_frage_53">4.1. Frage</a></li>
 <li><a href="#_frage_54">4.2. Frage</a></li>
@@ -541,7 +654,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_frage_71">4.19. Frage</a></li>
 </ul>
 </li>
-<li><a href="#_arrays">5. Arrays</a>
+<li>
+<a href="#_arrays">5. Arrays</a>
 <ul class="sectlevel2">
 <li><a href="#_frage_72">5.1. Frage</a></li>
 <li><a href="#_frage_73">5.2. Frage</a></li>
@@ -558,7 +672,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_frage_84">5.13. Frage</a></li>
 </ul>
 </li>
-<li><a href="#_zeichenketten">6. Zeichenketten</a>
+<li>
+<a href="#_zeichenketten">6. Zeichenketten</a>
 <ul class="sectlevel2">
 <li><a href="#_frage_85">6.1. Frage</a></li>
 <li><a href="#_frage_86">6.2. Frage</a></li>
@@ -596,8 +711,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_frage_118">6.34. Frage</a></li>
 </ul>
 </li>
-<li><a href="#_span_class_strike_through_datum_und_uhrzeit_span">7. <span class="strike-through">Datum und Uhrzeit</span></a></li>
-<li><a href="#_methoden">8. Methoden</a>
+<li><a href="#__span_class_strike_through_datum_und_uhrzeit_span">7. <span class="strike-through">Datum und Uhrzeit</span></a></li>
+<li>
+<a href="#_methoden">8. Methoden</a>
 <ul class="sectlevel2">
 <li><a href="#_frage_119">8.1. Frage</a></li>
 <li><a href="#_frage_120">8.2. Frage</a></li>
@@ -633,7 +749,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_frage_150">8.32. Frage</a></li>
 </ul>
 </li>
-<li><a href="#_exceptions">9. Exceptions</a>
+<li>
+<a href="#_exceptions">9. Exceptions</a>
 <ul class="sectlevel2">
 <li><a href="#_frage_151">9.1. Frage</a></li>
 <li><a href="#_frage_152">9.2. Frage</a></li>
@@ -656,7 +773,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_frage_169">9.19. Frage</a></li>
 </ul>
 </li>
-<li><a href="#_klassen">10. Klassen</a>
+<li>
+<a href="#_klassen">10. Klassen</a>
 <ul class="sectlevel2">
 <li><a href="#_frage_170">10.1. Frage</a></li>
 <li><a href="#_frage_171">10.2. Frage</a></li>
@@ -720,7 +838,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_frage_229">10.60. Frage</a></li>
 </ul>
 </li>
-<li><a href="#_vererbung_und_schnittstellen">11. Vererbung und Schnittstellen</a>
+<li>
+<a href="#_vererbung_und_schnittstellen">11. Vererbung und Schnittstellen</a>
 <ul class="sectlevel2">
 <li><a href="#_frage_230">11.1. Frage</a></li>
 <li><a href="#_frage_231">11.2. Frage</a></li>
@@ -764,7 +883,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_frage_269">11.40. Frage</a></li>
 </ul>
 </li>
-<li><a href="#_generische_klassen_und_methoden">12. Generische Klassen und Methoden</a>
+<li>
+<a href="#_generische_klassen_und_methoden">12. Generische Klassen und Methoden</a>
 <ul class="sectlevel2">
 <li><a href="#_frage_270">12.1. Frage</a></li>
 <li><a href="#_frage_271">12.2. Frage</a></li>
@@ -783,8 +903,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_frage_284">12.15. Frage</a></li>
 </ul>
 </li>
-<li><a href="#_span_class_strike_through_lambda_ausdrücke_span">13. <span class="strike-through">Lambda-Ausdrücke</span></a></li>
-<li><a href="#_collections">14. Collections</a>
+<li><a href="#__span_class_strike_through_lambda_ausdr%C3%BCcke_span">13. <span class="strike-through">Lambda-Ausdrücke</span></a></li>
+<li>
+<a href="#_collections">14. Collections</a>
 <ul class="sectlevel2">
 <li><a href="#_frage_285">14.1. Frage</a></li>
 <li><a href="#_frage_286">14.2. Frage</a></li>
@@ -826,7 +947,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_frage_322">14.38. Frage</a></li>
 </ul>
 </li>
-<li><a href="#_dateien_und_verzeichnisse">15. Dateien und Verzeichnisse</a>
+<li>
+<a href="#_dateien_und_verzeichnisse">15. Dateien und Verzeichnisse</a>
 <ul class="sectlevel2">
 <li><a href="#_frage_323">15.1. Frage</a></li>
 <li><a href="#_frage_324">15.2. Frage</a></li>
@@ -853,9 +975,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_frage_345">15.23. Frage</a></li>
 </ul>
 </li>
-<li><a href="#_span_class_strike_through_javafx_span">16. <span class="strike-through">JavaFX</span></a></li>
-<li><a href="#_span_class_strike_through_javadoc_span">17. <span class="strike-through">Javadoc</span></a></li>
-<li><a href="#_pakete_und_bibliotheken">18. Pakete und Bibliotheken</a>
+<li><a href="#__span_class_strike_through_javafx_span">16. <span class="strike-through">JavaFX</span></a></li>
+<li><a href="#__span_class_strike_through_javadoc_span">17. <span class="strike-through">Javadoc</span></a></li>
+<li>
+<a href="#_pakete_und_bibliotheken">18. Pakete und Bibliotheken</a>
 <ul class="sectlevel2">
 <li><a href="#_frage_346">18.1. Frage</a></li>
 <li><a href="#_frage_347">18.2. Frage</a></li>
@@ -877,6 +1000,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_frage_363">18.18. Frage</a></li>
 <li><a href="#_frage_364">18.19. Frage</a></li>
 <li><a href="#_frage_365">18.20. Frage</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -902,14 +1027,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Dominikus Herzberg, <a href="https://twitter.com/denkspuren">@denkspuren</a></p>
 </div>
 <div style="page-break-after: always;"></div>
-</div>
-</div>
 <div class="sect1">
 <h2 id="_hello_world_java_crashkurs_kap_1_8">1. Hello World!: Java-Crashkurs [Kap. 1.8]</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_zeichenkette_und_code_new_code">1.1. Zeichenkette und <code>new</code></h3>
-<div class="exampleblock">
+<h3 id="_zeichenkette_und_code_new_code">1.1. Zeichenkette und <code>new</code>
+</h3>
+<question id="question_1" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Wo ist das <code>new</code> zur Instanziierung geblieben? <code>String s = "abc";</code></p>
@@ -917,21 +1041,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-square-o"></i> Man kann auch schreiben <code>String s = new "abc";</code></p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Man kann auch schreiben <code>String s = new "abc";</code></p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Man kann auch schreiben <code>String s = new("abc");</code></p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Man kann auch schreiben <code>String s = new("abc");</code></p>
 </li>
 <li>
-<p><i class="fa fa-check-square-o"></i> Man kann auch schreiben <code>String s = new String("abc");</code></p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Man kann auch schreiben <code>String s = new String("abc");</code></p>
 </li>
 <li>
-<p><i class="fa fa-check-square-o"></i> Ein <code>new</code> ist gar nicht notwendig.</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Ein <code>new</code> ist gar nicht notwendig.</p>
 </li>
 </ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(1)">resolve</button>
+              <button onclick="reset(1)">reset</button>
+            </p>
 </div>
-</div>
+</question>
 <div class="paragraph">
 <div class="title">Antwort</div>
 <p>Der Ausdruck <code>"abc"</code> ist ein Zeichenketten-Literal. Literale erzeugen direkt eine Instanz ihres Typs, hier eine Instanz einer Zeichenkette. Literale werden ohne den <code>new</code>-Operator verwendet.</p>
@@ -952,7 +1080,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="sect2">
 <h3 id="_aussehen_eines_javadoc_kommentars">1.3. Aussehen eines Javadoc-Kommentars</h3>
-<div class="exampleblock">
+<question id="question_2" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Wie sieht ein Javadoc-Kommentar mit seinem öffnenden und schließenden Kommentarteil aus?</p>
@@ -960,25 +1088,29 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-square-o"></i> <code>/*</code> und <code>*/</code></p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>/*</code> und <code>*/</code></p>
 </li>
 <li>
-<p><i class="fa fa-check-square-o"></i> <code>/**</code> und <code>*/</code></p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  <code>/**</code> und <code>*/</code></p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> <code>/**</code> und <code>/*</code></p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>/**</code> und <code>/*</code></p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> <code>/*</code> und <code>**/</code></p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>/*</code> und <code>**/</code></p>
 </li>
 </ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(2)">resolve</button>
+              <button onclick="reset(2)">reset</button>
+            </p>
 </div>
-</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_was_ist_ein_schlüsselwort">1.4. Was ist ein Schlüsselwort?</h3>
-<div class="exampleblock">
+<question id="question_3" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Was ist ein Schlüsselwort?</p>
@@ -986,21 +1118,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-square-o"></i> Unsinn, es gibt in Java so etwas wie ein Schlüsselwort nicht</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Unsinn, es gibt in Java so etwas wie ein Schlüsselwort nicht</p>
 </li>
 <li>
-<p><i class="fa fa-check-square-o"></i> Ein Schlüsselwort ist ein reservierter Bezeichner</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Ein Schlüsselwort ist ein reservierter Bezeichner</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Als Schlüsselwort bezeichnet man in einer <code>Map&lt;K,V&gt;</code> einen Wert vom Typ <code>K</code> (für <em>Key</em>)</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Als Schlüsselwort bezeichnet man in einer <code>Map&lt;K,V&gt;</code> einen Wert vom Typ <code>K</code> (für <em>Key</em>)</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Bezeichner in Großbuchstaben (wie <code>HALT</code>) heißen Schlüsselwörter</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Bezeichner in Großbuchstaben (wie <code>HALT</code>) heißen Schlüsselwörter</p>
 </li>
 </ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(3)">resolve</button>
+              <button onclick="reset(3)">reset</button>
+            </p>
 </div>
-</div>
+</question>
 <div class="paragraph">
 <div class="title">Antwort</div>
 <p>Ein Schlüsselwort ist ein reservierter Bezeichner für Programmkonstrukte (wie z.B. <code>if</code>, <code>for</code> und <code>class</code>), der als Name für Variablen, Klassen etc. nicht gewählt werden darf.</p>
@@ -1008,37 +1144,41 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="sect2">
 <h3 id="_never_use_dollars_in_javaland">1.5. Never use Dollars in Javaland</h3>
-<div class="exampleblock">
+<question id="question_4" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
-<p>Never use Dollars in Javaland. Why?&#8201;&#8212;&#8201;Die Frage meint: Warum sollen keine <code>$</code>-Zeichen in Bezeichnern für Variablen, Klassen, Methoden, Schnittstellen etc. verwendet werden?</p>
+<p>Never use Dollars in Javaland. Why? — Die Frage meint: Warum sollen keine <code>$</code>-Zeichen in Bezeichnern für Variablen, Klassen, Methoden, Schnittstellen etc. verwendet werden?</p>
 </div>
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-square-o"></i> Das <code>$</code>-Zeichen ist in Bezeichnern nicht erlaubt</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Das <code>$</code>-Zeichen ist in Bezeichnern nicht erlaubt</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Das <code>$</code>-Zeichen ist für einen internen Variablenbezeichner reserviert</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Das <code>$</code>-Zeichen ist für einen internen Variablenbezeichner reserviert</p>
 </li>
 <li>
-<p><i class="fa fa-check-square-o"></i> Das <code>$</code>-Zeichen ist Code-Generatoren vorbehalten</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Das <code>$</code>-Zeichen ist Code-Generatoren vorbehalten</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Das <code>$</code>-Zeichen ist ein Schlüsselwort</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Das <code>$</code>-Zeichen ist ein Schlüsselwort</p>
 </li>
 </ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(4)">resolve</button>
+              <button onclick="reset(4)">reset</button>
+            </p>
 </div>
-</div>
+</question>
 <div class="paragraph">
 <div class="title">Antwort</div>
 <p>Man überlässt den Gebrauch des <code>$</code>-Zeichens Code-Generatoren, so dass es keinen Konflikt mit den von Menschen gewählten Bezeichnern geben kann.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_code_for_code_problem">1.6. <code>for</code>-Problem?</h3>
-<div class="exampleblock">
+<h3 id="__code_for_code_problem">1.6. <code>for</code>-Problem?</h3>
+<question id="question_5" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p><code>for(int i = 0; i &lt;= 10; i++);</code>. Wo ist das Problem?</p>
@@ -1046,21 +1186,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-square-o"></i> Es muss <code>int i = 1</code> heißen</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Es muss <code>int i = 1</code> heißen</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Statt des Strichpunkts müssen gescheifte Klammern <code>{ }</code> folgen</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Statt des Strichpunkts müssen gescheifte Klammern <code>{ }</code> folgen</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Im <code>for</code>-Kopf müssen die Strichpunkte durch Kommas ersetzt werden</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Im <code>for</code>-Kopf müssen die Strichpunkte durch Kommas ersetzt werden</p>
 </li>
 <li>
-<p><i class="fa fa-check-square-o"></i> Ohne etwas vor dem Semikolon ist die <code>for</code>-Schleife sinnlos</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Ohne etwas vor dem Semikolon ist die <code>for</code>-Schleife sinnlos</p>
 </li>
 </ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(5)">resolve</button>
+              <button onclick="reset(5)">reset</button>
+            </p>
 </div>
-</div>
+</question>
 <div class="paragraph">
 <div class="title">Antwort</div>
 <p>Die Schleife bleibt ohne Auswirkungen (außer, dass sie Zeit für die Durchläufe verbraucht), da dem <code>for</code>-Kopf eine leere Anweisung (das Semikolon) folgt.</p>
@@ -1068,7 +1212,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="sect2">
 <h3 id="_das_semikolon">1.7. Das Semikolon</h3>
-<div class="exampleblock">
+<question id="question_6" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Das Semikolon <code>;</code> beendet</p>
@@ -1076,51 +1220,55 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-square-o"></i> eine Datei</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  eine Datei</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> einen Ausdruck</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  einen Ausdruck</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> eine Ausgabe</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  eine Ausgabe</p>
 </li>
 <li>
-<p><i class="fa fa-check-square-o"></i> eine Anweisung</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  eine Anweisung</p>
 </li>
 </ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(6)">resolve</button>
+              <button onclick="reset(6)">reset</button>
+            </p>
 </div>
-</div>
-<div class="paragraph">
-<p>Anweisung &#8658; "a = 2+2"<br>
-Ausdruck &#8658; "2+2"</p>
-</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_ein_plus_fur_zeichenketten">1.8. Ein Plus fur Zeichenketten?</h3>
-<div class="exampleblock">
+<question id="question_7" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
-<p>Kann man den &#8220;+&#8221;-Operator bei Zeichenketten anwenden? Falls ja, was bedeutet &#8220;+&#8221; bei Zeichenketten?</p>
+<p>Kann man den “+”-Operator bei Zeichenketten anwenden? Falls ja, was bedeutet “+” bei Zeichenketten?</p>
 </div>
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-square-o"></i> Addition der Strings</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Addition der Strings</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Addition der durch die Strings repräsentierten Zahlen</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Addition der durch die Strings repräsentierten Zahlen</p>
 </li>
 <li>
-<p><i class="fa fa-check-square-o"></i> Verkettung der Strings</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Verkettung der Strings</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Man kann Strings nicht addieren.</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Man kann Strings nicht addieren.</p>
 </li>
 </ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(7)">resolve</button>
+              <button onclick="reset(7)">reset</button>
+            </p>
 </div>
-</div>
+</question>
 <div class="paragraph">
 <div class="title">Antwort</div>
 <p>Man nennt die Verkettung auch Konkatenation.</p>
@@ -1128,33 +1276,38 @@ Ausdruck &#8658; "2+2"</p>
 </div>
 <div class="sect2">
 <h3 id="_ein_minus_für_zeichenketten">1.9. Ein Minus für Zeichenketten?</h3>
-<div class="exampleblock">
+<question id="question_8" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
-<p>Kann man den &#8220;-&#8221;-Operator bei Zeichenketten anwenden? Falls ja, was bedeutet &#8220;-&#8221; bei Zeichenketten?</p>
+<p>Kann man den “-”-Operator bei Zeichenketten anwenden? Falls ja, was bedeutet “-” bei Zeichenketten?</p>
 </div>
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-square-o"></i> Subtraktion der Strings</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Subtraktion der Strings</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Subtraktion der durch die Strings repräsentierten Zahlen</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Subtraktion der durch die Strings repräsentierten Zahlen</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Entkettung der Strings</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Entkettung der Strings</p>
 </li>
 <li>
-<p><i class="fa fa-check-square-o"></i> Man kann Strings nicht subtrahieren.</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Man kann Strings nicht subtrahieren.</p>
 </li>
 </ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(8)">resolve</button>
+              <button onclick="reset(8)">reset</button>
+            </p>
 </div>
-</div>
+</question>
 </div>
 <div class="sect2">
-<h3 id="_das_semikolon_und_code_if_code">1.10. Das Semikolon und <code>if</code></h3>
-<div class="exampleblock">
+<h3 id="_das_semikolon_und_code_if_code">1.10. Das Semikolon und <code>if</code>
+</h3>
+<question id="question_9" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Wenn jede Anweisung mit einem Semikolon beendet werden muss, gilt das auch für <code>if</code> oder <code>while</code>?</p>
@@ -1168,30 +1321,34 @@ Ausdruck &#8658; "2+2"</p>
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-check-square-o"></i> <code>true</code>, sofern <code>x &lt; 0</code> ein <code>true</code> ergeben hätte</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  <code>true</code>, sofern <code>x &lt; 0</code> ein <code>true</code> ergeben hätte</p>
 </li>
 <li>
-<p><i class="fa fa-check-square-o"></i> <code>true</code>, sofern <code>x &lt; 0</code> ein <code>false</code> ergeben hätte</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  <code>true</code>, sofern <code>x &lt; 0</code> ein <code>false</code> ergeben hätte</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> <code>false</code>, sofern <code>x &lt; 0</code> ein <code>true</code> ergeben hätte</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>false</code>, sofern <code>x &lt; 0</code> ein <code>true</code> ergeben hätte</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> <code>false</code>, sofern <code>x &lt; 0</code> ein <code>false</code> ergeben hätte</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>false</code>, sofern <code>x &lt; 0</code> ein <code>false</code> ergeben hätte</p>
 </li>
 </ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(9)">resolve</button>
+              <button onclick="reset(9)">reset</button>
+            </p>
 </div>
-</div>
+</question>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>Wenn das <code>if</code> greift, wird es von einer leeren Anweisung <code>;</code> gefolgt&#8201;&#8212;&#8201;insofern bleibt das <code>if</code> wirkungslos. Die sich anschließende Anweisung <code>x = 0;</code> wird immer ausgeführt.
-Kleiner Tipp am Rand: Wir erinnern uns "Jede Anweisung endet mit einem Semikolon."</p>
+<p>Wenn das <code>if</code> greift, wird es von einer leeren Anweisung <code>;</code> gefolgt — insofern bleibt das <code>if</code> wirkungslos. Der sich anschließende Ausdruck <code>x = 0;</code> wird immer ausgeführt.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_import_von_code_math_code">1.11. Import von <code>Math</code></h3>
-<div class="exampleblock">
+<h3 id="_import_von_code_math_code">1.11. Import von <code>Math</code>
+</h3>
+<question id="question_10" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Warum kann man die Klasse <code>Math</code> verwenden, ohne sie vorher zu importieren?</p>
@@ -1199,24 +1356,25 @@ Kleiner Tipp am Rand: Wir erinnern uns "Jede Anweisung endet mit einem Semikolon
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-check-square-o"></i> Weil sie als Teil von <code>java.lang</code> standardmäßig importiert wird</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Weil sie als Teil von <code>java.lang</code> standardmäßig importiert wird</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Weil das eben so ist; eine Entscheidung der Schöpfer von Java</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Weil das eben so ist; eine Entscheidung der Schöpfer von Java</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Das ist ausschließlich eine Besonderheit der JShell</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Das ist ausschließlich eine Besonderheit der JShell</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Das stimmt nicht, man muss <code>Math</code> explizit importieren</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Das stimmt nicht, man muss <code>Math</code> explizit importieren</p>
 </li>
 </ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(10)">resolve</button>
+              <button onclick="reset(10)">reset</button>
+            </p>
 </div>
-</div>
-<div class="paragraph">
-<p>Neben der Klasse <code>Math</code> befindet sich beispielsweise auch die Klasse <code>String</code> in `java.lang.</p>
-</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_eigenschaften">1.12. Eigenschaften</h3>
@@ -1229,8 +1387,8 @@ Kleiner Tipp am Rand: Wir erinnern uns "Jede Anweisung endet mit einem Semikolon
 </div>
 </div>
 <div class="sect2">
-<h3 id="_code_import_code_mit_stern">1.13. <code>import</code> mit Stern</h3>
-<div class="exampleblock">
+<h3 id="__code_import_code_mit_stern">1.13. <code>import</code> mit Stern</h3>
+<question id="question_11" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p><code>import a.packet.*;</code> Was meint der Stern <code>*</code> in der <code>import</code>-Anweisung?</p>
@@ -1238,21 +1396,25 @@ Kleiner Tipp am Rand: Wir erinnern uns "Jede Anweisung endet mit einem Semikolon
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-square-o"></i> Importiere die Typen in <code>a.packet</code> und die in den Unterpaketen</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Importiere die Typen in <code>a.packet</code> und die in den Unterpaketen</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Importiere nur die Klassen in <code>a.packet</code></p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Importiere nur die Klassen in <code>a.packet</code></p>
 </li>
 <li>
-<p><i class="fa fa-check-square-o"></i> Importiere die Typen in <code>a.packet</code></p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Importiere die Typen in <code>a.packet</code></p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Importieren die Klassen in <code>a.packet</code> und die in den Unterpaketen</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Importieren die Klassen in <code>a.packet</code> und die in den Unterpaketen</p>
 </li>
 </ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(11)">resolve</button>
+              <button onclick="reset(11)">reset</button>
+            </p>
 </div>
-</div>
+</question>
 <div class="paragraph">
 <div class="title">Antwort</div>
 <p>Der Stern importiert alle Typen (Klassen, Schnittstellen, Enumerationen) des angegebenen Pakets.</p>
@@ -1269,8 +1431,8 @@ Kleiner Tipp am Rand: Wir erinnern uns "Jede Anweisung endet mit einem Semikolon
 </div>
 </div>
 <div class="sect2">
-<h3 id="_code_math_code_instanz">1.15. <code>Math</code>-Instanz?</h3>
-<div class="exampleblock">
+<h3 id="__code_math_code_instanz">1.15. <code>Math</code>-Instanz?</h3>
+<question id="question_12" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Warum kann man keine Instanz der Klasse <code>Math</code> erzeugen?</p>
@@ -1278,21 +1440,25 @@ Kleiner Tipp am Rand: Wir erinnern uns "Jede Anweisung endet mit einem Semikolon
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-square-o"></i> Weil <code>Math</code> keinen Konstruktor hat</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Weil <code>Math</code> keinen Konstruktor hat</p>
 </li>
 <li>
-<p><i class="fa fa-check-square-o"></i> Weil der Konstruktor von <code>Math</code> privat ist</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Weil der Konstruktor von <code>Math</code> privat ist</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Weil <code>Math</code> eine statische Klasse ist</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Weil <code>Math</code> eine statische Klasse ist</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Weil die Klasse <code>Math</code> abstrakt ist</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Weil die Klasse <code>Math</code> abstrakt ist</p>
 </li>
 </ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(12)">resolve</button>
+              <button onclick="reset(12)">reset</button>
+            </p>
 </div>
-</div>
+</question>
 <div class="paragraph">
 <div class="title">Antwort</div>
 <p>Der Konstruktor von <code>Math</code> ist nicht <code>public</code>, und damit ist keine Instanz von <code>Math</code> erzeugbar. Von einer als <code>abstract</code> ausgewiesenen Klasse ist zwar ebenfalls keine Instanz erzeugbar, das trifft auf <code>Math</code> allerdings nicht zu.</p>
@@ -1503,18 +1669,7 @@ $16 ==&gt; true</pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>Buch S.62 (unten): <code>datentyp varname [ = wert ];</code><br>
-<strong>Beispiel:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>int x = 3;</code></p>
-</li>
-<li>
-<p><code>char abc;</code></p>
-</li>
-</ul>
+<p>Buch S.62 (unten): <code>datentyp varname [ = wert ];</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -1567,8 +1722,7 @@ z ==&gt; 2</pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>"Casting" heißt "Typanpassung". Implizit ist die Typanpassung dann, wenn sie von Java im Hintergrund für Sie gemacht wird. Addieren Sie z.B. einen <code>int</code> und einen <code>float</code>, so wird die Ganzzahl von Java implizit in einen Fließkommazahlenwert umgewandelt.
-<strong>Beispiel:</strong> <code>1 + 3.5</code></p>
+<p>"Casting" heißt "Typanpassung". Implizit ist die Typanpassung dann, wenn sie von Java im Hintergrund für Sie gemacht wird. Addieren Sie z.B. einen <code>int</code> und einen <code>float</code>, so wird die Ganzzahl von Java implizit in einen Fließkommazahlenwert umgewandelt.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1588,7 +1742,7 @@ z ==&gt; 2</pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>Weil beim Casting von <code>long</code> zu <code>int</code> Information verloren geht. Das macht Java nicht implizit, das müssen Sie im Zweifel explizit tun&#8201;&#8212;&#8201;dann müssen Sie aber auch mit den möglichen Folgen leben.</p>
+<p>Weil beim Casting von <code>long</code> zu <code>int</code> Information verloren geht. Das macht Java nicht implizit, das müssen Sie im Zweifel explizit tun — dann müssen Sie aber auch mit den möglichen Folgen leben.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1663,7 +1817,7 @@ z ==&gt; 2</pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p><code>1E6</code> gleicht 1*10^6.</p>
+<p><code>1E6</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -1720,9 +1874,7 @@ p1 = p2 = p3 = new java.awt.Point(0, 0);</code></pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>Alle drei Punkte haben die gleiche Referenz auf ein und dieselbe Instanz von <code>Point</code>. Damit entsteht niemals ein Dreieck aus drei <em>unterschiedlichen</em> Instanzen.<br>
-<strong>Beispiel:</strong> Wenn man die Koordinaten für p1 ändert, werden auch die Koordinaten von p2 und p3 geändert, somit sind sie zu jedem Zeitpunkt gleich.<br>
-Weil alle drei Variablen auf das <strong>selbe</strong> Objekt referenzieren.</p>
+<p>Alle drei Punkte haben die gleiche Referenz auf ein und dieselbe Instanz von <code>Point</code>. Damit entsteht niemals ein Dreieck aus drei <em>unterschiedlichen</em> Instanzen.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1943,7 +2095,7 @@ String s = scan.next();</code></pre>
 <div class="sect2">
 <h3 id="_frage_34">3.3. Frage</h3>
 <div class="paragraph">
-<p>Der Minus-Operator &#8220;-&#8221; ist linksassoziativ. Was ist damit gemeint? Erklären Sie das an einem Beispiel.</p>
+<p>Der Minus-Operator “-” ist linksassoziativ. Was ist damit gemeint? Erklären Sie das an einem Beispiel.</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
@@ -1986,7 +2138,7 @@ String s = scan.next();</code></pre>
 <div class="sect2">
 <h3 id="_frage_38">3.7. Frage</h3>
 <div class="paragraph">
-<p>Es gibt drei(!) Kontexte im Zusammenhang von Ausdrücken, in denen runde Klammernpaare <code>(&#8230;&#8203;)</code> vorkommen. Welche sind das?</p>
+<p>Es gibt drei(!) Kontexte im Zusammenhang von Ausdrücken, in denen runde Klammernpaare <code>(…​)</code> vorkommen. Welche sind das?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
@@ -2015,7 +2167,7 @@ String s = scan.next();</code></pre>
 <p>Erklären Sie, wie die Kopfzeile im <code>while</code> funktioniert:</p>
 </div>
 <div class="paragraph">
-<p><code>whileline = breader.readLine( != null) { &#8230;&#8203; }</code></p>
+<p><code>whileline = breader.readLine( != null) { …​ }</code></p>
 </div>
 <div class="olist arabic">
 <div class="title">Antwort</div>
@@ -2126,21 +2278,21 @@ $12 ==&gt; false</pre>
 <div class="sect2">
 <h3 id="_frage_47">3.16. Frage</h3>
 <div class="paragraph">
-<p>Wandeln Sie ein <code>if (expr1 &amp;&amp; expr2) {&#8230;&#8203;}</code> so um, dass Sie nur <code>if</code>-Anweisungen ohne den <code>&amp;&amp;</code>-Operator verwenden!</p>
+<p>Wandeln Sie ein <code>if (expr1 &amp;&amp; expr2) {…​}</code> so um, dass Sie nur <code>if</code>-Anweisungen ohne den <code>&amp;&amp;</code>-Operator verwenden!</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p><code>if (expr1) if (expr2) {&#8230;&#8203;}</code></p>
+<p><code>if (expr1) if (expr2) {…​}</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_frage_48">3.17. Frage</h3>
 <div class="paragraph">
-<p>Gleiche Aufgabe: Umwandlung von <code>if (expr1 || expr2) { &#8230;&#8203; }</code>.</p>
+<p>Gleiche Aufgabe: Umwandlung von <code>if (expr1 || expr2) { …​ }</code>.</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p><code>if (expr1) { &#8230;&#8203; } else if (expr2) { &#8230;&#8203; }</code></p>
+<p><code>if (expr1) { …​ } else if (expr2) { …​ }</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -2345,7 +2497,7 @@ for(int i=0; i &lt; 10; i++) {
 <div class="sect2">
 <h3 id="_frage_61">4.9. Frage</h3>
 <div class="paragraph">
-<p>Ist <code>for(int i; i &lt; 10; i++) { &#8230;&#8203; }</code> korrekt?</p>
+<p>Ist <code>for(int i; i &lt; 10; i++) { …​ }</code> korrekt?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
@@ -2375,7 +2527,7 @@ for(int i=0; i &lt; 10; i++) {
 <div class="sect2">
 <h3 id="_frage_64">4.12. Frage</h3>
 <div class="paragraph">
-<p>Ein Student und eine Studentin schreiben den folgenden <code>for</code>-Kopf, um die Summe der Zahlen von 1 bis 50 zu berechnen: <code>for(int i = 1, sum = 0; i &lt;= 50; sum += i++);</code> Was sagt Ihnen Ihr Programmierverstand?</p>
+<p>Ein Student und eine Studentin schreiben den folgenden <code>for</code>-Kopf, um die Summe der Zahlen von 1 bis 50 zu berechnen: <code>for(i = 1, sum = 0; i ⇐ 50; sum = i+);</code> Was sagt Ihnen Ihr Programmierverstand?</p>
 </div>
 <div class="paragraph">
 <p>(Übrigens: Der Kopf der Schleife ist syntaktisch korrekt, da liegt nicht das Problem!)</p>
@@ -2452,7 +2604,7 @@ for(int i=0; i &lt; 10; i++) {
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>Wegen der Rundungsfehler. Mit etwas Pech ist die Schleife so formuliert, dass sich die Rundungsfehler summieren, also immer größer werden. (Mit Glück halten sich positive und negative Fehler in etwas die Waage, aber Programmieren sollte kein Glücksspiel sein &#8230;&#8203;)</p>
+<p>Wegen der Rundungsfehler. Mit etwas Pech ist die Schleife so formuliert, dass sich die Rundungsfehler summieren, also immer größer werden. (Mit Glück halten sich positive und negative Fehler in etwas die Waage, aber Programmieren sollte kein Glücksspiel sein …​)</p>
 </div>
 </div>
 <div class="sect2">
@@ -2482,8 +2634,8 @@ while(true) {
 <pre class="highlight"><code class="language-java" data-lang="java">int i = 0;
 while(true) {
  if(i &gt;= 100) break;
- if(i % 2 == 0)
-   System.out.println(i);
+ if(i % 2 != 0) continue;
+ System.out.println(i);
  i++;
 }</code></pre>
 </div>
@@ -3010,7 +3162,7 @@ System.out.println(geheim.substring(geheim.lastIndexOf(".")+1));</pre>
 <div class="sect2">
 <h3 id="_frage_112">6.28. Frage</h3>
 <div class="paragraph">
-<p><code>Long.parseLong("55",5)</code>&#8201;&#8212;&#8201;Autsch! Warum?</p>
+<p><code>Long.parseLong("55",5)</code> — Autsch! Warum?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
@@ -3020,7 +3172,7 @@ System.out.println(geheim.substring(geheim.lastIndexOf(".")+1));</pre>
 <div class="sect2">
 <h3 id="_frage_113">6.29. Frage</h3>
 <div class="paragraph">
-<p><code>Long.parseLong("55L")</code>&#8201;&#8212;&#8201;Autsch! Schade! Warum schade?</p>
+<p><code>Long.parseLong("55L")</code> — Autsch! Schade! Warum schade?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
@@ -3088,7 +3240,8 @@ new String(ascii, StandardCharsets.UTF_8).getBytes();</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_span_class_strike_through_datum_und_uhrzeit_span">7. <span class="strike-through">Datum und Uhrzeit</span></h2>
+<h2 id="__span_class_strike_through_datum_und_uhrzeit_span">7. <span class="strike-through">Datum und Uhrzeit</span>
+</h2>
 <div class="sectionbody">
 
 </div>
@@ -3103,7 +3256,7 @@ new String(ascii, StandardCharsets.UTF_8).getBytes();</pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>&#8201;&#8212;&#8201;TODO&#8201;&#8212;&#8201;</p>
+<p> — TODO — </p>
 </div>
 </div>
 <div class="sect2">
@@ -3141,7 +3294,7 @@ new String(ascii, StandardCharsets.UTF_8).getBytes();</pre>
 <div class="sect2">
 <h3 id="_frage_123">8.5. Frage</h3>
 <div class="paragraph">
-<p>Wenn <code>Arrays.sort()</code> ein bestehendes Array verändern kann, könnte man dann auch eine Methode <code>void increment(int i) {&#8230;&#8203;}</code> schreiben, die eine bestehende Integer-Variable verändert?</p>
+<p>Wenn <code>Arrays.sort()</code> ein bestehendes Array verändern kann, könnte man dann auch eine Methode <code>void increment(int i) {…​}</code> schreiben, die eine bestehende Integer-Variable verändert?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
@@ -3214,11 +3367,11 @@ new String(ascii, StandardCharsets.UTF_8).getBytes();</pre>
 <div class="sect2">
 <h3 id="_frage_130">8.12. Frage</h3>
 <div class="paragraph">
-<p>Eine Methode sei mit einem Argument deklariert (keine Überladung), sie wird jedoch mit drei Argumenten aufgerufen&#8201;&#8212;&#8201;und Java akzeptiert das klaglos. Wie muss die Methode deklariert worden sein?</p>
+<p>Eine Methode sei mit einem Argument deklariert (keine Überladung), sie wird jedoch mit drei Argumenten aufgerufen — und Java akzeptiert das klaglos. Wie muss die Methode deklariert worden sein?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>Wieder ein <code>&#8230;&#8203;</code> (Varargs).</p>
+<p>Wieder ein <code>…​</code> (Varargs).</p>
 </div>
 </div>
 <div class="sect2">
@@ -3228,7 +3381,7 @@ new String(ascii, StandardCharsets.UTF_8).getBytes();</pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>&#8201;&#8212;&#8201;TODO&#8201;&#8212;&#8201;Bei jedem Aufruf einer Methode merkt sich der Java-Interpreter, an welcher Stelle das Programm nach dem Ende der Methode fortgesetzt werden muss. Außerdem muss sich der Interpreter den Zustand lokaler Variablen merken. Sowohl die Rücksprungadresse als auch die lokalen Variablen werden im <em>Call Stack</em> gespeichert. Der dafür vorgesehene Spreicherplatz ist endlich, weswegen bei einer unlimitierten Rekursion ein Fehler auftritt.</p>
+<p> — TODO — Bei jedem Aufruf einer Methode merkt sich der Java-Interpreter, an welcher Stelle das Programm nach dem Ende der Methode fortgesetzt werden muss. Außerdem muss sich der Interpreter den Zustand lokaler Variablen merken. Sowohl die Rücksprungadresse als auch die lokalen Variablen werden im <em>Call Stack</em> gespeichert. Der dafür vorgesehene Spreicherplatz ist endlich, weswegen bei einer unlimitierten Rekursion ein Fehler auftritt.</p>
 </div>
 </div>
 <div class="sect2">
@@ -3263,7 +3416,7 @@ der Parameter.</p>
 <div class="sect2">
 <h3 id="_frage_134">8.16. Frage</h3>
 <div class="paragraph">
-<p><code>void doStuff(int &#8230;&#8203; x, String y) { &#8230;&#8203; }</code> - Geht das?</p>
+<p><code>void doStuff(int …​ x, String y) { …​ }</code> - Geht das?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
@@ -3309,7 +3462,7 @@ boolean floatEquals(float a, float b, float tolerance) { ... }</pre>
 <div class="sect2">
 <h3 id="_frage_138">8.20. Frage</h3>
 <div class="paragraph">
-<p>Wenn man einen Parameter mit <code>final</code> ausweist, verhindert das &#8230;&#8203; was?</p>
+<p>Wenn man einen Parameter mit <code>final</code> ausweist, verhindert das …​ was?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
@@ -3416,7 +3569,7 @@ boolean floatEquals(float a, float b, float tolerance) { ... }</pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>Das <code>finally</code> wird immer ausgeführt, egal ob die Exception geworfen wurde oder nicht&#8201;&#8212;&#8201;sogar noch "nach" dem <code>return</code>.
+<p>Das <code>finally</code> wird immer ausgeführt, egal ob die Exception geworfen wurde oder nicht — sogar noch "nach" dem <code>return</code>.
 .<code>finally</code> schlägt <code>return</code></p>
 </div>
 <div class="sidebarblock">
@@ -3452,7 +3605,7 @@ boolean floatEquals(float a, float b, float tolerance) { ... }</pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>&#8201;&#8212;&#8201;TODO&#8201;&#8212;&#8201;</p>
+<p> — TODO — </p>
 </div>
 </div>
 <div class="sect2">
@@ -3539,11 +3692,11 @@ boolean isEven(int n) {
 <div class="sect2">
 <h3 id="_frage_151">9.1. Frage</h3>
 <div class="paragraph">
-<p>Wenn eine Exception geworfen wird, dann sieht sich Java zur Laufzeit außerstande &#8230;&#8203;?</p>
+<p>Wenn eine Exception geworfen wird, dann sieht sich Java zur Laufzeit außerstande …​?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>&#8201;&#8212;&#8201;TODO&#8201;&#8212;&#8201;</p>
+<p> — TODO — </p>
 </div>
 </div>
 <div class="sect2">
@@ -3553,7 +3706,7 @@ boolean isEven(int n) {
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>&#8201;&#8212;&#8201;TODO&#8201;&#8212;&#8201;</p>
+<p> — TODO — </p>
 </div>
 </div>
 <div class="sect2">
@@ -3563,7 +3716,7 @@ boolean isEven(int n) {
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>&#8201;&#8212;&#8201;TODO&#8201;&#8212;&#8201;</p>
+<p> — TODO — </p>
 </div>
 </div>
 <div class="sect2">
@@ -3573,7 +3726,7 @@ boolean isEven(int n) {
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>&#8201;&#8212;&#8201;TODO&#8201;&#8212;&#8201;</p>
+<p> — TODO — </p>
 </div>
 </div>
 <div class="sect2">
@@ -3583,7 +3736,7 @@ boolean isEven(int n) {
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>&#8201;&#8212;&#8201;TODO&#8201;&#8212;&#8201;</p>
+<p> — TODO — </p>
 </div>
 </div>
 <div class="sect2">
@@ -3593,7 +3746,7 @@ boolean isEven(int n) {
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>&#8201;&#8212;&#8201;TODO&#8201;&#8212;&#8201;</p>
+<p> — TODO — </p>
 </div>
 </div>
 <div class="sect2">
@@ -3633,7 +3786,7 @@ boolean isEven(int n) {
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>&#8201;&#8212;&#8201;TODO&#8201;&#8212;&#8201;</p>
+<p> — TODO — </p>
 </div>
 </div>
 <div class="sect2">
@@ -3653,7 +3806,7 @@ boolean isEven(int n) {
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>&#8201;&#8212;&#8201;TODO&#8201;&#8212;&#8201;</p>
+<p> — TODO — </p>
 </div>
 </div>
 <div class="sect2">
@@ -3690,7 +3843,7 @@ boolean isEven(int n) {
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>&#8201;&#8212;&#8201;TODO&#8201;&#8212;&#8201;</p>
+<p> — TODO — </p>
 </div>
 </div>
 <div class="sect2">
@@ -3700,7 +3853,7 @@ boolean isEven(int n) {
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>&#8201;&#8212;&#8201;TODO&#8201;&#8212;&#8201;</p>
+<p> — TODO — </p>
 </div>
 </div>
 <div class="sect2">
@@ -3731,7 +3884,7 @@ boolean isEven(int n) {
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>&#8201;&#8212;&#8201;TODO&#8201;&#8212;&#8201;</p>
+<p> — TODO — </p>
 </div>
 </div>
 <div class="sect2">
@@ -3788,7 +3941,7 @@ boolean isEven(int n) {
 </div>
 <div class="sect2">
 <h3 id="_frage_171">10.2. Frage</h3>
-<div class="openblock question">
+<question id="question_13" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Wann ist eine Klasse <strong>keine</strong> Top-Level-Klasse?</p>
@@ -3796,25 +3949,29 @@ boolean isEven(int n) {
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-square-o"></i> Wenn die Klasse nicht oben im Quellcode steht.</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Wenn die Klasse nicht oben im Quellcode steht.</p>
 </li>
 <li>
-<p><i class="fa fa-check-square-o"></i> Wenn die Klasse innerhalb von geschweiften Klammern steht.</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Wenn die Klasse innerhalb von geschweiften Klammern steht.</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Wenn die Klasse <code>static</code> ist.</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Wenn die Klasse <code>static</code> ist.</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Wenn die Klasse <code>abstract</code> ist.</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Wenn die Klasse <code>abstract</code> ist.</p>
 </li>
 </ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(13)">resolve</button>
+              <button onclick="reset(13)">reset</button>
+            </p>
 </div>
-</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_frage_172">10.3. Frage</h3>
-<div class="openblock question">
+<question id="question_14" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Kann man eine Klasse derart in einer Methode deklarieren und nutzen?</p>
@@ -3833,21 +3990,25 @@ boolean isEven(int n) {
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-check-square-o"></i> Ja, es handelt sich hier um eine lokale Klassendefinition</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Ja, es handelt sich hier um eine lokale Klassendefinition</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Ja, es ist egal, ob eine Klasse in einer Methode deklariert wird oder umgekehrt</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Ja, es ist egal, ob eine Klasse in einer Methode deklariert wird oder umgekehrt</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Nein, die Klasse müsste <code>public</code> sein.</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Nein, die Klasse müsste <code>public</code> sein.</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Nein, die Klasse müsste <code>static</code> sein.</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Nein, die Klasse müsste <code>static</code> sein.</p>
 </li>
 </ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(14)">resolve</button>
+              <button onclick="reset(14)">reset</button>
+            </p>
 </div>
-</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_frage_173">10.4. Frage</h3>
@@ -3867,7 +4028,7 @@ boolean isEven(int n) {
 </div>
 <div class="sect2">
 <h3 id="_frage_174">10.5. Frage</h3>
-<div class="openblock question">
+<question id="question_15" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>In einer <code>.java</code>-Datei können mehrere Klassen deklariert werden. Allerdings gilt eine Einschränkung, was den Namen der Datei angeht. Welche?</p>
@@ -3875,25 +4036,29 @@ boolean isEven(int n) {
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-square-o"></i> Der Name der Datei muss mit dem Namen der ersten Klasse in der Datei übereinstimmen.</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Der Name der Datei muss mit dem Namen der ersten Klasse in der Datei übereinstimmen.</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Der Dateiname muss wie der Klassenname mit einem Großbuchstaben beginnen.</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Der Dateiname muss wie der Klassenname mit einem Großbuchstaben beginnen.</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Der Dateiname muss die Endung <code>.class</code> haben.</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Der Dateiname muss die Endung <code>.class</code> haben.</p>
 </li>
 <li>
-<p><i class="fa fa-check-square-o"></i> Wenn eine der Klassen <code>public</code> ist, muss der Name der Datei dem Namen dieser Klasse entsprechen.</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Wenn eine der Klassen <code>public</code> ist, muss der Name der Datei dem Namen dieser Klasse entsprechen.</p>
 </li>
 </ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(15)">resolve</button>
+              <button onclick="reset(15)">reset</button>
+            </p>
 </div>
-</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_frage_175">10.6. Frage</h3>
-<div class="openblock question">
+<question id="question_16" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Schreibe <code>class test</code> und schon ist der Kopf ab, bevor auch nur ein <code>{</code> folgt. Warum? [Gemeint ist Ihr Kopf, nicht der der Klassendeklaration (-:]</p>
@@ -3901,21 +4066,25 @@ boolean isEven(int n) {
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-square-o"></i> Vor <code>class</code> fehlt ein <code>public</code>.</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Vor <code>class</code> fehlt ein <code>public</code>.</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Es muss <code>Class test</code> heißen.</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Es muss <code>Class test</code> heißen.</p>
 </li>
 <li>
-<p><i class="fa fa-check-square-o"></i> Es muss <code>class Test</code> heißen.</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Es muss <code>class Test</code> heißen.</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> Der Name <code>test</code> ist reserviert und darf nicht benutzt werden.</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Der Name <code>test</code> ist reserviert und darf nicht benutzt werden.</p>
 </li>
 </ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(16)">resolve</button>
+              <button onclick="reset(16)">reset</button>
+            </p>
 </div>
-</div>
+</question>
 <div class="paragraph">
 <div class="title">Antwort</div>
 <p>Namen von Klassen beginnen immer mit einem Großbuchstaben! Zwar ist das eine Konvention, an die sich aber ausnahmslos alle Java-Entwickler/innen halten.</p>
@@ -3923,7 +4092,7 @@ boolean isEven(int n) {
 </div>
 <div class="sect2">
 <h3 id="_frage_176">10.7. Frage</h3>
-<div class="openblock question">
+<question id="question_17" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Eine Top-Level-Klasse darf wie <strong>nicht</strong> deklariert sein?</p>
@@ -3931,21 +4100,25 @@ boolean isEven(int n) {
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-square-o"></i> public</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  public</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> paketsicher</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  paketsicher</p>
 </li>
 <li>
-<p><i class="fa fa-check-square-o"></i> private</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  private</p>
 </li>
 <li>
-<p><i class="fa fa-check-square-o"></i> protected</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  protected</p>
 </li>
 </ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(17)">resolve</button>
+              <button onclick="reset(17)">reset</button>
+            </p>
 </div>
-</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_frage_177">10.8. Frage</h3>
@@ -3988,7 +4161,7 @@ boolean isEven(int n) {
 </div>
 <div class="sect2">
 <h3 id="_frage_180">10.11. Frage</h3>
-<div class="openblock question">
+<question id="question_18" class="openblock" data-type="mc">
 <div class="content">
 <div class="listingblock">
 <div class="content">
@@ -4004,21 +4177,25 @@ boolean isEven(int n) {
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-square-o"></i> <code>Thing.pot</code></p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>Thing.pot</code></p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> <code>new Thing().pot</code></p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>new Thing().pot</code></p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> <code>new Thing.PartOfThing().pot</code></p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>new Thing.PartOfThing().pot</code></p>
 </li>
 <li>
-<p><i class="fa fa-check-square-o"></i> gar nicht</p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  gar nicht</p>
 </li>
 </ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(18)">resolve</button>
+              <button onclick="reset(18)">reset</button>
+            </p>
 </div>
-</div>
+</question>
 <div class="paragraph">
 <div class="title">Antwort</div>
 <p>Auf die private, innere Klasse kann von außen weder zugegriffen werden, noch sind Instanzen dieser privaten Klassen zugreifbar, selbst wenn die Klassenvariable <code>public</code> ist!</p>
@@ -4046,7 +4223,7 @@ jshell&gt; new Thing.PartOfThing().pot
 </div>
 <div class="sect2">
 <h3 id="_frage_181">10.12. Frage</h3>
-<div class="openblock question">
+<question id="question_19" class="openblock" data-type="mc">
 <div class="content">
 <div class="listingblock">
 <div class="content">
@@ -4062,21 +4239,25 @@ jshell&gt; new Thing.PartOfThing().pot
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-square-o"></i> <code>Thing.pot</code></p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>Thing.pot</code></p>
 </li>
 <li>
-<p><i class="fa fa-check-square-o"></i> <code>new Thing().pot</code></p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  <code>new Thing().pot</code></p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> <code>new Thing.PartOfThing().pot</code></p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>new Thing.PartOfThing().pot</code></p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> gar nicht</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  gar nicht</p>
 </li>
 </ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(19)">resolve</button>
+              <button onclick="reset(19)">reset</button>
+            </p>
 </div>
-</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_frage_182">10.13. Frage</h3>
@@ -4539,7 +4720,7 @@ $39 ==&gt; 3</pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>Beides ist gültig, je nach Kontext. Im zweiten Fall ist <code>name</code> jedoch ein Klassenname und sollte eigentlich&#8201;&#8212;&#8201;unserer Konvention der Großschreibung für Klassennamen folgend&#8201;&#8212;&#8201;als <code>Name.this</code> geschrieben werden.</p>
+<p>Beides ist gültig, je nach Kontext. Im zweiten Fall ist <code>name</code> jedoch ein Klassenname und sollte eigentlich — unserer Konvention der Großschreibung für Klassennamen folgend — als <code>Name.this</code> geschrieben werden.</p>
 </div>
 </div>
 <div class="sect2">
@@ -4664,11 +4845,11 @@ p ==&gt; (10, 0)</pre>
 <div class="sect2">
 <h3 id="_frage_225">10.56. Frage</h3>
 <div class="paragraph">
-<p><code>AutoCloseable a = () &#8594; System.out.println("auto");</code> Wie nennt man so etwas?</p>
+<p><code>AutoCloseable a = () → System.out.println("auto");</code> Wie nennt man so etwas?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>Das ist ein Lambda-Ausdruck, erkennbar am Pfeil <code>&#8594;</code>.</p>
+<p>Das ist ein Lambda-Ausdruck, erkennbar am Pfeil <code>→</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -4911,13 +5092,13 @@ class B extends A { int method() { return 2; } }</pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>Ja, sie können nur nicht mit <code>new</code> aufgerufen werden. In einer Subklasse können Sie aber mit <code>super(&#8230;&#8203;)</code> verwendet werden.</p>
+<p>Ja, sie können nur nicht mit <code>new</code> aufgerufen werden. In einer Subklasse können Sie aber mit <code>super(…​)</code> verwendet werden.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_frage_240">11.11. Frage</h3>
 <div class="paragraph">
-<p>Wenn ich etwas <code>super(&#8230;&#8203;)</code> machen will, wohin damit?</p>
+<p>Wenn ich etwas <code>super(…​)</code> machen will, wohin damit?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
@@ -4952,15 +5133,6 @@ class B extends A { int method() { return 2; } }</pre>
 <div class="paragraph">
 <div class="title">Antwort</div>
 <p>Hans muss die Klasse als <code>abstract</code> deklarieren, Hannah muss im Gegensatz zu Hans die Methode implementieren.</p>
-</div>
-<div class="paragraph">
-<p>Zur Erläuterung:</p>
-</div>
-<div class="paragraph">
-<p>Ist eine Methode als <code>abstract</code> ausgewiesen, so "fehlt" ihr eine Implementierung. Da es nur sinnvoll ist, Instanzen von vollständig implementierten Klassen zu erzeugen, muss die Klasse außerdem als <code>abstract</code> deklariert werden. Es bleibt einer Unterklasse überlassen, die "Implementierungslücken" zu füllen. Hans muss daran denken, die Klasse als <code>abstract</code> zu deklarieren, ein Thema, das Hannah nicht kümmert.</p>
-</div>
-<div class="paragraph">
-<p>Eine als <code>final</code> ausgezeichnete Methode bietet eine endgültige (finale) Implementierung an, die von keiner Unterklasse mehr überschrieben werden darf. Hannah <em>muss</em> die Methode implementieren, was Hans per <code>abstract</code> eben genau unterlassen möchte.</p>
 </div>
 </div>
 <div class="sect2">
@@ -5043,7 +5215,7 @@ int l = (String) o.length();</pre>
 <div class="sect2">
 <h3 id="_frage_248">11.19. Frage</h3>
 <div class="paragraph">
-<p>Ein &#8230;&#8203;cast passiert implizit, wenn ein Objekt einer Variable von einem Supertyp zugewiesen wird. Ein &#8230;&#8203;cast muss dagegen explizit angegeben werden.</p>
+<p>Ein …​cast passiert implizit, wenn ein Objekt einer Variable von einem Supertyp zugewiesen wird. Ein …​cast muss dagegen explizit angegeben werden.</p>
 </div>
 <div class="ulist">
 <div class="title">Antwort</div>
@@ -5134,7 +5306,7 @@ int l = (String) o.length();</pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p><code>interface Name { typ name(parameter); &#8230;&#8203; }</code></p>
+<p><code>interface Name { typ name(parameter); …​ }</code></p>
 </div>
 <div class="paragraph">
 <p>Die Benennung des Interfaces endet oft auf <code>-able</code>, um anzuzeigen, dass mit dem Interface irgendeine Fähigkeit bezeichnet wird.</p>
@@ -5209,7 +5381,7 @@ int l = (String) o.length();</pre>
 <p>Zulässig sind prinzipiell alle HashCodes, bei denen sichergestellt ist, dass gleiche Objekte (Vergleich mit <code>equals</code> ergibt <code>true</code>) auch den gleichen HashCode erhalten. Das ist bei allen dieser Beispiele bis auf <code>return new Random().nextInt();</code> der Fall.</p>
 </div>
 <div class="paragraph">
-<p>Eine bewährte Methode zur Erzeugung von HashCodes ist <code>Objects.hash(&#8230;&#8203;)</code> (beachte das "s" bei <code>Objects</code>). Im Beispiel wäre das umzusetzen mit <code>return Objects.hash(x,y);</code>.</p>
+<p>Eine bewährte Methode zur Erzeugung von HashCodes ist <code>Objects.hash(…​)</code> (beachte das "s" bei <code>Objects</code>). Im Beispiel wäre das umzusetzen mit <code>return Objects.hash(x,y);</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -5475,7 +5647,7 @@ $20 ==&gt; Container@17579e0f</pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>&#8201;&#8212;&#8201;TODO&#8201;&#8212;&#8201;</p>
+<p> — TODO — </p>
 </div>
 </div>
 <div class="sect2">
@@ -5516,7 +5688,7 @@ $20 ==&gt; Container@17579e0f</pre>
 <div class="sect2">
 <h3 id="_frage_276">12.7. Frage</h3>
 <div class="paragraph">
-<p>Inwiefern hebelt die Definition <code>&lt;T&gt; T giveMeWhatIWant() { &#8230;&#8203; }</code> das Typsystem von Java aus?</p>
+<p>Inwiefern hebelt die Definition <code>&lt;T&gt; T giveMeWhatIWant() { …​ }</code> das Typsystem von Java aus?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
@@ -5595,7 +5767,7 @@ f.getLength("abc");</pre>
 <div class="sect2">
 <h3 id="_frage_282">12.13. Frage</h3>
 <div class="paragraph">
-<p><code>class ICanHazGenerics&lt;E extends Comparable&gt; {}</code> Und schon gibt&#8217;s was auf die Finger. Was ist der Grund?</p>
+<p><code>class ICanHazGenerics&lt;E extends Comparable&gt; {}</code> Und schon gibt’s was auf die Finger. Was ist der Grund?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
@@ -5631,7 +5803,8 @@ lst.add(new Integer(8));</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_span_class_strike_through_lambda_ausdrücke_span">13. <span class="strike-through">Lambda-Ausdrücke</span></h2>
+<h2 id="__span_class_strike_through_lambda_ausdrücke_span">13. <span class="strike-through">Lambda-Ausdrücke</span>
+</h2>
 <div class="sectionbody">
 
 </div>
@@ -5702,7 +5875,7 @@ lst.add(new Integer(8));</pre>
 <div class="sect2">
 <h3 id="_frage_288">14.4. Frage</h3>
 <div class="paragraph">
-<p>Auf S.295 oben heißt es: "&#8230;&#8203; bietet sich der Einsatz einer <code>List</code>-Klasse an." Ist <code>List</code> eine Klasse?</p>
+<p>Auf S.295 oben heißt es: "…​ bietet sich der Einsatz einer <code>List</code>-Klasse an." Ist <code>List</code> eine Klasse?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
@@ -5848,7 +6021,7 @@ for(int i = 0; i &lt; lst.size(); i++) {
 <div class="sect2">
 <h3 id="_frage_298">14.14. Frage</h3>
 <div class="paragraph">
-<p>Herr Kofler benennt fünf statische Methoden der Klasse <code>Collections</code>, die nützlich sind&#8201;&#8212;&#8201;und oft gebraucht werden.</p>
+<p>Herr Kofler benennt fünf statische Methoden der Klasse <code>Collections</code>, die nützlich sind — und oft gebraucht werden.</p>
 </div>
 <div class="ulist">
 <div class="title">Antwort</div>
@@ -5976,7 +6149,7 @@ for(int i = 0; i &lt; lst.size(); i++) {
 <div class="sect2">
 <h3 id="_frage_307">14.23. Frage</h3>
 <div class="paragraph">
-<p><code>Set&lt;java.awt.Point&gt; pset = new TreeSet&lt;java.awt.Point&gt;();</code> Schon verloren. Wie kommt&#8217;s?</p>
+<p><code>Set&lt;java.awt.Point&gt; pset = new TreeSet&lt;java.awt.Point&gt;();</code> Schon verloren. Wie kommt’s?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
@@ -6217,7 +6390,7 @@ myMap.put(new A(1), 2);</pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p><em>try-with-resource</em>, <code>try (&#8230;&#8203;) catch/finally</code>.</p>
+<p><em>try-with-resource</em>, <code>try (…​) catch/finally</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -6338,7 +6511,7 @@ if(File.exists(geheim) &amp;&amp; Files.isDirectory(geheim)) { /* ... */ }</pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>&#8201;&#8212;&#8201;TODO&#8201;&#8212;&#8201;</p>
+<p> — TODO — </p>
 </div>
 </div>
 <div class="sect2">
@@ -6365,7 +6538,7 @@ if(File.exists(geheim) &amp;&amp; Files.isDirectory(geheim)) { /* ... */ }</pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>&#8201;&#8212;&#8201;TODO&#8201;&#8212;&#8201;</p>
+<p> — TODO — </p>
 </div>
 </div>
 <div class="sect2">
@@ -6512,19 +6685,21 @@ outFile.close();</code></pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>&#8201;&#8212;&#8201;TODO&#8201;&#8212;&#8201;</p>
+<p> — TODO — </p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_span_class_strike_through_javafx_span">16. <span class="strike-through">JavaFX</span></h2>
+<h2 id="__span_class_strike_through_javafx_span">16. <span class="strike-through">JavaFX</span>
+</h2>
 <div class="sectionbody">
 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_span_class_strike_through_javadoc_span">17. <span class="strike-through">Javadoc</span></h2>
+<h2 id="__span_class_strike_through_javadoc_span">17. <span class="strike-through">Javadoc</span>
+</h2>
 <div class="sectionbody">
 
 </div>
@@ -6638,7 +6813,7 @@ Point p;</pre>
 <p>Ja, da <code>Point</code> in dem Paket <code>java.awt</code> definiert ist und der <code>*</code> alle Klassen (und Interfaces und Enums) in dem Paket importiert.</p>
 </div>
 <div class="paragraph">
-<p>Hinweis: Der <code><strong></code> importiert *keine</strong> Klassen die in Unterpaketen des angegebenen Pakets liegen, also z.B. in <code>java.awt.color</code>.</p>
+<p>Hinweis: Der <code><strong></strong></code> importiert *keine Klassen die in Unterpaketen des angegebenen Pakets liegen, also z.B. in <code>java.awt.color</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -6763,10 +6938,12 @@ Point p;</pre>
 </div>
 </div>
 </div>
+</div>
+</div>
 <div id="footer">
 <div id="footer-text">
 Version 0.65<br>
-Last updated 2017-10-18 21:40:21 CEST
+Last updated 2017-01-23 22:49:40 Mitteleuropõische Zeit
 </div>
 </div>
 </body>
