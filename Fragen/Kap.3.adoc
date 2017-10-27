@@ -131,9 +131,6 @@ ifdef::solution[]
 .Antwort
 Für alle primitiven Typen außer `boolean` und ihre Wrappertypen.
 
-STIMMT NCIHT?!?
-
-if (true==true) doSomething();
 endif::solution[]
 
 ### Frage
