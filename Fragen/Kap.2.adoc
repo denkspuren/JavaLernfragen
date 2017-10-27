@@ -491,14 +491,14 @@ ifdef::solution[]
 Ja. Der Kopf sieht wie bei `enum` aus, der Rumpf kann aber ansonsten wie eine Klasse mit Methoden, Konstruktoren etc. ausgestattet werden.
 
 ----
-enum Figur7 implements Flaeche7
+enum Figur implements Flaeche
 {
    RECHTECK { public double flaeche( double a, double b ) { return a * b; } },
    DREIECK  { public double flaeche( double a, double b ) { return a * b / 2; } },
    ELLIPSE  { public double flaeche( double a, double b ) { return a * b * Math.PI / 4; } };
 }
 
-interface Flaeche7
+interface Flaeche
 {
    double flaeche( double a, double b );
 }
