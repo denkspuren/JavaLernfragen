@@ -70,7 +70,7 @@ endif::solution[]
 ### Frage
 Erklären Sie, wie die Kopfzeile im `while` funktioniert:
 
-`while((line = breader.readLine()) != null) { ... }`
+`while\((line = breader.readLine()) != null) { ... }`
 
 ifdef::solution[]
 .Antwort
