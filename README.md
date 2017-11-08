@@ -93,6 +93,6 @@ Der gesamte Fragenkatalog und alle in diesem Repository befindlichen Texte stehe
 
 Der Fragenkatalog ist das Ergebnis der Projektwoche, die wir (Christopher Schölzel und ich) vom 2.-6. Januar 2017 mit den Studierenden der Veranstaltung "Objektorientierte Programmierung" (Erstsemester Informatik) an der Technischen Hochschule Mittelhessen ([THM](http://www.thm.de)) durchgeführt haben. Wir haben in der Projektwoche den gesamten bisher gelernten Java-Stoff aus dem Wintersemester 2016/17 wiederholt. Als Grundlage zur Wiederholung diente das Java-Buch von Michael Kofler.
 
-Während der Projektwoche haben wir das Buch von Michael Kofler gemeinsam mit den Studierenden gelesen, dabei live die Fragen erstellt und anschließend die Antworten besprochen und dokumentiert. Manch eine Frage und manch eine Antwort muss überarbeitet werden, sicher ist uns manch ein Fehler unterlaufen. Helfen Sie uns dabei, den Fragenkatalog zu verbessern!
+Während der Projektwoche haben wir das Buch von Michael Kofler gemeinsam mit den Studierenden gelesen, dabei live die Fragen erstellt und anschließend die Antworten besprochen und dokumentiert. Manch eine Frage und manch eine Antwort muss überarbeitet werden, sicher ist uns der ein oder andere Fehler unterlaufen. Helfen Sie uns dabei, den Fragenkatalog zu verbessern!
 
 Dominikus Herzberg, [@denkspuren](https://twitter.com/denkspuren)
