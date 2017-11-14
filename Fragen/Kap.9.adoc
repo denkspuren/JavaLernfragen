@@ -10,28 +10,37 @@ ifdef::solution[]
 endif::solution[]
 
 ### Frage
+[question,mc]
+====
 Kann `javac`, der Java-Compiler, eine Exception zu Ihrem Code werfen?
 
-ifdef::solution[]
-.Antwort
--- TODO --
-endif::solution[]
+- [x] Ginge es in der Frage um `java` statt `javac`, dann wäre die Antwort "Ja"
+- [x] Nein, der Compiler kann nur den Ausnahmecode generieren aber nicht Ausnahmen werfen
+- [ ] Ja, denn Exceptions sind ein Compiler-Konstrukt, sie stehen ja im Programmcode
+- [x] Nein, Exceptions sind ein Laufzeit-Konstrukt, der Compiler hat damit nichts zu tun
+====
 
 ### Frage
+[question,mc]
+====
 Die Informationen, die zu einer Exception geführt haben, werden wie kommuniziert?
 
-ifdef::solution[]
-.Antwort
--- TODO --
-endif::solution[]
+- [ ] Über eine Ausgabe mittels `System.out.println`
+- [ ] Es wird eine Klasse aus der Klassenhierarchie für Ausnahmen übergeben
+- [ ] Über einen String ohne Ausgabe mittels `System.out.println`
+- [x] Es wird eine Instanz aus der Klassenhierarchie für Ausnahmen übergeben
+====
 
 ### Frage
+[question,mc]
+====
 Wie heißt die oberste Klasse in der Exception-Hierarchie?
 
-ifdef::solution[]
-.Antwort
--- TODO --
-endif::solution[]
+- [ ] `Exception`
+- [ ] `RuntimeException`
+- [x] `Throwable`
+- [ ] `Error`
+====
 
 ### Frage
 Was ist ein _Stack Trace_?
