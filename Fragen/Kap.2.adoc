@@ -417,8 +417,8 @@ Double y = x;
 
 ifdef::solution[]
 .Antwort
-Im ersten Snippet greift das Casting zwischen primitiven Typen. Bei den Wrapperklassen gibt es kein implizites Casting. Das zweite Snippet funktioniert nicht. +
- +
+Im ersten Snippet greift das Casting zwischen primitiven Typen. Bei den Wrapperklassen gibt es kein implizites Casting. Das zweite Snippet funktioniert nicht.
+
 Damit das zweite Snippet funktioniert, muss ein explizites Casting durchgeführt werden:
 ----
 Integer x = 10;

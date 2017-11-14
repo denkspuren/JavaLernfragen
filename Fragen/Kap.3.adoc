@@ -17,7 +17,9 @@ Was ist mit der Priorität eines Operators gemeint? Geben Sie ein Beispiel an.
 ifdef::solution[]
 .Antwort
 Die Priorität gibt die Rangfolge der Operatoren bei der Auswertung (Evaluation) an. Sie kennen aus der Arithmetik die Regel zur Rangfolge "Punkt- vor Strichrechnung". +
-*Beispiel:* +
+
+*Beispiel:*
+
 `2 + 5 * 3 = 17` und nicht `21`.
 endif::solution[]
 
@@ -115,13 +117,13 @@ Erläutern Sie den Unterschied von `int a = n{inc};` zu `int a = {inc}n;`!
 
 ifdef::solution[]
 .Antwort
-`int a = n{inc};` entspricht den Anweisungen: +
-`int a = n;` +
-` n = n + 1;`. + +
+`int a = n{inc};` entspricht den Anweisungen:
+- `int a = n;`
+- `n = n + 1;`.
 
-Bei `int a = {inc}n;` dreht sich die Reihenfolge um: +
-`n = n + 1;` +
-` int a = n;`.
+Bei `int a = {inc}n;` dreht sich die Reihenfolge um:
+- `n = n + 1;`
+- ` int a = n;`.
 endif::solution[]
 
 ### Frage
@@ -215,7 +217,8 @@ boolean odd(int n) {
 }
 ----
 
-`&` ist ein bitweiser Und-Operator. Beispiel mit echten Zahlen des obigen Code-Beispiels: +
+`&` ist ein bitweiser Und-Operator. Beispiel mit echten Zahlen des obigen Code-Beispiels:
+
 ----
 0000 0011 = 3
     &
