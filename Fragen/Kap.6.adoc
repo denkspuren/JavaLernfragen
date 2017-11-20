@@ -36,7 +36,7 @@ Wie prüfen Sie, ob ein `char c` eine Ziffer oder ein Großbuchstabe ist?
 
 ifdef::solution[]
 .Antwort
-Mit der Methode `Character.isDigit` bzw. `Character.isUpper`.
+Mit der Methode `Character.isDigit` bzw. `Character.isUpperCase`.
 endif::solution[]
 
 ### Frage
