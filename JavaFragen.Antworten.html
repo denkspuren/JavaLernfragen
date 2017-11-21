@@ -1970,6 +1970,9 @@ jshell&gt; double y = x
 |        at (#5:1)</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>Man beachte an dieser Stelle, dass x vom Typ "Double" ist, während y vom primitiven Typ "double" ist. Letzteres akzeptiert keine Initialisierung mit "null".</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_frage_24">2.24. Frage</h3>
@@ -2011,6 +2014,15 @@ Double y = x;</code></pre>
 <div class="paragraph">
 <div class="title">Antwort</div>
 <p>Im ersten Snippet greift das Casting zwischen primitiven Typen. Bei den Wrapperklassen gibt es kein implizites Casting. Das zweite Snippet funktioniert nicht.</p>
+</div>
+<div class="paragraph">
+<p>Damit das zweite Snippet funktioniert, muss ein explizites Casting durchgeführt werden:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Integer x = 10;
+Double y = (double)x;</pre>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -2091,6 +2103,33 @@ String s = scan.next();</code></pre>
 <div class="title">Antwort</div>
 <p>Ja. Der Kopf sieht wie bei <code>enum</code> aus, der Rumpf kann aber ansonsten wie eine Klasse mit Methoden, Konstruktoren etc. ausgestattet werden.</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre>enum Figur implements Flaeche
+{
+   RECHTECK { public double flaeche( double a, double b ) { return a * b; } },
+   DREIECK  { public double flaeche( double a, double b ) { return a * b / 2; } },
+   ELLIPSE  { public double flaeche( double a, double b ) { return a * b * Math.PI / 4; } };
+}
+
+interface Flaeche
+{
+   double flaeche( double a, double b );
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Erzeugt:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Figur.RECHTECK.flaeche(10.0,15.0)
+$23 ==&gt; 150.0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Siehe: <a href="http://www.torsten-horn.de/techdocs/java-enums.htm" class="bare">http://www.torsten-horn.de/techdocs/java-enums.htm</a></p>
+</div>
 </div>
 </div>
 </div>
@@ -2114,7 +2153,13 @@ String s = scan.next();</code></pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>Die Priorität gibt die Rangfolge der Operatoren bei der Auswertung (Evaluation) an. Sie kennen aus der Arithmetik die Regel zur Rangfolge "Punkt- vor Strichrechnung".</p>
+<p>Die Priorität gibt die Rangfolge der Operatoren bei der Auswertung (Evaluation) an. Sie kennen aus der Arithmetik die Regel zur Rangfolge "Punkt- vor Strichrechnung".<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Beispiel:</strong></p>
+</div>
+<div class="paragraph">
+<p><code>2 + 5 * 3 = 17</code> und nicht <code>21</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2249,7 +2294,14 @@ String s = scan.next();</code></pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p><code>int a = n++;</code> entspricht den Anweisungen <code>int a = n; n = n + 1;</code>. Bei <code>int a = ++n;</code> dreht sich die Reihenfolge um: <code>n = n + 1; int a = n;</code>.</p>
+<p><code>int a = n++;</code> entspricht den Anweisungen:
+- <code>int a = n;</code>
+- <code>n = n + 1;</code>.</p>
+</div>
+<div class="paragraph">
+<p>Bei <code>int a = ++n;</code> dreht sich die Reihenfolge um:
+- <code>n = n + 1;</code>
+- ` int a = n;`.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2269,7 +2321,7 @@ String s = scan.next();</code></pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>Wenn das Objekt das Interface <code>Comparable</code> implementiert (siehe Kapitel 11).</p>
+<p>Wenn die Klasse vom Objekt das Interface <code>Comparable</code> implementiert (siehe Kapitel 11).</p>
 </div>
 </div>
 <div class="sect2">
@@ -2279,7 +2331,7 @@ String s = scan.next();</code></pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>Weil damit die Identität der Referenzen überprüft wird, nicht aber der Inhalt des Strings. Für Strings und andere komplexe Datentypen sollte man die Methode <code>equals</code> verwenden.</p>
+<p>Weil damit die Identität der Referenzen (String ist kein primitiver Typ) überprüft wird, nicht aber der Inhalt des Strings. Für Strings und andere komplexe Datentypen sollte man die Methode <code>equals</code> verwenden.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2329,6 +2381,15 @@ $12 ==&gt; false</pre>
 <div class="title">Antwort</div>
 <p><code>zahl &lt;&lt; 2</code></p>
 </div>
+<div class="paragraph">
+<p><strong>Beispiel:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>0000 0111 = 7
+0001 1100 = 28</pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_frage_50">3.19. Frage</h3>
@@ -2351,6 +2412,18 @@ $12 ==&gt; false</pre>
 <pre class="highlight"><code class="language-java" data-lang="java">boolean odd(int n) {
   return (n &amp; 1) == 1;
 }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>&amp;</code> ist ein bitweiser Und-Operator. Beispiel mit echten Zahlen des obigen Code-Beispiels:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>0000 0011 = 3
+    &amp;
+0000 0001 = 1
+    =
+0000 0001 = 1</pre>
 </div>
 </div>
 </div>
