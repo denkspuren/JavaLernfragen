@@ -16,7 +16,11 @@ Was ist mit der Priorität eines Operators gemeint? Geben Sie ein Beispiel an.
 
 ifdef::solution[]
 .Antwort
-Die Priorität gibt die Rangfolge der Operatoren bei der Auswertung (Evaluation) an. Sie kennen aus der Arithmetik die Regel zur Rangfolge "Punkt- vor Strichrechnung".
+Die Priorität gibt die Rangfolge der Operatoren bei der Auswertung (Evaluation) an. Sie kennen aus der Arithmetik die Regel zur Rangfolge "Punkt- vor Strichrechnung". +
+
+*Beispiel:*
+
+`2 + 5 * 3 = 17` und nicht `21`.
 endif::solution[]
 
 ### Frage
@@ -113,7 +117,13 @@ Erläutern Sie den Unterschied von `int a = n{inc};` zu `int a = {inc}n;`!
 
 ifdef::solution[]
 .Antwort
-`int a = n{inc};` entspricht den Anweisungen `int a = n; n = n + 1;`. Bei `int a = {inc}n;` dreht sich die Reihenfolge um: `n = n + 1; int a = n;`.
+`int a = n{inc};` entspricht den Anweisungen:
+- `int a = n;`
+- `n = n + 1;`.
+
+Bei `int a = {inc}n;` dreht sich die Reihenfolge um:
+- `n = n + 1;`
+- ` int a = n;`.
 endif::solution[]
 
 ### Frage
@@ -122,6 +132,7 @@ Die Vergleichoperatoren wie `>`, `\<=`, `==` usw. stehen für welche Typen zur V
 ifdef::solution[]
 .Antwort
 Für alle primitiven Typen außer `boolean` und ihre Wrappertypen.
+
 endif::solution[]
 
 ### Frage
@@ -129,7 +140,7 @@ Wann kann man die Methode `compareTo` verwenden?
 
 ifdef::solution[]
 .Antwort
-Wenn das Objekt das Interface `Comparable` implementiert (siehe Kapitel 11).
+Wenn die Klasse vom Objekt das Interface `Comparable` implementiert (siehe Kapitel 11).
 endif::solution[]
 
 ### Frage
@@ -137,7 +148,7 @@ Warum ist es keine gute Idee, zwei Zeichenketten mit `==` zu vergleichen?
 
 ifdef::solution[]
 .Antwort
-Weil damit die Identität der Referenzen überprüft wird, nicht aber der Inhalt des Strings. Für Strings und andere komplexe Datentypen sollte man die Methode `equals` verwenden.
+Weil damit die Identität der Referenzen (String ist kein primitiver Typ) überprüft wird, nicht aber der Inhalt des Strings. Für Strings und andere komplexe Datentypen sollte man die Methode `equals` verwenden.
 endif::solution[]
 
 ### Frage
@@ -177,6 +188,13 @@ Multiplizieren Sie eine `int`-Zahl mit `4` ohne die Multiplikation zu verwenden.
 ifdef::solution[]
 .Antwort
 `zahl << 2`
+
+*Beispiel:*
+----
+0000 0111 = 7
+0001 1100 = 28
+----
+
 endif::solution[]
 
 ### Frage
@@ -197,6 +215,16 @@ ifdef::solution[]
 boolean odd(int n) {
   return (n & 1) == 1;
 }
+----
+
+`&` ist ein bitweiser Und-Operator. Beispiel mit echten Zahlen des obigen Code-Beispiels:
+
+----
+0000 0011 = 3
+    &
+0000 0001 = 1
+    =
+0000 0001 = 1
 ----
 endif::solution[]
 

@@ -374,6 +374,8 @@ jshell> double y = x
 |  java.lang.NullPointerException thrown:
 |        at (#5:1)
 ----
+
+Man beachte an dieser Stelle, dass x vom Typ "Double" ist, während y vom primitiven Typ "double" ist. Letzteres akzeptiert keine Initialisierung mit "null".
 endif::solution[]
 
 ### Frage
@@ -413,6 +415,12 @@ Double y = x;
 ifdef::solution[]
 .Antwort
 Im ersten Snippet greift das Casting zwischen primitiven Typen. Bei den Wrapperklassen gibt es kein implizites Casting. Das zweite Snippet funktioniert nicht.
+
+Damit das zweite Snippet funktioniert, muss ein explizites Casting durchgeführt werden:
+----
+Integer x = 10;
+Double y = (double)x;
+----
 endif::solution[]
 
 ### Frage
@@ -478,4 +486,27 @@ Können Enumerationstypen auch Methoden haben? Wie sieht die Deklaration eines s
 ifdef::solution[]
 .Antwort
 Ja. Der Kopf sieht wie bei `enum` aus, der Rumpf kann aber ansonsten wie eine Klasse mit Methoden, Konstruktoren etc. ausgestattet werden.
+
+----
+enum Figur implements Flaeche
+{
+   RECHTECK { public double flaeche( double a, double b ) { return a * b; } },
+   DREIECK  { public double flaeche( double a, double b ) { return a * b / 2; } },
+   ELLIPSE  { public double flaeche( double a, double b ) { return a * b * Math.PI / 4; } };
+}
+
+interface Flaeche
+{
+   double flaeche( double a, double b );
+}
+----
+
+Erzeugt:
+----
+Figur.RECHTECK.flaeche(10.0,15.0)
+$23 ==> 150.0
+----
+
+Siehe: http://www.torsten-horn.de/techdocs/java-enums.htm
+
 endif::solution[]
