@@ -2893,7 +2893,7 @@ Er dient dazu Unicode-Symbole und Steuerzeichen zu definieren, die nicht auf der
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>Mit der Methode <code>Character.isDigit</code> bzw. <code>Character.isUpper</code>.</p>
+<p>Mit der Methode <code>Character.isDigit</code> bzw. <code>Character.isUpperCase</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -3745,33 +3745,93 @@ boolean isEven(int n) {
 </div>
 <div class="sect2">
 <h3 id="_frage_152">9.2. Frage</h3>
+<question id="question_13" class="openblock" data-type="mc">
+<div class="content">
 <div class="paragraph">
 <p>Kann <code>javac</code>, der Java-Compiler, eine Exception zu Ihrem Code werfen?</p>
 </div>
-<div class="paragraph">
-<div class="title">Antwort</div>
-<p> — TODO — </p>
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Ginge es in der Frage um <code>java</code> statt <code>javac</code>, dann wäre die Antwort "Ja"</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Nein, der Compiler kann nur den Ausnahmecode generieren aber nicht Ausnahmen werfen</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Ja, denn Exceptions sind ein Compiler-Konstrukt, sie stehen ja im Programmcode</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Nein, Exceptions sind ein Laufzeit-Konstrukt, der Compiler hat damit nichts zu tun</p>
+</li>
+</ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(13)">resolve</button>
+              <button onclick="reset(13)">reset</button>
+            </p>
+</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_frage_153">9.3. Frage</h3>
+<question id="question_14" class="openblock" data-type="mc">
+<div class="content">
 <div class="paragraph">
 <p>Die Informationen, die zu einer Exception geführt haben, werden wie kommuniziert?</p>
 </div>
-<div class="paragraph">
-<div class="title">Antwort</div>
-<p> — TODO — </p>
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Über eine Ausgabe mittels <code>System.out.println</code></p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Es wird eine Klasse aus der Klassenhierarchie für Ausnahmen übergeben</p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Über einen String ohne Ausgabe mittels <code>System.out.println</code></p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Es wird eine Instanz aus der Klassenhierarchie für Ausnahmen übergeben</p>
+</li>
+</ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(14)">resolve</button>
+              <button onclick="reset(14)">reset</button>
+            </p>
+</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_frage_154">9.4. Frage</h3>
+<question id="question_15" class="openblock" data-type="mc">
+<div class="content">
 <div class="paragraph">
 <p>Wie heißt die oberste Klasse in der Exception-Hierarchie?</p>
 </div>
-<div class="paragraph">
-<div class="title">Antwort</div>
-<p> — TODO — </p>
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>Exception</code></p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>RuntimeException</code></p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  <code>Throwable</code></p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>Error</code></p>
+</li>
+</ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(15)">resolve</button>
+              <button onclick="reset(15)">reset</button>
+            </p>
+</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_frage_155">9.5. Frage</h3>
@@ -3985,7 +4045,7 @@ boolean isEven(int n) {
 </div>
 <div class="sect2">
 <h3 id="_frage_171">10.2. Frage</h3>
-<question id="question_13" class="openblock" data-type="mc">
+<question id="question_16" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Wann ist eine Klasse <strong>keine</strong> Top-Level-Klasse?</p>
@@ -4007,15 +4067,15 @@ boolean isEven(int n) {
 </ul>
 </div>
             <p style="margin-bottom: 25px">
-              <button onclick="resolve(13)">resolve</button>
-              <button onclick="reset(13)">reset</button>
+              <button onclick="resolve(16)">resolve</button>
+              <button onclick="reset(16)">reset</button>
             </p>
 </div>
 </question>
 </div>
 <div class="sect2">
 <h3 id="_frage_172">10.3. Frage</h3>
-<question id="question_14" class="openblock" data-type="mc">
+<question id="question_17" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Kann man eine Klasse derart in einer Methode deklarieren und nutzen?</p>
@@ -4048,8 +4108,8 @@ boolean isEven(int n) {
 </ul>
 </div>
             <p style="margin-bottom: 25px">
-              <button onclick="resolve(14)">resolve</button>
-              <button onclick="reset(14)">reset</button>
+              <button onclick="resolve(17)">resolve</button>
+              <button onclick="reset(17)">reset</button>
             </p>
 </div>
 </question>
@@ -4072,7 +4132,7 @@ boolean isEven(int n) {
 </div>
 <div class="sect2">
 <h3 id="_frage_174">10.5. Frage</h3>
-<question id="question_15" class="openblock" data-type="mc">
+<question id="question_18" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>In einer <code>.java</code>-Datei können mehrere Klassen deklariert werden. Allerdings gilt eine Einschränkung, was den Namen der Datei angeht. Welche?</p>
@@ -4094,15 +4154,15 @@ boolean isEven(int n) {
 </ul>
 </div>
             <p style="margin-bottom: 25px">
-              <button onclick="resolve(15)">resolve</button>
-              <button onclick="reset(15)">reset</button>
+              <button onclick="resolve(18)">resolve</button>
+              <button onclick="reset(18)">reset</button>
             </p>
 </div>
 </question>
 </div>
 <div class="sect2">
 <h3 id="_frage_175">10.6. Frage</h3>
-<question id="question_16" class="openblock" data-type="mc">
+<question id="question_19" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Schreibe <code>class test</code> und schon ist der Kopf ab, bevor auch nur ein <code>{</code> folgt. Warum? [Gemeint ist Ihr Kopf, nicht der der Klassendeklaration (-:]</p>
@@ -4124,8 +4184,8 @@ boolean isEven(int n) {
 </ul>
 </div>
             <p style="margin-bottom: 25px">
-              <button onclick="resolve(16)">resolve</button>
-              <button onclick="reset(16)">reset</button>
+              <button onclick="resolve(19)">resolve</button>
+              <button onclick="reset(19)">reset</button>
             </p>
 </div>
 </question>
@@ -4136,7 +4196,7 @@ boolean isEven(int n) {
 </div>
 <div class="sect2">
 <h3 id="_frage_176">10.7. Frage</h3>
-<question id="question_17" class="openblock" data-type="mc">
+<question id="question_20" class="openblock" data-type="mc">
 <div class="content">
 <div class="paragraph">
 <p>Eine Top-Level-Klasse darf wie <strong>nicht</strong> deklariert sein?</p>
@@ -4158,8 +4218,8 @@ boolean isEven(int n) {
 </ul>
 </div>
             <p style="margin-bottom: 25px">
-              <button onclick="resolve(17)">resolve</button>
-              <button onclick="reset(17)">reset</button>
+              <button onclick="resolve(20)">resolve</button>
+              <button onclick="reset(20)">reset</button>
             </p>
 </div>
 </question>
@@ -4205,7 +4265,7 @@ boolean isEven(int n) {
 </div>
 <div class="sect2">
 <h3 id="_frage_180">10.11. Frage</h3>
-<question id="question_18" class="openblock" data-type="mc">
+<question id="question_21" class="openblock" data-type="mc">
 <div class="content">
 <div class="listingblock">
 <div class="content">
@@ -4235,8 +4295,8 @@ boolean isEven(int n) {
 </ul>
 </div>
             <p style="margin-bottom: 25px">
-              <button onclick="resolve(18)">resolve</button>
-              <button onclick="reset(18)">reset</button>
+              <button onclick="resolve(21)">resolve</button>
+              <button onclick="reset(21)">reset</button>
             </p>
 </div>
 </question>
@@ -4267,7 +4327,7 @@ jshell&gt; new Thing.PartOfThing().pot
 </div>
 <div class="sect2">
 <h3 id="_frage_181">10.12. Frage</h3>
-<question id="question_19" class="openblock" data-type="mc">
+<question id="question_22" class="openblock" data-type="mc">
 <div class="content">
 <div class="listingblock">
 <div class="content">
@@ -4297,8 +4357,8 @@ jshell&gt; new Thing.PartOfThing().pot
 </ul>
 </div>
             <p style="margin-bottom: 25px">
-              <button onclick="resolve(19)">resolve</button>
-              <button onclick="reset(19)">reset</button>
+              <button onclick="resolve(22)">resolve</button>
+              <button onclick="reset(22)">reset</button>
             </p>
 </div>
 </question>
