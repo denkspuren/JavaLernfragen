@@ -6,7 +6,7 @@ Wenn eine Exception geworfen wird, dann sieht sich Java zur Laufzeit außerstand
 
 ifdef::solution[]
 .Antwort
--- TODO --
+\... die Programmausführung (d.h. die Abarbeitung der Methoden auf dem Callstack) fortzusetzen.
 endif::solution[]
 
 ### Frage
@@ -47,7 +47,7 @@ Was ist ein _Stack Trace_?
 
 ifdef::solution[]
 .Antwort
--- TODO --
+Ein Auszug des Callstacks, der den durch eine Exception abgerochenen Teil des Callstacks enthält.
 endif::solution[]
 
 ### Frage
@@ -55,7 +55,7 @@ Wenn eine Exception vom Typ `Error` geworfen wird, dann hat das was für Konsequ
 
 ifdef::solution[]
 .Antwort
--- TODO --
+Die "Fehler" ist so schwerwiegend, dass die Programmausführung beendet wird.
 endif::solution[]
 
 ### Frage
@@ -87,7 +87,7 @@ Wenn `catch`-Blöcke identischen Code haben, bietet sich eine Verkürzungsform a
 
 ifdef::solution[]
 .Antwort
--- TODO --
+`catch (Exception1 | Exception2) {...}`
 endif::solution[]
 
 ### Frage
@@ -103,7 +103,7 @@ endif::solution[]
 
 ifdef::solution[]
 .Antwort
--- TODO --
+Entweder müsste aus dem Code ein _try with ressources_ werden, dazu müssten dem `try` runde Klammern folgen, in denen Ressourcen deklariert und initialisiert werden müssten, oder dem `try`-Block müsste mindestens ein `catch`- oder ein `finally`-Block folgen.
 endif::solution[]
 
 ### Frage
@@ -133,7 +133,7 @@ public static void main(String[] args) throws Throwable {
 
 ifdef::solution[]
 .Antwort
--- TODO --
+`Throwable` ist die oberste Klasse in der Exception-Hierarchie von Java und umfasst damit auch den Versuch, z.B. `Error`-Exceptions zu fangen, was unsinnig ist; Java garantiert nicht, dass ein `Error` überhaupt "gefangen" werden kann.
 endif::solution[]
 
 
@@ -142,7 +142,7 @@ Was macht die `assert`-Anweisung?
 
 ifdef::solution[]
 .Antwort
--- TODO --
+Die `assert`-Anweisung erwartet einen boolschen Ausdruck, dessen Evaluation zu `true` zugesichert werden soll. Evaluiert der Ausdruck zu `false` wird ein `AssertionError` geworfen, allerdings nur, wenn der Compiler bzw. die JShell mit der Option `-ea` (_enable assertions_) aktiviert wurde.
 endif::solution[]
 
 ### Frage
@@ -168,7 +168,7 @@ Sie haben in Ihrem Code `assert`-Anweisungen, die eigentlich eine Exception ausl
 
 ifdef::solution[]
 .Antwort
--- TODO --
+Sie haben vergessen, die Compiler-Einstellung `-ea` (_enable assertions_) zu aktivieren; die JShell müssen Sie z.B. starten mit `jshell -R-ea`.
 endif::solution[]
 
 ### Frage
