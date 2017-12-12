@@ -25,7 +25,7 @@ Wann ist eine Klasse *keine* Top-Level-Klasse?
 
 - [ ] Wenn die Klasse nicht oben im Quellcode steht.
 - [x] Wenn die Klasse innerhalb von geschweiften Klammern steht.
-- [ ] Wenn die Klasse `static` ist.
+- [ ] Wenn die Klasse von einer anderen Klasse erbt.
 - [ ] Wenn die Klasse `abstract` ist.
 --
 
