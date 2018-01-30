@@ -180,7 +180,7 @@ endif::solution[]
 
 ifdef::solution[]
 .Antwort
-Die Klasse `B` als `T` kann das, was `B` kann, das meint `<T extends B>`.
+`<T extends B>` ist irgendein Typ `T`, der mindestens das kann, was `B` kann. Diese Voraussetzung erfüllt natürlich auch die Klasse `B` selbst.
 endif::solution[]
 
 ### Frage
