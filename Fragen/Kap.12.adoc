@@ -60,7 +60,8 @@ Was ist ein _Typparameter_?
 
 ifdef::solution[]
 .Antwort
--- TODO --
+
+Ein Typparameter ist ein Platzhalter für einen spezifischen Typ. Damit kann man zum Beispiel eine Liste von Zahlen von einer Liste von Zeichenketten unterscheiden, ohne dafür zwei unterschiedliche Klassen zu implementieren. Im Code sind Typparameter als Bezeichner (üblicherweise einzelne Großbuchstaben) in spitzen Klammern dargestellt.
 endif::solution[]
 
 ### Frage
