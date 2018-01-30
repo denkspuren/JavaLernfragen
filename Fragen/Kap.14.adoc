@@ -87,7 +87,7 @@ Den Interfaces `Set`, `List`, `Stack`, `Queue` und `Map` liegen anschauliche Vor
 ifdef::solution[]
 .Antwort
 
-* Set (Menge): Korb oder Kreis mit ungeordneten Elementen
+* Set (Menge): Korb oder Kreis mit ungeordneten Elementen (ohne Duplikate)
 * List (Liste): Regenwurm mit aneinanderhängenden Segmenten
 * Stack (Stapel): Gefäß, in das man nur von oben Sachen hineinlegen oder entfernen kann (LIFO)
 * Queue (Puffer): Warteschlange, Einbahnstraße (FIFO)
