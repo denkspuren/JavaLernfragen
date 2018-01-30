@@ -93,11 +93,19 @@ ifdef::solution[]
 endif::solution[]
 
 ### Frage
-Inwiefern hebelt die Definition `<T> T giveMeWhatIWant() { ... }` das Typsystem von Java aus?
+Warum kann es für eine Methode mit der Definition `<T> T giveMeWhatIWant() { ... }` keine sinnvolle Implementierung geben?
 
 ifdef::solution[]
 .Antwort
-Diese Methode muss eine Implementierung bieten, die für jeden Typ passen muss.
+Der Typparameter `T` wird nur durch den Rückgabetyp bestimmt. Die folgenden Zeilen sind also beide korrekte Aufrufe:
+
+```java
+String s = giveMeWhatIWant();
+Boolean b = giveMeWhatIWant();
+```
+
+Auch wenn der Compiler hier keinen Fehler wirft, kann es keine sinnvolle Implementierung geben, die hier fehlerfrei funktioniert, weil die Methode nicht wissen kann, welcher Rückgabetyp gerade verlangt wird. Die einzige korrekte (aber nicht sinnvolle) Implementierung wäre, `null` zurückzugeben.
+
 // S. 269: Es kommt darauf an, was eine Instanz kann, nicht wie sie aussieht
 endif::solution[]
 
