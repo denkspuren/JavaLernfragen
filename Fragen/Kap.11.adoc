@@ -379,7 +379,7 @@ Mit der Annotation `@FunctionalInterface`.
 endif::solution[]
 
 ### Frage
-Wie sieht schematisch die Syntax einer Methode in einer Schnittstelle aus, die mit einer Implementierung versehen ist?
+Wie sieht schematisch die Syntax einer Methode in einer Schnittstelle aus, die mit einer Standardimplementierung versehen ist?
 
 ifdef::solution[]
 .Antwort
