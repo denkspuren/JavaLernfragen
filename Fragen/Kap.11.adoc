@@ -336,8 +336,11 @@ endif::solution[]
 ### Frage
 Was ist richtig?
 
-[ ] `interface One extends Two`
-[ ] `interface One implements Two`
+[question,mc]
+====
+- [x] `interface One extends Two`
+- [ ] `interface One implements Two`
+====
 
 ifdef::solution[]
 .Antwort
