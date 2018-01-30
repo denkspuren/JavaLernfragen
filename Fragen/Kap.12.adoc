@@ -78,7 +78,7 @@ ArrayList<Boolean> a = new ArrayList<>();
 Oder, was Sie oft sehen, Sie nehmen das `List`-Interface als Typ, der durch die `ArrayList` implementiert wird.
 
 ----
-List<Integer> a = new ArrayList<>();
+List<Boolean> a = new ArrayList<>();
 ----
 endif::solution[]
 
