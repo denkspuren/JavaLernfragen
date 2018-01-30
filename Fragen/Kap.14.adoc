@@ -226,7 +226,7 @@ Was ist ein `TreeSet`?
 
 ifdef::solution[]
 .Antwort
-Ein `TreeSet` sortiert seine Element intern.
+Ein `TreeSet` sortiert seine Element intern nach ihrer natürlichen Ordnung (d.h. nach der Implementierung der Methode `compareTo()` aus dem Interface `Comparable`) oder mit Hilfe eines übergebenen `Comparator`-Objektes.
 endif::solution[]
 
 ### Frage
