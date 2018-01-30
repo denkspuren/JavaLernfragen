@@ -164,7 +164,7 @@ Man kann eine Klasse als `MyClass<T extends Number>` deklarieren, ist auch `MyCl
 
 ifdef::solution[]
 .Antwort
-Das `implements` ist in der Syntax nicht vorgesehen, ist nicht erlaubt.
+Das `implements` ist in der Syntax nicht vorgesehen, auch für Interfaces wird an dieser Stelle `extends` verwendet. Es müsste also `MyClass<T extends AutoCloseable>` heißen.
 endif::solution[]
 
 ### Frage
