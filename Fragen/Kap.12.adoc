@@ -60,7 +60,8 @@ Was ist ein _Typparameter_?
 
 ifdef::solution[]
 .Antwort
--- TODO --
+
+Ein Typparameter ist ein Platzhalter für einen spezifischen Typ. Damit kann man zum Beispiel eine Liste von Zahlen von einer Liste von Zeichenketten unterscheiden, ohne dafür zwei unterschiedliche Klassen zu implementieren. Im Code sind Typparameter als Bezeichner (üblicherweise einzelne Großbuchstaben) in spitzen Klammern dargestellt.
 endif::solution[]
 
 ### Frage
@@ -77,7 +78,7 @@ ArrayList<Boolean> a = new ArrayList<>();
 Oder, was Sie oft sehen, Sie nehmen das `List`-Interface als Typ, der durch die `ArrayList` implementiert wird.
 
 ----
-List<Integer> a = new ArrayList<>();
+List<Boolean> a = new ArrayList<>();
 ----
 endif::solution[]
 
@@ -92,11 +93,19 @@ ifdef::solution[]
 endif::solution[]
 
 ### Frage
-Inwiefern hebelt die Definition `<T> T giveMeWhatIWant() { ... }` das Typsystem von Java aus?
+Warum kann es für eine Methode mit der Definition `<T> T giveMeWhatIWant() { ... }` keine sinnvolle Implementierung geben?
 
 ifdef::solution[]
 .Antwort
-Diese Methode muss eine Implementierung bieten, die für jeden Typ passen muss.
+Der Typparameter `T` wird nur durch den Rückgabetyp bestimmt. Die folgenden Zeilen sind also beide korrekte Aufrufe:
+
+```java
+String s = giveMeWhatIWant();
+Boolean b = giveMeWhatIWant();
+```
+
+Auch wenn der Compiler hier keinen Fehler wirft, kann es keine sinnvolle Implementierung geben, die hier fehlerfrei funktioniert, weil die Methode nicht wissen kann, welcher Rückgabetyp gerade verlangt wird. Die einzige korrekte (aber nicht sinnvolle) Implementierung wäre, `null` zurückzugeben.
+
 // S. 269: Es kommt darauf an, was eine Instanz kann, nicht wie sie aussieht
 endif::solution[]
 
@@ -155,7 +164,7 @@ Man kann eine Klasse als `MyClass<T extends Number>` deklarieren, ist auch `MyCl
 
 ifdef::solution[]
 .Antwort
-Das `implements` ist in der Syntax nicht vorgesehen, ist nicht erlaubt.
+Das `implements` ist in der Syntax nicht vorgesehen, auch für Interfaces wird an dieser Stelle `extends` verwendet. Es müsste also `MyClass<T extends AutoCloseable>` heißen.
 endif::solution[]
 
 ### Frage
@@ -171,7 +180,7 @@ endif::solution[]
 
 ifdef::solution[]
 .Antwort
-Die Klasse `B` als `T` kann das, was `B` kann, das meint `<T extends B>`.
+`<T extends B>` ist irgendein Typ `T`, der mindestens das kann, was `B` kann. Diese Voraussetzung erfüllt natürlich auch die Klasse `B` selbst.
 endif::solution[]
 
 ### Frage

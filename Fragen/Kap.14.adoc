@@ -87,7 +87,7 @@ Den Interfaces `Set`, `List`, `Stack`, `Queue` und `Map` liegen anschauliche Vor
 ifdef::solution[]
 .Antwort
 
-* Set (Menge): Korb oder Kreis mit ungeordneten Elementen
+* Set (Menge): Korb oder Kreis mit ungeordneten Elementen (ohne Duplikate)
 * List (Liste): Regenwurm mit aneinanderhängenden Segmenten
 * Stack (Stapel): Gefäß, in das man nur von oben Sachen hineinlegen oder entfernen kann (LIFO)
 * Queue (Puffer): Warteschlange, Einbahnstraße (FIFO)
@@ -226,7 +226,7 @@ Was ist ein `TreeSet`?
 
 ifdef::solution[]
 .Antwort
-Ein `TreeSet` sortiert seine Element intern.
+Ein `TreeSet` sortiert seine Element intern nach ihrer natürlichen Ordnung (d.h. nach der Implementierung der Methode `compareTo()` aus dem Interface `Comparable`) oder mit Hilfe eines übergebenen `Comparator`-Objektes.
 endif::solution[]
 
 ### Frage
@@ -297,6 +297,16 @@ class A {
     }
   }
 }
+----
+
+Würde es sich um eine Klasse handeln, könnte man den Unterschied aber nicht feststellen, ohne in die Definition zu schauen (oder auf eine Stelle, wo die Klasse verwendet wird). Bei beiden folgenden Definitionen ist der Name der inneren Klasse `A.B`:
+
+----
+class A { class B {} }
+----
+
+----
+class A { static class B {} }
 ----
 endif::solution[]
 

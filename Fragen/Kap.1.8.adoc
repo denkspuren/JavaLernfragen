@@ -219,10 +219,10 @@ endif::solution[]
 ====
 `import a.packet.\*;` Was meint der Stern `*` in der `import`-Anweisung?
 
-- [ ] Importiere die Typen in `a.packet` und die in den Unterpaketen
+- [ ] Importiere alle Typen in `a.packet` und die in den Unterpaketen
 - [ ] Importiere nur die Klassen in `a.packet`
-- [x] Importiere die Typen in `a.packet`
-- [ ] Importieren die Klassen in `a.packet` und die in den Unterpaketen
+- [x] Importiere alle Typen in `a.packet`
+- [ ] Importieren nur die Klassen in `a.packet` und die in den Unterpaketen
 ====
 
 ifdef::solution[]

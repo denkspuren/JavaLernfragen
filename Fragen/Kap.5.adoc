@@ -41,7 +41,7 @@ In Java muss man sich immer im Klaren darüber sein, dass jedes Array intern ein
 endif::solution[]
 
 ### Frage
-Seite 122: Warum `for(int j=0; j<x[i].length; j++)` beim Durchlauf von zweidimensionalen Arrays? Warum nicht `for(int j=0; j<x[0].length; j++)`?
+Seite 122: Warum `for(int j=0; j<x[i].length; j\++)` beim Durchlauf von zweidimensionalen Arrays? Warum nicht `for(int j=0; j<x[0].length; j++)`?
 
 ifdef::solution[]
 .Antwort

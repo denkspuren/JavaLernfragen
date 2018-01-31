@@ -146,17 +146,17 @@ Hans will, dass man von der Klasse nicht erben kann. Hannah will, dass man von d
 endif::solution[]
 
 ### Frage
-Hannah deklariert eine Methode als `final`, Hans als `abstract`. Woran muss Hans denken, was Hannah egal sein kann? Und was kann Hans sein lassen, was Hannah wiederum tun muss?
+Petra deklariert eine Methode als `final`, Peter als `abstract`. Woran muss Peter denken, was Petra egal sein kann? Und was kann Peter sein lassen, was Petra wiederum tun muss?
 
 ifdef::solution[]
 .Antwort
-Hans muss die Klasse als `abstract` deklarieren, Hannah muss im Gegensatz zu Hans die Methode implementieren.
+Peter muss die Klasse als `abstract` deklarieren, Petra muss im Gegensatz zu Peter die Methode implementieren.
 
 Zur Erläuterung:
 
-Ist eine Methode als `abstract` ausgewiesen, so "fehlt" ihr eine Implementierung. Da es nur sinnvoll ist, Instanzen von vollständig implementierten Klassen zu erzeugen, muss die Klasse außerdem als `abstract` deklariert werden. Es bleibt einer Unterklasse überlassen, die "Implementierungslücken" zu füllen. Hans muss daran denken, die Klasse als `abstract` zu deklarieren, ein Thema, das Hannah nicht kümmert.
+Ist eine Methode als `abstract` ausgewiesen, so "fehlt" ihr eine Implementierung. Da es nur sinnvoll ist, Instanzen von vollständig implementierten Klassen zu erzeugen, muss die Klasse außerdem als `abstract` deklariert werden. Es bleibt einer Unterklasse überlassen, die "Implementierungslücken" zu füllen. Peter muss daran denken, die Klasse als `abstract` zu deklarieren, ein Thema, das Petra nicht kümmert.
 
-Eine als `final` ausgezeichnete Methode bietet eine endgültige (finale) Implementierung an, die von keiner Unterklasse mehr überschrieben werden darf. Hannah _muss_ die Methode implementieren, was Hans per `abstract` eben genau unterlassen möchte. 
+Eine als `final` ausgezeichnete Methode bietet eine endgültige (finale) Implementierung an, die von keiner Unterklasse mehr überschrieben werden darf. Petra _muss_ die Methode implementieren, was Peter per `abstract` eben genau unterlassen möchte.
 endif::solution[]
 
 ### Frage
@@ -336,8 +336,11 @@ endif::solution[]
 ### Frage
 Was ist richtig?
 
-[ ] `interface One extends Two`
-[ ] `interface One implements Two`
+[question,mc]
+====
+- [x] `interface One extends Two`
+- [ ] `interface One implements Two`
+====
 
 ifdef::solution[]
 .Antwort
@@ -376,7 +379,7 @@ Mit der Annotation `@FunctionalInterface`.
 endif::solution[]
 
 ### Frage
-Wie sieht schematisch die Syntax einer Methode in einer Schnittstelle aus, die mit einer Implementierung versehen ist?
+Wie sieht schematisch die Syntax einer Methode in einer Schnittstelle aus, die mit einer Standardimplementierung versehen ist?
 
 ifdef::solution[]
 .Antwort
