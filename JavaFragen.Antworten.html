@@ -1409,16 +1409,16 @@ Kleiner Tipp am Rand: Wir erinnern uns "Jede Anweisung endet mit einem Semikolon
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Importiere die Typen in <code>a.packet</code> und die in den Unterpaketen</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Importiere alle Typen in <code>a.packet</code> und die in den Unterpaketen</p>
 </li>
 <li>
 <p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Importiere nur die Klassen in <code>a.packet</code></p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Importiere die Typen in <code>a.packet</code></p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Importiere alle Typen in <code>a.packet</code></p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Importieren die Klassen in <code>a.packet</code> und die in den Unterpaketen</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Importieren nur die Klassen in <code>a.packet</code> und die in den Unterpaketen</p>
 </li>
 </ul>
 </div>
@@ -2810,7 +2810,7 @@ datentyp var[]</pre>
 <div class="sect2">
 <h3 id="_frage_76">5.5. Frage</h3>
 <div class="paragraph">
-<p>Seite 122: Warum <code>for(int j=0; j&lt;x[i].length; j)` beim Durchlauf von zweidimensionalen Arrays? Warum nicht `for(int j=0; j&lt;x[0].length; j)</code>?</p>
+<p>Seite 122: Warum <code>for(int j=0; j&lt;x[i].length; j++)</code> beim Durchlauf von zweidimensionalen Arrays? Warum nicht <code>for(int j=0; j&lt;x[0].length; j++)</code>?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
@@ -5305,20 +5305,20 @@ class B extends A { int method() { return 2; } }</pre>
 <div class="sect2">
 <h3 id="_frage_243">11.14. Frage</h3>
 <div class="paragraph">
-<p>Hannah deklariert eine Methode als <code>final</code>, Hans als <code>abstract</code>. Woran muss Hans denken, was Hannah egal sein kann? Und was kann Hans sein lassen, was Hannah wiederum tun muss?</p>
+<p>Petra deklariert eine Methode als <code>final</code>, Peter als <code>abstract</code>. Woran muss Peter denken, was Petra egal sein kann? Und was kann Peter sein lassen, was Petra wiederum tun muss?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>Hans muss die Klasse als <code>abstract</code> deklarieren, Hannah muss im Gegensatz zu Hans die Methode implementieren.</p>
+<p>Peter muss die Klasse als <code>abstract</code> deklarieren, Petra muss im Gegensatz zu Peter die Methode implementieren.</p>
 </div>
 <div class="paragraph">
 <p>Zur Erläuterung:</p>
 </div>
 <div class="paragraph">
-<p>Ist eine Methode als <code>abstract</code> ausgewiesen, so "fehlt" ihr eine Implementierung. Da es nur sinnvoll ist, Instanzen von vollständig implementierten Klassen zu erzeugen, muss die Klasse außerdem als <code>abstract</code> deklariert werden. Es bleibt einer Unterklasse überlassen, die "Implementierungslücken" zu füllen. Hans muss daran denken, die Klasse als <code>abstract</code> zu deklarieren, ein Thema, das Hannah nicht kümmert.</p>
+<p>Ist eine Methode als <code>abstract</code> ausgewiesen, so "fehlt" ihr eine Implementierung. Da es nur sinnvoll ist, Instanzen von vollständig implementierten Klassen zu erzeugen, muss die Klasse außerdem als <code>abstract</code> deklariert werden. Es bleibt einer Unterklasse überlassen, die "Implementierungslücken" zu füllen. Peter muss daran denken, die Klasse als <code>abstract</code> zu deklarieren, ein Thema, das Petra nicht kümmert.</p>
 </div>
 <div class="paragraph">
-<p>Eine als <code>final</code> ausgezeichnete Methode bietet eine endgültige (finale) Implementierung an, die von keiner Unterklasse mehr überschrieben werden darf. Hannah <em>muss</em> die Methode implementieren, was Hans per <code>abstract</code> eben genau unterlassen möchte.</p>
+<p>Eine als <code>final</code> ausgezeichnete Methode bietet eine endgültige (finale) Implementierung an, die von keiner Unterklasse mehr überschrieben werden darf. Petra <em>muss</em> die Methode implementieren, was Peter per <code>abstract</code> eben genau unterlassen möchte.</p>
 </div>
 </div>
 <div class="sect2">
@@ -5575,10 +5575,24 @@ int l = (String) o.length();</pre>
 <div class="paragraph">
 <p>Was ist richtig?</p>
 </div>
-<div class="paragraph">
-<p>[ ] <code>interface One extends Two</code>
-[ ] <code>interface One implements Two</code></p>
+<question id="question_23" class="openblock" data-type="mc">
+<div class="content">
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  <code>interface One extends Two</code></p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>interface One implements Two</code></p>
+</li>
+</ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(23)">resolve</button>
+              <button onclick="reset(23)">reset</button>
+            </p>
+</div>
+</question>
 <div class="paragraph">
 <div class="title">Antwort</div>
 <p>Die zweite Variante funktioniert nicht.</p>
@@ -5627,7 +5641,7 @@ interface C extends A, B { void baz(); }</pre>
 <div class="sect2">
 <h3 id="_frage_260">11.31. Frage</h3>
 <div class="paragraph">
-<p>Wie sieht schematisch die Syntax einer Methode in einer Schnittstelle aus, die mit einer Implementierung versehen ist?</p>
+<p>Wie sieht schematisch die Syntax einer Methode in einer Schnittstelle aus, die mit einer Standardimplementierung versehen ist?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
@@ -5833,7 +5847,7 @@ $20 ==&gt; Container@17579e0f</pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p> — TODO — </p>
+<p>Ein Typparameter ist ein Platzhalter für einen spezifischen Typ. Damit kann man zum Beispiel eine Liste von Zahlen von einer Liste von Zeichenketten unterscheiden, ohne dafür zwei unterschiedliche Klassen zu implementieren. Im Code sind Typparameter als Bezeichner (üblicherweise einzelne Großbuchstaben) in spitzen Klammern dargestellt.</p>
 </div>
 </div>
 <div class="sect2">
@@ -5855,7 +5869,7 @@ $20 ==&gt; Container@17579e0f</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>List&lt;Integer&gt; a = new ArrayList&lt;&gt;();</pre>
+<pre>List&lt;Boolean&gt; a = new ArrayList&lt;&gt;();</pre>
 </div>
 </div>
 </div>
@@ -5874,11 +5888,20 @@ $20 ==&gt; Container@17579e0f</pre>
 <div class="sect2">
 <h3 id="_frage_276">12.7. Frage</h3>
 <div class="paragraph">
-<p>Inwiefern hebelt die Definition <code>&lt;T&gt; T giveMeWhatIWant() { …​ }</code> das Typsystem von Java aus?</p>
+<p>Warum kann es für eine Methode mit der Definition <code>&lt;T&gt; T giveMeWhatIWant() { …​ }</code> keine sinnvolle Implementierung geben?</p>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>Diese Methode muss eine Implementierung bieten, die für jeden Typ passen muss.</p>
+<p>Der Typparameter <code>T</code> wird nur durch den Rückgabetyp bestimmt. Die folgenden Zeilen sind also beide korrekte Aufrufe:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">String s = giveMeWhatIWant();
+Boolean b = giveMeWhatIWant();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Auch wenn der Compiler hier keinen Fehler wirft, kann es keine sinnvolle Implementierung geben, die hier fehlerfrei funktioniert, weil die Methode nicht wissen kann, welcher Rückgabetyp gerade verlangt wird. Die einzige korrekte (aber nicht sinnvolle) Implementierung wäre, <code>null</code> zurückzugeben.</p>
 </div>
 </div>
 <div class="sect2">
@@ -5947,7 +5970,7 @@ f.getLength("abc");</pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>Das <code>implements</code> ist in der Syntax nicht vorgesehen, ist nicht erlaubt.</p>
+<p>Das <code>implements</code> ist in der Syntax nicht vorgesehen, auch für Interfaces wird an dieser Stelle <code>extends</code> verwendet. Es müsste also <code>MyClass&lt;T extends AutoCloseable&gt;</code> heißen.</p>
 </div>
 </div>
 <div class="sect2">
@@ -5967,7 +5990,7 @@ f.getLength("abc");</pre>
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>Die Klasse <code>B</code> als <code>T</code> kann das, was <code>B</code> kann, das meint <code>&lt;T extends B&gt;</code>.</p>
+<p><code>&lt;T extends B&gt;</code> ist irgendein Typ <code>T</code>, der mindestens das kann, was <code>B</code> kann. Diese Voraussetzung erfüllt natürlich auch die Klasse <code>B</code> selbst.</p>
 </div>
 </div>
 <div class="sect2">
@@ -6124,7 +6147,7 @@ for(int i = 0; i &lt; 100; i++) {
 <div class="title">Antwort</div>
 <ul>
 <li>
-<p>Set (Menge): Korb oder Kreis mit ungeordneten Elementen</p>
+<p>Set (Menge): Korb oder Kreis mit ungeordneten Elementen (ohne Duplikate)</p>
 </li>
 <li>
 <p>List (Liste): Regenwurm mit aneinanderhängenden Segmenten</p>
@@ -6329,7 +6352,7 @@ for(int i = 0; i &lt; lst.size(); i++) {
 </div>
 <div class="paragraph">
 <div class="title">Antwort</div>
-<p>Ein <code>TreeSet</code> sortiert seine Element intern.</p>
+<p>Ein <code>TreeSet</code> sortiert seine Element intern nach ihrer natürlichen Ordnung (d.h. nach der Implementierung der Methode <code>compareTo()</code> aus dem Interface <code>Comparable</code>) oder mit Hilfe eines übergebenen <code>Comparator</code>-Objektes.</p>
 </div>
 </div>
 <div class="sect2">
@@ -6418,6 +6441,19 @@ for(int i = 0; i &lt; lst.size(); i++) {
     }
   }
 }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Würde es sich um eine Klasse handeln, könnte man den Unterschied aber nicht feststellen, ohne in die Definition zu schauen (oder auf eine Stelle, wo die Klasse verwendet wird). Bei beiden folgenden Definitionen ist der Name der inneren Klasse <code>A.B</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>class A { class B {} }</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>class A { static class B {} }</pre>
 </div>
 </div>
 </div>

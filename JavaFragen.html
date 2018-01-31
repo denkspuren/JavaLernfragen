@@ -1366,16 +1366,16 @@ function reset(questionId) {
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Importiere die Typen in <code>a.packet</code> und die in den Unterpaketen</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Importiere alle Typen in <code>a.packet</code> und die in den Unterpaketen</p>
 </li>
 <li>
 <p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Importiere nur die Klassen in <code>a.packet</code></p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Importiere die Typen in <code>a.packet</code></p>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  Importiere alle Typen in <code>a.packet</code></p>
 </li>
 <li>
-<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Importieren die Klassen in <code>a.packet</code> und die in den Unterpaketen</p>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  Importieren nur die Klassen in <code>a.packet</code> und die in den Unterpaketen</p>
 </li>
 </ul>
 </div>
@@ -2011,7 +2011,7 @@ while(true) {
 <div class="sect2">
 <h3 id="_frage_76">5.5. Frage</h3>
 <div class="paragraph">
-<p>Seite 122: Warum <code>for(int j=0; j&lt;x[i].length; j)` beim Durchlauf von zweidimensionalen Arrays? Warum nicht `for(int j=0; j&lt;x[0].length; j)</code>?</p>
+<p>Seite 122: Warum <code>for(int j=0; j&lt;x[i].length; j++)</code> beim Durchlauf von zweidimensionalen Arrays? Warum nicht <code>for(int j=0; j&lt;x[0].length; j++)</code>?</p>
 </div>
 </div>
 <div class="sect2">
@@ -3591,7 +3591,7 @@ class B extends A { int method() { return 2; } }</pre>
 <div class="sect2">
 <h3 id="_frage_243">11.14. Frage</h3>
 <div class="paragraph">
-<p>Hannah deklariert eine Methode als <code>final</code>, Hans als <code>abstract</code>. Woran muss Hans denken, was Hannah egal sein kann? Und was kann Hans sein lassen, was Hannah wiederum tun muss?</p>
+<p>Petra deklariert eine Methode als <code>final</code>, Peter als <code>abstract</code>. Woran muss Peter denken, was Petra egal sein kann? Und was kann Peter sein lassen, was Petra wiederum tun muss?</p>
 </div>
 </div>
 <div class="sect2">
@@ -3747,10 +3747,24 @@ int l = (String) o.length();</pre>
 <div class="paragraph">
 <p>Was ist richtig?</p>
 </div>
-<div class="paragraph">
-<p>[ ] <code>interface One extends Two</code>
-[ ] <code>interface One implements Two</code></p>
+<question id="question_23" class="openblock" data-type="mc">
+<div class="content">
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p><input type="checkbox" data-item-complete="1" data-correct="true">  <span></span>  <code>interface One extends Two</code></p>
+</li>
+<li>
+<p><input type="checkbox" data-item-complete="0" data-correct="false">  <span></span>  <code>interface One implements Two</code></p>
+</li>
+</ul>
 </div>
+            <p style="margin-bottom: 25px">
+              <button onclick="resolve(23)">resolve</button>
+              <button onclick="reset(23)">reset</button>
+            </p>
+</div>
+</question>
 </div>
 <div class="sect2">
 <h3 id="_frage_257">11.28. Frage</h3>
@@ -3773,7 +3787,7 @@ int l = (String) o.length();</pre>
 <div class="sect2">
 <h3 id="_frage_260">11.31. Frage</h3>
 <div class="paragraph">
-<p>Wie sieht schematisch die Syntax einer Methode in einer Schnittstelle aus, die mit einer Implementierung versehen ist?</p>
+<p>Wie sieht schematisch die Syntax einer Methode in einer Schnittstelle aus, die mit einer Standardimplementierung versehen ist?</p>
 </div>
 </div>
 <div class="sect2">
@@ -3914,7 +3928,7 @@ class A implements I { void foo() {} }</pre>
 <div class="sect2">
 <h3 id="_frage_276">12.7. Frage</h3>
 <div class="paragraph">
-<p>Inwiefern hebelt die Definition <code>&lt;T&gt; T giveMeWhatIWant() { …​ }</code> das Typsystem von Java aus?</p>
+<p>Warum kann es für eine Methode mit der Definition <code>&lt;T&gt; T giveMeWhatIWant() { …​ }</code> keine sinnvolle Implementierung geben?</p>
 </div>
 </div>
 <div class="sect2">
